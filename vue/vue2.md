@@ -28,6 +28,8 @@ vue create vue  创建vue项目
 >方法可以直接写到标签内，getData() 直接return出去了，
 >
 >betterScroll  实现页面中拖动滚动拉动等属性功能
+>
+>window 远程桌面连接
 
 
 
