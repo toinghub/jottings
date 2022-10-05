@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>git · 后台说明文档</title>
+        <title>ngin · 后台说明文档</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,8 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="git随笔.html" />
     
-    
-    <link rel="prev" href="../vue/vue3.html" />
+    <link rel="prev" href="./" />
     
 
     </head>
@@ -212,9 +210,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4" data-path="./">
+        <li class="chapter " data-level="1.4" data-path="../git/">
             
-                <a href="./">
+                <a href="../git/">
             
                     
                     git
@@ -226,9 +224,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="git随笔.html">
+        <li class="chapter " data-level="1.4.1" data-path="../git/git随笔.html">
             
-                <a href="git随笔.html">
+                <a href="../git/git随笔.html">
             
                     
                     git
@@ -289,9 +287,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.7" data-path="../server/">
+        <li class="chapter " data-level="1.7" data-path="./">
             
-                <a href="../server/">
+                <a href="./">
             
                     
                     server
@@ -303,9 +301,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.1" data-path="../server/ngin.html">
+        <li class="chapter active" data-level="1.7.1" data-path="ngin.html">
             
-                <a href="../server/ngin.html">
+                <a href="ngin.html">
             
                     
                     ngin
@@ -355,7 +353,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >git</a>
+        <a href=".." >ngin</a>
     </h1>
 </div>
 
@@ -371,7 +369,61 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="git">git</h1>
+             <h1 id="nginx">nginx</h1>
+<h4 id="nginx&#x670D;&#x52A1;&#x5668;">nginx&#x670D;&#x52A1;&#x5668;</h4>
+<blockquote>
+<p>nginx-&#x670D;&#x52A1;&#x5668;&#x6587;&#x4EF6;&#x5939;&#x76EE;&#x5F55;&#x4E2D;&#x4E0D;&#x80FD;&#x6709;&#x4E2D;&#x6587;&#x76EE;&#x5F55;</p>
+<p>dist &#x6253;&#x5305;&#x6587;&#x4EF6;&#x5939;  &#x653E;&#x5165;nginx&#x670D;&#x52A1;&#x5668;  &#x6587;&#x4EF6;&#x5939;&#x76EE;&#x5F55;&#x4E2D;  </p>
+<p>&#x6BCF;&#x6B21;&#x6539;&#x5B8C;&#x6587;&#x4EF6;&#xFF0C;&#x90FD;&#x9700;&#x8981;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;</p>
+<p>&#x9700;&#x8981;&#x5728; &#x963F;&#x91CC;&#x4E91;  &#x52A0;&#x5165;&#x5B89;&#x5168;&#x7EC4;  &#x6DFB;&#x52A0;80&#x7AEF;&#x53E3;</p>
+</blockquote>
+<h4 id="&#x547D;&#x4EE4;&#x884C;">&#x547D;&#x4EE4;&#x884C;</h4>
+<pre><code class="lang-js">.\nginx.exe -c conf\kerwin.conf <span class="hljs-comment">//&#x52A0;&#x8F7D;kerwin.conf &#x5E76;&#x542F;&#x52A8;&#x670D;&#x52A1;&#x5668;</span>
+.\nginx.exe -s stop   <span class="hljs-comment">//&#x5173;&#x95ED;nginx&#x670D;&#x52A1;&#x5668;</span>
+.\nginx.exe -s reload  <span class="hljs-comment">//&#x91CD;&#x65B0;&#x52A0;&#x8F7D;</span>
+</code></pre>
+<h4 id="confkerwinconf-&#x6587;&#x4EF6;&#x5939;">conf/kerwin.conf &#x6587;&#x4EF6;&#x5939;</h4>
+<pre><code class="lang-js">#user  nobody;
+worker_processes  1;
+
+
+events {
+    worker_connections  1024;
+}
+
+
+http {
+    include       mime.types;
+    default_type  application/octet-stream;
+
+    sendfile        on;
+    keepalive_timeout  65;
+
+    upstream  kerwin-server {
+       server   localhost:3001 weight=1;
+       server   localhost:3002 weight=1;
+    }
+
+    server {
+        listen       80; //&#x8BBF;&#x95EE;&#x57DF;&#x540D;
+        server_name  localhost; //&#x8BBF;&#x95EE;&#x534F;&#x8BAE;
+
+
+        location / {
+            root   dist; //&#x52A0;&#x8F7D;&#x7684;&#x6587;&#x4EF6;&#x5939;&#x540D;
+            index  index.html index.htm;
+        }
+
+        error_page  404              /404.html;
+
+        error_page   500 502 503 504  /50x.html;
+        location /ajax/ { //&#x53CD;&#x5411;&#x4EE3;&#x7406;&#x914D;&#x7F6E;
+             proxy_pass https://m.maoyan.com;
+        }
+
+    }
+}
+</code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -414,27 +466,16 @@
 
      
     <a
-      href="../vue/vue3.html"
+      href="./"
       class="
         navigation navigation-prev
-        
+        navigation-unique
       "
-      aria-label="Previous page: vue3"
+      aria-label="Previous page: server"
     >
       <i class="fa fa-angle-left"></i>
     </a>
-     
-    <a
-      href="git随笔.html"
-      class="
-        navigation navigation-next
-        
-      "
-      aria-label="Next page: git"
-    >
-      <i class="fa fa-angle-right"></i>
-    </a>
-      
+       
   </div>
   <script>
     function showModal() {
@@ -464,7 +505,7 @@
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"git","level":"1.4","depth":1,"next":{"title":"git","level":"1.4.1","depth":2,"path":"git/git随笔.md","ref":"git/git随笔.md","articles":[]},"previous":{"title":"vue3","level":"1.3.2","depth":2,"path":"vue/vue3.md","ref":"vue/vue3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"后台说明文档","language":"zh-hans","gitbook":"*","description":"针对于后台的一本说明文档"},"file":{"path":"git/README.md","mtime":"2022-09-30T09:40:26.110Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-05T12:30:56.569Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"ngin","level":"1.7.1","depth":2,"previous":{"title":"server","level":"1.7","depth":1,"path":"server/README.md","ref":"server/README.md","articles":[{"title":"ngin","level":"1.7.1","depth":2,"path":"server/ngin.md","ref":"server/ngin.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"后台说明文档","language":"zh-hans","gitbook":"*","description":"针对于后台的一本说明文档"},"file":{"path":"server/ngin.md","mtime":"2022-10-05T12:06:02.106Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-05T12:30:56.569Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
