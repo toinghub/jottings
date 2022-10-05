@@ -12,20 +12,3 @@
 
 
 
-#### 命令行
-
-```js
-.\nginx.exe -c conf\kerwin.conf //加载kerwin.conf 并启动服务器
-.\nginx.exe -s stop   //关闭nginx服务器
-.\nginx.exe -s reload  //重新加载 
-```
-
-
-
-#### conf/kerwin.conf 文件夹
-
-```js
-
-
-```
-
