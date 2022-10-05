@@ -17,8 +17,6 @@ vue create vue  创建vue项目
 >
 >vue3生命周期销毁名字改动
 >
->vue2中，后期添加数据可以用set方法，这样就会变成响应式的
->
 >vue修饰符keyup后面可以直接跟键位值  keyup.65
 >
 >可以给input标签加上vlaue来通过$event 获取
@@ -30,6 +28,17 @@ vue create vue  创建vue项目
 >betterScroll  实现页面中拖动滚动拉动等属性功能
 >
 >window 远程桌面连接
+
+
+
+#### 动态添加对象属性
+
+vue2 无法直接拦截，vue3可以直接改
+
+```js
+vue.set(对象,属性,true)
+vue set(vm.classObj,"dd",true)
+```
 
 
 
@@ -79,7 +88,7 @@ vue.directive('focus',(el,binding)=>{}) //简写  创建或更新都会执行
 //局部指令
 directives: {
   focus: {
-    inserted (el) {
+    inserted (el) { 
     }
   }，
   

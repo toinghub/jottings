@@ -372,6 +372,225 @@
     
           <section class="normal markdown-section">
              <h1 id="vue3">vue3</h1>
+<h2 id="&#x6CE8;&#x610F;">&#x6CE8;&#x610F;</h2>
+<blockquote>
+<p>filters&#x8FC7;&#x6EE4;&#x5668;&#x88AB;&#x5220;&#x9664;</p>
+<p>&#x9875;&#x9762;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x540D;&#x6362;&#x4E86;</p>
+<p>vue2&#x662F;&#x7C7B;&#x5199;&#x6CD5;&#xFF0C;vue3&#x51FD;&#x6570;&#x5199;&#x6CD5;(&#x6CA1;&#x6709;this&#x4E86;)</p>
+<p>&#x6587;&#x4EF6;template&#x4E0B;&#x53EF;&#x4EE5;&#x653E;&#x591A;&#x4E2A;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x800C;&#x4E0D;&#x50CF;vue2&#x53EA;&#x80FD;&#x653E;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9;</p>
+</blockquote>
+<h2 id="composition-api&#x4ECB;&#x7ECD;">Composition Api&#x4ECB;&#x7ECD;</h2>
+<h4 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h4>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x5168;&#x5C40;&#x6307;&#x4EE4;</span>
+createApp(App).directive(<span class="hljs-string">&apos;focus&apos;</span>, {
+  mounted(el,binding) {  <span class="hljs-comment">//&#x751F;&#x547D;&#x5468;&#x671F;&#x540D;&#x5B57;&#x6362;&#x4E86;</span>
+  }
+})
+</code></pre>
+<h4 id="&#x8DEF;&#x7531;">&#x8DEF;&#x7531;</h4>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useRouter,useRoute } form <span class="hljs-string">&apos;vue-router&apos;</span>
+<span class="hljs-keyword">const</span> router = useRouter() <span class="hljs-comment">//router == this.$router</span>
+<span class="hljs-keyword">const</span> route = useRoute() <span class="hljs-comment">//route == this.$route &#x53D6;&#x503C;</span>
+</code></pre>
+<h5 id="&#x8DEF;&#x7531;&#x6A21;&#x5F0F;">&#x8DEF;&#x7531;&#x6A21;&#x5F0F;</h5>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> router = createRouter({
+  history: createWebHistory(), <span class="hljs-comment">//history&#x6A21;&#x5F0F;</span>
+  history: createWebHashHistory(), <span class="hljs-comment">//hash&#x6A21;&#x5F0F;</span>
+  routes
+})
+</code></pre>
+<h5 id="&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;">&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;</h5>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- custom   &#x81EA;&#x5B9A;&#x4E49;   --&gt;</span> 
+<span class="hljs-comment">&lt;!-- isActive &#x662F;&#x5426;&#x88AB;&#x9009;&#x4E2D; --&gt;</span> 
+<span class="hljs-comment">&lt;!-- navigate &#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">router-link</span> <span class="hljs-attr">to</span>=<span class="hljs-string">&apos;/index&apos;</span>  <span class="hljs-attr">custom</span> <span class="hljs-attr">v-slot</span>=<span class="hljs-string">&quot;navigate,isActive&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span> @<span class="hljs-attr">click</span>=<span class="hljs-string">&apos;navigate&apos;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-name">router-link</span>&gt;</span>
+</code></pre>
+<h3 id="&#x751F;&#x547D;&#x5468;&#x671F;">&#x751F;&#x547D;&#x5468;&#x671F;</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">VUE2</th>
+<th style="text-align:left">vue3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">beforeCreate</td>
+<td style="text-align:left">setup</td>
+</tr>
+<tr>
+<td style="text-align:left">Created</td>
+<td style="text-align:left">setup</td>
+</tr>
+<tr>
+<td style="text-align:left">beforeMount</td>
+<td style="text-align:left">onBeforeMount</td>
+</tr>
+<tr>
+<td style="text-align:left">mounted</td>
+<td style="text-align:left">onMounted</td>
+</tr>
+<tr>
+<td style="text-align:left">beforeUpdate</td>
+<td style="text-align:left">onBeUpdate</td>
+</tr>
+<tr>
+<td style="text-align:left">updated</td>
+<td style="text-align:left">onUpdate</td>
+</tr>
+<tr>
+<td style="text-align:left">beforeDestroy</td>
+<td style="text-align:left">onBeforeUnmount</td>
+</tr>
+<tr>
+<td style="text-align:left">destroyed</td>
+<td style="text-align:left">onUnmounted</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { reactive,onBeforeMount,onMounted } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>
+setup(){
+    onBeforeMount(()=&gt;{})
+    onMounted(()=&gt;{})
+}
+</code></pre>
+<h3 id="reactive">reactive</h3>
+<blockquote>
+<p>&#x521B;&#x5EFA;&#x54CD;&#x5E94;&#x5F0F;&#x5BF9;&#x8C61;</p>
+<p>reactive&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x6570;&#x5B57;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8B66;&#x544A;</p>
+</blockquote>
+<pre><code class="lang-vue">&lt;div&gt;{{obj.myname}}&lt;/div&gt; 
+&lt;button @click=&quot;handleClick()&quot;&gt;change&lt;/button&gt;
+&lt;script&gt;
+import { reactive } from &quot;vue&quot; 
+setup () {
+    const obj = reactive({ //&#x53EF;&#x4EE5;&#x5199;&#x591A;&#x4E2A;reactive&#x51FD;&#x6570;
+      myname: &quot;toing&quot;  //&#x7C7B;&#x4F3C;data&#x4E2D;&#x7684;&#x503C;
+    })
+    const data = reactive({}) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x7A7A;&#x5BF9;&#x8C61;&#x3001;&#x7A7A;&#x6570;&#x7EC4;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+      obj.myname = &quot;changeToing&quot;
+    }
+    return {obj,handleClick,data} //&#x8981;&#x8FD4;&#x56DE;
+  },
+&lt;/script&gt;
+</code></pre>
+<h3 id="ref">ref</h3>
+<h5 id="&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;">&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;</h5>
+<pre><code class="lang-vue">&lt;view ref=&quot;myref&quot;&gt;&lt;/view&gt;
+&lt;script&gt;
+import { ref } from &quot;vue&quot; 
+setup () {
+    const myref = ref() //&#x521B;&#x5EFA;ref&#x51FD;&#x6570;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+     console.log(myref.value)
+    }
+    return {myref} 
+  },
+&lt;/script&gt;
+</code></pre>
+<h5 id="ref&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;">ref&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;</h5>
+<blockquote>
+<p>&#x6709;reactive&#x4E00;&#x6837;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x62E6;&#x622A;&#x6570;&#x636E;</p>
+</blockquote>
+<pre><code class="lang-vue">&lt;div&gt;{{refText}}&lt;/div&gt;  &lt;!--&gt; &#x6B64;&#x5904;&#x9ED8;&#x8BA4;&#x7701;&#x7565;&#x4E86;value &#x5B9E;&#x9645;&#x4E0A;refText.value--&gt;
+&lt;button @click=&quot;handleClick()&quot;&gt;change&lt;/button&gt;
+&lt;script&gt;
+import { ref } from &quot;vue&quot; 
+setup () {
+    const refText= ref(&quot;kerwin&quot;) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+       refText.value = &quot;changeToing&quot; 
+    }
+    return {refText,handleClick} 
+  },
+&lt;/script&gt;
+</code></pre>
+<h3 id="torefs">toRefs</h3>
+<blockquote>
+<p>&#x628A;reactive&#x91CC;&#x7684;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x8F6C;&#x5316;&#x6210;ref&#x5BF9;&#x8C61;&#xFF0C;&#x518D;&#x901A;&#x8FC7;...&#x5C55;&#x5F00;&#xFF0C;&#x53D8;&#x6210;&#x591A;&#x4E2A;ref&#x5BF9;&#x8C61;</p>
+<p>&#x5728;template&#x4E2D;&#xFF0C;&#x7528;ref&#x8BED;&#x6CD5;&#xFF0C;js&#x4E2D;&#x7528;reactive&#x8BED;&#x6CD5;</p>
+</blockquote>
+<pre><code class="lang-vue">&lt;div&gt;{{myname}}--{{myage}}&lt;/div&gt; 
+&lt;script&gt;
+import { reactive,toRefs } from &quot;vue&quot; 
+setup () {
+    const obj = reactive({ 
+      myname: &quot;toing&quot;,
+      myage:&quot;100&quot;
+    })
+    return {
+        ...toRefs(obj),//&#x5728;template&#x4E2D;&#x4E0D;&#x7528;&#x5199;obj.&#x4E86;
+    } 
+  },
+&lt;/script&gt;
+</code></pre>
+<h3 id="propsemit">props&amp;emit</h3>
+<pre><code class="lang-js">props:[<span class="hljs-string">&apos;myname&apos;</span>]
+setup(props,{emit}){
+    <span class="hljs-keyword">const</span> myname = props.myname <span class="hljs-comment">//&#x63A5;&#x53D7;&#x7236;&#x7EC4;&#x4EF6;&#x6570;&#x636E;</span>
+    <span class="hljs-keyword">const</span> handleClick=()=&gt;{
+        emit(<span class="hljs-string">&quot;isShow&quot;</span>,<span class="hljs-number">11</span>) <span class="hljs-comment">//&#x5B50;&#x4F20;&#x7236;</span>
+    }
+    <span class="hljs-keyword">return</span>{myname,handleClick}
+}
+</code></pre>
+<h3 id="&#x8BA1;&#x7B97;&#x5C5E;&#x6027;">&#x8BA1;&#x7B97;&#x5C5E;&#x6027;</h3>
+<pre><code class="lang-js">setup(){
+    <span class="hljs-keyword">const</span> computedList = computed(()=&gt;{ <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> })
+    <span class="hljs-keyword">return</span>{computedList}
+}
+</code></pre>
+<h3 id="watch">watch</h3>
+<pre><code class="lang-js">watch(()=&gt;obj.name,(newValue,oldValue)=&gt;{
+   <span class="hljs-built_in">console</span>.log(newValue,oldValue) 
+})
+</code></pre>
+<h3 id="&#x81EA;&#x5B9A;&#x4E49;hooks">&#x81EA;&#x5B9A;&#x4E49;hooks</h3>
+<h5 id="&#x5C06;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x9875;&#x9762;&#xFF0C;&#x5199;&#x5728;&#x5916;&#x90E8;&#x7684;js&#x6587;&#x4EF6;&#x4E2D;">&#x5C06;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x9875;&#x9762;&#xFF0C;&#x5199;&#x5728;&#x5916;&#x90E8;&#x7684;js&#x6587;&#x4EF6;&#x4E2D;</h5>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x9875;&#x9762;vue&#x6587;&#x4EF6;</span>
+<span class="hljs-keyword">import</span> {getData} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./app.js&apos;</span> <span class="hljs-comment">//&#x5F15;&#x5165;&#x903B;&#x8F91;js&#x6587;&#x4EF6;</span>
+
+setup(){
+    <span class="hljs-keyword">const</span> obj = getData()
+    <span class="hljs-keyword">return</span> { obj }
+}
+
+<span class="hljs-comment">//app.js&#x6587;&#x4EF6;   &#x903B;&#x8F91;&#x4EE3;&#x7801;</span>
+<span class="hljs-keyword">import</span> {onMouted} <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getData</span>(<span class="hljs-params"></span>)
+  //  <span class="hljs-title">const</span> <span class="hljs-title">obj</span> = <span class="hljs-title">ref</span>(<span class="hljs-params">[]</span>)
+  <span class="hljs-title">cosnt</span> <span class="hljs-title">obj</span> = <span class="hljs-title">reactive</span>(<span class="hljs-params">{
+      list.[]
+  }</span>)
+  <span class="hljs-title">onMouted</span>(<span class="hljs-params">(</span>)=&gt;</span>{
+      obj.list = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]
+  })
+  <span class="hljs-keyword">return</span> obj
+}
+
+exprot { getData }
+</code></pre>
+<h3 id="vuex">vuex</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span> <span class="hljs-comment">//&#x5F15;&#x5165;&#x903B;&#x8F91;js&#x6587;&#x4EF6;</span>
+
+setup(){
+    <span class="hljs-keyword">const</span> store = useStore() <span class="hljs-comment">//store == this.$store</span>
+}
+</code></pre>
+<h3 id="&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x529F;&#x80FD;">&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x529F;&#x80FD;</h3>
+<blockquote>
+<p>provide&#x3001;inject &#x5171;&#x4EAB;&#x540E;&#xFF0C;&#x6240;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x4E3B;&#x8981;&#x6587;&#x4EF6;</span>
+<span class="hljs-keyword">const</span> isShow = ref(<span class="hljs-literal">true</span>)
+provide(<span class="hljs-string">&quot;kerwin&quot;</span>,isShow) <span class="hljs-comment">//&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;kerwin&#x7684;&#x670D;&#x52A1;</span>
+
+<span class="hljs-comment">//&#x4E0B;&#x7EA7;&#x6240;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E0D;&#x9650;&#x5C42;&#x7EA7;</span>
+<span class="hljs-keyword">const</span> isShow = inject(<span class="hljs-string">&quot;kerwin&quot;</span>)<span class="hljs-comment">//&#x5C06;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;kerwin&#x670D;&#x52A1;&#x7684;&#x5730;&#x5740;&#x6808;&#x6CE8;&#x5165;&#x5230;isShow&#x4E2D;</span>
+</code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -464,7 +683,7 @@
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.3.2","depth":2,"next":{"title":"git","level":"1.4","depth":1,"path":"git/README.md","ref":"git/README.md","articles":[{"title":"git","level":"1.4.1","depth":2,"path":"git/git随笔.md","ref":"git/git随笔.md","articles":[]}]},"previous":{"title":"vue2","level":"1.3.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"后台说明文档","language":"zh-hans","gitbook":"*","description":"针对于后台的一本说明文档"},"file":{"path":"vue/vue3.md","mtime":"2022-09-30T13:05:33.074Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-03T01:53:51.531Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.3.2","depth":2,"next":{"title":"git","level":"1.4","depth":1,"path":"git/README.md","ref":"git/README.md","articles":[{"title":"git","level":"1.4.1","depth":2,"path":"git/git随笔.md","ref":"git/git随笔.md","articles":[]}]},"previous":{"title":"vue2","level":"1.3.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"后台说明文档","language":"zh-hans","gitbook":"*","description":"针对于后台的一本说明文档"},"file":{"path":"vue/vue3.md","mtime":"2022-10-05T10:47:34.530Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-10-05T10:57:40.398Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
