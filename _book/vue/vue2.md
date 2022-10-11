@@ -320,18 +320,40 @@ export default service;
 >
 >actions、mutations  中的方法可以相互调用
 
+#### state
+
 ```js
 import { mapState,mapActions,mapMutations } from 'vuex'
 
-state:{id:1}   //公共状态
+state:{id:1}   //公共状态 类似data
 this.$store.state.id  //查看state的公共状态
 
-this.id ////查看state的公共状态
+this.id //查看state的公共状态
 computed: {
   ...mapState(['id'])
+  ...mapState({ //取别名
+      userId:(state) => state.id
+  })
 }
 
+```
 
+#### getters
+
+```js
+getters:{ //类似计算属性
+    getdoosId:state.id=>(id)=>{
+        return state.id == id ? true :false
+    }
+}
+computed: {
+  ...mapGetter(['getdoosId'])
+}
+```
+
+#### actions
+
+```js
 actions:{ //支持异步和同步  
     requert（store, data）{} //store 下面的为解构的
     requert（{ commit, state }, data）{ 
@@ -349,9 +371,11 @@ this.requert(data)  //同上面分发语法一致
       'requert',
     ]),
  }
- 
+```
 
+#### mutations
 
+```js
 mutations:{ //统一管理，可以被devtools记录  只支持同步函数
     changeId(state,enterId){
         state.id = enterId //更改state的公共状态
@@ -366,8 +390,22 @@ this.changeId(2) // 同上面交付语法一致
       'changeId', 
     ]),
  }
-
 ```
+
+### modules
+
+> 将需要写的内容模块化出去
+
+```js
+import demo from './demo'
+export default new Vuex.Store({
+     modules:{
+         demo  //模块的名称
+     }
+)
+```
+
+
 
 
 
@@ -397,7 +435,7 @@ const store =newVuex.Store({
 
 
 
-#### mixins   混入
+### mixins   混入
 
 [地址](https://v2.cn.vuejs.org/v2/api/#mixins)
 
