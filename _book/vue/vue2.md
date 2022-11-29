@@ -195,6 +195,11 @@ const touter = new VueRouter({
 
 ```javascript
 this.$router.push('/index') //路由跳转  router路由大对象  route当前匹配的路由
+this.$router.replace('/') //和push功能一样，但是不会留下历史记录
+
+
+//返回上一级  
+router.back() 
 
 //动态路由
 path:'/index/:myId' //动态路由  router.js文件
@@ -208,19 +213,28 @@ this.$router.push({ //跳转到名字为kerwi的路由
     params:{ id, }
 }) 
 
-//返回上一级  
-router.back() 
 ```
 
-##### 路由模式
+##### [路由模式](https://juejin.cn/post/7150794643985137695)
 
->hash 默认
->
+hash模式（location.hash + hashchange 事件）
+
 >`window.onhashchange`   监听路径是否改变
 >
->history  无#号
->
+>hash 模式的实现方式就是通过监听 URL 中的 hash 部分的变化，触发`haschange`事件，页面做出不同的响应。但是 hash 模式下，URL 中会带有 #，不太美观。 
+
+history模式
+
 >后端需要配置，当`url`无匹配资源时，返回同一个index.html页面
+>
+> history 路由模式的实现，基于 HTML5 提供的 History 全局对象 
+
+```js
+history.pushState() //向当前浏览器会话的历史堆栈中添加一个状态，会改变当前页面url，但是不会伴随这刷新
+history.replaceState()//将当前的会话页面的url替换成指定的数据，replaceState 会改变当前页面的url，但也不会刷新页面
+```
+
+
 
 ##### 全局路由守卫
 
@@ -397,6 +411,9 @@ this.changeId(2) // 同上面交付语法一致
 > 将需要写的内容模块化出去
 
 ```js
+namespaced //命名空间   当有多个模块时，需要定义命名空间
+
+
 import demo from './demo'
 export default new Vuex.Store({
      modules:{
