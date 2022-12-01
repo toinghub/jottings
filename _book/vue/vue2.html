@@ -685,8 +685,7 @@ v-focus=<span class="hljs-string">&quot;{index:1,name:q}&quot;</span>  <span cla
 <li>vue3&#x4E2D;&#xFF0C;&#x6307;&#x4EE4;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x540D;&#x5B57;&#x6539;&#x6210;&#x548C;&#x7EC4;&#x4EF6;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E00;&#x81F4;&#x4E86;</li>
 <li>$nextTick()   &#x9875;&#x9762;&#x6E32;&#x67D3;&#x5B8C;&#x6BD5;&#x4E4B;&#x540E;&#x518D;&#x52A0;&#x8F7D;</li>
 </ul>
-<h3 id="&#x8FDB;&#x9636;">&#x8FDB;&#x9636;</h3>
-<h4 id="vueconfigjs-&#x6587;&#x4EF6;&#x914D;&#x7F6E;">vue.config.js &#x6587;&#x4EF6;&#x914D;&#x7F6E;</h4>
+<h3 id="vueconfigjs-&#x6587;&#x4EF6;&#x914D;&#x7F6E;">vue.config.js &#x6587;&#x4EF6;&#x914D;&#x7F6E;</h3>
 <p>@ &#x522B;&#x540D;   =&#x300B;&#x6C38;&#x8FDC;&#x6307;&#x5411;src&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</p>
 <pre><code class="lang-js"><span class="hljs-built_in">module</span>.exports={
    devServer :{
@@ -708,7 +707,7 @@ v-focus=<span class="hljs-string">&quot;{index:1,name:q}&quot;</span>  <span cla
     }
 }
 </code></pre>
-<h4 id="&#x8DEF;&#x7531;&#xFF1A;">&#x8DEF;&#x7531;&#xFF1A;</h4>
+<h3 id="&#x8DEF;&#x7531;&#xFF1A;">&#x8DEF;&#x7531;&#xFF1A;</h3>
 <h5 id="routerjs">router.js</h5>
 <pre><code class="lang-js">Vue.use(VueRouter) <span class="hljs-comment">//&#x6CE8;&#x518C;&#x8DEF;&#x7531;&#x63D2;&#x4EF6;&#xFF0C;&#x4E24;&#x4E2A;&#x5168;&#x5C40;&#x7EC4;&#x4EF6;  router-view  router-link</span>
 routers:[ 
@@ -739,7 +738,7 @@ const touter = new VueRouter({
 </code></pre>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">router-view</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">router-view</span>&gt;</span>  <span class="hljs-comment">&lt;!-- &#x8DEF;&#x7531;&#x5BB9;&#x5668; --&gt;</span>
 </code></pre>
-<h5 id="&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;">&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;</h5>
+<h4 id="&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;">&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;</h4>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">a</span> <span class="hljs-attribute">href</span>=<span class="hljs-value">&quot;/#/index&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">a</span>&gt;</span>
 
 <span class="hljs-comment">&lt;!-- router&#x7248;&#x672C;4&#x4E4B;&#x524D;&#x53EF;&#x7528; --&gt;</span>
@@ -756,7 +755,7 @@ const touter = new VueRouter({
     <span class="hljs-tag">&lt;<span class="hljs-title">li</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&apos;navigate&apos;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span> 
 <span class="hljs-tag">&lt;/<span class="hljs-title">router-link</span>&gt;</span>
 </code></pre>
-<h5 id="&#x7F16;&#x7A0B;&#x5F0F;&#x5BFC;&#x822A;">&#x7F16;&#x7A0B;&#x5F0F;&#x5BFC;&#x822A;</h5>
+<h4 id="&#x7F16;&#x7A0B;&#x5F0F;&#x5BFC;&#x822A;">&#x7F16;&#x7A0B;&#x5F0F;&#x5BFC;&#x822A;</h4>
 <pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.$router.push(<span class="hljs-string">&apos;/index&apos;</span>) <span class="hljs-comment">//&#x8DEF;&#x7531;&#x8DF3;&#x8F6C;  router&#x8DEF;&#x7531;&#x5927;&#x5BF9;&#x8C61;  route&#x5F53;&#x524D;&#x5339;&#x914D;&#x7684;&#x8DEF;&#x7531;</span>
 <span class="hljs-keyword">this</span>.$router.replace(<span class="hljs-string">&apos;/&apos;</span>) <span class="hljs-comment">//&#x548C;push&#x529F;&#x80FD;&#x4E00;&#x6837;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x7559;&#x4E0B;&#x5386;&#x53F2;&#x8BB0;&#x5F55;</span>
 
@@ -776,7 +775,7 @@ name:<span class="hljs-string">&apos;kerwin&apos;</span> <span class="hljs-comme
     params:{ id, }
 })
 </code></pre>
-<h5 id="&#x8DEF;&#x7531;&#x6A21;&#x5F0F;"><a href="https://juejin.cn/post/7150794643985137695" target="_blank">&#x8DEF;&#x7531;&#x6A21;&#x5F0F;</a></h5>
+<h4 id="&#x8DEF;&#x7531;&#x6A21;&#x5F0F;"><a href="https://juejin.cn/post/7150794643985137695" target="_blank">&#x8DEF;&#x7531;&#x6A21;&#x5F0F;</a></h4>
 <p>hash&#x6A21;&#x5F0F;&#xFF08;location.hash + hashchange &#x4E8B;&#x4EF6;&#xFF09;</p>
 <blockquote>
 <p><code>window.onhashchange</code>   &#x76D1;&#x542C;&#x8DEF;&#x5F84;&#x662F;&#x5426;&#x6539;&#x53D8;</p>
@@ -790,7 +789,7 @@ name:<span class="hljs-string">&apos;kerwin&apos;</span> <span class="hljs-comme
 <pre><code class="lang-js">history.pushState() <span class="hljs-comment">//&#x5411;&#x5F53;&#x524D;&#x6D4F;&#x89C8;&#x5668;&#x4F1A;&#x8BDD;&#x7684;&#x5386;&#x53F2;&#x5806;&#x6808;&#x4E2D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x4F1A;&#x6539;&#x53D8;&#x5F53;&#x524D;&#x9875;&#x9762;url&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x4F1A;&#x4F34;&#x968F;&#x8FD9;&#x5237;&#x65B0;</span>
 history.replaceState()<span class="hljs-comment">//&#x5C06;&#x5F53;&#x524D;&#x7684;&#x4F1A;&#x8BDD;&#x9875;&#x9762;&#x7684;url&#x66FF;&#x6362;&#x6210;&#x6307;&#x5B9A;&#x7684;&#x6570;&#x636E;&#xFF0C;replaceState &#x4F1A;&#x6539;&#x53D8;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;url&#xFF0C;&#x4F46;&#x4E5F;&#x4E0D;&#x4F1A;&#x5237;&#x65B0;&#x9875;&#x9762;</span>
 </code></pre>
-<h5 id="&#x5168;&#x5C40;&#x8DEF;&#x7531;&#x5B88;&#x536B;">&#x5168;&#x5C40;&#x8DEF;&#x7531;&#x5B88;&#x536B;</h5>
+<h4 id="&#x5168;&#x5C40;&#x8DEF;&#x7531;&#x5B88;&#x536B;">&#x5168;&#x5C40;&#x8DEF;&#x7531;&#x5B88;&#x536B;</h4>
 <pre><code class="lang-js">meta:{isShhow:<span class="hljs-literal">true</span>} <span class="hljs-comment">//to&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x5230;meta&#x7684;&#x503C;   to.meta.isShhow</span>
 router.beforEach(to,from,next)=&gt;{ <span class="hljs-comment">//to &#x5373;&#x5C06;&#x8FDB;&#x5165;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61; from &#x6B63;&#x8981;&#x79BB;&#x5F00;&#x7684;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;</span>
     next()  <span class="hljs-comment">//&#x76F4;&#x63A5;&#x653E;&#x884C;</span>
@@ -801,7 +800,7 @@ router.beforEach(to,from,next)=&gt;{ <span class="hljs-comment">//to &#x5373;&#x
     }) 
 }
 </code></pre>
-<h5 id="&#x72EC;&#x4EAB;&#x8DEF;&#x7531;&#x5B88;&#x536B;">&#x72EC;&#x4EAB;&#x8DEF;&#x7531;&#x5B88;&#x536B;</h5>
+<h4 id="&#x72EC;&#x4EAB;&#x8DEF;&#x7531;&#x5B88;&#x536B;">&#x72EC;&#x4EAB;&#x8DEF;&#x7531;&#x5B88;&#x536B;</h4>
 <pre><code class="lang-js"> {
     path: <span class="hljs-string">&apos;/bill&apos;</span>,
     component: Layout, 
@@ -814,14 +813,14 @@ router.beforEach(to,from,next)=&gt;{ <span class="hljs-comment">//to &#x5373;&#x
     } 
 },
 </code></pre>
-<h5 id="&#x5C40;&#x90E8;&#x8DEF;&#x7531;&#x5B88;&#x536B;">&#x5C40;&#x90E8;&#x8DEF;&#x7531;&#x5B88;&#x536B;</h5>
+<h4 id="&#x5C40;&#x90E8;&#x8DEF;&#x7531;&#x5B88;&#x536B;">&#x5C40;&#x90E8;&#x8DEF;&#x7531;&#x5B88;&#x536B;</h4>
 <p>&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x8DEF;&#x7531;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</p>
 <blockquote>
 <p><code>beforeRouteEnter(to,from,next)=&gt;{}</code>&#x7EC4;&#x4EF6;&#x521B;&#x5EFA;&#x524D;&#x8C03;&#x7528;&#xFF0C;&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;this</p>
 <p><code>beforeRouteUpdate(to,from,next)=&gt;{}</code>&#x8DEF;&#x7531;&#x88AB;&#x6539;&#x53D8;&#xFF0C;&#x4F46;&#x662F;&#x7EC4;&#x4EF6;&#x88AB;&#x590D;&#x7528;&#x65F6;&#x8C03;&#x7528;</p>
 <p><code>beforeRouteLeave(to,from,next)=&gt;{}</code>&#x5BFC;&#x822A;&#x79BB;&#x5F00;&#x65F6;&#x8BE5;&#x7EC4;&#x4EF6;&#x8C03;&#x7528;</p>
 </blockquote>
-<h5 id="&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;">&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;</h5>
+<h4 id="&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;">&#x8DEF;&#x7531;&#x61D2;&#x52A0;&#x8F7D;</h4>
 <p>&#x6309;&#x9700;&#x52A0;&#x8F7D;</p>
 <pre><code class="lang-js">component: () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;@/shopViews/bill/billList&apos;</span>),
 </code></pre>
@@ -1034,7 +1033,7 @@ mixins: [mixin]  <span class="hljs-comment">//&#x6DF7;&#x5165;&#x6587;&#x4EF6;&#
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vue2","level":"1.4.1","depth":2,"next":{"title":"vue3","level":"1.4.2","depth":2,"path":"vue/vue3.md","ref":"vue/vue3.md","articles":[]},"previous":{"title":"vue","level":"1.4","depth":1,"path":"vue/README.md","ref":"vue/README.md","articles":[{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},{"title":"vue3","level":"1.4.2","depth":2,"path":"vue/vue3.md","ref":"vue/vue3.md","articles":[]},{"title":"vue 补充","level":"1.4.3","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue2.md","mtime":"2022-11-23T02:05:04.871Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-11-29T00:42:54.118Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vue2","level":"1.4.1","depth":2,"next":{"title":"vue3","level":"1.4.2","depth":2,"path":"vue/vue3.md","ref":"vue/vue3.md","articles":[]},"previous":{"title":"vue","level":"1.4","depth":1,"path":"vue/README.md","ref":"vue/README.md","articles":[{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},{"title":"vue3","level":"1.4.2","depth":2,"path":"vue/vue3.md","ref":"vue/vue3.md","articles":[]},{"title":"vue 补充","level":"1.4.3","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue2.md","mtime":"2022-12-01T15:27:17.843Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-01T15:30:26.474Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
