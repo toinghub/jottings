@@ -1,6 +1,4 @@
-# vue3
-
-## 注意
+# 注意
 
 > filters过滤器被删除
 >
@@ -10,9 +8,9 @@
 >
 > 文件template下可以放多个根节点，而不像vue2只能放一个根节点
 
-## Composition Api介绍
+# Composition Api介绍
 
-#### 指令
+## 指令
 
 ```js
 //全局指令
@@ -22,7 +20,7 @@ createApp(App).directive('focus', {
 })
 ```
 
-#### 路由
+## 路由
 
 ```js
 import { useRouter,useRoute } form 'vue-router'
@@ -30,7 +28,7 @@ const router = useRouter() //router == this.$router
 const route = useRoute() //route == this.$route 取值
 ```
 
-##### 路由模式
+### 路由模式
 
 ```js
 const router = createRouter({
@@ -40,7 +38,7 @@ const router = createRouter({
 })
 ```
 
-##### 声明式导航
+### 声明式导航
 
 ```html
 <!-- custom   自定义   --> 
@@ -53,7 +51,7 @@ const router = createRouter({
 
 
 
-### 生命周期
+# 生命周期
 
 | VUE2          | vue3            |
 | :------------ | :-------------- |
@@ -76,7 +74,7 @@ setup(){
 
 
 
-### reactive
+# reactive
 
 >创建响应式对象
 >
@@ -100,7 +98,7 @@ setup () {
 </script>
 ```
 
-### ref
+# ref
 
 ##### 访问原生dom节点
 
@@ -118,7 +116,7 @@ setup () {
 </script>
 ```
 
-##### ref拦截字符串
+## ref拦截字符串
 
 > 有reactive一样的功能，可以拦截数据
 
@@ -137,7 +135,7 @@ setup () {
 </script>
 ```
 
-### toRefs
+# toRefs
 
 > 把reactive里的每个属性，转化成ref对象，再通过...展开，变成多个ref对象
 >
@@ -159,7 +157,7 @@ setup () {
 </script>
 ```
 
-### props&emit
+# props&emit
 
 ```js
 props:['myname']
@@ -172,7 +170,7 @@ setup(props,{emit}){
 }
 ```
 
-### 计算属性
+# 计算属性
 
 ```js
 setup(){
@@ -181,7 +179,7 @@ setup(){
 }
 ```
 
-### watch
+# watch
 
 ```js
 watch(()=>obj.name,(newValue,oldValue)=>{
@@ -189,9 +187,9 @@ watch(()=>obj.name,(newValue,oldValue)=>{
 })
 ```
 
-### 自定义hooks
+# 自定义hooks
 
-##### 将逻辑代码分离页面，写在外部的js文件中
+### 将逻辑代码分离页面，写在外部的js文件中
 
 ```js
 //页面vue文件
@@ -218,7 +216,7 @@ function getData()
 exprot { getData }
 ```
 
-### vuex
+# vuex
 
 ```js
 import { useStore } from 'vuex' //引入逻辑js文件
@@ -228,7 +226,7 @@ setup(){
 }
 ```
 
-### 依赖注入功能
+# 依赖注入功能
 
 >provide、inject 共享后，所有子组件都可以访问到
 

@@ -1,8 +1,8 @@
-# vue2
 
-### 基础
 
-#### 创建项目
+# 基础
+
+## 创建项目
 
 ```js
 npm install -g @vue/cli  安装vuecli
@@ -11,7 +11,7 @@ vue create vue  创建vue项目
 
 
 
-#### 知识
+## 知识
 
 >查兼容性  caniuse.com
 >
@@ -31,7 +31,7 @@ vue create vue  创建vue项目
 
 
 
-#### 动态添加对象属性
+## 动态添加对象属性
 
 vue2 无法直接拦截，vue3可以直接改
 
@@ -42,7 +42,7 @@ vue set(vm.classObj,"dd",true)
 
 
 
-#### 组件：
+# 组件：
 
 ```html
 <div ref ></div>  <!-- 可以通过ref直接父组件修改子组件的值 -->
@@ -58,7 +58,7 @@ bus.$On("kerwin",(data)=>{})  //接受数据
 
 
 
-#### 插槽：
+# 插槽：
 
 ```html
 <!-- 旧版具名插槽-->
@@ -71,7 +71,7 @@ bus.$On("kerwin",(data)=>{})  //接受数据
 
 
 
-#### 指令：
+# 指令：
 
 [自定义指令](https://v2.cn.vuejs.org/v2/guide/custom-directive.html#ad)
 
@@ -105,7 +105,7 @@ v-focus="{index:1,name:q}"  //只有一个参数，但是可以传数组和对�
 
 
 
-### vue.config.js 文件配置
+# vue.config.js 文件配置
 
 @ 别名   =》永远指向src的绝对路径
 
@@ -134,7 +134,7 @@ module.exports={
 
 
 
-### 路由：
+# 路由：
 
 ##### router.js
 
@@ -171,7 +171,7 @@ const touter = new VueRouter({
 <router-view></router-view>  <!-- 路由容器 -->
 ```
 
-#### 声明式导航
+### 声明式导航
 
 ```html
 <a href="/#/index"></a>
@@ -191,7 +191,7 @@ const touter = new VueRouter({
 </router-link>
 ```
 
-#### 编程式导航
+### 编程式导航
 
 ```javascript
 this.$router.push('/index') //路由跳转  router路由大对象  route当前匹配的路由
@@ -215,7 +215,7 @@ this.$router.push({ //跳转到名字为kerwi的路由
 
 ```
 
-#### [路由模式](https://juejin.cn/post/7150794643985137695)
+### [路由模式](https://juejin.cn/post/7150794643985137695)
 
 hash模式（location.hash + hashchange 事件）
 
@@ -236,7 +236,7 @@ history.replaceState()//将当前的会话页面的url替换成指定的数据�
 
 
 
-#### 全局路由守卫
+### 全局路由守卫
 
 ```js
 meta:{isShhow:true} //to可以获取到meta的值   to.meta.isShhow
@@ -250,7 +250,7 @@ router.beforEach(to,from,next)=>{ //to 即将进入的路由对象 from 正要�
 } 
 ```
 
-#### 独享路由守卫
+### 独享路由守卫
 
 ```js
  {
@@ -266,7 +266,7 @@ router.beforEach(to,from,next)=>{ //to 即将进入的路由对象 from 正要�
 },
 ```
 
-#### 局部路由守卫
+### 局部路由守卫
 
 本质上是路由的生命周期
 
@@ -278,7 +278,7 @@ router.beforEach(to,from,next)=>{ //to 即将进入的路由对象 from 正要�
 
 
 
-#### 路由懒加载
+### 路由懒加载
 
 按需加载
 
@@ -320,7 +320,7 @@ export default service;
 
 
 
-### Vuex  状态管理模式
+# Vuex  状态管理模式
 
 [文档地址](https://vuex.vuejs.org/zh/)
 
@@ -334,7 +334,7 @@ export default service;
 >
 >actions、mutations  中的方法可以相互调用
 
-#### state
+## state
 
 ```js
 import { mapState,mapActions,mapMutations } from 'vuex'
@@ -352,7 +352,7 @@ computed: {
 
 ```
 
-#### getters
+## getters
 
 ```js
 getters:{ //类似计算属性
@@ -365,7 +365,7 @@ computed: {
 }
 ```
 
-#### actions
+## actions
 
 ```js
 actions:{ //支持异步和同步  
@@ -387,7 +387,7 @@ this.requert(data)  //同上面分发语法一致
  }
 ```
 
-#### mutations
+## mutations
 
 ```js
 mutations:{ //统一管理，可以被devtools记录  只支持同步函数
@@ -406,7 +406,7 @@ this.changeId(2) // 同上面交付语法一致
  }
 ```
 
-### modules
+## modules
 
 > 将需要写的内容模块化出去
 
@@ -426,7 +426,7 @@ export default new Vuex.Store({
 
 
 
-### Vuex  持久化
+## Vuex  持久化
 
 [vuex-persistedstate](https://gitcode.net/mirrors/robinvdvleuten/vuex-persistedstate?utm_source=csdn_github_accelerator)
 
@@ -452,7 +452,7 @@ const store =newVuex.Store({
 
 
 
-### mixins   混入
+# mixins   混入
 
 [地址](https://v2.cn.vuejs.org/v2/api/#mixins)
 
