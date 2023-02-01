@@ -80,9 +80,11 @@ setup(){
 >
 >reactive参数不能是字符串或者数字，否则会警告
 
-```vue
-<div>{{obj.myname}}</div> 
-<button @click="handleClick()">change</button>
+```html
+<template>
+	<div>{{obj.myname}}</div> 
+	<button @click="handleClick()">change</button>
+</template>
 <script>
 import { reactive } from "vue" 
 setup () {
@@ -102,8 +104,10 @@ setup () {
 
 ##### 访问原生dom节点
 
-```vue
-<view ref="myref"></view>
+```html
+<template>
+	<view ref="myref"></view>
+</template>
 <script>
 import { ref } from "vue" 
 setup () {
@@ -120,9 +124,11 @@ setup () {
 
 > 有reactive一样的功能，可以拦截数据
 
-```vue
-<div>{{refText}}</div>  <!--> 此处默认省略了value 实际上refText.value-->
-<button @click="handleClick()">change</button>
+```html
+<template>
+	<div>{{refText}}</div>  <!--> 此处默认省略了value 实际上refText.value-->
+	<button @click="handleClick()">change</button>
+</template>
 <script>
 import { ref } from "vue" 
 setup () {
@@ -141,8 +147,10 @@ setup () {
 >
 > 在template中，用ref语法，js中用reactive语法
 
-```vue
-<div>{{myname}}--{{myage}}</div> 
+```html
+<template>
+	<div>{{myname}}--{{myage}}</div> 
+</template>
 <script>
 import { reactive,toRefs } from "vue" 
 setup () {

@@ -462,18 +462,3 @@ body {
 .markdown-section h6 {
   color: var(--H6Color);
 }
-:root { 
---ThemeColor: #20A3FF; 
-}
-:root { 
-  --H1Color: #20A3FF; 
-  --H2Color: #20A3FF; 
-  --H3Color: #20A3FF; 
-  --H4Color: #20A3FF; 
-  --H5Color: #20A3FF; 
-  --H6Color: #20A3FF; 
-}
-.book-body { 
-  background: url('./copyright-logo.png'); 
-  }
-  

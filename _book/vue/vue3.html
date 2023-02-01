@@ -767,71 +767,79 @@ setup(){
 <p>&#x521B;&#x5EFA;&#x54CD;&#x5E94;&#x5F0F;&#x5BF9;&#x8C61;</p>
 <p>reactive&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x6570;&#x5B57;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8B66;&#x544A;</p>
 </blockquote>
-<pre><code class="lang-vue"><div>{{obj.myname}}</div> 
-<button @click="handleClick()">change</button>
-<script>
-import { reactive } from "vue" 
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>{{obj.myname}}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;handleClick()&quot;</span>&gt;</span>change<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { reactive } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
 setup () {
-    const obj = reactive({ //可以写多个reactive函数
-      myname: "toing"  //类似data中的值
+    const obj = reactive({ //&#x53EF;&#x4EE5;&#x5199;&#x591A;&#x4E2A;reactive&#x51FD;&#x6570;
+      myname: <span class="hljs-string">&quot;toing&quot;</span>  //&#x7C7B;&#x4F3C;data&#x4E2D;&#x7684;&#x503C;
     })
-    const data = reactive({}) //可以直接创建空对象、空数组
-    const handleClick = () => {  //触发的方法
-      obj.myname = "changeToing"
+    const data = reactive({}) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x7A7A;&#x5BF9;&#x8C61;&#x3001;&#x7A7A;&#x6570;&#x7EC4;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+      obj.myname = <span class="hljs-string">&quot;changeToing&quot;</span>
     }
-    return {obj,handleClick,data} //要返回
+    return {obj,handleClick,data} //&#x8981;&#x8FD4;&#x56DE;
   },
-</script>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <h1 id="ref">ref</h1>
 <h5 id="&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;">&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;</h5>
-<pre><code class="lang-vue"><view ref="myref"></view>
-<script>
-import { ref } from "vue" 
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">view</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;myref&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">view</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
 setup () {
-    const myref = ref() //创建ref函数
-    const handleClick = () => {  //触发的方法
+    const myref = ref() //&#x521B;&#x5EFA;ref&#x51FD;&#x6570;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
      console.log(myref.value)
     }
     return {myref} 
   },
-</script>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <h2 id="ref&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;">ref&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;</h2>
 <blockquote>
 <p>&#x6709;reactive&#x4E00;&#x6837;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x62E6;&#x622A;&#x6570;&#x636E;</p>
 </blockquote>
-<pre><code class="lang-vue"><div>{{refText}}</div>  <!--> 此处默认省略了value 实际上refText.value-->
-<button @click="handleClick()">change</button>
-<script>
-import { ref } from "vue" 
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>{{refText}}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>  <span class="hljs-comment">&lt;!--&gt; &#x6B64;&#x5904;&#x9ED8;&#x8BA4;&#x7701;&#x7565;&#x4E86;value &#x5B9E;&#x9645;&#x4E0A;refText.value--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;handleClick()&quot;</span>&gt;</span>change<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
 setup () {
-    const refText= ref("kerwin") //可以直接拦截字符串
-    const handleClick = () => {  //触发的方法
-       refText.value = "changeToing" 
+    const refText= ref(<span class="hljs-string">&quot;kerwin&quot;</span>) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+       refText.value = <span class="hljs-string">&quot;changeToing&quot;</span> 
     }
     return {refText,handleClick} 
   },
-</script>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <h1 id="torefs">toRefs</h1>
 <blockquote>
 <p>&#x628A;reactive&#x91CC;&#x7684;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x8F6C;&#x5316;&#x6210;ref&#x5BF9;&#x8C61;&#xFF0C;&#x518D;&#x901A;&#x8FC7;...&#x5C55;&#x5F00;&#xFF0C;&#x53D8;&#x6210;&#x591A;&#x4E2A;ref&#x5BF9;&#x8C61;</p>
 <p>&#x5728;template&#x4E2D;&#xFF0C;&#x7528;ref&#x8BED;&#x6CD5;&#xFF0C;js&#x4E2D;&#x7528;reactive&#x8BED;&#x6CD5;</p>
 </blockquote>
-<pre><code class="lang-vue"><div>{{myname}}--{{myage}}</div> 
-<script>
-import { reactive,toRefs } from "vue" 
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>{{myname}}--{{myage}}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { reactive,toRefs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
 setup () {
     const obj = reactive({ 
-      myname: "toing",
-      myage:"100"
+      myname: <span class="hljs-string">&quot;toing&quot;</span>,
+      myage:<span class="hljs-string">&quot;100&quot;</span>
     })
     return {
-        ...toRefs(obj),//在template中不用写obj.了
+        ...toRefs(obj),//&#x5728;template&#x4E2D;&#x4E0D;&#x7528;&#x5199;obj.&#x4E86;
     } 
   },
-</script>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <h1 id="propsemit">props&amp;emit</h1>
 <pre><code class="lang-js">props:[<span class="hljs-string">&apos;myname&apos;</span>]
@@ -973,7 +981,7 @@ provide(<span class="hljs-string">&quot;kerwin&quot;</span>,isShow) <span class=
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vue 补充","level":"1.4.3","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2022-12-10T16:25:38.825Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-12-10T16:28:18.404Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vue 补充","level":"1.4.3","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-01T12:45:59.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-01T12:48:48.786Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
