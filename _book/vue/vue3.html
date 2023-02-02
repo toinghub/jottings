@@ -685,34 +685,6 @@
 <p>vue2&#x662F;&#x7C7B;&#x5199;&#x6CD5;&#xFF0C;vue3&#x51FD;&#x6570;&#x5199;&#x6CD5;(&#x6CA1;&#x6709;this&#x4E86;)</p>
 <p>&#x6587;&#x4EF6;template&#x4E0B;&#x53EF;&#x4EE5;&#x653E;&#x591A;&#x4E2A;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x800C;&#x4E0D;&#x50CF;vue2&#x53EA;&#x80FD;&#x653E;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9;</p>
 </blockquote>
-<h1 id="composition-api&#x4ECB;&#x7ECD;">Composition Api&#x4ECB;&#x7ECD;</h1>
-<h2 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h2>
-<pre><code class="lang-js"><span class="hljs-comment">//&#x5168;&#x5C40;&#x6307;&#x4EE4;</span>
-createApp(App).directive(<span class="hljs-string">&apos;focus&apos;</span>, {
-  mounted(el,binding) {  <span class="hljs-comment">//&#x751F;&#x547D;&#x5468;&#x671F;&#x540D;&#x5B57;&#x6362;&#x4E86;</span>
-  }
-})
-</code></pre>
-<h2 id="&#x8DEF;&#x7531;">&#x8DEF;&#x7531;</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useRouter,useRoute } form <span class="hljs-string">&apos;vue-router&apos;</span>
-const router = useRouter() //router == this.$router
-<span class="hljs-keyword">const</span> route = useRoute() <span class="hljs-comment">//route == this.$route &#x53D6;&#x503C;</span>
-</code></pre>
-<h3 id="&#x8DEF;&#x7531;&#x6A21;&#x5F0F;">&#x8DEF;&#x7531;&#x6A21;&#x5F0F;</h3>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> router = createRouter({
-  history: createWebHistory(), <span class="hljs-comment">//history&#x6A21;&#x5F0F;</span>
-  history: createWebHashHistory(), <span class="hljs-comment">//hash&#x6A21;&#x5F0F;</span>
-  routes
-})
-</code></pre>
-<h3 id="&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;">&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;</h3>
-<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- custom   &#x81EA;&#x5B9A;&#x4E49;   --&gt;</span> 
-<span class="hljs-comment">&lt;!-- isActive &#x662F;&#x5426;&#x88AB;&#x9009;&#x4E2D; --&gt;</span> 
-<span class="hljs-comment">&lt;!-- navigate &#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03; --&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">router-link</span> <span class="hljs-attribute">to</span>=<span class="hljs-value">&apos;/index&apos;</span>  <span class="hljs-attribute">custom</span> <span class="hljs-attribute">v-slot</span>=<span class="hljs-value">&quot;navigate,isActive&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&apos;navigate&apos;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span> 
-<span class="hljs-tag">&lt;/<span class="hljs-title">router-link</span>&gt;</span>
-</code></pre>
 <h1 id="&#x751F;&#x547D;&#x5468;&#x671F;">&#x751F;&#x547D;&#x5468;&#x671F;</h1>
 <table>
 <thead>
@@ -762,107 +734,38 @@ setup(){
     onMounted(()=&gt;{})
 }
 </code></pre>
-<h1 id="reactive">reactive</h1>
+<h1 id="vue3-&#x529F;&#x80FD;&#x4ECB;&#x7ECD;">vue3 &#x529F;&#x80FD;&#x4ECB;&#x7ECD;</h1>
 <blockquote>
-<p>&#x521B;&#x5EFA;&#x54CD;&#x5E94;&#x5F0F;&#x5BF9;&#x8C61;</p>
-<p>reactive&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x6570;&#x5B57;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8B66;&#x544A;</p>
+<h4 id="&#x526F;&#x4F5C;&#x7528;&#xFF1A;-&#x6267;&#x884C;&#x4F1A;&#x76F4;&#x63A5;&#x6216;&#x95F4;&#x63A5;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;">&#x526F;&#x4F5C;&#x7528;&#xFF1A; &#x6267;&#x884C;&#x4F1A;&#x76F4;&#x63A5;&#x6216;&#x95F4;&#x63A5;&#x5F71;&#x54CD;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;</h4>
 </blockquote>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>{{obj.myname}}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
-    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;handleClick()&quot;</span>&gt;</span>change<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> { reactive } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
-setup () {
-    const obj = reactive({ //&#x53EF;&#x4EE5;&#x5199;&#x591A;&#x4E2A;reactive&#x51FD;&#x6570;
-      myname: <span class="hljs-string">&quot;toing&quot;</span>  //&#x7C7B;&#x4F3C;data&#x4E2D;&#x7684;&#x503C;
-    })
-    const data = reactive({}) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x7A7A;&#x5BF9;&#x8C61;&#x3001;&#x7A7A;&#x6570;&#x7EC4;
-    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
-      obj.myname = <span class="hljs-string">&quot;changeToing&quot;</span>
-    }
-    return {obj,handleClick,data} //&#x8981;&#x8FD4;&#x56DE;
-  },
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<h1 id="ref">ref</h1>
-<h5 id="&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;">&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;</h5>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">view</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;myref&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">view</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
-setup () {
-    const myref = ref() //&#x521B;&#x5EFA;ref&#x51FD;&#x6570;
-    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
-     console.log(myref.value)
-    }
-    return {myref} 
-  },
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<h2 id="ref&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;">ref&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;</h2>
-<blockquote>
-<p>&#x6709;reactive&#x4E00;&#x6837;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x53EF;&#x4EE5;&#x62E6;&#x622A;&#x6570;&#x636E;</p>
-</blockquote>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>{{refText}}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>  <span class="hljs-comment">&lt;!--&gt; &#x6B64;&#x5904;&#x9ED8;&#x8BA4;&#x7701;&#x7565;&#x4E86;value &#x5B9E;&#x9645;&#x4E0A;refText.value--&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;handleClick()&quot;</span>&gt;</span>change<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
-setup () {
-    const refText= ref(<span class="hljs-string">&quot;kerwin&quot;</span>) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;
-    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
-       refText.value = <span class="hljs-string">&quot;changeToing&quot;</span> 
-    }
-    return {refText,handleClick} 
-  },
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<h1 id="torefs">toRefs</h1>
-<blockquote>
-<p>&#x628A;reactive&#x91CC;&#x7684;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x8F6C;&#x5316;&#x6210;ref&#x5BF9;&#x8C61;&#xFF0C;&#x518D;&#x901A;&#x8FC7;...&#x5C55;&#x5F00;&#xFF0C;&#x53D8;&#x6210;&#x591A;&#x4E2A;ref&#x5BF9;&#x8C61;</p>
-<p>&#x5728;template&#x4E2D;&#xFF0C;&#x7528;ref&#x8BED;&#x6CD5;&#xFF0C;js&#x4E2D;&#x7528;reactive&#x8BED;&#x6CD5;</p>
-</blockquote>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>{{myname}}--{{myage}}<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
-<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
-<span class="hljs-keyword">import</span> { reactive,toRefs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
-setup () {
-    const obj = reactive({ 
-      myname: <span class="hljs-string">&quot;toing&quot;</span>,
-      myage:<span class="hljs-string">&quot;100&quot;</span>
-    })
-    return {
-        ...toRefs(obj),//&#x5728;template&#x4E2D;&#x4E0D;&#x7528;&#x5199;obj.&#x4E86;
-    } 
-  },
-</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-</code></pre>
-<h1 id="propsemit">props&amp;emit</h1>
-<pre><code class="lang-js">props:[<span class="hljs-string">&apos;myname&apos;</span>]
-setup(props,{emit}){
-    <span class="hljs-keyword">const</span> myname = props.myname <span class="hljs-comment">//&#x63A5;&#x53D7;&#x7236;&#x7EC4;&#x4EF6;&#x6570;&#x636E;</span>
-    <span class="hljs-keyword">const</span> handleClick=()=&gt;{
-        emit(<span class="hljs-string">&quot;isShow&quot;</span>,<span class="hljs-number">11</span>) <span class="hljs-comment">//&#x5B50;&#x4F20;&#x7236;</span>
-    }
-    <span class="hljs-keyword">return</span>{myname,handleClick}
-}
-</code></pre>
-<h1 id="&#x8BA1;&#x7B97;&#x5C5E;&#x6027;">&#x8BA1;&#x7B97;&#x5C5E;&#x6027;</h1>
-<pre><code class="lang-js">setup(){
-    <span class="hljs-keyword">const</span> computedList = computed(()=&gt;{ <span class="hljs-keyword">return</span> <span class="hljs-number">1</span> })
-    <span class="hljs-keyword">return</span>{computedList}
-}
-</code></pre>
-<h1 id="watch">watch</h1>
-<pre><code class="lang-js">watch(()=&gt;obj.name,(newValue,oldValue)=&gt;{
-   <span class="hljs-built_in">console</span>.log(newValue,oldValue) 
+<h2 id="&#x6307;&#x4EE4;">&#x6307;&#x4EE4;</h2>
+<pre><code class="lang-js"><span class="hljs-comment">//&#x5168;&#x5C40;&#x6307;&#x4EE4;</span>
+createApp(App).directive(<span class="hljs-string">&apos;focus&apos;</span>, {
+  mounted(el,binding) {  <span class="hljs-comment">//&#x751F;&#x547D;&#x5468;&#x671F;&#x540D;&#x5B57;&#x6362;&#x4E86;</span>
+  }
 })
 </code></pre>
-<h1 id="&#x81EA;&#x5B9A;&#x4E49;hooks">&#x81EA;&#x5B9A;&#x4E49;hooks</h1>
+<h2 id="&#x8DEF;&#x7531;">&#x8DEF;&#x7531;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useRouter,useRoute } form <span class="hljs-string">&apos;vue-router&apos;</span>
+const router = useRouter() //router == this.$router
+<span class="hljs-keyword">const</span> route = useRoute() <span class="hljs-comment">//route == this.$route &#x53D6;&#x503C;</span>
+</code></pre>
+<h3 id="&#x8DEF;&#x7531;&#x6A21;&#x5F0F;">&#x8DEF;&#x7531;&#x6A21;&#x5F0F;</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> router = createRouter({
+  history: createWebHistory(), <span class="hljs-comment">//history&#x6A21;&#x5F0F;</span>
+  history: createWebHashHistory(), <span class="hljs-comment">//hash&#x6A21;&#x5F0F;</span>
+  routes
+})
+</code></pre>
+<h3 id="&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;">&#x58F0;&#x660E;&#x5F0F;&#x5BFC;&#x822A;</h3>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- custom   &#x81EA;&#x5B9A;&#x4E49;   --&gt;</span> 
+<span class="hljs-comment">&lt;!-- isActive &#x662F;&#x5426;&#x88AB;&#x9009;&#x4E2D; --&gt;</span> 
+<span class="hljs-comment">&lt;!-- navigate &#x70B9;&#x51FB;&#x4E8B;&#x4EF6;&#x56DE;&#x8C03; --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">router-link</span> <span class="hljs-attribute">to</span>=<span class="hljs-value">&apos;/index&apos;</span>  <span class="hljs-attribute">custom</span> <span class="hljs-attribute">v-slot</span>=<span class="hljs-value">&quot;navigate,isActive&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">li</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&apos;navigate&apos;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">li</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-title">router-link</span>&gt;</span>
+</code></pre>
+<h2 id="&#x81EA;&#x5B9A;&#x4E49;hooks">&#x81EA;&#x5B9A;&#x4E49;hooks</h2>
 <h3 id="&#x5C06;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x9875;&#x9762;&#xFF0C;&#x5199;&#x5728;&#x5916;&#x90E8;&#x7684;js&#x6587;&#x4EF6;&#x4E2D;">&#x5C06;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x9875;&#x9762;&#xFF0C;&#x5199;&#x5728;&#x5916;&#x90E8;&#x7684;js&#x6587;&#x4EF6;&#x4E2D;</h3>
 <pre><code class="lang-js"><span class="hljs-comment">//&#x9875;&#x9762;vue&#x6587;&#x4EF6;</span>
 <span class="hljs-keyword">import</span> {getData} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./app.js&apos;</span> //&#x5F15;&#x5165;&#x903B;&#x8F91;js&#x6587;&#x4EF6;
@@ -887,23 +790,495 @@ function getData()
 
 exprot { getData }
 </code></pre>
-<h1 id="vuex">vuex</h1>
+<h2 id="vuex">vuex</h2>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { useStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span> //&#x5F15;&#x5165;&#x903B;&#x8F91;js&#x6587;&#x4EF6;
 
 setup(){
     const store = useStore() //store == this.$store
 }
 </code></pre>
-<h1 id="&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x529F;&#x80FD;">&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x529F;&#x80FD;</h1>
-<blockquote>
-<p>provide&#x3001;inject &#x5171;&#x4EAB;&#x540E;&#xFF0C;&#x6240;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-comment">//&#x4E3B;&#x8981;&#x6587;&#x4EF6;</span>
-<span class="hljs-keyword">const</span> isShow = ref(<span class="hljs-literal">true</span>)
-provide(<span class="hljs-string">&quot;kerwin&quot;</span>,isShow) <span class="hljs-comment">//&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;kerwin&#x7684;&#x670D;&#x52A1;</span>
+<h2 id="css-&#x529F;&#x80FD;">CSS &#x529F;&#x80FD;</h2>
+<h4 id="&#x6DF1;&#x5EA6;&#x9009;&#x62E9;&#x5668;----deep">&#x6DF1;&#x5EA6;&#x9009;&#x62E9;&#x5668; -- :deep()</h4>
+<pre><code class="lang-css">&lt;<span class="hljs-tag">style</span> <span class="hljs-tag">scoped</span>&gt;
+<span class="hljs-rule"><span class="hljs-attribute">.a </span>:<span class="hljs-value"><span class="hljs-function">deep</span>(.b) {}
+&lt;/style&gt;
+</span></span></code></pre>
+<h4 id="css&#x83B7;&#x53D6;js&#x53D8;&#x91CF;----v-bind">css&#x83B7;&#x53D6;js&#x53D8;&#x91CF; -- v-bind</h4>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span>&gt;</span><span class="actionscript">
+<span class="hljs-keyword">const</span> theme = {
+  color: <span class="hljs-string">&apos;red&apos;</span>
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-<span class="hljs-comment">//&#x4E0B;&#x7EA7;&#x6240;&#x6709;&#x5B50;&#x7EC4;&#x4EF6;&#xFF0C;&#x4E0D;&#x9650;&#x5C42;&#x7EA7;</span>
-<span class="hljs-keyword">const</span> isShow = inject(<span class="hljs-string">&quot;kerwin&quot;</span>)<span class="hljs-comment">//&#x5C06;&#x4E00;&#x4E2A;&#x540D;&#x4E3A;kerwin&#x670D;&#x52A1;&#x7684;&#x5730;&#x5740;&#x6808;&#x6CE8;&#x5165;&#x5230;isShow&#x4E2D;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">style</span> <span class="hljs-attribute">scoped</span>&gt;</span><span class="css">
+<span class="hljs-tag">p</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">color</span>:<span class="hljs-value"> <span class="hljs-function">v-bind</span>(<span class="hljs-string">&apos;theme.color&apos;</span>)</span></span>;
+}</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
+</code></pre>
+<h1 id="vue3-api&#x4ECB;&#x7ECD;">vue3 API&#x4ECB;&#x7ECD;</h1>
+<h2 id="appconfigglobalproperties">app.config.globalProperties</h2>
+<blockquote>
+<p> &#x6CE8;&#x518C;&#x80FD;&#x591F;&#x88AB;&#x5E94;&#x7528;&#x5185;&#x6240;&#x6709;&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x8BBF;&#x95EE;&#x5230;&#x7684;&#x5168;&#x5C40;&#x5C5E;&#x6027;&#x7684;&#x5BF9;&#x8C61; </p>
+</blockquote>
+<pre><code class="lang-js">app.config.globalProperties.mes = <span class="hljs-string">&apos;111&apos;</span>
+<span class="hljs-keyword">this</span>.$mes <span class="hljs-comment">//111</span>
+</code></pre>
+<h2 id="reactive">reactive()</h2>
+<blockquote>
+<p>&#x521B;&#x5EFA;&#x54CD;&#x5E94;&#x5F0F;&#x5BF9;&#x8C61;</p>
+<p>reactive&#x53C2;&#x6570;&#x4E0D;&#x80FD;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#x6216;&#x8005;&#x6570;&#x5B57;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x8B66;&#x544A;</p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;handleClick()&quot;</span>&gt;</span>change<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { reactive } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
+setup () {
+    const obj = reactive({ //&#x53EF;&#x4EE5;&#x5199;&#x591A;&#x4E2A;reactive&#x51FD;&#x6570;
+      myname: <span class="hljs-string">&quot;toing&quot;</span>  //&#x7C7B;&#x4F3C;data&#x4E2D;&#x7684;&#x503C;
+    })
+    const data = reactive({}) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x7A7A;&#x5BF9;&#x8C61;&#x3001;&#x7A7A;&#x6570;&#x7EC4;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+      obj.myname = <span class="hljs-string">&quot;changeToing&quot;</span>
+    }
+    return {obj,handleClick,data} //&#x8981;&#x8FD4;&#x56DE;
+  },
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="shallowreactive">shallowReactive()</h2>
+<blockquote>
+<p> <a href="https://cn.vuejs.org/api/reactivity-core.html#reactive" target="_blank"><code>reactive()</code></a> &#x7684;&#x6D45;&#x5C42;&#x4F5C;&#x7528;&#x5F62;&#x5F0F; </p>
+<p> &#x53EA;&#x6709;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x4F1A;&#x88AB;&#x539F;&#x6837;&#x5B58;&#x50A8;&#x548C;&#x66B4;&#x9732;</p>
+<p> ref &#x7684;&#x5C5E;&#x6027;<strong>&#x4E0D;&#x4F1A;</strong>&#x88AB;&#x81EA;&#x52A8;&#x89E3;&#x5305; </p>
+</blockquote>
+<h2 id="isreactive">isReactive()</h2>
+<blockquote>
+<p> &#x68C0;&#x67E5;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x662F;&#x7531; <a href="https://cn.vuejs.org/api/reactivity-core.html#reactive" target="_blank"><code>reactive()</code></a> &#x6216; <a href="https://cn.vuejs.org/api/reactivity-advanced.html#shallowreactive" target="_blank"><code>shallowReactive()</code></a> &#x521B;&#x5EFA;&#x7684;&#x4EE3;&#x7406;</p>
+</blockquote>
+<h2 id="ref">ref</h2>
+<h5 id="&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;">&#x8BBF;&#x95EE;&#x539F;&#x751F;dom&#x8282;&#x70B9;</h5>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">view</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;myref&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">view</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
+setup () {
+    const myref = ref() //&#x521B;&#x5EFA;ref&#x51FD;&#x6570;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+     console.log(myref.value)
+    }
+    return {myref} 
+  },
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="ref">ref()</h2>
+<blockquote>
+<p>&#x63A5;&#x53D7;&#x4E00;&#x4E2A;&#x5185;&#x90E8;&#x503C;&#xFF0C;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x3001;&#x53EF;&#x66F4;&#x6539;&#x7684; ref &#x5BF9;&#x8C61;&#xFF0C;&#x6B64;&#x5BF9;&#x8C61;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x5C5E;&#x6027;.value</p>
+<p>&#x5F53; ref &#x8D4B;&#x503C;&#x6216;&#x8005;&#x88AB;&#x8D4B;&#x503C; reactive &#x65F6;&#xFF0C;ref&#x4F1A;&#x88AB;&#x89E3;&#x5305;&#xFF08;&#x54CD;&#x5E94;&#x6808;&#x5730;&#x5740;&#x6539;&#x53D8;&#xFF09;</p>
+<p>&#x5F53;&#x5728;&#x67D0;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x6570;&#x7EC4;&#x6216; <code>Map</code> &#x8FD9;&#x6837;&#x7684;&#x539F;&#x751F;&#x96C6;&#x5408;&#x7C7B;&#x578B;&#x4E2D;&#x65F6;&#xFF0C; ref &#x5143;&#x7D20;&#x4E0D;&#x4F1A;&#x89E3;&#x5305; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>  <span class="hljs-comment">&lt;!--&gt; &#x6B64;&#x5904;&#x9ED8;&#x8BA4;&#x7701;&#x7565;&#x4E86;value &#x5B9E;&#x9645;&#x4E0A;refText.value--&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">button</span> @<span class="hljs-attribute">click</span>=<span class="hljs-value">&quot;handleClick()&quot;</span>&gt;</span>change<span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
+setup () {
+    const refText= ref(<span class="hljs-string">&quot;kerwin&quot;</span>) //&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x62E6;&#x622A;&#x5B57;&#x7B26;&#x4E32;
+    const handleClick = () =&gt; {  //&#x89E6;&#x53D1;&#x7684;&#x65B9;&#x6CD5;
+       refText.value = <span class="hljs-string">&quot;changeToing&quot;</span> 
+    }
+    return {refText,handleClick} 
+  },
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="isref">isRef()</h2>
+<blockquote>
+<p> &#x68C0;&#x67E5;&#x67D0;&#x4E2A;&#x503C;&#x662F;&#x5426;&#x4E3A; ref </p>
+</blockquote>
+<pre><code class="lang-typescript">isRef(foo)
+</code></pre>
+<h2 id="unref">unref()</h2>
+<blockquote>
+<p> &#x53C2;&#x6570;&#x662F; ref&#xFF0C;&#x5219;&#x8FD4;&#x56DE;&#x5185;&#x90E8;&#x503C;&#xFF0C;&#x5426;&#x5219;&#x8FD4;&#x56DE;&#x53C2;&#x6570;&#x672C;&#x8EAB; </p>
+<p> <code>val = isRef(val) ? val.value : val</code> &#x8BA1;&#x7B97;&#x7684;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x7CD6;</p>
+</blockquote>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useFoo</span>(<span class="hljs-params">x: <span class="hljs-built_in">number</span> | Ref&lt;<span class="hljs-built_in">number</span>&gt;</span>) </span>{
+  <span class="hljs-keyword">const</span> unwrapped = unref(x)
+  <span class="hljs-comment">// unwrapped &#x73B0;&#x5728;&#x4FDD;&#x8BC1;&#x4E3A; number &#x7C7B;&#x578B;</span>
+}
+</code></pre>
+<h2 id="shallowref">shallowRef()</h2>
+<blockquote>
+<p>ref &#x7684;&#x5185;&#x90E8;&#x503C;&#x5C06;&#x4F1A;&#x539F;&#x6837;&#x5B58;&#x50A8;&#x548C;&#x66B4;&#x9732;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x4F1A;&#x88AB;&#x6DF1;&#x5C42;&#x9012;&#x5F52;&#x5730;&#x8F6C;&#x4E3A;&#x54CD;&#x5E94;&#x5F0F;&#x3002;</p>
+<p>&#x53EA;&#x5BF9; <code>.value</code> &#x7684;&#x8BBF;&#x95EE;&#x662F;&#x54CD;&#x5E94;&#x5F0F;&#x7684; </p>
+</blockquote>
+<h2 id="triggerref">triggerRef()</h2>
+<blockquote>
+<p> &#x5F3A;&#x5236;&#x89E6;&#x53D1;&#x4F9D;&#x8D56;&#x4E8E;&#x4E00;&#x4E2A;<a href="https://cn.vuejs.org/api/reactivity-advanced.html#shallowref" target="_blank">&#x6D45;&#x5C42; ref</a> &#x7684;&#x526F;&#x4F5C;&#x7528; ,</p>
+<p> &#x901A;&#x5E38;&#x5728;&#x5BF9;&#x6D45;&#x5F15;&#x7528;(shallowRef)&#x7684;&#x5185;&#x90E8;&#x503C;&#x8FDB;&#x884C;&#x6DF1;&#x5EA6;&#x53D8;&#x66F4;&#x540E;&#x4F7F;&#x7528; </p>
+</blockquote>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> shallow = shallowRef({
+  greet: <span class="hljs-string">&apos;Hello, world&apos;</span>
+})
+<span class="hljs-comment">// &#x8FD9;&#x6B21;&#x53D8;&#x66F4;&#x4E0D;&#x5E94;&#x89E6;&#x53D1;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x8FD9;&#x4E2A; ref &#x662F;&#x6D45;&#x5C42;&#x7684;</span>
+shallow.value.greet = <span class="hljs-string">&apos;Hello, universe&apos;</span>
+<span class="hljs-comment">// &#x6253;&#x5370; &quot;Hello, universe&quot;</span>
+triggerRef(shallow)
+</code></pre>
+<h2 id="toref">toRef()</h2>
+<blockquote>
+<p>&#x57FA;&#x4E8E;&#x54CD;&#x5E94;&#x5F0F;&#x5BF9;&#x8C61;&#x4E0A;&#x7684;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x7684; ref&#x3002;</p>
+<p>&#x521B;&#x5EFA;&#x7684; ref &#x4E0E;&#x5176;&#x6E90;&#x5C5E;&#x6027;&#x4FDD;&#x6301;&#x540C;&#x6B65;&#xFF0C;&#x6539;&#x53D8;&#x6E90;&#x5C5E;&#x6027;&#x7684;&#x503C;&#x5C06;&#x66F4;&#x65B0; ref &#x7684;&#x503C;&#xFF0C;&#x53CD;&#x4E4B;&#x4EA6;&#x7136;&#x3002; </p>
+</blockquote>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> state = reactive({
+  foo: <span class="hljs-number">1</span>,
+  bar: <span class="hljs-number">2</span>
+})
+
+<span class="hljs-keyword">const</span> fooRef = toRef(state, <span class="hljs-string">&apos;foo&apos;</span>)
+
+<span class="hljs-comment">// &#x66F4;&#x6539;&#x8BE5; ref &#x4F1A;&#x66F4;&#x65B0;&#x6E90;&#x5C5E;&#x6027;</span>
+fooRef.value++
+<span class="hljs-built_in">console</span>.log(state.foo) <span class="hljs-comment">// 2</span>
+
+<span class="hljs-comment">// &#x66F4;&#x6539;&#x6E90;&#x5C5E;&#x6027;&#x4E5F;&#x4F1A;&#x66F4;&#x65B0;&#x8BE5; ref</span>
+state.foo++
+<span class="hljs-built_in">console</span>.log(fooRef.value) <span class="hljs-comment">// 3</span>
+</code></pre>
+<h2 id="torefs">toRefs()</h2>
+<blockquote>
+<p>&#x628A;reactive&#x91CC;&#x7684;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#xFF0C;&#x8F6C;&#x5316;&#x6210;ref&#x5BF9;&#x8C61;&#xFF0C;&#x518D;&#x901A;&#x8FC7;...&#x5C55;&#x5F00;&#xFF0C;&#x53D8;&#x6210;&#x591A;&#x4E2A;ref&#x5BF9;&#x8C61;</p>
+<p>&#x5728;template&#x4E2D;&#xFF0C;&#x7528;ref&#x8BED;&#x6CD5;&#xFF0C;js&#x4E2D;&#x7528;reactive&#x8BED;&#x6CD5;</p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span>&gt;</span>--<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span> 
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { reactive,toRefs } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vue&quot;</span> 
+setup () {
+    const obj = reactive({ 
+      myname: <span class="hljs-string">&quot;toing&quot;</span>,
+      myage:<span class="hljs-string">&quot;100&quot;</span>
+    })
+    return {
+        ...toRefs(obj),//&#x5728;template&#x4E2D;&#x4E0D;&#x7528;&#x5199;obj.&#x4E86;
+    } 
+  },
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p> &#x5C06;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x5BF9;&#x8C61;&#x8F6C;&#x6362;&#x4E3A;&#x4E00;&#x4E2A;&#x666E;&#x901A;&#x5BF9;&#x8C61;</p>
+<p> &#x666E;&#x901A;&#x5BF9;&#x8C61;&#x7684;&#x6BCF;&#x4E2A;&#x5C5E;&#x6027;&#x90FD;&#x662F;&#x6307;&#x5411;&#x6E90;&#x5BF9;&#x8C61;&#x76F8;&#x5E94;&#x5C5E;&#x6027;&#x7684; ref</p>
+<p> &#x6BCF;&#x4E2A;&#x5355;&#x72EC;&#x7684; ref &#x90FD;&#x662F;&#x4F7F;&#x7528; <a href="https://cn.vuejs.org/api/reactivity-utilities.html#toref" target="_blank"><code>toRef()</code></a> &#x521B;&#x5EFA;&#x7684; </p>
+<p> &#x4ECE;&#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x4E2D;&#x8FD4;&#x56DE;&#x54CD;&#x5E94;&#x5F0F;&#x5BF9;&#x8C61;&#x65F6; , &#x4F7F;&#x7528;&#x5B83;&#xFF0C;&#x5916;&#x90E8;&#x53EF;&#x4EE5;&#x89E3;&#x6784;/&#x5C55;&#x5F00;&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x800C;&#x4E0D;&#x4F1A;&#x5931;&#x53BB;&#x54CD;&#x5E94;&#x6027;&#xFF1A; </p>
+</blockquote>
+<pre><code class="lang-typescript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">useFeatureX</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">const</span> state = reactive({
+    foo: <span class="hljs-number">1</span>,
+    bar: <span class="hljs-number">2</span>
+  })
+  <span class="hljs-comment">// &#x5728;&#x8FD4;&#x56DE;&#x65F6;&#x90FD;&#x8F6C;&#x4E3A; ref</span>
+  <span class="hljs-keyword">return</span> toRefs(state)
+}
+<span class="hljs-comment">// &#x53EF;&#x4EE5;&#x89E3;&#x6784;&#x800C;&#x4E0D;&#x4F1A;&#x5931;&#x53BB;&#x54CD;&#x5E94;&#x6027;</span>
+<span class="hljs-keyword">const</span> { foo, bar } = useFeatureX()
+</code></pre>
+<h2 id="isproxy">isProxy()</h2>
+<blockquote>
+<p> &#x67E5;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x662F;&#x7531; <a href="https://cn.vuejs.org/api/reactivity-core.html#reactive" target="_blank"><code>reactive()</code></a>&#x3001;<a href="https://cn.vuejs.org/api/reactivity-core.html#readonly" target="_blank"><code>readonly()</code></a>&#x3001;<a href="https://cn.vuejs.org/api/reactivity-advanced.html#shallowreactive" target="_blank"><code>shallowReactive()</code></a> &#x6216; <a href="https://cn.vuejs.org/api/reactivity-advanced.html#shallowreadonly" target="_blank"><code>shallowReadonly()</code></a> &#x521B;&#x5EFA;&#x7684;&#x4EE3;&#x7406; </p>
+</blockquote>
+<h2 id="computed">computed()</h2>
+<p> &#x53EA;&#x8BFB; </p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> plusOne = computed(() =&gt; count.value + <span class="hljs-number">1</span>)
+</code></pre>
+<p>&#x53EF;&#x5199;</p>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> plusOne = computed({
+  <span class="hljs-keyword">get</span>: () =&gt; count.value + <span class="hljs-number">1</span>,
+  <span class="hljs-keyword">set</span>: (val) =&gt; {
+    count.value = val - <span class="hljs-number">1</span>
+  }
+})
+</code></pre>
+<h2 id="readonly">readonly()</h2>
+<blockquote>
+<p> &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x539F;&#x503C;&#x7684;&#x53EA;&#x8BFB;&#x4EE3;&#x7406; </p>
+</blockquote>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> copy = readonly(original)
+</code></pre>
+<h2 id="shallowreadonly">shallowReadonly()</h2>
+<blockquote>
+<p> <a href="https://cn.vuejs.org/api/reactivity-core.html#readonly" target="_blank"><code>readonly()</code></a> &#x7684;&#x6D45;&#x5C42;&#x4F5C;&#x7528;&#x5F62;&#x5F0F; </p>
+<p> &#x53EA;&#x6709;&#x6839;&#x5C42;&#x7EA7;&#x7684;&#x5C5E;&#x6027;&#x53D8;&#x4E3A;&#x4E86;&#x53EA;&#x8BFB; </p>
+<p> ref &#x7684;&#x5C5E;&#x6027;<strong>&#x4E0D;&#x4F1A;</strong>&#x88AB;&#x81EA;&#x52A8;&#x89E3;&#x5305; </p>
+</blockquote>
+<pre><code class="lang-typescript"><span class="hljs-keyword">const</span> state = shallowReadonly({
+  foo: <span class="hljs-number">1</span>,
+  nested: { bar: <span class="hljs-number">2</span> }
+})
+<span class="hljs-comment">// &#x66F4;&#x6539;&#x72B6;&#x6001;&#x81EA;&#x8EAB;&#x7684;&#x5C5E;&#x6027;&#x4F1A;&#x5931;&#x8D25;</span>
+state.foo++
+<span class="hljs-comment">// ...&#x4F46;&#x53EF;&#x4EE5;&#x66F4;&#x6539;&#x4E0B;&#x5C42;&#x5D4C;&#x5957;&#x5BF9;&#x8C61;</span>
+isReadonly(state.nested) <span class="hljs-comment">// false</span>
+</code></pre>
+<h2 id="isreadonly">isReadonly()</h2>
+<blockquote>
+<p> &#x68C0;&#x67E5;&#x4F20;&#x5165;&#x7684;&#x503C;&#x662F;&#x5426;&#x4E3A;&#x53EA;&#x8BFB;&#x5BF9;&#x8C61; </p>
+</blockquote>
+<h2 id="watch">watch()</h2>
+<blockquote>
+<p>&#x76D1;&#x542C;&#x5668;</p>
+</blockquote>
+<pre><code class="lang-typescript"><span class="hljs-comment">//&#x76D1;&#x542C;&#x4E00;&#x4E2A;</span>
+<span class="hljs-keyword">const</span> count = ref(<span class="hljs-number">0</span>)
+watch(count, (count, prevCount) =&gt; {},{deep:<span class="hljs-literal">true</span>})
+
+<span class="hljs-comment">//&#x76D1;&#x542C;&#x591A;&#x4E2A;</span>
+watch([fooRef, barRef], ([foo, bar], [prevFoo, prevBar]) =&gt; {})
+</code></pre>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">immediate</th>
+<th style="text-align:center">&#x7ACB;&#x5373;&#x89E6;&#x53D1;&#x56DE;&#x8C03;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">deep</td>
+<td style="text-align:center">&#x6DF1;&#x5C42;&#x7EA7;&#x53D8;&#x66F4;&#x65F6;&#x89E6;&#x53D1;&#x56DE;&#x8C03;</td>
+</tr>
+<tr>
+<td style="text-align:center">flush:&#x2018;post&#x2019;</td>
+<td style="text-align:center">&#x56DE;&#x8C03;&#x4E2D;&#x80FD;&#x8BBF;&#x95EE;&#x88AB; Vue &#x66F4;&#x65B0;&#x540E;&#x7684; DOM</td>
+</tr>
+</tbody>
+</table>
+<h2 id="propsemit">props&amp;emit</h2>
+<pre><code class="lang-js">props:[<span class="hljs-string">&apos;myname&apos;</span>]
+setup(props,{emit}){
+    <span class="hljs-keyword">const</span> myname = props.myname <span class="hljs-comment">//&#x63A5;&#x53D7;&#x7236;&#x7EC4;&#x4EF6;&#x6570;&#x636E;</span>
+    <span class="hljs-keyword">const</span> handleClick=()=&gt;{
+        emit(<span class="hljs-string">&quot;isShow&quot;</span>,<span class="hljs-number">11</span>) <span class="hljs-comment">//&#x5B50;&#x4F20;&#x7236;</span>
+    }
+    <span class="hljs-keyword">return</span>{myname,handleClick}
+}
+</code></pre>
+<h2 id="watch">watch</h2>
+<pre><code class="lang-js">watch(()=&gt;obj.name,(newValue,oldValue)=&gt;{
+   <span class="hljs-built_in">console</span>.log(newValue,oldValue) 
+})
+</code></pre>
+<h2 id="&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x529F;&#x80FD;">&#x4F9D;&#x8D56;&#x6CE8;&#x5165;&#x529F;&#x80FD;</h2>
+<h3 id="provide">provide()</h3>
+<blockquote>
+<p> &#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x540E;&#x4EE3;&#x7EC4;&#x4EF6;&#x6CE8;&#x5165; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { ref, provide } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> { fooSymbol } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./injectionSymbols&apos;</span>
+
+// &#x63D0;&#x4F9B;&#x9759;&#x6001;&#x503C;
+provide(<span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>)
+
+// &#x63D0;&#x4F9B;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x503C;
+const count = ref(0)
+provide(<span class="hljs-string">&apos;count&apos;</span>, count)
+
+// &#x63D0;&#x4F9B;&#x65F6;&#x5C06; Symbol &#x4F5C;&#x4E3A; key
+provide(fooSymbol, count)
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h3 id="inject">inject()</h3>
+<blockquote>
+<p> &#x6CE8;&#x5165;&#x4E00;&#x4E2A;&#x7531;&#x7956;&#x5148;&#x7EC4;&#x4EF6;&#x6216;&#x6574;&#x4E2A;&#x5E94;&#x7528; &#x63D0;&#x4F9B;&#x7684;&#x503C;</p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { inject } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+<span class="hljs-keyword">import</span> { fooSymbol } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./injectionSymbols&apos;</span>
+
+// &#x6CE8;&#x5165;&#x503C;&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x5F0F;
+const foo = inject(<span class="hljs-string">&apos;foo&apos;</span>)
+
+// &#x6CE8;&#x5165;&#x54CD;&#x5E94;&#x5F0F;&#x7684;&#x503C;
+const count = inject(<span class="hljs-string">&apos;count&apos;</span>)
+
+// &#x901A;&#x8FC7; Symbol &#x7C7B;&#x578B;&#x7684; key &#x6CE8;&#x5165;
+const foo2 = inject(fooSymbol)
+
+// &#x6CE8;&#x5165;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x82E5;&#x4E3A;&#x7A7A;&#x5219;&#x4F7F;&#x7528;&#x63D0;&#x4F9B;&#x7684;&#x9ED8;&#x8BA4;&#x503C;
+const bar = inject(<span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;default value&apos;</span>)
+
+// &#x6CE8;&#x5165;&#x65F6;&#x4E3A;&#x4E86;&#x8868;&#x660E;&#x63D0;&#x4F9B;&#x7684;&#x9ED8;&#x8BA4;&#x503C;&#x662F;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x5165;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;
+const fn = inject(<span class="hljs-string">&apos;function&apos;</span>, () =&gt; {}, false)
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h3 id=""> </h3>
+<h1 id="typescript-&#x6807;&#x6CE8;&#x7C7B;&#x578B;"><a href="https://cn.vuejs.org/guide/typescript/composition-api.html" target="_blank">TypeScript &#x6807;&#x6CE8;&#x7C7B;&#x578B;</a></h1>
+<h2 id="&#x7EC4;&#x5408;&#x5F0F;api">&#x7EC4;&#x5408;&#x5F0F;api</h2>
+<blockquote>
+<p> &#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x7EA6;&#x5B9A;&#x7528;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x6CD5;&#x547D;&#x540D;&#xFF0C;&#x5E76;&#x4EE5;&#x201C;use&#x201D;&#x4F5C;&#x4E3A;&#x5F00;&#x5934; </p>
+<p> &#x5C3D;&#x7BA1;&#x5176;&#x54CD;&#x5E94;&#x6027;&#x4E0D;&#x4F9D;&#x8D56; ref&#xFF0C;&#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x4ECD;&#x53EF;&#x63A5;&#x6536; ref &#x53C2;&#x6570; </p>
+<p> &#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528; <code>ref()</code> </p>
+</blockquote>
+<h2 id="props-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">props &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<blockquote>
+<p>&#x4F20;&#x9012;&#x7ED9; <code>defineProps</code> &#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x672C;&#x8EAB;<strong>&#x4E0D;&#x80FD;</strong>&#x662F;&#x4E00;&#x4E2A;&#x5BFC;&#x5165;&#x7684;&#x7C7B;&#x578B; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Props</span> </span>{
+  foo: string
+  bar?: number
+}
+<span class="hljs-keyword">const</span> props = defineProps&lt;Props&gt;()
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h3 id="props-&#x89E3;&#x6784;&#x9ED8;&#x8BA4;&#x503C;">Props &#x89E3;&#x6784;&#x9ED8;&#x8BA4;&#x503C;</h3>
+<blockquote>
+<p> <code>withDefaults</code> &#x5E2E;&#x52A9;&#x7A0B;&#x5E8F;&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#x63D0;&#x4F9B;&#x7C7B;&#x578B;&#x68C0;&#x67E5;</p>
+<p> &#x786E;&#x4FDD;&#x8FD4;&#x56DE;&#x7684; props &#x7C7B;&#x578B;&#x5220;&#x9664;&#x4E86;&#x5DF2;&#x58F0;&#x660E;&#x9ED8;&#x8BA4;&#x503C;&#x7684;&#x5C5E;&#x6027;&#x7684;&#x53EF;&#x9009;&#x6807;&#x5FD7; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+export <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Props</span> </span>{
+  msg?: string
+  labels?: string[]
+}
+<span class="hljs-keyword">const</span> props = withDefaults(defineProps&lt;Props&gt;(), {
+  msg: <span class="hljs-string">&apos;hello&apos;</span>,
+  labels: () =&gt; [<span class="hljs-string">&apos;one&apos;</span>, <span class="hljs-string">&apos;two&apos;</span>]
+})
+</span></code></pre>
+<p>&#x901A;&#x8FC7; <a href="https://cn.vuejs.org/guide/extras/reactivity-transform.html" target="_blank">&#x54CD;&#x5E94;&#x6027;&#x8BED;&#x6CD5;&#x7CD6;</a>&#x5F00;&#x542F;&#xFF0C;&#x8FD9;&#x4E2A;&#x9700;&#x8981;<a href="https://cn.vuejs.org/guide/extras/reactivity-transform.html#explicit-opt-in" target="_blank">&#x624B;&#x52A8;&#x5F00;&#x542F;</a></p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Props</span> </span>{
+  name: string
+  count?: number
+}
+
+<span class="hljs-comment">// &#x5BF9; defineProps() &#x7684;&#x54CD;&#x5E94;&#x6027;&#x89E3;&#x6784;</span>
+<span class="hljs-comment">// &#x9ED8;&#x8BA4;&#x503C;&#x4F1A;&#x88AB;&#x7F16;&#x8BD1;&#x4E3A;&#x7B49;&#x4EF7;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x9009;&#x9879;</span>
+<span class="hljs-keyword">const</span> { name, count = <span class="hljs-number">100</span> } = defineProps&lt;Props&gt;()
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="emits-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">emits &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<blockquote>
+<p> &#x5E26;<a href="https://www.typescriptlang.org/docs/handbook/2/functions.html#call-signatures" target="_blank">&#x8C03;&#x7528;&#x7B7E;&#x540D;</a>&#x7684;&#x7C7B;&#x578B;&#x5B57;&#x9762;&#x91CF; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+<span class="hljs-comment">// &#x8FD0;&#x884C;&#x65F6;</span>
+<span class="hljs-keyword">const</span> emit = defineEmits([<span class="hljs-string">&apos;change&apos;</span>, <span class="hljs-string">&apos;update&apos;</span>])
+
+<span class="hljs-comment">// &#x57FA;&#x4E8E;&#x7C7B;&#x578B;</span>
+<span class="hljs-keyword">const</span> emit = defineEmits&lt;{
+  (e: <span class="hljs-string">&apos;change&apos;</span>, id: number): <span class="hljs-keyword">void</span>
+  (e: <span class="hljs-string">&apos;update&apos;</span>, value: string): <span class="hljs-keyword">void</span>
+}&gt;()
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="ref-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">ref &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+
+<span class="hljs-keyword">const</span> year: Ref&lt;string | number&gt; = ref(<span class="hljs-string">&apos;2020&apos;</span>)
+<span class="hljs-comment">//&#x4E0A;&#x4E0B;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x7B49;&#x540C;</span>
+<span class="hljs-keyword">const</span> year = ref&lt;string | number&gt;(<span class="hljs-string">&apos;2020&apos;</span>)
+
+year.value = <span class="hljs-number">2020</span> <span class="hljs-comment">// &#x6210;&#x529F;&#xFF01;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="reactive-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">reactive &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<blockquote>
+<p> &#x4E0D;&#x63A8;&#x8350;&#x4F7F;&#x7528; <code>reactive()</code> &#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#xFF0C;&#x56E0;&#x4E3A;&#x5904;&#x7406;&#x4E86;&#x6DF1;&#x5C42;&#x6B21; ref &#x89E3;&#x5305;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4E0E;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#x3002; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { reactive } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+interface Book {
+  title: string
+  year?: number
+}
+const book: Book = reactive({ title: <span class="hljs-string">&apos;Vue 3 &#x6307;&#x5F15;&apos;</span> })
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="computed-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">computed &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+  <span class="hljs-keyword">const</span> double = computed&lt;number&gt;(() =&gt; {
+    <span class="hljs-comment">// &#x82E5;&#x8FD4;&#x56DE;&#x503C;&#x4E0D;&#x662F; number &#x7C7B;&#x578B;&#x5219;&#x4F1A;&#x62A5;&#x9519;</span>
+  })
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570; &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">handleChange</span><span class="hljs-params">(event: Event)</span> </span>{
+   (event.target <span class="hljs-keyword">as</span> HTMLInputElement).value
+ }
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="provide--inject-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">provide / inject &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<h3 id="provide">provide</h3>
+<blockquote>
+<p> &#x63D0;&#x4F9B; <code>InjectionKey</code> &#x63A5;&#x53E3;&#xFF0C;&#x7EE7;&#x627F;&#x81EA; <code>Symbol</code> &#x7684;&#x6CDB;&#x578B;&#x7C7B;&#x578B; , &#x7528;&#x6765;&#x5728;&#x63D0;&#x4F9B;&#x8005;&#x548C;&#x6D88;&#x8D39;&#x8005;&#x4E4B;&#x95F4;&#x540C;&#x6B65;&#x6CE8;&#x5165;&#x503C;&#x7684;&#x7C7B;&#x578B; </p>
+<p> key &#x7684;&#x7C7B;&#x578B;&#x653E;&#x5728;&#x5355;&#x72EC;&#x7684;&#x6587;&#x4EF6;&#x4E2D;&#xFF0C;&#x8FD9;&#x6837;&#x53EF;&#x4EE5;&#x88AB;&#x591A;&#x4E2A;&#x7EC4;&#x4EF6;&#x5BFC;&#x5165; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> { provide, inject } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+  <span class="hljs-keyword">import</span> type { InjectionKey } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+  const key = Symbol() <span class="hljs-keyword">as</span> InjectionKey&lt;string&gt;
+  provide(key, <span class="hljs-string">&apos;foo&apos;</span>) // &#x82E5;&#x63D0;&#x4F9B;&#x7684;&#x662F;&#x975E;&#x5B57;&#x7B26;&#x4E32;&#x503C;&#x4F1A;&#x5BFC;&#x81F4;&#x9519;&#x8BEF;   
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h3 id="inject">inject</h3>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="actionscript">
+ <span class="hljs-comment">// &#x7B2C;&#x4E8C;&#x4E2A;bar&#x4E3A;&#x9ED8;&#x8BA4;&#x503C;&#xFF0C;&#x6CA1;&#x6709;&#x7684;&#x8BDD;&#x7C7B;&#x578B;&#x5219;&#x662F; string | undefined </span>
+<span class="hljs-keyword">const</span> foo = inject&lt;string&gt;(<span class="hljs-string">&apos;foo&apos;</span>, <span class="hljs-string">&apos;bar&apos;</span>)
+
+<span class="hljs-keyword">const</span> foo = inject(<span class="hljs-string">&apos;foo&apos;</span>) <span class="hljs-keyword">as</span> string <span class="hljs-comment">//&#x5F3A;&#x5236;&#x8F6C;&#x6362;&#x7C7B;&#x578B;</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="&#x6A21;&#x677F;&#x5F15;&#x7528;-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">&#x6A21;&#x677F;&#x5F15;&#x7528; &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;el&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { ref, onMounted } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+
+const el = ref&lt;HTMLInputElement | null&gt;(null)
+
+onMounted(() =&gt; {
+  el.value?.focus()
+})
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h2 id="&#x7EC4;&#x4EF6;&#x6A21;&#x677F;&#x5F15;&#x7528;-&#x6807;&#x6CE8;&#x7C7B;&#x578B;"><a href="https://cn.vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs" target="_blank">&#x7EC4;&#x4EF6;&#x6A21;&#x677F;&#x5F15;&#x7528; &#x6807;&#x6CE8;&#x7C7B;&#x578B;</a></h2>
+<blockquote>
+<p>&#x5982;&#x679C;&#x60F3;&#x5728; TypeScript &#x6587;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x5728; Vue SFC &#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x6280;&#x5DE7;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x542F; Volar &#x7684; <a href="https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode" target="_blank">Takeover &#x6A21;&#x5F0F;</a>&#x3002; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- MyModal.vue --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { ref } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+
+const isContentShown = ref(false)
+const open = () =&gt; (isContentShown.value = true)
+
+defineExpose({ //&#x5B9A;&#x4E49;&#x66B4;&#x9732;
+  open
+})
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p> &#x4E3A;&#x4E86;&#x83B7;&#x53D6; <code>MyModal</code> &#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x9700;&#x8981;&#x901A;&#x8FC7; <code>typeof</code> &#x5F97;&#x5230;&#x7C7B;&#x578B;&#xFF0C;&#x518D;&#x4F7F;&#x7528; TypeScript &#x5185;&#x7F6E;&#x7684; <code>InstanceType</code> &#x5DE5;&#x5177;&#x7C7B;&#x578B;&#x83B7;&#x53D6;&#x5B9E;&#x4F8B;&#x7C7B;&#x578B; </p>
+</blockquote>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- App.vue --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> MyModal <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./MyModal.vue&apos;</span>
+
+const modal = ref&lt;InstanceType&lt;typeof MyModal&gt; | null&gt;(null)
+
+const openModal = () =&gt; {
+  modal.value?.open()
+}
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
@@ -981,7 +1356,7 @@ provide(<span class="hljs-string">&quot;kerwin&quot;</span>,isShow) <span class=
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vue 补充","level":"1.4.3","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-01T12:45:59.860Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-01T12:48:48.786Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vue 补充","level":"1.4.3","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-02T03:02:31.097Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T03:02:44.502Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

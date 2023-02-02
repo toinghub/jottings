@@ -58,6 +58,67 @@ bus.$On("kerwin",(data)=>{})  //接受数据
 
 
 
+### [对象组件传值](https://cn.vuejs.org/guide/components/v-model.html)
+
+```html
+<BlogPost id=1  :title='My Journey with Vue' />
+<!-- 上下相等 --> 
+<BlogPost v-bind="post" />
+<script>
+post: {
+  id: 1,
+  title: 'My Journey with Vue'
+ }
+</script>
+```
+
+
+
+### 组件使用v-model
+
+```html
+<CustomInput
+  :modelValue="searchText"
+  @update:modelValue="newValue => searchText = newValue"
+/>
+<!-- 等同于下方 -->
+<CustomInput v-model="searchText" />
+<!-- 可以更改默认值modelValue为: xxx -->
+<CustomInput v-model:title="searchText" />
+```
+
+```js
+value: {
+  get() {
+ 	 return this.modelValue
+  },
+  set(value) {
+ 	 this.$emit('update:modelValue', value)
+  }
+}
+```
+
+
+
+### [透传](https://cn.vuejs.org/guide/components/attrs.html)
+
+> 可以在js中访问组件的所有透传  this.$attrs 
+
+```html
+<CustomLayout id="custom-layout" @click="changeValue" />
+```
+
+```js
+<header>...</header>
+//changeValue 将会透传到main根标签上
+<main v-bind="$attrs">...</main> 
+<footer>...</footer>
+```
+
+
+
+
+
 # 插槽：
 
 ```html
@@ -68,6 +129,44 @@ bus.$On("kerwin",(data)=>{})  //接受数据
 <template #a></template>
 <slot name="a"></slot> 
 ```
+
+
+
+### [父组件通过插槽问子组件属性](https://cn.vuejs.org/guide/components/slots.html)
+
+#### 默认插槽
+
+```html
+<MyComponent v-slot="slotProps">
+  {{ slotProps.text }} {{ slotProps.count }} <!-- 结果: greetingMessage  1 -->
+</MyComponent>
+<!-- MyComponent组件内部 -->
+<div>
+  <slot :text="greetingMessage" :count="1"></slot>
+</div>
+```
+
+#### 具名插槽
+
+```html
+ <MyComponent>
+    <!-- 使用显式的默认插槽 -->
+    <template #default="{ message }">
+      <p>{{ message }}</p>
+    </template>
+
+    <template #footer>
+      <p>Here's some contact info</p>
+    </template>
+  </MyComponent>
+
+<!-- MyComponent组件内部 -->
+<!-- 没有name为默认插槽，name为插槽的保留字，不能用作属性名 -->
+<slot message="header" ></slot>  
+<slot name="footer" message="header" ></slot>
+```
+
+
 
 
 
@@ -465,5 +564,191 @@ var mixin = new Vue({
 }
 })
 mixins: [mixin]  //混入文件写了后，可以引入需要功能的文件中
+```
+
+
+
+# 动态绑定
+
+## 动态属性
+
+>  当值为 `null` 意为显式移除该绑定 
+>
+>  在 HTML attribute 名称中都是不合法的都不可以，如空格、引号
+>
+>  避免在名称中使用大写字母，因为浏览器会强制将其转换为小写 
+>
+>  不能使用复杂的动态参数 
+
+```typescript
+<a :[A]="url"> ... </a> //等同于 :B="url"
+<a @[A]="change"> //等同于  @B="change"
+let A = 'B'
+```
+
+
+
+## 通过计算属性绑定class
+
+```html
+<!-- 等同于:class="{ active: isActive, text-danger: error }"  -->
+<div :class="classObject"></div> 
+```
+
+```js
+computed: {
+  classObject() {
+    return {
+      active: this.isActive,
+      text-danger: this.error 
+    }
+  }
+}
+```
+
+
+
+## 通过对象绑定:style
+
+```html
+<div :style="styleObject"></div>
+```
+
+```js
+styleObject: {
+      color: 'red',
+      fontSize: '13px'
+}
+```
+
+
+
+
+
+# [依赖注入](https://cn.vuejs.org/guide/components/provide-inject.html)
+
+## 为组件后代提供数据（provide）
+
+```js
+//提供静态数据
+provide: {
+  message: 'hello!'
+}
+
+//提供响应式数据
+provide() {
+    return {
+      // 显式提供一个计算属性
+      message: computed(() => this.message)
+    }
+  }
+```
+
+## 获取上层组件提供的数据（inject）
+
+```js
+//声明需要的数据
+inject: ['message']
+    
+    
+//注入别名
+inject: {
+    message: {  /* 本地属性名 */
+      from:  'message', // 注入来源名 当与原注入名同名时，这个属性是可选的
+      default: 'default' //注入默认值
+    }
+```
+
+
+
+# 内置组件
+
+## [Transition](https://cn.vuejs.org/guide/built-ins/transition.html#the-transition-component)
+
+|  v-enter-from  | 进入动画的起始状态 |
+| :------------: | :----------------: |
+| v-enter-active | 进入动画的生效状态 |
+|   v-enter-to   | 进入动画的结束状态 |
+|  v-leave-from  | 离开动画的起始状态 |
+| v-leave-active | 离开动画的生效状态 |
+|   v-leave-to   | 离开动画的结束状态 |
+
+```vue
+<Transition name="slide-fade">//有名字的class名会以name为头
+  <p v-if="show">hello</p>
+</Transition>
+```
+
+```css
+/*
+  进入和离开动画可以使用不同
+  持续时间和速度曲线。
+*/
+.slide-fade-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.slide-fade-leave-active {
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
+}
+
+.slide-fade-enter-from,
+.slide-fade-leave-to {
+  transform: translateX(20px);
+  opacity: 0;
+}
+```
+
+
+
+## [TransitionGroup](https://cn.vuejs.org/guide/built-ins/transition-group.html)
+
+>  用于对 `v-for` 列表中的元素或组件的插入、移除和顺序改变添加动画效果。 
+>
+>  每个元素都**必须**有一个独一无二的 `key` 
+
+```html
+<TransitionGroup name="list" tag="ul">
+  <li v-for="item in items" :key="item">
+    {{ item }}
+  </li>
+</TransitionGroup>
+```
+
+```css
+.list-move, /* 对移动中的元素应用的过渡 */
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.5s ease;
+}
+
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(30px);
+}
+
+/* 确保将离开的元素从布局流中删除
+  以便能够正确地计算移动的动画。 */
+.list-leave-active {
+  position: absolute;
+}
+```
+
+
+
+## [Teleport](https://cn.vuejs.org/guide/built-ins/teleport.html)
+
+>  将一个组件内部的一部分模板“传送”到该组件的 DOM 结构外层的位置去。 
+
+```html
+<button @click="open = true">Open Modal</button>
+
+<Teleport to="body"> <!-- 将下面的标签传送到body标签下面去 -->
+  <div v-if="open" class="modal">
+    <p>Hello from the modal!</p>
+    <button @click="open = false">Close</button>
+  </div>
+</Teleport>
 ```
 

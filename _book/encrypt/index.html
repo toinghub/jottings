@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>css · 课堂随笔</title>
+        <title>数据加密 · 课堂随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="js.html" />
+    <link rel="next" href="crypto-js.html" />
     
     
-    <link rel="prev" href="./" />
+    <link rel="prev" href="../设计原则/设计模式.html" />
     
 
     </head>
@@ -135,9 +135,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="../jobRecord/">
             
-                <a href="./">
+                <a href="../jobRecord/">
             
                     
                     工作随笔
@@ -149,9 +149,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="css.html">
+        <li class="chapter " data-level="1.2.1" data-path="../jobRecord/css.html">
             
-                <a href="css.html">
+                <a href="../jobRecord/css.html">
             
                     
                     css
@@ -162,9 +162,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="js.html">
+        <li class="chapter " data-level="1.2.2" data-path="../jobRecord/js.html">
             
-                <a href="js.html">
+                <a href="../jobRecord/js.html">
             
                     
                     js
@@ -175,9 +175,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="功能技巧.html">
+        <li class="chapter " data-level="1.2.3" data-path="../jobRecord/功能技巧.html">
             
-                <a href="功能技巧.html">
+                <a href="../jobRecord/功能技巧.html">
             
                     
                     功能技巧
@@ -188,9 +188,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="补充.html">
+        <li class="chapter " data-level="1.2.4" data-path="../jobRecord/补充.html">
             
-                <a href="补充.html">
+                <a href="../jobRecord/补充.html">
             
                     
                     补充
@@ -431,9 +431,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="../encrypt/">
+        <li class="chapter active" data-level="1.8" data-path="./">
             
-                <a href="../encrypt/">
+                <a href="./">
             
                     
                     数据加密
@@ -445,9 +445,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.8.1" data-path="../encrypt/crypto-js.html">
+        <li class="chapter " data-level="1.8.1" data-path="crypto-js.html">
             
-                <a href="../encrypt/crypto-js.html">
+                <a href="crypto-js.html">
             
                     
                     crypto-js
@@ -665,7 +665,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >css</a>
+        <a href=".." >数据加密</a>
     </h1>
 </div>
 
@@ -678,81 +678,7 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="css&#x968F;&#x7B14;">css&#x968F;&#x7B14;</h1>
-<pre><code class="lang-css">position: sticky; //&#x7C98;&#x6027;&#x5E03;&#x5C40;    
-background: linear-gradient(180deg, #f2f2f2, #ffffff);  //&#x80CC;&#x666F;&#x6E10;&#x53D8;
-width:calc(100% - 100px)  //&#x5355;&#x4F4D;&#x6362;&#x7B97;&#x8BA1;&#x7B97;
-visibility:hidden; &#x9690;&#x85CF;&#x5143;&#x7D20;&#xFF08;&#x4F4D;&#x7F6E;&#x4FDD;&#x7559;&#xFF09;
-:src=&quot;require(&apos;./1.jpg&apos;)&quot; uniapp &#x4F7F;&#x7528;&#x672C;&#x5730;&#x8DEF;&#x5F84;&#x52A0;require
-border-bottom: 50px solid transparent;   //transparent &#x900F;&#x660E;
-user-select   //&#x7528;&#x6237;&#x9009;&#x62E9;&#x6587;&#x672C; node:&#x7981;&#x6B62; all:&#x9009;&#x4E2D;&#x6240;&#x6709;
-filter:grayscale() //&#x8BA9;&#x7F51;&#x7AD9;&#x53D8;&#x7070;
-</code></pre>
-<p>&#x4F2A;&#x7C7B; | &#x4F2A;&#x5143;&#x7D20;</p>
-<pre><code class="lang-css">:empty   //&#x5F53;&#x8282;&#x70B9;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x6267;&#x884C;&#x6B64;&#x6837;&#x5F0F;
-:focus-within //&#x5143;&#x7D20;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF0C;&#x6216;&#x8BE5;&#x5143;&#x7D20;&#x7684;&#x540E;&#x4EE3;&#x5143;&#x7D20;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF0C;&#x5C31;&#x4F1A;&#x5339;&#x914D;
-::placeholder //&#x4FEE;&#x6539;placeholder&#x7684;&#x6837;&#x5F0F;
-::selection //&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x4E2D;&#x6837;&#x5F0F; &#x6709;&#x9650;&#x5236;&#x6837;&#x5F0F;
-</code></pre>
-<p>&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;&#x5F53;&#x524D;&#x5C42;</p>
-<pre><code class="lang-css"><span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value">none //&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;&#x5F53;&#x524D;&#x5C42; | &#x7981;&#x6B62;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;
-pointer-events:auto //&#x9F20;&#x6807;&#x4E0D;&#x4F1A;&#x7A7F;&#x900F;&#x5F53;&#x524D;&#x5C42;
-</span></span></code></pre>
-<p>&#x82F9;&#x679C;&#x5E95;&#x90E8;&#x8FB9;&#x8DDD;</p>
-<pre><code class="lang-css"><span class="hljs-rule"><span class="hljs-attribute">padding-bottom</span>:<span class="hljs-value"> <span class="hljs-function">constant</span>(safe-area-inset-bottom)</span></span>;
-<span class="hljs-rule"><span class="hljs-attribute">padding-bottom</span>:<span class="hljs-value"> <span class="hljs-function">env</span>(safe-area-inset-bottom)</span></span>;
-</code></pre>
-<p>&#x5B57;&#x4F53;&#x6E10;&#x53D8;&#x8272;</p>
-<pre><code class="lang-css">background-image: linear-gradient(right, #7a492f, #cb7e3c); // &#x4E3A;&#x5143;&#x7D20;&#x63D0;&#x4F9B;&#x6E10;&#x53D8;&#x8272;&#x80CC;&#x666F;
-background-clip: text;  // &#x7528;&#x6587;&#x672C;&#x526A;&#x8F91;&#x80CC;&#x666F;
--webkit-text-fill-color: transparent;  //&#x4F7F;&#x7528;&#x900F;&#x660E;&#x989C;&#x8272;&#x586B;&#x5145;&#x6587;&#x672C;
-</code></pre>
-<p>&#x6491;&#x6EE1;&#x5B50;&#x5143;&#x7D20;&#x9AD8;&#x5EA6;</p>
-<pre><code class="lang-css">overflow: hidden ;  //&#x7236;&#x5143;&#x7D20;  
-margin-bottom:-200px;padding--bottom:200px //&#x5B50;&#x5143;&#x7D20;
-</code></pre>
-<p>&#x6587;&#x672C;&#x6EA2;&#x51FA;</p>
-<pre><code class="lang-css">//&#x5355;&#x884C;
-overflow: hidden;            // &#x6EA2;&#x51FA;&#x9690;&#x85CF;
-text-overflow: ellipsis;      // &#x6EA2;&#x51FA;&#x7528;&#x7701;&#x7565;&#x53F7;&#x663E;&#x793A;
-white-space: nowrap;          // &#x89C4;&#x5B9A;&#x6BB5;&#x843D;&#x4E2D;&#x7684;&#x6587;&#x672C;&#x4E0D;&#x8FDB;&#x884C;&#x6362;&#x884C;
-
-//&#x591A;&#x884C;
-overflow: hidden;             // &#x6EA2;&#x51FA;&#x9690;&#x85CF;
-text-overflow: ellipsis;      // &#x6EA2;&#x51FA;&#x7528;&#x7701;&#x7565;&#x53F7;&#x663E;&#x793A;
-display: -webkit-box;          // &#x4F5C;&#x4E3A;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#x76D2;&#x5B50;&#x6A21;&#x578B;&#x663E;&#x793A;&#x3002;
--webkit-box-orient: vertical;  // &#x8BBE;&#x7F6E;&#x4F38;&#x7F29;&#x76D2;&#x5B50;&#x7684;&#x5B50;&#x5143;&#x7D20;&#x6392;&#x5217;&#x65B9;&#x5F0F;&#xFF1A;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x5782;&#x76F4;&#x6392;&#x5217;
--webkit-line-clamp: 2;         // &#x663E;&#x793A;&#x7684;&#x884C;&#x6570;
-</code></pre>
-<p>css&#x53D8;&#x91CF;</p>
-<pre><code class="lang-css">:root{   //web&#x662F;:root   &#x5C0F;&#x7A0B;&#x5E8F;&#x662F;page
-    --size:100  
-}
-div{ //var &#x8BFB;&#x53D6;  calc &#x8BA1;&#x7B97;
-    width:calc(var(--size)*2px)
-}
-
-@padding-md:15px
-padding:@padding-md
-</code></pre>
-<p>css &#x7C7B;&#x7ED1;&#x5B9A;</p>
-<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- 0. &#x666E;&#x901A;&#x5199;&#x6CD5; --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;color&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- 1. &#x5BF9;&#x8C61;&#x8BED;&#x6CD5; --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;{ red: isRed }&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- 2. &#x6570;&#x7EC4;&#x8BED;&#x6CD5;  &#x89E3;&#x6790;&#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF; &#x6DFB;&#x52A0;class --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;[classA, classB]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- 3. &#x7EFC;&#x5408;&#x5199;&#x6CD5; --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;[classA, { classB: isB, classC: isC }]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-  <span class="hljs-comment">&lt;!-- 4. &#x4E09;&#x5143;&#x8FD0;&#x7B97; --&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;isRed ? &apos;red&apos; : &apos;&apos;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
-</code></pre>
-<p>&#x8BA9;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x9694;&#x5F00;px</p>
-<pre><code class="lang-css"><span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex | grid&#xFF1B;
-gap: <span class="hljs-number">20px</span></span></span>;
-</code></pre>
+             <h1 id="&#x6570;&#x636E;&#x52A0;&#x5BC6;">&#x6570;&#x636E;&#x52A0;&#x5BC6;</h1>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -779,23 +705,23 @@ gap: <span class="hljs-number">20px</span></span></span>;
 
      
     <a
-      href="./"
+      href="../设计原则/设计模式.html"
       class="
         navigation navigation-prev
         
       "
-      aria-label="Previous page: 工作随笔"
+      aria-label="Previous page: 设计模式"
     >
       <i class="fa fa-angle-left"></i>
     </a>
      
     <a
-      href="js.html"
+      href="crypto-js.html"
       class="
         navigation navigation-next
         
       "
-      aria-label="Next page: js"
+      aria-label="Next page: crypto-js"
     >
       <i class="fa fa-angle-right"></i>
     </a>
@@ -829,7 +755,7 @@ gap: <span class="hljs-number">20px</span></span></span>;
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"css","level":"1.2.1","depth":2,"next":{"title":"js","level":"1.2.2","depth":2,"path":"jobRecord/js.md","ref":"jobRecord/js.md","articles":[]},"previous":{"title":"工作随笔","level":"1.2","depth":1,"path":"jobRecord/README.md","ref":"jobRecord/README.md","articles":[{"title":"css","level":"1.2.1","depth":2,"path":"jobRecord/css.md","ref":"jobRecord/css.md","articles":[]},{"title":"js","level":"1.2.2","depth":2,"path":"jobRecord/js.md","ref":"jobRecord/js.md","articles":[]},{"title":"功能技巧","level":"1.2.3","depth":2,"path":"jobRecord/功能技巧.md","ref":"jobRecord/功能技巧.md","articles":[]},{"title":"补充","level":"1.2.4","depth":2,"path":"jobRecord/补充.md","ref":"jobRecord/补充.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"jobRecord/css.md","mtime":"2023-02-02T02:13:59.748Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T03:02:44.502Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"数据加密","level":"1.8","depth":1,"next":{"title":"crypto-js","level":"1.8.1","depth":2,"path":"encrypt/crypto-js.md","ref":"encrypt/crypto-js.md","articles":[]},"previous":{"title":"设计模式","level":"1.7.3","depth":2,"path":"设计原则/设计模式.md","ref":"设计原则/设计模式.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"encrypt/README.md","mtime":"2023-02-02T02:13:59.746Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T03:02:44.502Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
