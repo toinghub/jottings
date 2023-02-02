@@ -77,7 +77,7 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="vue补充.html" />
+    <link rel="next" href="vuex.html" />
     
     
     <link rel="prev" href="vue2.html" />
@@ -278,7 +278,33 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="vue补充.html">
+        <li class="chapter " data-level="1.4.3" data-path="vuex.html">
+            
+                <a href="vuex.html">
+            
+                    
+                    vuex
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="pinia.html">
+            
+                <a href="pinia.html">
+            
+                    
+                    pinia
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="vue补充.html">
             
                 <a href="vue补充.html">
             
@@ -789,13 +815,6 @@ function getData()
 }
 
 exprot { getData }
-</code></pre>
-<h2 id="vuex">vuex</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span> //&#x5F15;&#x5165;&#x903B;&#x8F91;js&#x6587;&#x4EF6;
-
-setup(){
-    const store = useStore() //store == this.$store
-}
 </code></pre>
 <h2 id="css-&#x529F;&#x80FD;">CSS &#x529F;&#x80FD;</h2>
 <h4 id="&#x6DF1;&#x5EA6;&#x9009;&#x62E9;&#x5668;----deep">&#x6DF1;&#x5EA6;&#x9009;&#x62E9;&#x5668; -- :deep()</h4>
@@ -1317,12 +1336,12 @@ const openModal = () =&gt; {
     </a>
      
     <a
-      href="vue补充.html"
+      href="vuex.html"
       class="
         navigation navigation-next
         
       "
-      aria-label="Next page: vue 补充"
+      aria-label="Next page: vuex"
     >
       <i class="fa fa-angle-right"></i>
     </a>
@@ -1356,7 +1375,7 @@ const openModal = () =&gt; {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vue 补充","level":"1.4.3","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-02T03:02:31.097Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T03:24:39.984Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-02T07:20:06.096Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T09:40:09.054Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
@@ -1383,6 +1402,10 @@ const openModal = () =&gt; {
     
         
         <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

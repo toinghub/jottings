@@ -103,15 +103,7 @@ function getData()
 exprot { getData }
 ```
 
-## vuex
 
-```js
-import { useStore } from 'vuex' //引入逻辑js文件
-
-setup(){
-    const store = useStore() //store == this.$store
-}
-```
 
 ## CSS 功能
 

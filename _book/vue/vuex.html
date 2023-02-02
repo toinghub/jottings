@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>storage · 课堂随笔</title>
+        <title>vuex · 课堂随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,8 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="pinia.html" />
     
-    <link rel="prev" href="websocket.html" />
+    
+    <link rel="prev" href="vue3.html" />
     
 
     </head>
@@ -236,9 +238,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4" data-path="../vue/">
+        <li class="chapter " data-level="1.4" data-path="./">
             
-                <a href="../vue/">
+                <a href="./">
             
                     
                     vue
@@ -250,9 +252,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../vue/vue2.html">
+        <li class="chapter " data-level="1.4.1" data-path="vue2.html">
             
-                <a href="../vue/vue2.html">
+                <a href="vue2.html">
             
                     
                     vue2
@@ -263,9 +265,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../vue/vue3.html">
+        <li class="chapter " data-level="1.4.2" data-path="vue3.html">
             
-                <a href="../vue/vue3.html">
+                <a href="vue3.html">
             
                     
                     vue3
@@ -276,9 +278,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../vue/vuex.html">
+        <li class="chapter active" data-level="1.4.3" data-path="vuex.html">
             
-                <a href="../vue/vuex.html">
+                <a href="vuex.html">
             
                     
                     vuex
@@ -289,9 +291,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../vue/pinia.html">
+        <li class="chapter " data-level="1.4.4" data-path="pinia.html">
             
-                <a href="../vue/pinia.html">
+                <a href="pinia.html">
             
                     
                     pinia
@@ -302,9 +304,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../vue/vue补充.html">
+        <li class="chapter " data-level="1.4.5" data-path="vue补充.html">
             
-                <a href="../vue/vue补充.html">
+                <a href="vue补充.html">
             
                     
                     vue 补充
@@ -597,9 +599,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16" data-path="./">
+        <li class="chapter " data-level="1.16" data-path="../webDemo/">
             
-                <a href="./">
+                <a href="../webDemo/">
             
                     
                     前端技巧功能
@@ -611,9 +613,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.16.1" data-path="SSR.html">
+        <li class="chapter " data-level="1.16.1" data-path="../webDemo/SSR.html">
             
-                <a href="SSR.html">
+                <a href="../webDemo/SSR.html">
             
                     
                     SSR
@@ -624,9 +626,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.16.2" data-path="websocket.html">
+        <li class="chapter " data-level="1.16.2" data-path="../webDemo/websocket.html">
             
-                <a href="websocket.html">
+                <a href="../webDemo/websocket.html">
             
                     
                     websocket
@@ -637,9 +639,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.16.3" data-path="storage.html">
+        <li class="chapter " data-level="1.16.3" data-path="../webDemo/storage.html">
             
-                <a href="storage.html">
+                <a href="../webDemo/storage.html">
             
                     
                     storage
@@ -689,7 +691,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >storage</a>
+        <a href=".." >vuex</a>
     </h1>
 </div>
 
@@ -702,117 +704,117 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="storage">storage</h1>
-<h3 id="&#x6587;&#x7AE0;&#x5730;&#x5740;"><a href="https://juejin.cn/post/7104301566857445412" target="_blank">&#x6587;&#x7AE0;&#x5730;&#x5740;</a></h3>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> config = {
-    type: <span class="hljs-string">&quot;loaclStorage&quot;</span>,<span class="hljs-comment">// &#x672C;&#x5730;&#x5B58;&#x50A8;&#x7C7B;&#x578B; localStorage/sessionStorage</span>
-    prefix: <span class="hljs-string">&apos;CBD_1.0.0&apos;</span>,<span class="hljs-comment">// &#x540D;&#x79F0;&#x524D;&#x7F00; &#x5EFA;&#x8BAE;&#xFF1A;&#x9879;&#x76EE;&#x540D; + &#x9879;&#x76EE;&#x7248;&#x672C;</span>
-    expire: <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">30</span>,<span class="hljs-comment">//&#x8FC7;&#x671F;&#x65F6;&#x95F4; &#x5355;&#x4F4D;&#xFF1A;&#x79D2;</span>
-    isEncrypt: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// &#x662F;&#x5426;&#x52A0;&#x5BC6;</span>
+             <h1 id="vuex">vuex</h1>
+<p><a href="https://vuex.vuejs.org/zh/" target="_blank">&#x6587;&#x6863;&#x5730;&#x5740;</a></p>
+<blockquote>
+<p>vue devtools   &#x5C0F;&#x5DE5;&#x5177;</p>
+<p>vuex &#x9ED8;&#x8BA4;&#x7BA1;&#x7406;&#x5728;&#x5185;&#x5B58;&#xFF0C;&#x5237;&#x65B0;&#x9875;&#x9762;&#x540E;&#x516C;&#x5171;&#x72B6;&#x6001;&#x4F1A;&#x4E22;&#x5931;</p>
+<p>vuex &#x6301;&#x4E45;&#x5316; todo</p>
+<p>&#x540E;&#x7AEF;&#x6570;&#x636E;&#x7684;&#x7F13;&#x5B58;&#x5FEB;&#x7167;&#xFF0C;&#x8F83;&#x5C11;&#x91CD;&#x590D;&#x6570;&#x636E;&#x8BF7;&#x6C42;</p>
+<p>actions&#x3001;mutations  &#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x8C03;&#x7528;</p>
+</blockquote>
+<h1 id="vue2">vue2</h1>
+<h2 id="state">state</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { mapState,mapActions,mapMutations } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+
+state:{id:1}   //&#x516C;&#x5171;&#x72B6;&#x6001; &#x7C7B;&#x4F3C;data
+this.$store.state.id  <span class="hljs-comment">//&#x67E5;&#x770B;state&#x7684;&#x516C;&#x5171;&#x72B6;&#x6001;</span>
+
+<span class="hljs-keyword">this</span>.id <span class="hljs-comment">//&#x67E5;&#x770B;state&#x7684;&#x516C;&#x5171;&#x72B6;&#x6001;</span>
+computed: {
+  ...mapState([<span class="hljs-string">&apos;id&apos;</span>])
+  ...mapState({ <span class="hljs-comment">//&#x53D6;&#x522B;&#x540D;</span>
+      userId:(state) =&gt; state.id
+  })
 }
-
-interface indexObj {
-    [key: string]: any
-}
-
-
-<span class="hljs-comment">// &#x540D;&#x79F0;&#x524D;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x524D;&#x7F00;</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">autoAddPrefix</span>(<span class="hljs-params">key: string</span>) </span>{
-    <span class="hljs-keyword">const</span> prefix = config.prefix ? config.prefix + <span class="hljs-string">&apos;_&apos;</span> : <span class="hljs-string">&apos;&apos;</span>;
-    <span class="hljs-keyword">return</span> prefix + key;
-}
-
-<span class="hljs-comment">// &#x79FB;&#x9664;&#x5DF2;&#x6DFB;&#x52A0;&#x7684;&#x524D;&#x7F00;</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">autoRemovePrefix</span>(<span class="hljs-params">key: string</span>) </span>{
-    <span class="hljs-keyword">const</span> len: number = config.prefix ? config.prefix.length + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">return</span> key.substr(len);
-}
-
-
-<span class="hljs-comment">// &#x8BBE;&#x7F6E;storage</span>
-<span class="hljs-comment">// { key:&#x952E;&#x503C;,value:&#x6570;&#x636E;,expire:&#x8FC7;&#x671F;&#x65F6;&#x95F4;,noRenewal:&#x662F;&#x5426;&#x4E0D;&#x7EED;&#x671F; }</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setStorage</span>(<span class="hljs-params">key: string, value: any, expire?: number, noRenewal?: boolean</span>) </span>{
-    <span class="hljs-keyword">if</span> (!value) value = <span class="hljs-literal">null</span>
-    expire = (expire ? expire : config.expire) * <span class="hljs-number">1000</span>
-    <span class="hljs-keyword">let</span> data: (object | string) = {
-        value: value,<span class="hljs-comment">//&#x5B58;&#x50A8;&#x503C;</span>
-        time: <span class="hljs-built_in">Date</span>.now(),<span class="hljs-comment">//&#x5B58;&#x50A8;&#x65F6;&#x95F4;&#x6233;</span>
-        expire: expire, <span class="hljs-comment">//&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
-        noRenewal,
-    }
-    data = <span class="hljs-built_in">JSON</span>.stringify(data);
-    key = autoAddPrefix(key);
-    <span class="hljs-comment">// if (config.isEncrypt) data = encrypt(data) //&#x52A0;&#x5BC6;</span>
-    (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">indexObj</span>&gt;</span>window)[config.type].setItem(key, data)
-}
-
-// &#x83B7;&#x53D6;storage
-// { key:&#x952E;&#x503C; }
-export function getStorage(key: string) {
-    key = autoAddPrefix(key)
-    let data = (<span class="hljs-tag">&lt;<span class="hljs-title">indexObj</span>&gt;</span>window)[config.type].getItem(key)
-    if (!data || JSON.stringify(data) === &quot;null&quot;) return null
-    // if (config.isEncrypt) data = decrypt(data) //&#x89E3;&#x5BC6;
-    const nowTime = Date.now()
-    if (data.expire &amp;&amp; data.expire <span class="hljs-tag">&lt; <span class="hljs-attribute">nowTime</span> <span class="hljs-attribute">-</span> <span class="hljs-attribute">data.time</span>) { //&#x5224;&#x65AD;&#x65F6;&#x95F4;&#x662F;&#x5426;&#x8FC7;&#x671F;
-        <span class="hljs-attribute">removeStorage</span>(<span class="hljs-attribute">key</span>)
-        <span class="hljs-attribute">return</span> <span class="hljs-attribute">null</span>
-    }
-    <span class="hljs-attribute">let</span> <span class="hljs-attribute">value</span> = <span class="hljs-attribute">isJson</span>(<span class="hljs-attribute">data.value</span>) ? <span class="hljs-attribute">JSON.parse</span>(<span class="hljs-attribute">data.value</span>) <span class="hljs-attribute">:</span> <span class="hljs-attribute">data.value</span>
-    <span class="hljs-attribute">if</span> (<span class="hljs-attribute">data.noRenewal</span>) { //&#x662F;&#x5426;&#x7EED;&#x671F;
-        <span class="hljs-attribute">key</span> = <span class="hljs-attribute">autoRemovePrefix</span>(<span class="hljs-attribute">key</span>)
-        <span class="hljs-attribute">setStorage</span>(<span class="hljs-attribute">key</span>, <span class="hljs-attribute">data.value</span>, <span class="hljs-attribute">data.expire</span>)
-    }
-    <span class="hljs-attribute">return</span> <span class="hljs-attribute">value</span>
-
-}
-
-
-// &#x5220;&#x9664; <span class="hljs-attribute">removeStorage</span>
-// { <span class="hljs-attribute">key:</span>&#x952E;&#x503C; }
-<span class="hljs-attribute">export</span> <span class="hljs-attribute">function</span> <span class="hljs-attribute">removeStorage</span>(<span class="hljs-attribute">key:</span> <span class="hljs-attribute">string</span>) {
-    (&lt;<span class="hljs-attribute">indexObj</span>&gt;</span>window)[config.type].removeItem(autoAddPrefix(key));
-}
-
-// &#x6E05;&#x7A7A; clearStorage
-export const clearStorage = () =&gt; {
-    (<span class="hljs-tag">&lt;<span class="hljs-title">indexObj</span>&gt;</span>window)[config.type].clear();
-}
-
-
-// &#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x7528; JSON.parse
-export function isJson(value: any) {
-    if (Object.prototype.toString.call(value) === &apos;[object String]&apos;) {
-        try {
-            const obj = JSON.parse(value);
-            const objType = Object.prototype.toString.call(obj);
-            return objType === &apos;[object Object]&apos; || objType === &apos;[object Array]&apos;;
-        } catch (e) {
-            return false;
-        }
-    }
-    return false;
-}
-
-// &#x6D3E;&#x53D1;storage&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;
-export function dispatchEventStroage() {
-    const signSetItem = localStorage.setItem
-    localStorage.setItem = function (key, val) {
-        signSetItem.apply(this, <span class="hljs-tag">&lt;<span class="hljs-title">any</span>&gt;</span>arguments) //&#x66F4;&#x6539;setItem&#x7684;this&#x6307;&#x5411;&#xFF0C;arguments&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x6570;&#x7EC4;&#xFF08;name,value&#xFF09;
-        let setEvent: any = new Event(&apos;setItemEvent&apos;) //&#x6784;&#x9020;&#x51FD;&#x6570;
-        setEvent.key = key
-        setEvent.value = val
-        window.dispatchEvent(setEvent) //&#x53D1;&#x9001;&#x4E8B;&#x4EF6;&#x5230;&#x76D1;&#x542C;&#x5668;&#x4E0A;
+</code></pre>
+<h2 id="getters">getters</h2>
+<pre><code class="lang-js">getters:{ <span class="hljs-comment">//&#x7C7B;&#x4F3C;&#x8BA1;&#x7B97;&#x5C5E;&#x6027;</span>
+    getdoosId:state.id=&gt;(id)=&gt;{
+        <span class="hljs-keyword">return</span> state.id == id ? <span class="hljs-literal">true</span> :<span class="hljs-literal">false</span>
     }
 }
+computed: {
+  ...mapGetter([<span class="hljs-string">&apos;getdoosId&apos;</span>])
+}
+</code></pre>
+<h2 id="actions">actions</h2>
+<pre><code class="lang-js">actions:{ <span class="hljs-comment">//&#x652F;&#x6301;&#x5F02;&#x6B65;&#x548C;&#x540C;&#x6B65;  </span>
+    requert&#xFF08;store, data&#xFF09;{} <span class="hljs-comment">//store &#x4E0B;&#x9762;&#x7684;&#x4E3A;&#x89E3;&#x6784;&#x7684;</span>
+    requert&#xFF08;{ commit, state }, data&#xFF09;{ 
+      http().then(id=&gt;{ <span class="hljs-comment">//&#x5F02;&#x6B65;&#x8BF7;&#x6C42;</span>
+         commit.changeId(id) <span class="hljs-comment">//&#x5B9E;&#x8D28;&#x4E0A;&#x8FD8;&#x662F;&#x901A;&#x8FC7;store.commit,&#x66F4;&#x6539;state&#x503C;</span>
+      })
+    }
+}
+<span class="hljs-keyword">this</span>.$store.dispatch(<span class="hljs-string">&apos;requert&apos;</span>,data )<span class="hljs-comment">//&#x89E6;&#x53D1;actions&#x65B9;&#x6CD5; &#x5206;&#x53D1;</span>
+<span class="hljs-keyword">this</span>.$store.dispatch(<span class="hljs-string">&apos;requert&apos;</span>,data ).then()<span class="hljs-comment">//&#x6709;&#x8FD4;&#x56DE;&#x503C;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;then</span>
+
+<span class="hljs-keyword">this</span>.requert(data)  <span class="hljs-comment">//&#x540C;&#x4E0A;&#x9762;&#x5206;&#x53D1;&#x8BED;&#x6CD5;&#x4E00;&#x81F4;</span>
+ methods: {
+    ...mapActions([
+      <span class="hljs-string">&apos;requert&apos;</span>,
+    ]),
+ }
+</code></pre>
+<h2 id="mutations">mutations</h2>
+<pre><code class="lang-js">mutations:{ <span class="hljs-comment">//&#x7EDF;&#x4E00;&#x7BA1;&#x7406;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;devtools&#x8BB0;&#x5F55;  &#x53EA;&#x652F;&#x6301;&#x540C;&#x6B65;&#x51FD;&#x6570;</span>
+    changeId(state,enterId){
+        state.id = enterId <span class="hljs-comment">//&#x66F4;&#x6539;state&#x7684;&#x516C;&#x5171;&#x72B6;&#x6001;</span>
+    } 
+} 
+<span class="hljs-keyword">this</span>.$store.commit(<span class="hljs-string">&apos;changeId&apos;</span>,<span class="hljs-number">2</span>) <span class="hljs-comment">//&#x89E6;&#x53D1;mutations&#x65B9;&#x6CD5;  &#x4EA4;&#x4ED8;</span>
+
+<span class="hljs-keyword">import</span> { mapMutations } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span>
+this.changeId(2) // &#x540C;&#x4E0A;&#x9762;&#x4EA4;&#x4ED8;&#x8BED;&#x6CD5;&#x4E00;&#x81F4;
+ methods: {
+    ...mapMutations([
+      <span class="hljs-string">&apos;changeId&apos;</span>, 
+    ]),
+ }
+</code></pre>
+<h2 id="modules">modules</h2>
+<blockquote>
+<p>&#x5C06;&#x9700;&#x8981;&#x5199;&#x7684;&#x5185;&#x5BB9;&#x6A21;&#x5757;&#x5316;&#x51FA;&#x53BB;</p>
+</blockquote>
+<pre><code class="lang-js">namespaced <span class="hljs-comment">//&#x547D;&#x540D;&#x7A7A;&#x95F4;   &#x5F53;&#x6709;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x547D;&#x540D;&#x7A7A;&#x95F4;</span>
 
 
+<span class="hljs-keyword">import</span> demo <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./demo&apos;</span>
+export default new Vuex.Store({
+     modules:{
+         demo  //&#x6A21;&#x5757;&#x7684;&#x540D;&#x79F0;
+     }
+)
+</code></pre>
+<h2 id="vuex--&#x6301;&#x4E45;&#x5316;">Vuex  &#x6301;&#x4E45;&#x5316;</h2>
+<p><a href="https://gitcode.net/mirrors/robinvdvleuten/vuex-persistedstate?utm_source=csdn_github_accelerator" target="_blank">vuex-persistedstate</a></p>
+<p><a href="https://www.npmjs.com/package/vuex-persist" target="_blank">vuex-persist</a></p>
+<pre><code class="lang-js">npm <span class="hljs-number">1</span> vuex-persistedstate --save  <span class="hljs-comment">//&#x5B89;&#x88C5;</span>
 
-// &#x76D1;&#x542C;storage&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;
-// window.addEventListener(&quot;setItemEvent&quot;, function (e: any) {
-//     const newdata = JSON.parse(e.value);
-// });
-</span></code></pre>
+<span class="hljs-keyword">import</span> createPersistedState <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vuex-persistedstate&quot;</span> //&#x5728;&#x9700;&#x8981;&#x7684;&#x5730;&#x65B9;&#x5B89;&#x88C5;&#x4F7F;&#x7528;
+const store =newVuex.Store({
+ plugins: [createPersistedState()] //&#x7F13;&#x5B58;vuex&#x6240;&#x6709;&#x6570;&#x636E;
+ plugins: [createPersistedState({ //&#x7F13;&#x5B58;&#x914D;&#x7F6E;
+   storage:<span class="hljs-string">&apos;localStorage&apos;</span>, //&#x5B58;&#x50A8;&#x7684;&#x4F4D;&#x7F6E;
+   key:<span class="hljs-string">&apos;vuexData&apos;</span>, //&#x952E;&#x4F4D;&#x540D;&#x5B57;&#xFF0C;&#x9ED8;&#x8BA4;vuex 
+   reducer:(state){ //&#x9700;&#x8981;&#x4FDD;&#x5B58;&#x7684;&#x503C;&#x3002;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4FDD;&#x5B58;&#x6574;&#x4E2A;&#x72B6;&#x6001;&#x3002;
+    id:state.id 
+   }
+ })]   
+})
+</code></pre>
+<h1 id="vue3">vue3</h1>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vuex&apos;</span> //&#x5F15;&#x5165;&#x903B;&#x8F91;js&#x6587;&#x4EF6;
+
+setup(){
+    const store = useStore() //store == this.$store
+    <span class="hljs-keyword">const</span> count = computed(() =&gt; store.state.count),
+    <span class="hljs-keyword">const</span> double = computed(() =&gt; store.getters.double)
+    <span class="hljs-keyword">const</span> increment = () =&gt; store.commit(<span class="hljs-string">&apos;increment&apos;</span>),
+    <span class="hljs-keyword">const</span> asyncIncrement = () =&gt; store.dispatch(<span class="hljs-string">&apos;asyncIncrement&apos;</span>)
+}
+</code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -839,16 +841,27 @@ export function dispatchEventStroage() {
 
      
     <a
-      href="websocket.html"
+      href="vue3.html"
       class="
         navigation navigation-prev
-        navigation-unique
+        
       "
-      aria-label="Previous page: websocket"
+      aria-label="Previous page: vue3"
     >
       <i class="fa fa-angle-left"></i>
     </a>
-       
+     
+    <a
+      href="pinia.html"
+      class="
+        navigation navigation-next
+        
+      "
+      aria-label="Next page: pinia"
+    >
+      <i class="fa fa-angle-right"></i>
+    </a>
+      
   </div>
   <script>
     function showModal() {
@@ -878,7 +891,7 @@ export function dispatchEventStroage() {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"storage","level":"1.16.3","depth":2,"previous":{"title":"websocket","level":"1.16.2","depth":2,"path":"webDemo/websocket.md","ref":"webDemo/websocket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"webDemo/storage.md","mtime":"2023-02-02T02:14:04.315Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T09:40:09.054Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vuex","level":"1.4.3","depth":2,"next":{"title":"pinia","level":"1.4.4","depth":2,"path":"vue/pinia.md","ref":"vue/pinia.md","articles":[]},"previous":{"title":"vue3","level":"1.4.2","depth":2,"path":"vue/vue3.md","ref":"vue/vue3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vuex.md","mtime":"2023-02-02T07:28:24.078Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T09:40:09.054Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
