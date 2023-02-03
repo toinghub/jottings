@@ -76,6 +76,12 @@ const router = createRouter({
 
 ## 自定义hooks
 
+> 组合式函数约定用驼峰命名法命名，并以“use”作为开头 
+>
+> 尽管其响应性不依赖 ref，组合式函数仍可接收 ref 参数 
+>
+> 组合式函数中使用 `ref()` 
+
 ### 将逻辑代码分离页面，写在外部的js文件中
 
 ```js
@@ -103,7 +109,16 @@ function getData()
 exprot { getData }
 ```
 
+##  **VNode 钩子** 
 
+>  每个组件或html标签上，我们可以使用一些特殊的（文档没写的）钩子作为事件
+
+* onVnodeBeforeMount
+* onVnodeMounted
+* onVnodeBeforeUpdate
+* onVnodeUpdated
+* onVnodeBeforeUnmount
+* onVnodeUnmounted
 
 ## CSS 功能
 
@@ -503,17 +518,25 @@ const fn = inject('function', () => {}, false)
 
 
 
-### 
+## 插槽
+
+### useSlots() / useAttrs()
+
+> useSlots 和 useAttrs 是真实的运行时函数
+>
+> 与 setupContext.slots 和 setupContext.attrs 等价 
+
+```html
+<script setup>
+import { useSlots, useAttrs } from 'vue'
+const slots = useSlots() //获取子插槽数据
+const attrs = useAttrs() //透传
+</script> 
+```
+
+
 
 # [TypeScript 标注类型](https://cn.vuejs.org/guide/typescript/composition-api.html)
-
-## 组合式api
-
->  组合式函数约定用驼峰命名法命名，并以“use”作为开头 
->
->  尽管其响应性不依赖 ref，组合式函数仍可接收 ref 参数 
->
->  组合式函数中使用 `ref()` 
 
 
 
@@ -694,7 +717,7 @@ onMounted(() => {
 
 ## [组件模板引用 标注类型](https://cn.vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs)
 
-> 如果想在 TypeScript 文件而不是在 Vue SFC 中使用这种技巧，需要开启 Volar 的 [Takeover 模式](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。 
+> 如果想在 TypeScript 文件而不是在 Vue SFC 中使用这种技巧，需要开启 Volar 的 [Takeover 模式](https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode)。 defineExpose ----> [组件暴露出自己的属性]
 
 ```html
 <!-- MyModal.vue -->
