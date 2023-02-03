@@ -342,19 +342,25 @@ someStore.$onAction(callback, true)
 
 
 
-# [插件](https://pinia.vuejs.org/zh/core-concepts/plugins.html#introduction)
+# [Plugins](https://pinia.vuejs.org/zh/core-concepts/plugins.html#introduction)
 
 > 给所有的store批量添加属性、方法等
 >
->  任何由插件返回的属性都会被 devtools 自动追踪 
+> 任何由插件返回的属性都会被 devtools 自动追踪 
+>
+> state 变更或添加(包括调用 `store.$patch()`)都是发生在 store 被激活之前，不会触发订阅函数
 
 ```js
 import { createPinia } from 'pinia'
 
 // 在安装此插件后创建的每个 store 中都会添加一个名为 `secret` 的属性。
 // 注册插件（本质上是一个有返回值的函数）
-function SecretPiniaPlugin() {
-  return { secret: 'the cake is a lie' }
+function SecretPiniaPlugin(context) {
+ context.pinia // 用 `createPinia()` 创建的 pinia。 
+ context.app // 用 `createApp()` 创建的当前应用(仅 Vue 3)。
+ context.store // 该插件想扩展的 store
+ context.options // 定义传给 `defineStore()` 的 store 的可选对象。
+  // ...
 }
 const pinia = createPinia()
 // 将该插件交给 Pinia
@@ -365,6 +371,45 @@ const store = useStore()
 store.secret // 'the cake is a lie'
 ```
 
+### 插件中调用  -- $subscribe
+
+>  可以在插件中使用 [store.$subscribe](https://pinia.vuejs.org/zh/core-concepts/state.html#subscribing-to-the-state) 和 [store.$onAction](https://pinia.vuejs.org/zh/core-concepts/actions.html#subscribing-to-actions) 
+
+```js
+pinia.use(({ store }) => {
+  store.$subscribe(() => {
+    // 响应 store 变化
+  })
+  store.$onAction(() => {
+    // 响应 store actions
+  })
+})
+```
+
+## [TypeScript](https://pinia.vuejs.org/zh/core-concepts/plugins.html#typing-plugins)
+
+### 标注插件类型
+
+```js
+import { PiniaPluginContext } from 'pinia'
+export function myPiniaPlugin(context: PiniaPluginContext) {
+  // ...
+}
+```
+
+
+
+#  导航守卫中使用 
+
+```js
+import { createRouter } from 'vue-router'
+const router = createRouter({})
+
+router.beforeEach((to) => {
+  const store = useStore()
+  if (to.meta.requiresAuth && !store.isLoggedIn) return '/login'
+})
+```
 
 
 
@@ -374,5 +419,3 @@ store.secret // 'the cake is a lie'
 
 
 
-
-# 
