@@ -140,3 +140,54 @@ setup(){
 }
 ```
 
+# [TypeScript](https://vuex.vuejs.org/zh/guide/typescript-support.html)
+
+```js
+// store.ts
+import { InjectionKey } from 'vue'
+import { createStore, useStore as baseUseStore, Store } from 'vuex'
+
+export interface State {
+  count: number
+}
+
+export const key: InjectionKey<Store<State>> = Symbol()
+
+export const store = createStore<State>({
+  state: {
+    count: 0
+  }
+})
+
+// 定义自己的 `useStore` 组合式函数
+export function useStore () {
+  return baseUseStore(key)
+}
+```
+
+```js
+// main.ts
+import { createApp } from 'vue'
+import { store, key } from './store'
+
+const app = createApp({ ... })
+
+// 传入 injection key
+app.use(store, key)
+
+app.mount('#app')
+```
+
+```js
+// vue 组件
+import { useStore } from './store'
+
+export default {
+  setup () {
+    const store = useStore()
+
+    store.state.count // 类型为 number
+  }
+}
+```
+

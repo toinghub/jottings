@@ -792,6 +792,11 @@ const router = useRouter() //router == this.$router
 <span class="hljs-tag">&lt;/<span class="hljs-title">router-link</span>&gt;</span>
 </code></pre>
 <h2 id="&#x81EA;&#x5B9A;&#x4E49;hooks">&#x81EA;&#x5B9A;&#x4E49;hooks</h2>
+<blockquote>
+<p>&#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x7EA6;&#x5B9A;&#x7528;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x6CD5;&#x547D;&#x540D;&#xFF0C;&#x5E76;&#x4EE5;&#x201C;use&#x201D;&#x4F5C;&#x4E3A;&#x5F00;&#x5934; </p>
+<p>&#x5C3D;&#x7BA1;&#x5176;&#x54CD;&#x5E94;&#x6027;&#x4E0D;&#x4F9D;&#x8D56; ref&#xFF0C;&#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x4ECD;&#x53EF;&#x63A5;&#x6536; ref &#x53C2;&#x6570; </p>
+<p>&#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528; <code>ref()</code> </p>
+</blockquote>
 <h3 id="&#x5C06;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x9875;&#x9762;&#xFF0C;&#x5199;&#x5728;&#x5916;&#x90E8;&#x7684;js&#x6587;&#x4EF6;&#x4E2D;">&#x5C06;&#x903B;&#x8F91;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x9875;&#x9762;&#xFF0C;&#x5199;&#x5728;&#x5916;&#x90E8;&#x7684;js&#x6587;&#x4EF6;&#x4E2D;</h3>
 <pre><code class="lang-js"><span class="hljs-comment">//&#x9875;&#x9762;vue&#x6587;&#x4EF6;</span>
 <span class="hljs-keyword">import</span> {getData} <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./app.js&apos;</span> //&#x5F15;&#x5165;&#x903B;&#x8F91;js&#x6587;&#x4EF6;
@@ -816,6 +821,18 @@ function getData()
 
 exprot { getData }
 </code></pre>
+<h2 id="vnode-&#x94A9;&#x5B50;"><strong>VNode &#x94A9;&#x5B50;</strong></h2>
+<blockquote>
+<p> &#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x6216;html&#x6807;&#x7B7E;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E00;&#x4E9B;&#x7279;&#x6B8A;&#x7684;&#xFF08;&#x6587;&#x6863;&#x6CA1;&#x5199;&#x7684;&#xFF09;&#x94A9;&#x5B50;&#x4F5C;&#x4E3A;&#x4E8B;&#x4EF6;</p>
+</blockquote>
+<ul>
+<li>onVnodeBeforeMount</li>
+<li>onVnodeMounted</li>
+<li>onVnodeBeforeUpdate</li>
+<li>onVnodeUpdated</li>
+<li>onVnodeBeforeUnmount</li>
+<li>onVnodeUnmounted</li>
+</ul>
 <h2 id="css-&#x529F;&#x80FD;">CSS &#x529F;&#x80FD;</h2>
 <h4 id="&#x6DF1;&#x5EA6;&#x9009;&#x62E9;&#x5668;----deep">&#x6DF1;&#x5EA6;&#x9009;&#x62E9;&#x5668; -- :deep()</h4>
 <pre><code class="lang-css">&lt;<span class="hljs-tag">style</span> <span class="hljs-tag">scoped</span>&gt;
@@ -1134,14 +1151,19 @@ const bar = inject(<span class="hljs-string">&apos;foo&apos;</span>, <span class
 const fn = inject(<span class="hljs-string">&apos;function&apos;</span>, () =&gt; {}, false)
 </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 </code></pre>
-<h3 id=""> </h3>
-<h1 id="typescript-&#x6807;&#x6CE8;&#x7C7B;&#x578B;"><a href="https://cn.vuejs.org/guide/typescript/composition-api.html" target="_blank">TypeScript &#x6807;&#x6CE8;&#x7C7B;&#x578B;</a></h1>
-<h2 id="&#x7EC4;&#x5408;&#x5F0F;api">&#x7EC4;&#x5408;&#x5F0F;api</h2>
+<h2 id="&#x63D2;&#x69FD;">&#x63D2;&#x69FD;</h2>
+<h3 id="useslots--useattrs">useSlots() / useAttrs()</h3>
 <blockquote>
-<p> &#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x7EA6;&#x5B9A;&#x7528;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x6CD5;&#x547D;&#x540D;&#xFF0C;&#x5E76;&#x4EE5;&#x201C;use&#x201D;&#x4F5C;&#x4E3A;&#x5F00;&#x5934; </p>
-<p> &#x5C3D;&#x7BA1;&#x5176;&#x54CD;&#x5E94;&#x6027;&#x4E0D;&#x4F9D;&#x8D56; ref&#xFF0C;&#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x4ECD;&#x53EF;&#x63A5;&#x6536; ref &#x53C2;&#x6570; </p>
-<p> &#x7EC4;&#x5408;&#x5F0F;&#x51FD;&#x6570;&#x4E2D;&#x4F7F;&#x7528; <code>ref()</code> </p>
+<p>useSlots &#x548C; useAttrs &#x662F;&#x771F;&#x5B9E;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x51FD;&#x6570;</p>
+<p>&#x4E0E; setupContext.slots &#x548C; setupContext.attrs &#x7B49;&#x4EF7; </p>
 </blockquote>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> { useSlots, useAttrs } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
+const slots = useSlots() //&#x83B7;&#x53D6;&#x5B50;&#x63D2;&#x69FD;&#x6570;&#x636E;
+const attrs = useAttrs() //&#x900F;&#x4F20;
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+</code></pre>
+<h1 id="typescript-&#x6807;&#x6CE8;&#x7C7B;&#x578B;"><a href="https://cn.vuejs.org/guide/typescript/composition-api.html" target="_blank">TypeScript &#x6807;&#x6CE8;&#x7C7B;&#x578B;</a></h1>
 <h2 id="props-&#x6807;&#x6CE8;&#x7C7B;&#x578B;">props &#x6807;&#x6CE8;&#x7C7B;&#x578B;</h2>
 <blockquote>
 <p>&#x4F20;&#x9012;&#x7ED9; <code>defineProps</code> &#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x672C;&#x8EAB;<strong>&#x4E0D;&#x80FD;</strong>&#x662F;&#x4E00;&#x4E2A;&#x5BFC;&#x5165;&#x7684;&#x7C7B;&#x578B; </p>
@@ -1271,7 +1293,7 @@ onMounted(() =&gt; {
 </code></pre>
 <h2 id="&#x7EC4;&#x4EF6;&#x6A21;&#x677F;&#x5F15;&#x7528;-&#x6807;&#x6CE8;&#x7C7B;&#x578B;"><a href="https://cn.vuejs.org/guide/typescript/composition-api.html#typing-component-template-refs" target="_blank">&#x7EC4;&#x4EF6;&#x6A21;&#x677F;&#x5F15;&#x7528; &#x6807;&#x6CE8;&#x7C7B;&#x578B;</a></h2>
 <blockquote>
-<p>&#x5982;&#x679C;&#x60F3;&#x5728; TypeScript &#x6587;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x5728; Vue SFC &#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x6280;&#x5DE7;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x542F; Volar &#x7684; <a href="https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode" target="_blank">Takeover &#x6A21;&#x5F0F;</a>&#x3002; </p>
+<p>&#x5982;&#x679C;&#x60F3;&#x5728; TypeScript &#x6587;&#x4EF6;&#x800C;&#x4E0D;&#x662F;&#x5728; Vue SFC &#x4E2D;&#x4F7F;&#x7528;&#x8FD9;&#x79CD;&#x6280;&#x5DE7;&#xFF0C;&#x9700;&#x8981;&#x5F00;&#x542F; Volar &#x7684; <a href="https://cn.vuejs.org/guide/typescript/overview.html#volar-takeover-mode" target="_blank">Takeover &#x6A21;&#x5F0F;</a>&#x3002; defineExpose ----&gt; [&#x7EC4;&#x4EF6;&#x66B4;&#x9732;&#x51FA;&#x81EA;&#x5DF1;&#x7684;&#x5C5E;&#x6027;]</p>
 </blockquote>
 <pre><code class="lang-html"><span class="hljs-comment">&lt;!-- MyModal.vue --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span>&gt;</span><span class="javascript">
@@ -1375,7 +1397,7 @@ const openModal = () =&gt; {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-02T07:20:06.096Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T09:40:09.054Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-03T08:20:22.994Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-06T03:01:54.314Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
@@ -1402,10 +1424,6 @@ const openModal = () =&gt; {
     
         
         <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

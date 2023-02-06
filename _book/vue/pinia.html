@@ -716,7 +716,7 @@
 // &#x7B2C;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4F60;&#x7684;&#x5E94;&#x7528;&#x4E2D; Store &#x7684;&#x552F;&#x4E00; ID&#x3002;
 export const useStore = defineStore(<span class="hljs-string">&apos;main&apos;</span>, {})
 </code></pre>
-<h1 id="option-&#x5BF9;&#x8C61;--&#x7C7B;&#x578B;">Option &#x5BF9;&#x8C61;  &#x7C7B;&#x578B;</h1>
+<h3 id="&#x5BF9;&#x8C61;--&#x7C7B;&#x578B;">&#x5BF9;&#x8C61;  &#x7C7B;&#x578B;</h3>
 <pre><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = defineStore(<span class="hljs-string">&apos;counter&apos;</span>, {
   state: () =&gt; ({ count: <span class="hljs-number">0</span> }),
   getters: {
@@ -729,18 +729,39 @@ export const useStore = defineStore(<span class="hljs-string">&apos;main&apos;</
   },
 })
 </code></pre>
-<h2 id="state"><a href="https://pinia.vuejs.org/zh/core-concepts/state.html" target="_blank">State</a></h2>
+<h3 id="&#x51FD;&#x6570;-&#x7C7B;&#x578B;">&#x51FD;&#x6570; &#x7C7B;&#x578B;</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = defineStore(<span class="hljs-string">&apos;counter&apos;</span>, () =&gt; {
+  <span class="hljs-keyword">const</span> count = ref(<span class="hljs-number">0</span>)
+  <span class="hljs-keyword">const</span> plusOne = computed(() =&gt; count.value + <span class="hljs-number">1</span>)
+  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params"></span>) </span>{
+    count.value++
+  }
+
+  <span class="hljs-keyword">return</span> { count, increment }
+})
+</code></pre>
+<h2 id="&#x54CD;&#x5E94;&#x5F0F;&#x89E3;&#x6784;storetorefs"><a href="https://pinia.vuejs.org/zh/core-concepts/#using-the-store" target="_blank">&#x54CD;&#x5E94;&#x5F0F;&#x89E3;&#x6784;(storeToRefs)</a></h2>
+<blockquote>
+<p>&#x4F7F;&#x7528; storeToRefs  &#x5C06;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#x521B;&#x5EFA;&#x5F15;&#x7528; </p>
+<p>&#x540C;&#x65F6;&#x4F1A;&#x8DF3;&#x8FC7;&#x4EFB;&#x4F55; action &#x6216;&#x975E;&#x54CD;&#x5E94;&#x5F0F;(&#x975E; ref/&#x54CD;&#x5E94;&#x5F0F;)&#x5C5E;&#x6027;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> { name, doubleCount } = storeToRefs(store)
+</code></pre>
+<h1 id="state"><a href="https://pinia.vuejs.org/zh/core-concepts/state.html" target="_blank">State</a></h1>
 <blockquote>
 <p> &#x5B9A;&#x4E49;&#x4E3A;&#x4E00;&#x4E2A;&#x8FD4;&#x56DE;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x7684;&#x51FD;&#x6570;&#xFF0C; &#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x652F;&#x6301;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x5BA2;&#x6237;&#x7AEF;&#x3002; </p>
 </blockquote>
-<pre><code class="lang-js">state: () =&gt; {
+<pre><code class="lang-js"><span class="hljs-comment">//&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</span>
+state: () =&gt; {
     <span class="hljs-keyword">return</span> { <span class="hljs-comment">// &#x6240;&#x6709;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x90FD;&#x5C06;&#x81EA;&#x52A8;&#x63A8;&#x65AD;&#x51FA;&#x5B83;&#x4EEC;&#x7684;&#x7C7B;&#x578B;</span>
       count: <span class="hljs-number">0</span>,
       name: <span class="hljs-string">&apos;Eduardo&apos;</span>,
     }
   },
+<span class="hljs-comment">//&#x51FD;&#x6570;&#x7C7B;&#x578B;</span>
+<span class="hljs-keyword">const</span> count = ref(<span class="hljs-number">0</span>)
 </code></pre>
-<h4 id="typescript">TypeScript</h4>
+<h3 id="typescript">TypeScript</h3>
 <pre><code class="lang-typescript"><span class="hljs-interface"><span class="hljs-keyword">interface</span> State </span>{
   name: <span class="hljs-built_in">string</span>
   age: <span class="hljs-built_in">number</span>
@@ -755,21 +776,36 @@ export const useStore = defineStore(<span class="hljs-string">&apos;main&apos;</
   },
 })
 </code></pre>
-<h3 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h3>
+<h2 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h2>
 <blockquote>
 <p> &#x901A;&#x8FC7; <code>store</code> &#x5B9E;&#x4F8B;&#x8BBF;&#x95EE; state&#xFF0C;&#x76F4;&#x63A5;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x8BFB;&#x5199; </p>
 </blockquote>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> store = useStore()
 store.count++
 </code></pre>
-<h3 id="&#x91CD;&#x7F6E;-------reset">&#x91CD;&#x7F6E;   --  $reset()</h3>
+<pre><code class="lang-js"> computed: {
+    <span class="hljs-comment">// &#x4E0E;&#x4ECE; store.count &#x4E2D;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x76F8;&#x540C;</span>
+    ...mapState(useCounterStore, [<span class="hljs-string">&apos;count&apos;</span>])
+    <span class="hljs-comment">// &#x4E0E;&#x4E0A;&#x8FF0;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A; this.myOwnName</span>
+    ...mapState(useCounterStore, {
+      myOwnName: <span class="hljs-string">&apos;count&apos;</span>,
+      <span class="hljs-comment">// &#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x83B7;&#x5F97;&#x5BF9; store &#x7684;&#x8BBF;&#x95EE;&#x6743;</span>
+      double: store =&gt; store.count * <span class="hljs-number">2</span>,
+      <span class="hljs-comment">// &#x5B83;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE; `this`&#xFF0C;&#x4F46;&#x5B83;&#x6CA1;&#x6709;&#x6807;&#x6CE8;&#x7C7B;&#x578B;</span>
+      magicValue(store) {
+        <span class="hljs-keyword">return</span> store.someGetter + <span class="hljs-keyword">this</span>.count + <span class="hljs-keyword">this</span>.double
+      },
+    }),
+  },
+</code></pre>
+<h2 id="&#x91CD;&#x7F6E;-------reset">&#x91CD;&#x7F6E;   --  $reset()</h2>
 <blockquote>
 <p> &#x8C03;&#x7528; store &#x7684; <code>$reset()</code> &#x65B9;&#x6CD5;&#x5C06; state &#x91CD;&#x7F6E;&#x4E3A;&#x521D;&#x59CB;&#x503C; </p>
 </blockquote>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> store = useStore()
 store.$reset()
 </code></pre>
-<h3 id="&#x53D8;&#x66F4;&#x66FF;&#x6362;------patch">&#x53D8;&#x66F4;/&#x66FF;&#x6362;  --  $patch</h3>
+<h2 id="&#x53D8;&#x66F4;&#x66FF;&#x6362;------patch">&#x53D8;&#x66F4;/&#x66FF;&#x6362;  --  $patch</h2>
 <blockquote>
 <p> &#x8865;&#x4E01;&#x5BF9;&#x8C61;&#x5728;&#x540C;&#x4E00;&#x65F6;&#x95F4;&#x66F4;&#x6539;&#x591A;&#x4E2A;&#x5C5E;&#x6027; </p>
 </blockquote>
@@ -786,6 +822,17 @@ store.$patch({
   state.items.push({ name: <span class="hljs-string">&apos;shoes&apos;</span>, quantity: <span class="hljs-number">1</span> }) 
   state.hasChanged = <span class="hljs-literal">true</span>
 })
+</code></pre>
+<h2 id="&#x8BBF;&#x95EE;&#x4FEE;&#x6539;----&#x51FD;&#x6570;&#x7C7B;&#x578B;----mapwritablestate">&#x8BBF;&#x95EE;&#x4FEE;&#x6539; -- &#x51FD;&#x6570;&#x7C7B;&#x578B; -- mapWritableState()</h2>
+<pre><code class="lang-js">computed: {
+    <span class="hljs-comment">// &#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7EC4;&#x4EF6;&#x4E2D;&#x7684; this.count&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x8BBE;&#x7F6E;&#x5B83;&#x3002;</span>
+    ...mapWritableState(useCounterStore, [<span class="hljs-string">&apos;count&apos;</span>])
+    <span class="hljs-comment">// &#x4E0E;&#x4E0A;&#x8FF0;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A; this.myOwnName</span>
+    ...mapWritableState(useCounterStore, {
+      myOwnName: <span class="hljs-string">&apos;count&apos;</span>,
+    }),
+  },
+  <span class="hljs-keyword">this</span>.count++ <span class="hljs-comment">//&#x4FEE;&#x6539;state.count&#x5C5E;&#x6027;</span>
 </code></pre>
 <h2 id="&#x8BA2;&#x9605;-------subscribe"><a href="https://pinia.vuejs.org/zh/core-concepts/state.html#subscribing-to-the-state" target="_blank">&#x8BA2;&#x9605;  --   $subscribe()</a></h2>
 <blockquote>
@@ -822,12 +869,13 @@ someStore.$subscribe(callback, { detached: <span class="hljs-literal">true</span
   { deep: <span class="hljs-literal">true</span> }
 )
 </code></pre>
-<h2 id="getter">Getter</h2>
+<h1 id="getter">Getter</h1>
 <blockquote>
 <p>typescript &#x5FC5;&#x987B;&#x8BBE;&#x7F6E;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;</p>
 <p>&#x53EF;&#x4EE5; &#x901A;&#x8FC7; <code>this</code> &#x8BBF;&#x95EE;&#x5230;<strong>&#x6574;&#x4E2A; store &#x5B9E;&#x4F8B;</strong> </p>
 </blockquote>
-<pre><code class="lang-typescript">getters: {
+<pre><code class="lang-typescript"><span class="hljs-comment">//&#x5BF9;&#x8C61;&#x7C7B;&#x578B;</span>
+getters: {
     doubleCount(state) {
       <span class="hljs-keyword">return</span> state.count * <span class="hljs-number">2</span>
     },
@@ -835,12 +883,18 @@ someStore.$subscribe(callback, { detached: <span class="hljs-literal">true</span
       <span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.doubleCount + <span class="hljs-number">1</span>
     },
 },
+<span class="hljs-comment">//&#x51FD;&#x6570;&#x7C7B;&#x578B;</span>
+<span class="hljs-keyword">const</span> plusOne = computed(() =&gt; count.value + <span class="hljs-number">1</span>)
 </code></pre>
-<h3 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h3>
+<h2 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h2>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> store = useStore()
 store.doubleCount
 </code></pre>
-<h4 id="&#x8BBF;&#x95EE;&#x5176;&#x4ED6;store&#x4E2D;&#x7684;getter">&#x8BBF;&#x95EE;&#x5176;&#x4ED6;store&#x4E2D;&#x7684;getter</h4>
+<pre><code class="lang-js">computed: {
+   ...mapGetter(useCounterStore, [<span class="hljs-string">&apos;count&apos;</span>])
+},
+</code></pre>
+<h2 id="&#x8BBF;&#x95EE;&#x5176;&#x4ED6;store&#x4E2D;&#x7684;getter">&#x8BBF;&#x95EE;&#x5176;&#x4ED6;store&#x4E2D;&#x7684;getter</h2>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { useOtherStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./other-store&apos;</span>
   getters: {
     otherGetter(state) {
@@ -848,7 +902,7 @@ store.doubleCount
     },
   },
 </code></pre>
-<h2 id="action">Action</h2>
+<h1 id="action">Action</h1>
 <blockquote>
 <p> &#x901A;&#x8FC7; this &#x8BBF;&#x95EE;&#x6574;&#x4E2A; store &#x5B9E;&#x4F8B;</p>
 <p>action&#x53EF;&#x4EE5;&#x662F;&#x5F02;&#x6B65;&#x7684;</p>
@@ -860,11 +914,24 @@ store.doubleCount
     },
 },
 </code></pre>
-<h3 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h3>
+<pre><code class="lang-js"> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params"></span>) </span>{
+    count.value++
+  }
+</code></pre>
+<h2 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h2>
 <pre><code class="lang-js"><span class="hljs-keyword">const</span> main = useMainStore()
 main.randomizeCounter()
 </code></pre>
-<h3 id="&#x8BBF;&#x95EE;&#x5176;&#x4ED6;-store-&#x7684;-action">&#x8BBF;&#x95EE;&#x5176;&#x4ED6; store &#x7684; action</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">const</span> store = useStore()
+store.randomizeCounter()
+
+methods: {
+  ...mapActions(useCounterStore, [<span class="hljs-string">&apos;increment&apos;</span>])
+  <span class="hljs-comment">// &#x4E0E;&#x4E0A;&#x8FF0;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A;this.myOwnName()</span>
+  ...mapActions(useCounterStore, { myOwnName: <span class="hljs-string">&apos;doubleCount&apos;</span> }),
+},
+</code></pre>
+<h2 id="&#x8BBF;&#x95EE;&#x5176;&#x4ED6;-store-&#x7684;-action">&#x8BBF;&#x95EE;&#x5176;&#x4ED6; store &#x7684; action</h2>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> { useAuthStore } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./auth-store&apos;</span>
   actions: {
     fetch() {
@@ -903,78 +970,60 @@ unsubscribe()
 <span class="hljs-comment">// &#x5728;&#x7EC4;&#x4EF6;&#x88AB;&#x5378;&#x8F7D;&#x540E;&#xFF0C;&#x8BE5;&#x8BA2;&#x9605;&#x4F9D;&#x65E7;&#x4F1A;&#x88AB;&#x4FDD;&#x7559;&#x3002;</span>
 someStore.$onAction(callback, <span class="hljs-literal">true</span>)
 </code></pre>
-<h1 id="setup-&#x51FD;&#x6570;-&#x7C7B;&#x578B;">Setup &#x51FD;&#x6570; &#x7C7B;&#x578B;</h1>
-<pre><code class="lang-js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> useCounterStore = defineStore(<span class="hljs-string">&apos;counter&apos;</span>, () =&gt; {
-  <span class="hljs-keyword">const</span> count = ref(<span class="hljs-number">0</span>)
-  <span class="hljs-keyword">const</span> plusOne = computed(() =&gt; count.value + <span class="hljs-number">1</span>)
-  <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params"></span>) </span>{
-    count.value++
-  }
+<h1 id="plugins"><a href="https://pinia.vuejs.org/zh/core-concepts/plugins.html#introduction" target="_blank">Plugins</a></h1>
+<blockquote>
+<p>&#x7ED9;&#x6240;&#x6709;&#x7684;store&#x6279;&#x91CF;&#x6DFB;&#x52A0;&#x5C5E;&#x6027;&#x3001;&#x65B9;&#x6CD5;&#x7B49;</p>
+<p>&#x4EFB;&#x4F55;&#x7531;&#x63D2;&#x4EF6;&#x8FD4;&#x56DE;&#x7684;&#x5C5E;&#x6027;&#x90FD;&#x4F1A;&#x88AB; devtools &#x81EA;&#x52A8;&#x8FFD;&#x8E2A; </p>
+<p>state &#x53D8;&#x66F4;&#x6216;&#x6DFB;&#x52A0;(&#x5305;&#x62EC;&#x8C03;&#x7528; <code>store.$patch()</code>)&#x90FD;&#x662F;&#x53D1;&#x751F;&#x5728; store &#x88AB;&#x6FC0;&#x6D3B;&#x4E4B;&#x524D;&#xFF0C;&#x4E0D;&#x4F1A;&#x89E6;&#x53D1;&#x8BA2;&#x9605;&#x51FD;&#x6570;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { createPinia } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;pinia&apos;</span>
 
-  <span class="hljs-keyword">return</span> { count, increment }
+// &#x5728;&#x5B89;&#x88C5;&#x6B64;&#x63D2;&#x4EF6;&#x540E;&#x521B;&#x5EFA;&#x7684;&#x6BCF;&#x4E2A; store &#x4E2D;&#x90FD;&#x4F1A;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A;&#x540D;&#x4E3A; `secret` &#x7684;&#x5C5E;&#x6027;&#x3002;
+// &#x6CE8;&#x518C;&#x63D2;&#x4EF6;&#xFF08;&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x4E00;&#x4E2A;&#x6709;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x51FD;&#x6570;&#xFF09;
+function SecretPiniaPlugin(context) {
+ context.pinia // &#x7528; `createPinia()` &#x521B;&#x5EFA;&#x7684; pinia&#x3002; 
+ context.app // &#x7528; `createApp()` &#x521B;&#x5EFA;&#x7684;&#x5F53;&#x524D;&#x5E94;&#x7528;(&#x4EC5; Vue 3)&#x3002;
+ context.store // &#x8BE5;&#x63D2;&#x4EF6;&#x60F3;&#x6269;&#x5C55;&#x7684; store
+ context.options // &#x5B9A;&#x4E49;&#x4F20;&#x7ED9; `defineStore()` &#x7684; store &#x7684;&#x53EF;&#x9009;&#x5BF9;&#x8C61;&#x3002;
+  // ...
+}
+const pinia = createPinia()
+// &#x5C06;&#x8BE5;&#x63D2;&#x4EF6;&#x4EA4;&#x7ED9; Pinia
+pinia.use(SecretPiniaPlugin)
+
+// &#x5728;&#x53E6;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x4E2D;
+const store = useStore()
+store.secret // <span class="hljs-string">&apos;the cake is a lie&apos;</span>
+</code></pre>
+<h3 id="&#x63D2;&#x4EF6;&#x4E2D;&#x8C03;&#x7528;-----subscribe">&#x63D2;&#x4EF6;&#x4E2D;&#x8C03;&#x7528;  -- $subscribe</h3>
+<blockquote>
+<p> &#x53EF;&#x4EE5;&#x5728;&#x63D2;&#x4EF6;&#x4E2D;&#x4F7F;&#x7528; <a href="https://pinia.vuejs.org/zh/core-concepts/state.html#subscribing-to-the-state" target="_blank">store.$subscribe</a> &#x548C; <a href="https://pinia.vuejs.org/zh/core-concepts/actions.html#subscribing-to-actions" target="_blank">store.$onAction</a> </p>
+</blockquote>
+<pre><code class="lang-js">pinia.use(({ store }) =&gt; {
+  store.$subscribe(() =&gt; {
+    <span class="hljs-comment">// &#x54CD;&#x5E94; store &#x53D8;&#x5316;</span>
+  })
+  store.$onAction(() =&gt; {
+    <span class="hljs-comment">// &#x54CD;&#x5E94; store actions</span>
+  })
 })
 </code></pre>
-<h2 id="state">State</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> count = ref(<span class="hljs-number">0</span>)
+<h2 id="typescript"><a href="https://pinia.vuejs.org/zh/core-concepts/plugins.html#typing-plugins" target="_blank">TypeScript</a></h2>
+<h3 id="&#x6807;&#x6CE8;&#x63D2;&#x4EF6;&#x7C7B;&#x578B;">&#x6807;&#x6CE8;&#x63D2;&#x4EF6;&#x7C7B;&#x578B;</h3>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { PiniaPluginContext } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;pinia&apos;</span>
+export function myPiniaPlugin(context: PiniaPluginContext) {
+  // ...
+}
 </code></pre>
-<h3 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h3>
-<pre><code class="lang-js"> computed: {
-    <span class="hljs-comment">// &#x4E0E;&#x4ECE; store.count &#x4E2D;&#x8BFB;&#x53D6;&#x7684;&#x6570;&#x636E;&#x76F8;&#x540C;</span>
-    ...mapState(useCounterStore, [<span class="hljs-string">&apos;count&apos;</span>])
-    <span class="hljs-comment">// &#x4E0E;&#x4E0A;&#x8FF0;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A; this.myOwnName</span>
-    ...mapState(useCounterStore, {
-      myOwnName: <span class="hljs-string">&apos;count&apos;</span>,
-      <span class="hljs-comment">// &#x4F60;&#x4E5F;&#x53EF;&#x4EE5;&#x5199;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6765;&#x83B7;&#x5F97;&#x5BF9; store &#x7684;&#x8BBF;&#x95EE;&#x6743;</span>
-      double: store =&gt; store.count * <span class="hljs-number">2</span>,
-      <span class="hljs-comment">// &#x5B83;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE; `this`&#xFF0C;&#x4F46;&#x5B83;&#x6CA1;&#x6709;&#x6807;&#x6CE8;&#x7C7B;&#x578B;</span>
-      magicValue(store) {
-        <span class="hljs-keyword">return</span> store.someGetter + <span class="hljs-keyword">this</span>.count + <span class="hljs-keyword">this</span>.double
-      },
-    }),
-  },
-</code></pre>
-<h3 id="&#x4FEE;&#x6539;-----mapwritablestate">&#x4FEE;&#x6539; --  mapWritableState()</h3>
-<pre><code class="lang-js">computed: {
-    <span class="hljs-comment">// &#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x7EC4;&#x4EF6;&#x4E2D;&#x7684; this.count&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x8BBE;&#x7F6E;&#x5B83;&#x3002;</span>
-    ...mapWritableState(useCounterStore, [<span class="hljs-string">&apos;count&apos;</span>])
-    <span class="hljs-comment">// &#x4E0E;&#x4E0A;&#x8FF0;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A; this.myOwnName</span>
-    ...mapWritableState(useCounterStore, {
-      myOwnName: <span class="hljs-string">&apos;count&apos;</span>,
-    }),
-  },
-  <span class="hljs-keyword">this</span>.count++ <span class="hljs-comment">//&#x4FEE;&#x6539;state.count&#x5C5E;&#x6027;</span>
-</code></pre>
-<h2 id="getter">Getter</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> plusOne = computed(() =&gt; count.value + <span class="hljs-number">1</span>)
-</code></pre>
-<h3 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h3>
-<pre><code class="lang-js"> computed: {
-    ...mapGetter(useCounterStore, [<span class="hljs-string">&apos;count&apos;</span>])
-  },
-</code></pre>
-<h2 id="action">Action</h2>
-<pre><code class="lang-js"> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">increment</span>(<span class="hljs-params"></span>) </span>{
-    count.value++
-  }
-</code></pre>
-<h3 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h3>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> store = useStore()
-store.randomizeCounter()
+<h1 id="&#x5BFC;&#x822A;&#x5B88;&#x536B;&#x4E2D;&#x4F7F;&#x7528;">&#x5BFC;&#x822A;&#x5B88;&#x536B;&#x4E2D;&#x4F7F;&#x7528;</h1>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { createRouter } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
+const router = createRouter({})
 
-methods: {
-  ...mapActions(useCounterStore, [<span class="hljs-string">&apos;increment&apos;</span>])
-  <span class="hljs-comment">// &#x4E0E;&#x4E0A;&#x8FF0;&#x76F8;&#x540C;&#xFF0C;&#x4F46;&#x5C06;&#x5176;&#x6CE8;&#x518C;&#x4E3A;this.myOwnName()</span>
-  ...mapActions(useCounterStore, { myOwnName: <span class="hljs-string">&apos;doubleCount&apos;</span> }),
-},
+router.beforeEach((to) =&gt; {
+  const store = useStore()
+  if (to.meta.requiresAuth &amp;&amp; !store.isLoggedIn) return <span class="hljs-string">&apos;/login&apos;</span>
+})
 </code></pre>
-<h1 id="&#x54CD;&#x5E94;&#x5F0F;&#x89E3;&#x6784;storetorefs"><a href="https://pinia.vuejs.org/zh/core-concepts/#using-the-store" target="_blank">&#x54CD;&#x5E94;&#x5F0F;&#x89E3;&#x6784;(storeToRefs)</a></h1>
-<blockquote>
-<p>&#x4F7F;&#x7528; storeToRefs  &#x5C06;&#x4E3A;&#x6BCF;&#x4E00;&#x4E2A;&#x54CD;&#x5E94;&#x5F0F;&#x5C5E;&#x6027;&#x521B;&#x5EFA;&#x5F15;&#x7528; </p>
-<p>&#x540C;&#x65F6;&#x4F1A;&#x8DF3;&#x8FC7;&#x4EFB;&#x4F55; action &#x6216;&#x975E;&#x54CD;&#x5E94;&#x5F0F;(&#x975E; ref/&#x54CD;&#x5E94;&#x5F0F;)&#x5C5E;&#x6027;</p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> { name, doubleCount } = storeToRefs(store)
-</code></pre>
-<h1 id=""> </h1>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -1051,7 +1100,7 @@ methods: {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"pinia","level":"1.4.4","depth":2,"next":{"title":"vue 补充","level":"1.4.5","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]},"previous":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/pinia.md","mtime":"2023-02-02T09:38:11.292Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-02T09:40:09.054Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"pinia","level":"1.4.4","depth":2,"next":{"title":"vue 补充","level":"1.4.5","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]},"previous":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/pinia.md","mtime":"2023-02-03T03:27:23.535Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-06T03:01:54.314Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
@@ -1078,10 +1127,6 @@ methods: {
     
         
         <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
