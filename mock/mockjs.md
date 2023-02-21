@@ -1,6 +1,6 @@
-### mockjs
+# mockjs
 
-#### 使用mockjs
+# 使用mockjs
 
 项目安装mock
 
@@ -29,33 +29,33 @@ new Vue({
 }).$mount('#app')
 ```
 
-#### mock语法
+# mock语法
 
-##### 生成字符串
+## 生成字符串
 
 - 生成指定次数字符串
 
 ```js
 import Mock from 'mockjs'
-const data = Mock.mock({
-"string|4":"哈哈"
+Mock.mock({
+	"string|4":"哈哈"
 })
 ```
 
 - 生成指定范围长度字符串
 
 ```js
-const data = Mock.mock({
-"string|1-8":"哈哈"
+Mock.mock({
+	"string|1-8":"哈哈"
 })
 ```
 
-##### 生成文本
+## 生成文本
 
 - 生成一个随机字符串
 
 ```js
-const data = Mock.mock({
+Mock.mock({
 	"string":"@cword"
 }) 
 ```
@@ -63,19 +63,19 @@ const data = Mock.mock({
 - 生成指定长度和范围
 
 ```js
-const data = Mock.mock({
-    string:"@cword(1)"
+Mock.mock({
+    string:"@cword(1)",
     str :"@cword(10,15)"
 })
 ```
 
-##### 生成标题和句子
+## 生成标题和句子
 
 - 生成标题和句子
 
 ```js
-const data = Mock.mock({
-    title:"@ctitle(8)"
+Mock.mock({
+    title:"@ctitle(8)",
     sentence:"@csentence"
 })
 ```
@@ -83,8 +83,8 @@ const data = Mock.mock({
 - 生成指定长度的标题和句子
 
 ```js
-const data = Mock.mock({
-    title:"@ctitle(8)"
+Mock.mock({
+    title:"@ctitle(8)",
     sentence:"@csentence(50)"
 })
 
@@ -93,30 +93,30 @@ const data = Mock.mock({
 - 生成指定范围的
 
 ```js
-const data = Mock.mock({
-    title:"@ctitle(5,8)"
+Mock.mock({
+    title:"@ctitle(5,8)",
     sentence:"@csentence(50,100)"
 })
 
 ```
 
-##### 生成段落
+## 生成段落
 
 - 随机生成段落
 
 ```js
-const data = Mock.mock({
+Mock.mock({
   content:"@cparagraph()"
 })
 
 ```
 
-##### 生成数字
+## 生成数字
 
 - 生成指定数字
 
 ```js
-const data = Mock.mock({
+Mock.mock({
 	"number|80":1
 })
 
@@ -125,50 +125,47 @@ const data = Mock.mock({
 - 生成范围数字
 
 ```js
-const data = Mock.mock({
+Mock.mock({
 	"number|1-99":1
 })
 
 ```
 
-##### 生成自增id
+## 生成自增id
 
 - 随机生成标识
 
 ```js
-const data = Mock.mock({
+Mock.mock({
 	id:"@increment"
 })
 
 ```
 
-##### 生成姓名-地址-身份证
+## 生成姓名-地址-身份证
 
 - 随机生成姓名-地址-身份证
 
 ```js
-const data = Mock.mock({
-	name:"@cname()"
-	idCard:"@id()"
+Mock.mock({
+	name:"@cname()",
+	idCard:"@id()",
 	address:"@city(true)"
 })
 
 ```
 
-##### 随机生成图片
+## 随机生成图片
 
-- 生成图片：@image（“300*200”，‘#ff0000','#fff','gif','坤坤'）
+- 生成图片：@image('200x100', '#50B347', '#FFF', 'Mock.js')
+
+```js
+ Mock.mock({
+	name:"@image('200x100', '#50B347', '#FFF', 'Mock.js')"
+})
+```
+
 - 参数1：图片大小
-
-```
-[
-	'300*250','250*250','240*400','336*280'
-	'180*150','720*300','468*60','234*60'
-	'388*31','250*250','240*400','120*40'
-	'125*125','250*250','240*400','336*280'
-]
-
-```
 
 - 参数2：图片背景色
 
@@ -177,7 +174,7 @@ const data = Mock.mock({
 - 参数4：图片格式
 - 参数5：图片文字
 
-##### 生成时间
+## 生成时间
 
 - @Date
 - 生成指定格式时间：@date(yyyy-MM-dd hh:mm:ss)
@@ -187,12 +184,14 @@ const data = Mock.mock({
 - 指定长度：‘date|5’
 - 指定范围:'data|5-10'
 
+## 数组组合
+
 ```js
-const data = Mock.mock({
+Mock.mock({
 'list|50-99':[
         {
-            name:'@cname'
-            address:'@city(true)'
+            name:'@cname',
+            address:'@city(true)',
             id:'@increment()'
         }	
     ]
@@ -200,24 +199,11 @@ const data = Mock.mock({
 
 ```
 
-#### mock拦截请求
-
-##### 定义get请求
+## mock拦截请求
 
 ```js
-Mock.mock('api/get/news','get',()=>{
-    return{
-        status:200,
-        message:"获取数据成功"
-    }
-})
-
-```
-
-##### 定义post请求
-
-```js
-Mock.mock('api/post/news','post',()=>{
+Mock.mock('api/post/news','post/get',(data:any)=>{
+    let { id,status }  = data
     return{
         status:200,
         message:"获取数据成功"
@@ -237,7 +223,6 @@ Mock.mock('api/post/news','post',()=>{
 ```
 pageindex：页码
 pagesize:每页的条数
-
 ```
 
 请求类型：get
