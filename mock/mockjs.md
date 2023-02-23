@@ -285,7 +285,7 @@ function initMock(mockInfo: mockInfoInf) {
 	const path = new RegExp(mockInfo.path.replace('/', '\\/'));
 	const response = {
 		code: mockInfo.code,
-		data: mockInfo.data,
+		data: mockInfo.data.data,
 		msg: mockInfo.msg,
 	};
 	Mock.mock(path, response);
@@ -320,7 +320,7 @@ export class banner {
 	static show: boolean = true; //是否进行拦截
 	static path: string = '/admin/musicTypeCfg/store';
 	static data: any = Mock.mock({
-		'list|50-99': [
+		'data|50-99': [
 			{
 				name: '@cname',
 				address: '@city(true)',
