@@ -1,4 +1,4 @@
-# mockjs
+23mockjs
 
 # 使用mockjs
 
@@ -30,6 +30,34 @@ new Vue({
 ```
 
 # mock语法
+
+|     方法      |                      参数                       | 注释   |
+| :-----------: | :---------------------------------------------: | :----- |
+|   @boolean    |              min?, max?, current?               | 布尔值 |
+|   @natural    |                   min?, max?                    | 自然数 |
+|   @integer    |                   min?, max?                    | 整数   |
+|    @float     |            min?, max?, dmin?, dmax?             | 浮动数 |
+|    @cword     |                pool?, min?, max?                | 文本   |
+|    @ctitle    |                   min?, max?                    | 标题   |
+|  @csentence   |                      null                       | 句子   |
+|  @cparagraph  |                      null                       | 段落   |
+|  @increment   |                      null                       | 自增id |
+|    @cname     |                      null                       | 姓名   |
+|      @id      |                      null                       | 身份证 |
+|  @city(true)  |                      null                       | 地址   |
+|    @image     | size?, background?, foreground?, format?, text? | 图片   |
+|     @date     |               yyyy-MM-dd hh:mm:ss               | 时间   |
+|     @name     |                      true                       | 名字   |
+|    @cname     |                      null                       | 中文名 |
+|     @url      |                      null                       | 路径   |
+|    @email     |                      null                       | 邮箱   |
+|      @ip      |                      null                       | ip     |
+| @county(true) |                      null                       | 地址   |
+|     @guid     |                      null                       | guid   |
+
+
+
+
 
 ## 生成字符串
 
@@ -144,7 +172,7 @@ Mock.mock({
 
 ## 生成姓名-地址-身份证
 
-- 随机生成姓名-地址-身份证
+- 随机生成姓名-身份证-地址
 
 ```js
 Mock.mock({
@@ -271,6 +299,22 @@ init();
 
 ```typescript
 import Mock from 'mockjs';
+
+/* 
+@increment 自增id
+@cname 随机姓名
+@id 随机身份证
+@city(true) 随机地址
+@boolean 随机布尔值
+@natural 随机自然数
+@cword 随机字符串
+@ctitle 随机标题
+@csentence 随机句子
+@cparagraph 随机段落
+@image('200x100', '#50B347', '#FFF', 'Mock.js')  随机图片
+@date(yyyy-MM-dd hh:mm:ss) 随机时间
+ */
+
 
 export class banner {
 	static show: boolean = true; //是否进行拦截
