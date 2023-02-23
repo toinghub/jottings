@@ -1,4 +1,4 @@
-# mockjs
+23mockjs
 
 # 使用mockjs
 
@@ -30,6 +30,34 @@ new Vue({
 ```
 
 # mock语法
+
+|     方法      |                      参数                       | 注释   |
+| :-----------: | :---------------------------------------------: | :----- |
+|   @boolean    |              min?, max?, current?               | 布尔值 |
+|   @natural    |                   min?, max?                    | 自然数 |
+|   @integer    |                   min?, max?                    | 整数   |
+|    @float     |            min?, max?, dmin?, dmax?             | 浮动数 |
+|    @cword     |                pool?, min?, max?                | 文本   |
+|    @ctitle    |                   min?, max?                    | 标题   |
+|  @csentence   |                      null                       | 句子   |
+|  @cparagraph  |                      null                       | 段落   |
+|  @increment   |                      null                       | 自增id |
+|    @cname     |                      null                       | 姓名   |
+|      @id      |                      null                       | 身份证 |
+|  @city(true)  |                      null                       | 地址   |
+|    @image     | size?, background?, foreground?, format?, text? | 图片   |
+|     @date     |               yyyy-MM-dd hh:mm:ss               | 时间   |
+|     @name     |                      true                       | 名字   |
+|    @cname     |                      null                       | 中文名 |
+|     @url      |                      null                       | 路径   |
+|    @email     |                      null                       | 邮箱   |
+|      @ip      |                      null                       | ip     |
+| @county(true) |                      null                       | 地址   |
+|     @guid     |                      null                       | guid   |
+
+
+
+
 
 ## 生成字符串
 
@@ -144,7 +172,7 @@ Mock.mock({
 
 ## 生成姓名-地址-身份证
 
-- 随机生成姓名-地址-身份证
+- 随机生成姓名-身份证-地址
 
 ```js
 Mock.mock({
@@ -209,110 +237,97 @@ Mock.mock('api/post/news','post/get',(data:any)=>{
         message:"获取数据成功"
     }
 })
-
 ```
 
-#### 实现新闻管理案例
 
-##### 获取数据
 
-接口地址：：/api/get/news
+# mock 多个拦截 封装
 
-接口参数：
+> 在 app.vue 引用 import "./mock/mock.ts" 文件 (main.ts报错)
+>
+> ts 中引用 mockjs 需要在 shims-vue.d.ts 中添加声明(declare module 'mockjs';)
 
-```
-pageindex：页码
-pagesize:每页的条数
-```
+## mock.js
 
-请求类型：get
+```typescript
+import Mock from 'mockjs';
+import * as mockList from './index';
 
-返回的数据：
-
-```json
-{
-    status:200,
-        message:"获取新闻列表成功",
-        list:[
-        {
-            "id":1,
-            "title":"解忧杂货店",
-            "content":"《解忧杂货店》是日本作家东野圭吾写作的长篇小说。2011年《小说野性时代》连载，于2012年3月由角川书店发行单行本",
-            "img_url":"http://t15.baidu.com/it/u=2090705107,20534764&fm=224&app=112&f=JPEG?w=500&h=500&s=61D0718656561FFFE504A51703000067",
-            "add_time":"1984-04-03 11:43:37"}
-        ],
-        total:50
-    }
+interface mockInfoInf {
+	path: string;
+	code?: number;
+	data: any;
+	msg?: string;
 }
 
-```
+const defaultMockInfo: mockInfoInf = {
+	path: 'mock',
+	code: 200,
+	data: '',
+	msg: '成功',
+};
 
-##### 添加新闻
-
-接口地址：：/api/add/news
-
-接口参数：
-
-```
-title：'标题'
-content：内容
-
-```
-
-请求类型：post
-
-返回的数据：
-
-```json
-{
-    status:200,
-        message:"获取新闻列表成功",
-        list:[
-        {
-            "id":1,
-            "title":"解忧杂货店",
-            "content":"《解忧杂货店》是日本作家东野圭吾写作的长篇小说。2011年《小说野性时代》连载，于2012年3月由角川书店发行单行本",
-            "img_url":"http://t15.baidu.com/it/u=2090705107,20534764&fm=224&app=112&f=JPEG?w=500&h=500&s=61D0718656561FFFE504A51703000067",
-            "add_time":"1984-04-03 11:43:37"}
-        ],
-        total:50
-    }
+function init() {
+	let mockmockInfos: Array<mockInfoInf> = [];
+	for (let key in mockList) {
+		const mockInfo = mockList[key];
+		if (mockInfo.show) {
+			mockmockInfos.push(mockInfo);
+		}
+	}
+	mockmockInfos.forEach((mockInfo: any) => {
+		initMock(mockInfo);
+	});
 }
 
-```
-
-
-
-##### 删除新闻
-
-接口地址：：/api/delete/news
-
-接口参数：
-
-```
-id；新闻id
-
-```
-
-请求类型：post
-
-返回的数据：
-
-```js
-{
-    status:200,
-        message:"获取新闻列表成功",
-        list:[
-        {
-            "id":1,
-            "title":"解忧杂货店",
-            "content":"《解忧杂货店》是日本作家东野圭吾写作的长篇小说。2011年《小说野性时代》连载，于2012年3月由角川书店发行单行本",
-            "img_url":"http://t15.baidu.com/it/u=2090705107,20534764&fm=224&app=112&f=JPEG?w=500&h=500&s=61D0718656561FFFE504A51703000067",
-            "add_time":"1984-04-03 11:43:37"}
-        ],
-        total:50
-    }
+function initMock(mockInfo: mockInfoInf) {
+	mockInfo = { ...defaultMockInfo, ...mockInfo };
+	const path = new RegExp(mockInfo.path.replace('/', '\\/'));
+	const response = {
+		code: mockInfo.code,
+		data: mockInfo.data.data,
+		msg: mockInfo.msg,
+	};
+	Mock.mock(path, response);
 }
 
+init();
+
+```
+
+## index.js
+
+```typescript
+import Mock from 'mockjs';
+
+/* 
+@increment 自增id
+@cname 随机姓名
+@id 随机身份证
+@city(true) 随机地址
+@boolean 随机布尔值
+@natural 随机自然数
+@cword 随机字符串
+@ctitle 随机标题
+@csentence 随机句子
+@cparagraph 随机段落
+@image('200x100', '#50B347', '#FFF', 'Mock.js')  随机图片
+@date(yyyy-MM-dd hh:mm:ss) 随机时间
+ */
+
+
+export class banner {
+	static show: boolean = true; //是否进行拦截
+	static path: string = '/admin/musicTypeCfg/store';
+	static data: any = Mock.mock({
+		'data|50-99': [
+			{
+				name: '@cname',
+				address: '@city(true)',
+				id: '@increment()',
+			},
+		],
+	});
+}
 ```
 

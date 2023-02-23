@@ -4,13 +4,9 @@
 
 ##### [工作随笔](jobRecord/README.md)
 
--   ###### [css](jobRecord/css.md)
-
--   ###### [js](jobRecord/js.md)
+-   ###### [工作随笔](jobRecord/工作随笔.md)
 
 -   ###### [功能技巧](jobRecord/功能技巧.md)
-
--   ###### [补充](jobRecord/补充.md)
 
 ##### [javaScript](Js/README.md)
 

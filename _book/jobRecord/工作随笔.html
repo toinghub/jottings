@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>js · 课堂随笔</title>
+        <title>工作随笔 · 课堂随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="功能技巧.html" />
+    <link rel="next" href="../Js/" />
     
     
-    <link rel="prev" href="css.html" />
+    <link rel="prev" href="功能技巧.html" />
     
 
     </head>
@@ -135,9 +135,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2" data-path="./">
+        <li class="chapter " data-level="1.2" data-path="README.md">
             
-                <a href="./">
+                <span>
             
                     
                     工作随笔
@@ -149,33 +149,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="css.html">
-            
-                <a href="css.html">
-            
-                    
-                    css
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter active" data-level="1.2.2" data-path="js.html">
-            
-                <a href="js.html">
-            
-                    
-                    js
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.2.3" data-path="功能技巧.html">
+        <li class="chapter " data-level="1.2.1" data-path="功能技巧.html">
             
                 <a href="功能技巧.html">
             
@@ -188,12 +162,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="补充.html">
+        <li class="chapter active" data-level="1.2.2" data-path="工作随笔.html">
             
-                <a href="补充.html">
+                <a href="工作随笔.html">
             
                     
-                    补充
+                    工作随笔
             
                 </a>
             
@@ -691,7 +665,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >js</a>
+        <a href=".." >工作随笔</a>
     </h1>
 </div>
 
@@ -704,9 +678,103 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="javascript&#x968F;&#x7B14;">JavaScript&#x968F;&#x7B14;</h1>
+             <h2 id="&#x5F00;&#x53D1;&#x6CE8;&#x610F;">&#x5F00;&#x53D1;&#x6CE8;&#x610F;</h2>
+<h2 id="vue2ts">vue2+Ts</h2>
+<pre><code class="lang-js">@Watch(<span class="hljs-string">&apos;message&apos;</span>,{
+    immediate:<span class="hljs-literal">true</span>,    
+    <span class="hljs-comment">// immediate&#x8868;&#x793A;&#x5728;watch&#x4E2D;&#x9996;&#x6B21;&#x7ED1;&#x5B9A;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x5426;&#x6267;&#x884C;handler&#xFF0C;</span>
+    <span class="hljs-comment">// &#x503C;&#x4E3A;true&#x5219;&#x8868;&#x793A;&#x5728;watch&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x7ACB;&#x5373;&#x6267;&#x884C;handler&#x65B9;&#x6CD5;&#xFF0C;</span>
+    <span class="hljs-comment">// &#x503C;&#x4E3A;false&#xFF0C;&#x5219;&#x548C;&#x4E00;&#x822C;&#x4F7F;&#x7528;watch&#x4E00;&#x6837;&#xFF0C;&#x5728;&#x6570;&#x636E;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x65F6;&#x5019;&#x624D;&#x6267;&#x884C;handler&#x3002;</span>
+})
+</code></pre>
+<blockquote>
+<p> &#x4E0D;&#x786E;&#x5B9A;&#x7C7B;&#x578B; , &#x5E94;&#x8BE5;&#x4F7F;&#x7528;unknown </p>
+<p>&#x5F53;&#x5C5E;&#x6027;&#x53EF;&#x9009;&#x65F6;&#xFF0C;&#x5E94;&#x8BE5;&#x7528;&#x7C7B;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x5F0F;&#x53BB;&#x4E66;&#x5199;</p>
+</blockquote>
+<h2 id="css&#x968F;&#x7B14;">CSS&#x968F;&#x7B14;</h2>
+<pre><code class="lang-css">position: sticky; //&#x7C98;&#x6027;&#x5E03;&#x5C40;    
+background: linear-gradient(180deg, #f2f2f2, #ffffff);  //&#x80CC;&#x666F;&#x6E10;&#x53D8;
+width:calc(100% - 100px)  //&#x5355;&#x4F4D;&#x6362;&#x7B97;&#x8BA1;&#x7B97;
+visibility:hidden; &#x9690;&#x85CF;&#x5143;&#x7D20;&#xFF08;&#x4F4D;&#x7F6E;&#x4FDD;&#x7559;&#xFF09;
+:src=&quot;require(&apos;./1.jpg&apos;)&quot; uniapp &#x4F7F;&#x7528;&#x672C;&#x5730;&#x8DEF;&#x5F84;&#x52A0;require
+background: url(&quot;~@/assets/xxx.jpg&quot; //~&#x7B26;&#x53F7;&#x4F5C;&#x4E3A;&#x524D;&#x7F00;&#x7684;&#x8DEF;&#x5F84;&#x89C6;&#x4F5C;&#x4F9D;&#x8D56;&#x6A21;&#x5757;&#x800C;&#x53BB;&#x89E3;&#x6790;
+border-bottom: 50px solid transparent;   //transparent &#x900F;&#x660E;
+user-select   //&#x7528;&#x6237;&#x9009;&#x62E9;&#x6587;&#x672C; node:&#x7981;&#x6B62; all:&#x9009;&#x4E2D;&#x6240;&#x6709;
+filter: grayscale(.95); //&#x8BA9;&#x7F51;&#x7AD9;&#x53D8;&#x7070;
+word-break: break-all;  //&#x82F1;&#x6587;&#x5F3A;&#x5236;&#x6362;&#x884C;
+</code></pre>
+<p>&#x4F2A;&#x7C7B; | &#x4F2A;&#x5143;&#x7D20;</p>
+<pre><code class="lang-css">:empty   //&#x5F53;&#x8282;&#x70B9;&#x4E3A;&#x7A7A;&#x65F6;&#xFF0C;&#x6267;&#x884C;&#x6B64;&#x6837;&#x5F0F;
+:focus-within //&#x5143;&#x7D20;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF0C;&#x6216;&#x8BE5;&#x5143;&#x7D20;&#x7684;&#x540E;&#x4EE3;&#x5143;&#x7D20;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#xFF0C;&#x5C31;&#x4F1A;&#x5339;&#x914D;
+::placeholder //&#x4FEE;&#x6539;placeholder&#x7684;&#x6837;&#x5F0F;
+::selection //&#x81EA;&#x5B9A;&#x4E49;&#x9009;&#x4E2D;&#x6837;&#x5F0F; &#x6709;&#x9650;&#x5236;&#x6837;&#x5F0F;
+</code></pre>
+<p>&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;&#x5F53;&#x524D;&#x5C42;</p>
+<pre><code class="lang-css"><span class="hljs-rule"><span class="hljs-attribute">pointer-events</span>:<span class="hljs-value">none //&#x9F20;&#x6807;&#x4E8B;&#x4EF6;&#x7A7F;&#x900F;&#x5F53;&#x524D;&#x5C42; | &#x7981;&#x6B62;&#x9F20;&#x6807;&#x4E8B;&#x4EF6;
+pointer-events:auto //&#x9F20;&#x6807;&#x4E0D;&#x4F1A;&#x7A7F;&#x900F;&#x5F53;&#x524D;&#x5C42;
+</span></span></code></pre>
+<p>&#x82F9;&#x679C;&#x5E95;&#x90E8;&#x8FB9;&#x8DDD;</p>
+<pre><code class="lang-css"><span class="hljs-rule"><span class="hljs-attribute">padding-bottom</span>:<span class="hljs-value"> <span class="hljs-function">constant</span>(safe-area-inset-bottom)</span></span>;
+<span class="hljs-rule"><span class="hljs-attribute">padding-bottom</span>:<span class="hljs-value"> <span class="hljs-function">env</span>(safe-area-inset-bottom)</span></span>;
+</code></pre>
+<p>&#x5B57;&#x4F53;&#x6E10;&#x53D8;&#x8272;</p>
+<pre><code class="lang-css">background-image: linear-gradient(right, #7a492f, #cb7e3c); // &#x4E3A;&#x5143;&#x7D20;&#x63D0;&#x4F9B;&#x6E10;&#x53D8;&#x8272;&#x80CC;&#x666F;
+background-clip: text;  // &#x7528;&#x6587;&#x672C;&#x526A;&#x8F91;&#x80CC;&#x666F;
+-webkit-text-fill-color: transparent;  //&#x4F7F;&#x7528;&#x900F;&#x660E;&#x989C;&#x8272;&#x586B;&#x5145;&#x6587;&#x672C;
+</code></pre>
+<p>&#x6491;&#x6EE1;&#x5B50;&#x5143;&#x7D20;&#x9AD8;&#x5EA6;</p>
+<pre><code class="lang-css">overflow: hidden ;  //&#x7236;&#x5143;&#x7D20;  
+margin-bottom:-200px;padding--bottom:200px //&#x5B50;&#x5143;&#x7D20;
+</code></pre>
+<p>&#x6587;&#x672C;&#x6EA2;&#x51FA;</p>
+<pre><code class="lang-css">//&#x5355;&#x884C;
+overflow: hidden;            // &#x6EA2;&#x51FA;&#x9690;&#x85CF;
+text-overflow: ellipsis;      // &#x6EA2;&#x51FA;&#x7528;&#x7701;&#x7565;&#x53F7;&#x663E;&#x793A;
+white-space: nowrap;          // &#x89C4;&#x5B9A;&#x6BB5;&#x843D;&#x4E2D;&#x7684;&#x6587;&#x672C;&#x4E0D;&#x8FDB;&#x884C;&#x6362;&#x884C;
+
+//&#x591A;&#x884C;
+overflow: hidden;             // &#x6EA2;&#x51FA;&#x9690;&#x85CF;
+text-overflow: ellipsis;      // &#x6EA2;&#x51FA;&#x7528;&#x7701;&#x7565;&#x53F7;&#x663E;&#x793A;
+display: -webkit-box;          // &#x4F5C;&#x4E3A;&#x5F39;&#x6027;&#x4F38;&#x7F29;&#x76D2;&#x5B50;&#x6A21;&#x578B;&#x663E;&#x793A;&#x3002;
+-webkit-box-orient: vertical;  // &#x8BBE;&#x7F6E;&#x4F38;&#x7F29;&#x76D2;&#x5B50;&#x7684;&#x5B50;&#x5143;&#x7D20;&#x6392;&#x5217;&#x65B9;&#x5F0F;&#xFF1A;&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x5782;&#x76F4;&#x6392;&#x5217;
+-webkit-line-clamp: 2;         // &#x663E;&#x793A;&#x7684;&#x884C;&#x6570;
+</code></pre>
+<p>css&#x53D8;&#x91CF;</p>
+<pre><code class="lang-css">:root{   //web&#x662F;:root   &#x5C0F;&#x7A0B;&#x5E8F;&#x662F;page
+    --size:100  
+}
+div{ //var &#x8BFB;&#x53D6;  calc &#x8BA1;&#x7B97;
+    width:calc(var(--size)*2px)
+}
+
+@padding-md:15px
+padding:@padding-md
+</code></pre>
+<p>css &#x7C7B;&#x7ED1;&#x5B9A;</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 0. &#x666E;&#x901A;&#x5199;&#x6CD5; --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;color&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 1. &#x5BF9;&#x8C61;&#x8BED;&#x6CD5; --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;{ red: isRed }&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 2. &#x6570;&#x7EC4;&#x8BED;&#x6CD5;  &#x89E3;&#x6790;&#x8FD9;&#x4E24;&#x4E2A;&#x53D8;&#x91CF; &#x6DFB;&#x52A0;class --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;[classA, classB]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 3. &#x7EFC;&#x5408;&#x5199;&#x6CD5; --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;[classA, { classB: isB, classC: isC }]&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- 4. &#x4E09;&#x5143;&#x8FD0;&#x7B97; --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">:class</span>=<span class="hljs-value">&quot;isRed ? &apos;red&apos; : &apos;&apos;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+</code></pre>
+<p>&#x8BA9;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x9694;&#x5F00;px</p>
+<pre><code class="lang-css"><span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex | grid&#xFF1B;
+gap: <span class="hljs-number">20px</span></span></span>;
+</code></pre>
+<p>css&#x7279;&#x6027;</p>
+<blockquote>
+<p>&#x5728;flex&#x5B50;&#x5143;&#x7D20;&#x4E2D;&#x8BBE;&#x7F6E;&#x4E0D;&#x540C;&#x65B9;&#x5411;&#x7684;&#xFF0C;&#x5B50;&#x5143;&#x7D20;&#x5C31;&#x53EF;&#x504F;&#x79FB;</p>
+<p>&#x5F53;&#x5728;&#x5B9A;&#x4F4D;&#x4E2D;&#x540C;&#x65F6;&#x8BBE;&#x7F6E;lert&#x548C;right&#x65F6;&#xFF0C;&#x5C31;&#x9690;&#x5F0F;&#x7684;&#x8BBE;&#x7F6E;&#x7684;&#x5BBD;&#x5EA6;</p>
+</blockquote>
+<h2 id="javascript&#x968F;&#x7B14;">JavaScript&#x968F;&#x7B14;</h2>
 <pre><code class="lang-javascript">location.reload(); <span class="hljs-comment">//&#x5237;&#x65B0;&#x9875;&#x9762;</span>
-<span class="hljs-keyword">this</span>.$route.query  <span class="hljs-comment">//&#x83B7;&#x53D6;&#x8DEF;&#x7531;&#x53C2;&#x6570;</span>
 <span class="hljs-built_in">window</span>.location   <span class="hljs-comment">//&#x83B7;&#x53D6;&#x7F51;&#x5740;&#x4FE1;&#x606F;</span>
 <span class="hljs-built_in">Object</span>.values(a) <span class="hljs-comment">// &#x679A;&#x4E3E;a&#x5BF9;&#x8C61;&#x6240;&#x6709;&#x7684;&#x5C5E;&#x6027;&#x503C;</span>
 arr.flat(<span class="hljs-literal">Infinity</span>) <span class="hljs-comment">// &#x6241;&#x5E73;&#x5316;&#x6570;&#x7EC4;,Infinity&#x9ED8;&#x8BA4;&#x6DF1;&#x5EA6;&#x6700;&#x6DF1;&#xFF0C;&#x4E5F;&#x53EF;&#x6307;&#x5B9A;&#x6DF1;&#x5EA6;</span>
@@ -714,9 +782,58 @@ arr.flat(<span class="hljs-literal">Infinity</span>) <span class="hljs-comment">
 <span class="hljs-built_in">window</span>.location.href=url    <span class="hljs-comment">//(&#x52A8;&#x6001;&#x8F93;&#x51FA;&#x8DF3;&#x8F6C;)  &#x8DF3;&#x8F6C;&#x94FE;&#x63A5;</span>
 click.once   <span class="hljs-comment">//&#x65B9;&#x6CD5;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x6B21;</span>
 <span class="hljs-keyword">this</span>.$nextTick  <span class="hljs-comment">//&#x6570;&#x636E;&#x6E32;&#x67D3;&#x5B8C;&#x6BD5;&#x540E;&#x6267;&#x884C;</span>
-array.at(-<span class="hljs-number">1</span> ) <span class="hljs-comment">//&#x6570;&#x7EC4;&#x8D1F;&#x7D22;&#x5F15;&#xFF08;-1&#x4E3A;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#xFF09;</span>
+array.at(-<span class="hljs-number">1</span> ) <span class="hljs-comment">//&#x6570;&#x7EC4;&#x8D1F;&#x7D22;&#x5F15;&#xFF08;-1&#x4E3A;&#x6700;&#x540E;&#x4E00;&#x4F4D;&#xFF09;&#x5FAE;&#x4FE1;&#x5185;&#x90E8;&#x4E0D;&#x652F;&#x6301;&#x6B64;&#x8BED;&#x6CD5;</span>
 <span class="hljs-keyword">let</span> b =  a !== <span class="hljs-number">0</span> ? ( a ? a: <span class="hljs-string">&quot;-&quot;</span>) : <span class="hljs-number">0</span> <span class="hljs-comment">//&#x62EC;&#x53F7;&#x53EF;&#x7701;&#x7565;</span>
 @Watch(<span class="hljs-string">&quot;$route&quot;</span>, { immediate: <span class="hljs-literal">true</span> }) <span class="hljs-comment">//&#x76D1;&#x542C;route&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x9875;&#x9762;&#x663E;&#x793A;</span>
+  <span class="hljs-comment">//&#x7A7A;&#x683C;</span>
+</code></pre>
+<p>&#x76D1;&#x542C;&#x624B;&#x673A;&#x8FD4;&#x56DE;</p>
+<pre><code class="lang-js">  created() {
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">window</span>.history &amp;&amp; <span class="hljs-built_in">window</span>.history.pushState) {
+      history.pushState(<span class="hljs-literal">null</span>, <span class="hljs-string">&quot;&quot;</span>, <span class="hljs-built_in">document</span>.URL);
+      <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;popstate&quot;</span>, <span class="hljs-keyword">this</span>.goBack, <span class="hljs-literal">false</span>);
+    }
+    <span class="hljs-keyword">this</span>.init();
+  }
+
+  destroyed() {
+    <span class="hljs-built_in">window</span>.removeEventListener(<span class="hljs-string">&quot;popstate&quot;</span>, <span class="hljs-keyword">this</span>.goBack, <span class="hljs-literal">false</span>);
+  }
+  goBack() {
+    (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">any</span>&gt;</span>this).$router.go(this.backspace);
+  }
+</span></code></pre>
+<p>app&#x8FD4;&#x56DE;&#x9000;&#x51FA;&#x8F6F;&#x4EF6;&#x95EE;&#x9898;</p>
+<pre><code class="lang-js"> <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">&apos;plusready&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+      <span class="hljs-keyword">var</span> webview = plus.webview.currentWebview();
+      plus.key.addEventListener(<span class="hljs-string">&apos;backbutton&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+        webview.canBack(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{
+          <span class="hljs-keyword">if</span> (e.canBack) {
+            webview.back();
+          } <span class="hljs-keyword">else</span> {
+            <span class="hljs-comment">//webview.close(); //hide,quit</span>
+            <span class="hljs-comment">//plus.runtime.quit();</span>
+            <span class="hljs-comment">//&#x9996;&#x9875;&#x8FD4;&#x56DE;&#x952E;&#x5904;&#x7406;</span>
+            <span class="hljs-comment">//&#x5904;&#x7406;&#x903B;&#x8F91;&#xFF1A;1&#x79D2;&#x5185;&#xFF0C;&#x8FDE;&#x7EED;&#x4E24;&#x6B21;&#x6309;&#x8FD4;&#x56DE;&#x952E;&#xFF0C;&#x5219;&#x9000;&#x51FA;&#x5E94;&#x7528;&#xFF1B;</span>
+            <span class="hljs-keyword">var</span> first = <span class="hljs-literal">null</span>;
+            plus.key.addEventListener(<span class="hljs-string">&apos;backbutton&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+              <span class="hljs-comment">//&#x9996;&#x6B21;&#x6309;&#x952E;&#xFF0C;&#x63D0;&#x793A;&#x2018;&#x518D;&#x6309;&#x4E00;&#x6B21;&#x9000;&#x51FA;&#x5E94;&#x7528;&#x2019;</span>
+              <span class="hljs-keyword">if</span> (!first) {
+                first = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime();
+                <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;&#x518D;&#x6309;&#x4E00;&#x6B21;&#x9000;&#x51FA;&#x5E94;&#x7528;&apos;</span>);
+                setTimeout(<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+                  first = <span class="hljs-literal">null</span>;
+                }, <span class="hljs-number">1000</span>);
+              } <span class="hljs-keyword">else</span> {
+                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>().getTime() - first &lt; <span class="hljs-number">1500</span>) {
+                  plus.runtime.quit();
+                }
+              }
+            }, <span class="hljs-literal">false</span>);
+          }
+        })
+      });
+    });
 </code></pre>
 <p>&#x5355;&#x884C;&#x4EE3;&#x7801;</p>
 <pre><code class="lang-js"><span class="hljs-comment">//&#x6570;&#x7EC4;&#x53BB;&#x91CD;</span>
@@ -751,11 +868,19 @@ array.at(-<span class="hljs-number">1</span> ) <span class="hljs-comment">//&#x6
 <span class="hljs-keyword">let</span> bobj = {a:<span class="hljs-number">3</span>,b:<span class="hljs-number">4</span>,c:<span class="hljs-number">5</span>}
 aobj = {...aobj,...bobj} <span class="hljs-comment">//{a:3,b:4,c:5}</span>
 </code></pre>
+<p>&#x5FAA;&#x73AF;&#x5224;&#x65AD;</p>
+<pre><code class="lang-js"><span class="hljs-keyword">while</span> (&#x5224;&#x65AD;&#x6761;&#x4EF6;){ &#x6267;&#x884C;&#x4EE3;&#x7801; } <span class="hljs-comment">//&#x5148;&#x5224;&#x65AD;&#xFF0C;&#x540E;&#x6267;&#x884C;;</span>
+<span class="hljs-keyword">do</span>{ &#x6267;&#x884C;&#x4EE3;&#x7801; }<span class="hljs-keyword">while</span>( &#x5224;&#x65AD;&#x6761;&#x4EF6; ) <span class="hljs-comment">//&#x5148;&#x6267;&#x884C;&#xFF0C;&#x540E;&#x5224;&#x65AD;</span>
+</code></pre>
 <p>&#x64CD;&#x4F5C;&#x7B26;</p>
 <pre><code class="lang-javascript">cat?.name <span class="hljs-comment">//&#x53EF;&#x9009;&#x94FE;&#x64CD;&#x4F5C;&#x7B26;  &#x53EF;&#x4EE5;&#x8BFB;&#x53D6;cat&#x6DF1;&#x5904;&#x7684;&#x503C;&#xFF0C;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#x662F;&#x5426;&#x6709;&#x6548;</span>
 a ?? b  <span class="hljs-comment">//&#x7A7A;&#x503C;&#x5408;&#x5E76;&#x64CD;&#x4F5C;&#x7B26; &#x5DE6;&#x4FA7;&#x4E3A; null &#x6216;&#x8005; undefined &#x65F6;&#xFF0C;&#x8FD4;&#x56DE;&#x53F3;&#x4FA7;&#x6570;&#x636E;</span>
 a ??= b <span class="hljs-comment">//&#x7A7A;&#x503C;&#x8D4B;&#x503C;&#x8FD0;&#x7B97;&#x7B26;  &#x5DE6;&#x4FA7;&#x4E3A; null &#x6216;&#x8005; undefined &#x65F6;,&#x53F3;&#x4FA7;&#x6570;&#x636E;&#x8D4B;&#x503C;&#x7ED9;&#x5DE6;&#x4FA7;</span>
-!.  <span class="hljs-comment">//&#x975E;&#x7A7A;&#x65AD;&#x8A00;&#x64CD;&#x4F5C;&#x7B26;  ts&#x5185;&#x5BB9;  &#x6682;&#x4E0D;&#x89E3;&#x91CA;</span>
+!.  <span class="hljs-comment">//&#x975E;&#x7A7A;&#x65AD;&#x8A00;&#x64CD;&#x4F5C;&#x7B26;  ts&#x5185;&#x5BB9;  </span>
+<span class="hljs-number">2</span>**<span class="hljs-number">10</span>  <span class="hljs-comment">//&#x5E42;&#x8FD0;&#x7B97;  1024</span>
+<span class="hljs-number">1</span>_000_000 <span class="hljs-comment">// &#x4F7F;&#x7528;&#x6570;&#x5B57;&#x5206;&#x9694;&#x7B26;  &#x539F;&#x610F;&#x4E0D;&#x53D8;</span>
+a ||= b <span class="hljs-comment">//&#x6216;&#x7B49;&#x4E8E;  a || (a = b)</span>
+a ||= b <span class="hljs-comment">//&#x4E0E;&#x7B49;&#x4E8E;  a &amp;&amp; (a = b)</span>
 </code></pre>
 <p>&#x9632;&#x6296;&#x52A8;</p>
 <pre><code class="lang-javascript">debounce (wait, fun,data) {
@@ -818,6 +943,20 @@ ar&#xFF1A;&#x662F;&#x5426;&#x6839;&#x636E;&#x89C6;&#x9891;&#x4FE1;&#x606F;&#x81E
       <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;&#x5173;&#x95ED;&#x63D0;&#x793A;&apos;</span>;
     };
 </code></pre>
+<p>&#x5B58;&#x50A8;&#x76D1;&#x542C;</p>
+<pre><code class="lang-js">  <span class="hljs-keyword">const</span> setItem = localStorage.setItem
+    localStorage.setItem = <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">name, value</span>) </span>{
+        setItem.apply(<span class="hljs-keyword">this</span>, <span class="hljs-built_in">arguments</span>) <span class="hljs-comment">//&#x66F4;&#x6539;setItem&#x7684;this&#x6307;&#x5411;&#xFF0C;arguments&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x6570;&#x7EC4;&#xFF08;name,value&#xFF09;</span>
+        <span class="hljs-keyword">var</span> event = <span class="hljs-keyword">new</span> Event(<span class="hljs-string">&apos;setItem&apos;</span>) <span class="hljs-comment">//&#x6784;&#x9020;&#x51FD;&#x6570;</span>
+        event.key = name
+        event.value = value
+        <span class="hljs-built_in">window</span>.dispatchEvent(event); <span class="hljs-comment">//&#x53D1;&#x9001;&#x4E8B;&#x4EF6;&#x5230;&#x76D1;&#x542C;&#x5668;&#x4E0A;</span>
+    }
+    <span class="hljs-comment">// &#x9875;&#x9762;&#x4F7F;&#x7528;</span>
+    <span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&apos;setItem&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">e</span>) </span>{<span class="hljs-comment">//&#x6CE8;&#x518C;&#x76D1;&#x542C;setItem&#x4E8B;&#x4EF6;</span>
+        <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">&apos;.view&apos;</span>).innerText = <span class="hljs-string">`<span class="hljs-subst">${e.key}</span>&#xFF1A; <span class="hljs-subst">${e.value}</span>`</span>
+    })
+</code></pre>
 <p>&#x65F6;&#x95F4;&#x683C;&#x5F0F;   </p>
 <pre><code class="lang-javascript">Vue.filter(<span class="hljs-string">&apos;formatDate1&apos;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">value, fmt</span>) </span>{
   <span class="hljs-keyword">let</span> getDate = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(value);
@@ -842,6 +981,26 @@ ar&#xFF1A;&#x662F;&#x5426;&#x6839;&#x636E;&#x89C6;&#x9891;&#x4FE1;&#x606F;&#x81E
 })
 </code></pre>
 <hr>
+<h3 id="&#x547D;&#x4EE4;">&#x547D;&#x4EE4;</h3>
+<pre><code class="lang-js"> npm cache clear --force <span class="hljs-comment">//&#x6E05;&#x695A;&#x7F13;&#x5B58;</span>
+ pwd  <span class="hljs-comment">//&#x6253;&#x5F00;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</span>
+</code></pre>
+<h3 id="&#x529F;&#x80FD;&#x6280;&#x5DE7;">&#x529F;&#x80FD;&#x6280;&#x5DE7;</h3>
+<h5 id="&#x963B;&#x6B62;&#x7528;&#x6237;&#x622A;&#x56FE;">&#x963B;&#x6B62;&#x7528;&#x6237;&#x622A;&#x56FE;</h5>
+<ul>
+<li>1.&#x963B;&#x6B62;&#x53F3;&#x952E;&#x4FDD;&#x5B58;&#x548C;&#x62D6;&#x62FD;</li>
+<li>2.&#x5931;&#x7126;&#x540E;&#x52A0;&#x906E;&#x7F69;&#x5C42;</li>
+<li>3.&#x9AD8;&#x901F;&#x52A8;&#x6001;&#x9A6C;&#x8D5B;&#x514B;</li>
+</ul>
+<h2 id="&#x6CE8;&#x610F;">&#x6CE8;&#x610F;</h2>
+<ul>
+<li>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x5355;&#x4E2A; key &#x5141;&#x8BB8;&#x5B58;&#x50A8;&#x7684;&#x6700;&#x5927;&#x6570;&#x636E;&#x957F;&#x5EA6;&#x4E3A; 1MB&#xFF0C;&#x6240;&#x6709;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E0A;&#x9650;&#x4E3A; 10MB&#x3002;</li>
+<li>&#x76F4;&#x64AD;&#x7EC4;&#x4EF6;&#xFF1A;&#x76F4;&#x64AD;&#x62C9;&#x6D41;(live-player) + &#x76F4;&#x64AD;&#x63A8;&#x6D41;(live-pusher)</li>
+<li>uni.setNavigationBarTitle &#x66F4;&#x6539;&#x5934;&#x90E8;&#x6807;&#x9898;</li>
+<li>webpack&#x5BF9;&#x4E8E;&#x5C0F;&#x4E8E;8k&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x4F1A;&#x5C06;&#x56FE;&#x7247;&#x8F6C;&#x6210;base64 &#x76F4;&#x63A5;&#x63D2;&#x5165;&#x56FE;&#x7247; </li>
+<li>items.push(...newItems)  &#x4F1A;&#x6709;&#x7206;&#x6808;&#x98CE;&#x9669;</li>
+<li>router-view&#x52A0;&#x4E2A;&#x552F;&#x4E00;&#x7684;key&#xFF0C;&#x6765;&#x4FDD;&#x8BC1;&#x8DEF;&#x7531;&#x5207;&#x6362;&#x65F6;&#x90FD;&#x4F1A;&#x91CD;&#x65B0;&#x6E32;&#x67D3;&#x89E6;&#x53D1;&#x94A9;&#x5B50;</li>
+</ul>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -868,23 +1027,23 @@ ar&#xFF1A;&#x662F;&#x5426;&#x6839;&#x636E;&#x89C6;&#x9891;&#x4FE1;&#x606F;&#x81E
 
      
     <a
-      href="css.html"
+      href="功能技巧.html"
       class="
         navigation navigation-prev
         
       "
-      aria-label="Previous page: css"
+      aria-label="Previous page: 功能技巧"
     >
       <i class="fa fa-angle-left"></i>
     </a>
      
     <a
-      href="功能技巧.html"
+      href="../Js/"
       class="
         navigation navigation-next
         
       "
-      aria-label="Next page: 功能技巧"
+      aria-label="Next page: javaScript"
     >
       <i class="fa fa-angle-right"></i>
     </a>
@@ -918,7 +1077,7 @@ ar&#xFF1A;&#x662F;&#x5426;&#x6839;&#x636E;&#x89C6;&#x9891;&#x4FE1;&#x606F;&#x81E
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"js","level":"1.2.2","depth":2,"next":{"title":"功能技巧","level":"1.2.3","depth":2,"path":"jobRecord/功能技巧.md","ref":"jobRecord/功能技巧.md","articles":[]},"previous":{"title":"css","level":"1.2.1","depth":2,"path":"jobRecord/css.md","ref":"jobRecord/css.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"jobRecord/js.md","mtime":"2023-02-02T02:13:59.748Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-21T10:01:38.325Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"工作随笔","level":"1.2.2","depth":2,"next":{"title":"javaScript","level":"1.3","depth":1,"path":"Js/README.md","ref":"Js/README.md","articles":[{"title":"js 补充","level":"1.3.1","depth":2,"path":"Js/js补充.md","ref":"Js/js补充.md","articles":[]}]},"previous":{"title":"功能技巧","level":"1.2.1","depth":2,"path":"jobRecord/功能技巧.md","ref":"jobRecord/功能技巧.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"jobRecord/工作随笔.md","mtime":"2023-02-23T08:06:54.077Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-02-23T08:08:46.491Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
