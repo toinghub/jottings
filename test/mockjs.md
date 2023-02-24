@@ -295,7 +295,6 @@ function initMock(mockInfo: mockInfoInf) {
 	});
 }
 function handleRequest(data: any) {
-	console.log(data);
 	let path: string = '';
 	let param: any = {};
 	if (data.type === 'GET') {
@@ -308,7 +307,6 @@ function handleRequest(data: any) {
 					const itemArray = item.split('=');
 					const key = itemArray[0];
 					const value = itemArray[1];
-					console.log(key, value);
 					param[key] = value;
 				});
 			}
@@ -320,7 +318,7 @@ function handleRequest(data: any) {
 		path = data.url;
 		param = JSON.parse(data.body);
 	}
-	console.table({ path });
+	console.log({ path });
 	console.table(param);
 }
 
