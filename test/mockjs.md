@@ -269,19 +269,24 @@ const defaultMockInfo: mockInfoInf = {
 
 function init() {
 	let mockmockInfos: Array<mockInfoInf> = [];
+    //处理index所有导出的类
 	for (let key in mockList) {
 		const mockInfo = mockList[key];
+        //判断当前类中地址是否拦截
 		if (mockInfo.show) {
 			mockmockInfos.push(mockInfo);
 		}
 	}
+    //对需要拦截的类创建mock拦截
 	mockmockInfos.forEach((mockInfo: any) => {
 		initMock(mockInfo);
 	});
 }
 
 function initMock(mockInfo: mockInfoInf) {
+    //获取拦截参数以及返回数据
 	mockInfo = { ...defaultMockInfo, ...mockInfo };
+    //将拦截参数转换为正则表达式
 	const path = new RegExp(mockInfo.path.replace('/', '\\/'));
 	const response = {
 		code: mockInfo.code,
@@ -318,8 +323,8 @@ import Mock from 'mockjs';
 
 export class banner {
 	static show: boolean = true; //是否进行拦截
-	static path: string = '/admin/musicTypeCfg/store';
-	static data: any = Mock.mock({
+	static path: string = '/admin/musicTypeCfg/store'; //拦截参数
+	static data: any = Mock.mock({ //返回的参数
 		'data|50-99': [
 			{
 				name: '@cname',
