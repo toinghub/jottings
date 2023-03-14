@@ -413,7 +413,29 @@ router.beforeEach((to) => {
 
 
 
+## pinia-plugin-persistedstate 状态持久化
 
+```js
+pinia-plugin-persistedstate
+```
+
+
+
+```ts
+import { defineStore,createPinia } from 'pinia'
+
+defineStore('store', {
+  state: () => ({ saved: '' }),
+  persist:{
+      key:'menuList',//存储的键值
+      storgae:'localStorage',//存储的类型[localStorage | sessionStorage]
+      paths:['saved'], //指定存储的值
+  },
+})
+
+const pinia = createPinia();
+pinia.use(piniaPluginPersistedstate);
+```
 
 
 
