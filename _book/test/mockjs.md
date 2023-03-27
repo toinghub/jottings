@@ -1,5 +1,3 @@
-23mockjs
-
 # 使用mockjs
 
 项目安装mock
@@ -255,14 +253,16 @@ import * as mockList from './index';
 
 interface mockInfoInf {
 	path: string;
-	code?: number;
+	code?: string;
 	data: any;
 	msg?: string;
+	total?: number;
+	ok?: boolean;
 }
 
 const defaultMockInfo: mockInfoInf = {
 	path: 'mock',
-	code: 200,
+	code: '200',
 	data: '',
 	msg: '成功',
 };
@@ -270,12 +270,12 @@ const defaultMockInfo: mockInfoInf = {
 function init() {
 	let mockmockInfos: Array<mockInfoInf> = [];
 	for (let key in mockList) {
-		const mockInfo = mockList[key];
+		const mockInfo = (<any>mockList)[key];
 		if (mockInfo.show) {
 			mockmockInfos.push(mockInfo);
 		}
 	}
-	mockmockInfos.forEach((mockInfo: any) => {
+	mockmockInfos.forEach((mockInfo: mockInfoInf) => {
 		initMock(mockInfo);
 	});
 }
@@ -283,15 +283,47 @@ function init() {
 function initMock(mockInfo: mockInfoInf) {
 	mockInfo = { ...defaultMockInfo, ...mockInfo };
 	const path = new RegExp(mockInfo.path.replace('/', '\\/'));
+	const data = mockInfo.data.data ? mockInfo.data.data : mockInfo.data;
 	const response = {
 		code: mockInfo.code,
-		data: mockInfo.data.data,
+		data,
 		msg: mockInfo.msg,
 	};
-	Mock.mock(path, response);
+	Mock.mock(path, (data: any) => {
+		handleRequest(data);
+		return response;
+	});
+}
+function handleRequest(data: any) {
+	let path: string = '';
+	let param: any = {};
+	if (data.type === 'GET') {
+		if (data.url.includes('?')) {
+			const urlArray = data.url.split('?');
+			path = urlArray[0];
+			if (urlArray.length === 2 && urlArray[1].includes('&')) {
+				const paramArray = urlArray[1].split('&');
+				paramArray.forEach((item: any) => {
+					const itemArray = item.split('=');
+					const key = itemArray[0];
+					const value = itemArray[1];
+					param[key] = value;
+				});
+			}
+		} else {
+			path = data.url;
+		}
+	}
+	if (data.type === 'POST') {
+		path = data.url;
+		param = JSON.parse(data.body);
+	}
+	console.log({ path });
+	console.table(param);
 }
 
 init();
+
 
 ```
 
@@ -314,11 +346,28 @@ import Mock from 'mockjs';
 @image('200x100', '#50B347', '#FFF', 'Mock.js')  随机图片
 @date(yyyy-MM-dd hh:mm:ss) 随机时间
  */
-
-
+//banner
 export class banner {
-	static show: boolean = true; //是否进行拦截
-	static path: string = '/admin/musicTypeCfg/store';
+	static show: boolean = true;
+	static path: string = '/TicketBuyList';
+	static data: any = Mock.mock({
+		pageSize: 10,
+		total: 100,
+		totalPage: 10,
+		'list|50-99': [
+			{
+				id: '@increment()',
+				name: '@cname',
+				tickeName: '黑龙江@city门票',
+				buyNum: '@natural(1,10)',
+			},
+		],
+	});
+}
+export class banner21 {
+	static show: boolean = true;
+	static path: string = '/admin/languageCfg/store';
+	static msg: string = '成功';
 	static data: any = Mock.mock({
 		'data|50-99': [
 			{
@@ -329,5 +378,6 @@ export class banner {
 		],
 	});
 }
+
 ```
 
