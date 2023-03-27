@@ -23,7 +23,6 @@
     -   [ts 补充](Ts/ts补充.md)
 -   [request](request/README.md)
     -   [axios](request/axios.md)
-    -   [alova](request/alova.md)
 -   [node](node/README.md)
     -   [node-基础](node/node基础.md)
 -   [设计原则](设计原则/README.md)
