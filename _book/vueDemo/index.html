@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>storage 封装 · 课堂随笔</title>
+        <title>VueDome · 课堂随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="web分页搜索存储.html" />
+    <link rel="next" href="SSR.html" />
     
     
-    <link rel="prev" href="websocket.html" />
+    <link rel="prev" href="../WX/微信公众号.html" />
     
 
     </head>
@@ -458,19 +458,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2" data-path="../request/alova.html">
-            
-                <a href="../request/alova.html">
-            
-                    
-                    alova
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -579,12 +566,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.12" data-path="./">
+        <li class="chapter active" data-level="1.12" data-path="./">
             
                 <a href="./">
             
                     
-                    webDome
+                    VueDome
             
                 </a>
             
@@ -619,7 +606,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.12.3" data-path="storage封装.html">
+        <li class="chapter " data-level="1.12.3" data-path="storage封装.html">
             
                 <a href="storage封装.html">
             
@@ -638,6 +625,19 @@
             
                     
                     web 分页搜索存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.5" data-path="虚拟列表.html">
+            
+                <a href="虚拟列表.html">
+            
+                    
+                    虚拟列表
             
                 </a>
             
@@ -774,7 +774,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >storage 封装</a>
+        <a href=".." >VueDome</a>
     </h1>
 </div>
 
@@ -787,117 +787,7 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="storage">storage</h1>
-<h3 id="&#x6587;&#x7AE0;&#x5730;&#x5740;"><a href="https://juejin.cn/post/7104301566857445412" target="_blank">&#x6587;&#x7AE0;&#x5730;&#x5740;</a></h3>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> config = {
-    type: <span class="hljs-string">&quot;loaclStorage&quot;</span>,<span class="hljs-comment">// &#x672C;&#x5730;&#x5B58;&#x50A8;&#x7C7B;&#x578B; localStorage/sessionStorage</span>
-    prefix: <span class="hljs-string">&apos;CBD_1.0.0&apos;</span>,<span class="hljs-comment">// &#x540D;&#x79F0;&#x524D;&#x7F00; &#x5EFA;&#x8BAE;&#xFF1A;&#x9879;&#x76EE;&#x540D; + &#x9879;&#x76EE;&#x7248;&#x672C;</span>
-    expire: <span class="hljs-number">60</span> * <span class="hljs-number">60</span> * <span class="hljs-number">24</span> * <span class="hljs-number">30</span>,<span class="hljs-comment">//&#x8FC7;&#x671F;&#x65F6;&#x95F4; &#x5355;&#x4F4D;&#xFF1A;&#x79D2;</span>
-    isEncrypt: <span class="hljs-literal">true</span>,  <span class="hljs-comment">// &#x662F;&#x5426;&#x52A0;&#x5BC6;</span>
-}
-
-interface indexObj {
-    [key: string]: any
-}
-
-
-<span class="hljs-comment">// &#x540D;&#x79F0;&#x524D;&#x81EA;&#x52A8;&#x6DFB;&#x52A0;&#x524D;&#x7F00;</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">autoAddPrefix</span>(<span class="hljs-params">key: string</span>) </span>{
-    <span class="hljs-keyword">const</span> prefix = config.prefix ? config.prefix + <span class="hljs-string">&apos;_&apos;</span> : <span class="hljs-string">&apos;&apos;</span>;
-    <span class="hljs-keyword">return</span> prefix + key;
-}
-
-<span class="hljs-comment">// &#x79FB;&#x9664;&#x5DF2;&#x6DFB;&#x52A0;&#x7684;&#x524D;&#x7F00;</span>
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">autoRemovePrefix</span>(<span class="hljs-params">key: string</span>) </span>{
-    <span class="hljs-keyword">const</span> len: number = config.prefix ? config.prefix.length + <span class="hljs-number">1</span> : <span class="hljs-number">0</span>;
-    <span class="hljs-keyword">return</span> key.substr(len);
-}
-
-
-<span class="hljs-comment">// &#x8BBE;&#x7F6E;storage</span>
-<span class="hljs-comment">// { key:&#x952E;&#x503C;,value:&#x6570;&#x636E;,expire:&#x8FC7;&#x671F;&#x65F6;&#x95F4;,noRenewal:&#x662F;&#x5426;&#x4E0D;&#x7EED;&#x671F; }</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">setStorage</span>(<span class="hljs-params">key: string, value: any, expire?: number, noRenewal?: boolean</span>) </span>{
-    <span class="hljs-keyword">if</span> (!value) value = <span class="hljs-literal">null</span>
-    expire = (expire ? expire : config.expire) * <span class="hljs-number">1000</span>
-    <span class="hljs-keyword">let</span> data: (object | string) = {
-        value: value,<span class="hljs-comment">//&#x5B58;&#x50A8;&#x503C;</span>
-        time: <span class="hljs-built_in">Date</span>.now(),<span class="hljs-comment">//&#x5B58;&#x50A8;&#x65F6;&#x95F4;&#x6233;</span>
-        expire: expire, <span class="hljs-comment">//&#x8FC7;&#x671F;&#x65F6;&#x95F4;</span>
-        noRenewal,
-    }
-    data = <span class="hljs-built_in">JSON</span>.stringify(data);
-    key = autoAddPrefix(key);
-    <span class="hljs-comment">// if (config.isEncrypt) data = encrypt(data) //&#x52A0;&#x5BC6;</span>
-    (<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">indexObj</span>&gt;</span>window)[config.type].setItem(key, data)
-}
-
-// &#x83B7;&#x53D6;storage
-// { key:&#x952E;&#x503C; }
-export function getStorage(key: string) {
-    key = autoAddPrefix(key)
-    let data = (<span class="hljs-tag">&lt;<span class="hljs-title">indexObj</span>&gt;</span>window)[config.type].getItem(key)
-    if (!data || JSON.stringify(data) === &quot;null&quot;) return null
-    // if (config.isEncrypt) data = decrypt(data) //&#x89E3;&#x5BC6;
-    const nowTime = Date.now()
-    if (data.expire &amp;&amp; data.expire <span class="hljs-tag">&lt; <span class="hljs-attribute">nowTime</span> <span class="hljs-attribute">-</span> <span class="hljs-attribute">data.time</span>) { //&#x5224;&#x65AD;&#x65F6;&#x95F4;&#x662F;&#x5426;&#x8FC7;&#x671F;
-        <span class="hljs-attribute">removeStorage</span>(<span class="hljs-attribute">key</span>)
-        <span class="hljs-attribute">return</span> <span class="hljs-attribute">null</span>
-    }
-    <span class="hljs-attribute">let</span> <span class="hljs-attribute">value</span> = <span class="hljs-attribute">isJson</span>(<span class="hljs-attribute">data.value</span>) ? <span class="hljs-attribute">JSON.parse</span>(<span class="hljs-attribute">data.value</span>) <span class="hljs-attribute">:</span> <span class="hljs-attribute">data.value</span>
-    <span class="hljs-attribute">if</span> (<span class="hljs-attribute">data.noRenewal</span>) { //&#x662F;&#x5426;&#x7EED;&#x671F;
-        <span class="hljs-attribute">key</span> = <span class="hljs-attribute">autoRemovePrefix</span>(<span class="hljs-attribute">key</span>)
-        <span class="hljs-attribute">setStorage</span>(<span class="hljs-attribute">key</span>, <span class="hljs-attribute">data.value</span>, <span class="hljs-attribute">data.expire</span>)
-    }
-    <span class="hljs-attribute">return</span> <span class="hljs-attribute">value</span>
-
-}
-
-
-// &#x5220;&#x9664; <span class="hljs-attribute">removeStorage</span>
-// { <span class="hljs-attribute">key:</span>&#x952E;&#x503C; }
-<span class="hljs-attribute">export</span> <span class="hljs-attribute">function</span> <span class="hljs-attribute">removeStorage</span>(<span class="hljs-attribute">key:</span> <span class="hljs-attribute">string</span>) {
-    (&lt;<span class="hljs-attribute">indexObj</span>&gt;</span>window)[config.type].removeItem(autoAddPrefix(key));
-}
-
-// &#x6E05;&#x7A7A; clearStorage
-export const clearStorage = () =&gt; {
-    (<span class="hljs-tag">&lt;<span class="hljs-title">indexObj</span>&gt;</span>window)[config.type].clear();
-}
-
-
-// &#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x7528; JSON.parse
-export function isJson(value: any) {
-    if (Object.prototype.toString.call(value) === &apos;[object String]&apos;) {
-        try {
-            const obj = JSON.parse(value);
-            const objType = Object.prototype.toString.call(obj);
-            return objType === &apos;[object Object]&apos; || objType === &apos;[object Array]&apos;;
-        } catch (e) {
-            return false;
-        }
-    }
-    return false;
-}
-
-// &#x6D3E;&#x53D1;storage&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;
-export function dispatchEventStroage() {
-    const signSetItem = localStorage.setItem
-    localStorage.setItem = function (key, val) {
-        signSetItem.apply(this, <span class="hljs-tag">&lt;<span class="hljs-title">any</span>&gt;</span>arguments) //&#x66F4;&#x6539;setItem&#x7684;this&#x6307;&#x5411;&#xFF0C;arguments&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;&#x6570;&#x7EC4;&#xFF08;name,value&#xFF09;
-        let setEvent: any = new Event(&apos;setItemEvent&apos;) //&#x6784;&#x9020;&#x51FD;&#x6570;
-        setEvent.key = key
-        setEvent.value = val
-        window.dispatchEvent(setEvent) //&#x53D1;&#x9001;&#x4E8B;&#x4EF6;&#x5230;&#x76D1;&#x542C;&#x5668;&#x4E0A;
-    }
-}
-
-
-
-// &#x76D1;&#x542C;storage&#x7684;&#x6570;&#x636E;&#x53D8;&#x5316;
-// window.addEventListener(&quot;setItemEvent&quot;, function (e: any) {
-//     const newdata = JSON.parse(e.value);
-// });
-</span></code></pre>
+             <h1 id="&#x524D;&#x7AEF;&#x6280;&#x5DE7;&#x89C6;&#x9891;">&#x524D;&#x7AEF;&#x6280;&#x5DE7;&#x89C6;&#x9891;</h1>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -924,23 +814,23 @@ export function dispatchEventStroage() {
 
      
     <a
-      href="websocket.html"
+      href="../WX/微信公众号.html"
       class="
         navigation navigation-prev
         
       "
-      aria-label="Previous page: websocket"
+      aria-label="Previous page: 微信"
     >
       <i class="fa fa-angle-left"></i>
     </a>
      
     <a
-      href="web分页搜索存储.html"
+      href="SSR.html"
       class="
         navigation navigation-next
         
       "
-      aria-label="Next page: web 分页搜索存储"
+      aria-label="Next page: SSR"
     >
       <i class="fa fa-angle-right"></i>
     </a>
@@ -974,7 +864,7 @@ export function dispatchEventStroage() {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"storage 封装","level":"1.12.3","depth":2,"next":{"title":"web 分页搜索存储","level":"1.12.4","depth":2,"path":"webDemo/web分页搜索存储.md","ref":"webDemo/web分页搜索存储.md","articles":[]},"previous":{"title":"websocket","level":"1.12.2","depth":2,"path":"webDemo/websocket.md","ref":"webDemo/websocket.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"webDemo/storage封装.md","mtime":"2023-02-02T02:14:04.315Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-27T04:22:38.242Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"VueDome","level":"1.12","depth":1,"next":{"title":"SSR","level":"1.12.1","depth":2,"path":"vueDemo/SSR.md","ref":"vueDemo/SSR.md","articles":[]},"previous":{"title":"微信","level":"1.11","depth":1,"path":"WX/微信公众号.md","ref":"WX/微信公众号.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vueDemo/README.md","mtime":"2023-02-02T02:14:04.314Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-28T08:08:15.610Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

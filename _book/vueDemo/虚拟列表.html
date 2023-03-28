@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>webDome · 课堂随笔</title>
+        <title>虚拟列表 · 课堂随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="SSR.html" />
+    <link rel="next" href="../encrypt/" />
     
     
-    <link rel="prev" href="../WX/微信公众号.html" />
+    <link rel="prev" href="web分页搜索存储.html" />
     
 
     </head>
@@ -458,19 +458,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8.2" data-path="../request/alova.html">
-            
-                <a href="../request/alova.html">
-            
-                    
-                    alova
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -579,12 +566,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.12" data-path="./">
+        <li class="chapter " data-level="1.12" data-path="./">
             
                 <a href="./">
             
                     
-                    webDome
+                    VueDome
             
                 </a>
             
@@ -638,6 +625,19 @@
             
                     
                     web 分页搜索存储
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.12.5" data-path="虚拟列表.html">
+            
+                <a href="虚拟列表.html">
+            
+                    
+                    虚拟列表
             
                 </a>
             
@@ -774,7 +774,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >webDome</a>
+        <a href=".." >虚拟列表</a>
     </h1>
 </div>
 
@@ -787,7 +787,126 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="&#x524D;&#x7AEF;&#x6280;&#x5DE7;&#x89C6;&#x9891;">&#x524D;&#x7AEF;&#x6280;&#x5DE7;&#x89C6;&#x9891;</h1>
+             <h1 id="&#x865A;&#x62DF;&#x5217;&#x8868;">&#x865A;&#x62DF;&#x5217;&#x8868;</h1>
+<h3 id="infinitelistvue">InfiniteList.vue</h3>
+<pre><code class="lang-typescript">&lt;template&gt;
+    &lt;ul ref=&quot;ulRef&quot; class=&quot;ulRef&quot;&gt;
+        &lt;li v-for=&quot;(listItem, listIndex) in listData&quot; :key=&quot;listItem.idx&quot; :itemIndex=&quot;listItem.idx&quot;&gt;
+            &lt;slot :listItem=&quot;listItem&quot;&gt;&lt;/slot&gt;
+        &lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/template&gt;
+
+
+&lt;script lang=&quot;ts&quot; setup&gt;
+import { ref, computed, nextTick, reactive, watchEffect, onUnmounted } from &apos;vue&apos;
+
+const props = defineProps&lt;{
+    listData: Array&lt;any&gt;
+}&gt;()
+
+// &#x5217;&#x8868;HTMLElementDom
+const ulRef = ref&lt;any&gt;(null)
+
+// &#x5C4F;&#x5E55;&#x9AD8;&#x5EA6;
+const screenH = document.documentElement.clientHeight
+
+const data = reactive&lt;any&gt;({
+    // &#x5217;&#x8868;&#x7B2C;&#x4E00;&#x9879;&#x7684;&#x9AD8;&#x5EA6;&#xFF08;&#x8D77;&#x59CB;&#x9AD8;&#x5EA6;&#xFF09;
+    initH: 0,
+
+    // &#x4E00;&#x884C;&#x7684;&#x9AD8;&#x5EA6;
+    unitH: 0,
+
+    // &#x5C4F;&#x5E55;&#x8303;&#x56F4;&#x5185;&#x80FD;&#x663E;&#x793A;&#x4E2A;&#x6570;
+    displayCount: 1,
+
+    // &#x5217;&#x8868;&#x8D77;&#x59CB;&#x503C;
+    startIdx: 0
+})
+
+
+const listData = computed(() =&gt; {
+    let endIdx = data.startIdx + data.displayCount
+    if (endIdx &gt;= props.listData.length) endIdx = props.listData.length
+    return props.listData.slice(data.startIdx, endIdx).map((v, k) =&gt; {
+        v.idx = data.startIdx + k + 1
+        return v
+    })
+})
+
+function scrollHandler() {
+    // &#x5F53;&#x524D;&#x6EDA;&#x52A8;&#x9AD8;&#x5EA6;
+    const curScrollTop = document.documentElement.scrollTop
+    if (curScrollTop &gt; data.initH) {
+        const addCount = Math.floor((curScrollTop - data.initH) / data.unitH)
+        ulRef.value.style.setProperty(&apos;padding-top&apos;, `${addCount * data.unitH}px`)
+        data.startIdx = addCount
+    } else {
+        ulRef.value.style.setProperty(&apos;padding-top&apos;, &apos;0px&apos;)
+        data.startIdx = 0
+    }
+}
+
+watchEffect(() =&gt; {
+    if (props.listData.length &gt; 0) {
+        nextTick(() =&gt; {
+            // &#x5217;&#x8868;&#x8DDD;&#x79BB;&#x9876;&#x90E8;&#x8DDD;&#x79BB;
+            data.initH = ulRef.value.getBoundingClientRect().top + document.documentElement.scrollTop
+            // &#x8BA1;&#x7B97;&#x6BCF;&#x884C;&#x9AD8;&#x5EA6;
+            data.unitH = ulRef.value.children[0].offsetHeight
+            // &#x8BA1;&#x7B97;&#x5C4F;&#x5E55;&#x5185;&#x80FD;&#x663E;&#x793A;&#x7684;&#x884C;&#x6570;
+            data.displayCount = Math.ceil(screenH / data.unitH)
+            // &#x8BBE;&#x7F6E;&#x5217;&#x8868;&#x603B;&#x9AD8;&#x5EA6; = &#x4E00;&#x884C;&#x9AD8;&#x5EA6; * &#x884C;&#x6570;
+            const listH = data.unitH * props.listData.length
+            ulRef.value.style.setProperty(&apos;height&apos;, `${listH}px`)
+
+            window.removeEventListener(&apos;scroll&apos;, scrollHandler)
+            window.addEventListener(&apos;scroll&apos;, scrollHandler)
+        })
+    }
+})
+
+onUnmounted(() =&gt; {
+    window.removeEventListener(&apos;scroll&apos;, scrollHandler)
+})
+
+&lt;/script&gt;
+
+&lt;style scoped lang=&quot;less&quot;&gt;
+.ulRef {
+    box-sizing: border-box
+}
+&lt;/style&gt;
+</code></pre>
+<h3 id="listvue">list.vue</h3>
+<pre><code class="lang-typescript">&lt;template&gt;
+    &lt;div&gt;111
+        sfas&lt;/div&gt;
+    &lt;infinite-list v-if=&quot;songs.length &gt; 0&quot; :listData=&quot;songs&quot;&gt;
+        &lt;template #default=&quot;{ listItem }&quot;&gt;
+            &lt;div&gt;{{ listItem.idx }}{{ listItem.name }}&lt;/div&gt;
+            &lt;img :src=&quot;listItem.img&quot;&gt;
+        &lt;/template&gt;
+    &lt;/infinite-list&gt;
+&lt;/template&gt;
+
+&lt;script lang=&quot;ts&quot; setup&gt;
+import { reactive, ref, onMounted } from &apos;vue&apos;;
+import InfiniteList from &apos;@comp/InfiniteList/index.vue&apos;
+import { TestList } from &quot;@api/Test&quot;
+
+let songs = ref([]) // &#x5217;&#x8868;&#x6570;&#x636E;
+const getTestList = async () =&gt; {
+    let res = await TestList()
+    songs.value = res.list
+    console.log(songs.value.length &gt; 0)
+}
+
+getTestList()
+
+&lt;/script&gt;
+</code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -814,23 +933,23 @@
 
      
     <a
-      href="../WX/微信公众号.html"
+      href="web分页搜索存储.html"
       class="
         navigation navigation-prev
         
       "
-      aria-label="Previous page: 微信"
+      aria-label="Previous page: web 分页搜索存储"
     >
       <i class="fa fa-angle-left"></i>
     </a>
      
     <a
-      href="SSR.html"
+      href="../encrypt/"
       class="
         navigation navigation-next
         
       "
-      aria-label="Next page: SSR"
+      aria-label="Next page: 数据加密"
     >
       <i class="fa fa-angle-right"></i>
     </a>
@@ -864,7 +983,7 @@
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"webDome","level":"1.12","depth":1,"next":{"title":"SSR","level":"1.12.1","depth":2,"path":"webDemo/SSR.md","ref":"webDemo/SSR.md","articles":[]},"previous":{"title":"微信","level":"1.11","depth":1,"path":"WX/微信公众号.md","ref":"WX/微信公众号.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"webDemo/README.md","mtime":"2023-02-02T02:14:04.314Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-27T04:22:38.242Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"虚拟列表","level":"1.12.5","depth":2,"next":{"title":"数据加密","level":"1.13","depth":1,"path":"encrypt/README.md","ref":"encrypt/README.md","articles":[{"title":"crypto-js","level":"1.13.1","depth":2,"path":"encrypt/crypto-js.md","ref":"encrypt/crypto-js.md","articles":[]}]},"previous":{"title":"web 分页搜索存储","level":"1.12.4","depth":2,"path":"vueDemo/web分页搜索存储.md","ref":"vueDemo/web分页搜索存储.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vueDemo/虚拟列表.md","mtime":"2023-03-28T08:07:43.549Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-03-28T08:08:15.610Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
