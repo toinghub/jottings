@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>web 分页搜索存储 · 课堂随笔</title>
+        <title>js 补充 · 课堂随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,10 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="虚拟列表.html" />
+    <link rel="next" href="../vue/" />
     
     
-    <link rel="prev" href="storage封装.html" />
+    <link rel="prev" href="Promise.html" />
     
 
     </head>
@@ -180,9 +180,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3" data-path="../basics/">
+        <li class="chapter " data-level="1.3" data-path="./">
             
-                <a href="../basics/">
+                <a href="./">
             
                     
                     三剑客
@@ -194,9 +194,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.1" data-path="../basics/Promise.html">
+        <li class="chapter " data-level="1.3.1" data-path="Promise.html">
             
-                <a href="../basics/Promise.html">
+                <a href="Promise.html">
             
                     
                     Promise
@@ -207,9 +207,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2" data-path="../basics/js补充.html">
+        <li class="chapter active" data-level="1.3.2" data-path="js补充.html">
             
-                <a href="../basics/js补充.html">
+                <a href="js补充.html">
             
                     
                     js 补充
@@ -508,9 +508,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10" data-path="./">
+        <li class="chapter " data-level="1.10" data-path="../vueDemo/">
             
-                <a href="./">
+                <a href="../vueDemo/">
             
                     
                     VueDome
@@ -522,9 +522,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.10.1" data-path="SSR.html">
+        <li class="chapter " data-level="1.10.1" data-path="../vueDemo/SSR.html">
             
-                <a href="SSR.html">
+                <a href="../vueDemo/SSR.html">
             
                     
                     SSR
@@ -535,9 +535,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.2" data-path="websocket.html">
+        <li class="chapter " data-level="1.10.2" data-path="../vueDemo/websocket.html">
             
-                <a href="websocket.html">
+                <a href="../vueDemo/websocket.html">
             
                     
                     websocket
@@ -548,9 +548,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.3" data-path="storage封装.html">
+        <li class="chapter " data-level="1.10.3" data-path="../vueDemo/storage封装.html">
             
-                <a href="storage封装.html">
+                <a href="../vueDemo/storage封装.html">
             
                     
                     storage 封装
@@ -561,9 +561,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.10.4" data-path="web分页搜索存储.html">
+        <li class="chapter " data-level="1.10.4" data-path="../vueDemo/web分页搜索存储.html">
             
-                <a href="web分页搜索存储.html">
+                <a href="../vueDemo/web分页搜索存储.html">
             
                     
                     web 分页搜索存储
@@ -574,9 +574,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.5" data-path="虚拟列表.html">
+        <li class="chapter " data-level="1.10.5" data-path="../vueDemo/虚拟列表.html">
             
-                <a href="虚拟列表.html">
+                <a href="../vueDemo/虚拟列表.html">
             
                     
                     虚拟列表
@@ -787,7 +787,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >web 分页搜索存储</a>
+        <a href=".." >js 补充</a>
     </h1>
 </div>
 
@@ -800,116 +800,47 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="web-&#x5206;&#x9875;&#x641C;&#x7D22;&#x5B58;&#x50A8;">web &#x5206;&#x9875;&#x641C;&#x7D22;&#x5B58;&#x50A8;</h1>
-<h3 id="vue2tsmixins">vue2+ts+Mixins</h3>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> { Component, Vue } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-property-decorator&apos;</span>;
-
-<span class="hljs-comment">//&#x9875;&#x9762;&#x5206;&#x9875;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;</span>
-interface pagingInt {
-    name: string;
-    pagingInfo: object;
-}
-@Component
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PagingStroage</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Vue</span> </span>{
-    pageObj: any; <span class="hljs-comment">//&#x5BF9;&#x9875;&#x9762;&#x5206;&#x9875;&#x548C;&#x8FC7;&#x6EE4;&#x8FDB;&#x884C;&#x5B58;&#x50A8;</span>
-    filters: any;
-    newPageObj: any;
-    filterConfig: any;
-
-    created() {
-        <span class="hljs-keyword">this</span>.getStoragePagingInfo();
-    }
-    beforeDestroy() {
-        <span class="hljs-keyword">this</span>.setStoragePagingInfo();
-    }
-
-    pageRoute: any = <span class="hljs-literal">null</span>;
-    <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x9875;&#x7801;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    getStoragePagingInfo() {
-        <span class="hljs-keyword">this</span>.pageRoute = <span class="hljs-keyword">this</span>.$route;
-        <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-        <span class="hljs-keyword">const</span> pagingInfo = <span class="hljs-keyword">this</span>.getStoragePaging(<span class="hljs-keyword">this</span>.pageRoute);
-        <span class="hljs-keyword">if</span> (!pagingInfo) <span class="hljs-keyword">return</span>;
-        <span class="hljs-comment">//&#x5C06;&#x5B58;&#x50A8;&#x7684;&#x5206;&#x9875;&#x4FE1;&#x606F;&#x8D4B;&#x503C;&#x7ED9;pageObj</span>
-        <span class="hljs-keyword">if</span> (pagingInfo.pageObj) {
-            <span class="hljs-keyword">this</span>.pageObj = { ...this.pageObj, ...pagingInfo.pageObj };
-        }
-        <span class="hljs-comment">//&#x5904;&#x7406;&#x5B58;&#x50A8;&#x7684;&#x8FC7;&#x6EE4;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x4E14;&#x8D4B;&#x503C;</span>
-        <span class="hljs-keyword">if</span> (pagingInfo.filters) {
-            <span class="hljs-keyword">this</span>.filters = { ...this.filters, ...pagingInfo.filters };
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> pagingInfo.filters) {
-                <span class="hljs-keyword">const</span> value = pagingInfo.filters[key];
-                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.filterConfig[key]) {
-                    <span class="hljs-keyword">this</span>.filterConfig[key].value = value;
-                }
-                <span class="hljs-keyword">if</span> (key === <span class="hljs-string">&apos;endTime&apos;</span> || key === <span class="hljs-string">&apos;startTime&apos;</span>) {
-                    <span class="hljs-keyword">this</span>.filterConfig.date.option[key].value = value;
-                }
-            }
-        }
-    }
-    <span class="hljs-comment">//&#x5B58;&#x50A8;&#x5F53;&#x524D;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    setStoragePagingInfo() {
-        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.newPageObj) <span class="hljs-keyword">return</span>;
-        <span class="hljs-keyword">let</span> pagingInfo: any = {
-            pageObj:
-                <span class="hljs-keyword">this</span>.newPageObj.current || <span class="hljs-keyword">this</span>.newPageObj.pageSize
-                    ? <span class="hljs-keyword">this</span>.newPageObj
-                    : <span class="hljs-literal">null</span>,
-            filters: <span class="hljs-keyword">this</span>.filters || <span class="hljs-literal">null</span>,
-        };
-        <span class="hljs-keyword">this</span>.setStoragePaging(<span class="hljs-keyword">this</span>.pageRoute, pagingInfo);
-    }
-
-    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    getStoragePaging(route: any) {
-        <span class="hljs-keyword">let</span> dataJson: any = <span class="hljs-built_in">window</span>.sessionStorage.getItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-        <span class="hljs-keyword">let</span> data: pagingInt[] = dataJson ? <span class="hljs-built_in">JSON</span>.parse(dataJson) : [];
-        <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span> &amp;&amp; route) {
-            <span class="hljs-keyword">let</span> pagingInfo: any = <span class="hljs-literal">null</span>;
-            <span class="hljs-keyword">let</span> newData: pagingInt[] = [];
-            data.forEach((item: pagingInt) =&gt; {
-                <span class="hljs-keyword">if</span> (item.name === route.name) {
-                    pagingInfo = item;
-                } <span class="hljs-keyword">else</span> {
-                    newData.push(item);
-                }
-            });
-            <span class="hljs-keyword">if</span> (newData.length &gt; <span class="hljs-number">0</span>) {
-                <span class="hljs-built_in">window</span>.sessionStorage.setItem(
-                    <span class="hljs-string">&apos;pagingInfo&apos;</span>,
-                    <span class="hljs-built_in">JSON</span>.stringify(newData)
-                );
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-built_in">window</span>.sessionStorage.removeItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-            }
-            <span class="hljs-keyword">if</span> (pagingInfo) {
-                <span class="hljs-keyword">return</span> pagingInfo.pagingInfo;
-            }
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-    }
-
-    <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    setStoragePaging(route: any, pagingInfo: object) {
-        <span class="hljs-keyword">if</span> (!pagingInfo) <span class="hljs-keyword">return</span>;
-        <span class="hljs-keyword">const</span> newData: pagingInt = {
-            name: route.name,
-            pagingInfo,
-        };
-        <span class="hljs-keyword">let</span> data: any = <span class="hljs-built_in">window</span>.sessionStorage.getItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-        data = data ? <span class="hljs-built_in">JSON</span>.parse(data) : [];
-        data = [...data, newData];
-        <span class="hljs-built_in">window</span>.sessionStorage.setItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>, <span class="hljs-built_in">JSON</span>.stringify(data));
-    }
-}
-<span class="hljs-comment">//&#x6E05;&#x7A7A;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeStoragePaging</span>(<span class="hljs-params"></span>) </span>{
-    setTimeout(() =&gt; {
-        <span class="hljs-built_in">window</span>.sessionStorage.removeItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-    }, <span class="hljs-number">0</span>);
+             <h1 id="js-&#x8865;&#x5145;">js &#x8865;&#x5145;</h1>
+<p><a href="https://juejin.cn/post/7130161240181047309" target="_blank">&#x6587;&#x7AE0;&#x5730;&#x5740;</a></p>
+<h3 id="&#x5C3E;&#x8C03;&#x7528;&#x4F18;&#x5316;">&#x5C3E;&#x8C03;&#x7528;&#x4F18;&#x5316;</h3>
+<blockquote>
+<p>&#x5F53;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x65F6;,&#x4F1A;&#x5728;&#x5185;&#x5B58;&#x4E2D;&#x5F62;&#x6210;&#x8C03;&#x7528;&#x8BB0;&#x5F55;, &#x53C8;&#x79F0;&quot;&#x8C03;&#x7528;&#x5E27;&quot;&#xFF08;call frame&#xFF09;</p>
+<p>&#x5F53;&#x5728;&#x6587;&#x7AE0;&#x672B;&#x5C3E;&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; return,&#x6765;&#x5220;&#x9664;&#x5916;&#x5C42;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8BB0;&#x5F55;&#xFF0C;&#x53EA;&#x4FDD;&#x7559;&#x5185;&#x5C42;&#x51FD;&#x6570;&#x7684;&#x8C03;&#x7528;&#x8BB0;&#x5F55;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">f</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">let</span> m = <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">let</span> n = <span class="hljs-number">2</span>;
+  <span class="hljs-keyword">return</span> g(m + n);
 }
 </code></pre>
+<h3 id="&#x5C3E;&#x9012;&#x5F52;">&#x5C3E;&#x9012;&#x5F52;</h3>
+<blockquote>
+<p>&#x56E0;&#x4E3A;&#x4EC5;&#x6709; 1 &#x4E2A;&#x8C03;&#x7528;&#x8BB0;&#x5F55; &#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x4F1A;&#x5B58;&#x5728;&#x5185;&#x5B58;&#x6EA2;&#x51FA;&#x95EE;&#x9898;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">factorial</span>(<span class="hljs-params">n</span>) </span>{
+  <span class="hljs-keyword">if</span> (n === <span class="hljs-number">1</span>) <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;
+  <span class="hljs-keyword">return</span> n * factorial(n - <span class="hljs-number">1</span>);
+}
+factorial(<span class="hljs-number">5</span>); <span class="hljs-comment">// 120</span>
+</code></pre>
+<h3 id="while-&#x5FAA;&#x73AF;">while &#x5FAA;&#x73AF;</h3>
+<blockquote>
+<p>&#x53EA;&#x8981;&#x6307;&#x5B9A;&#x6761;&#x4EF6;&#x4E3A; true&#xFF0C;&#x5FAA;&#x73AF;&#x5C31;&#x53EF;&#x4EE5;&#x4E00;&#x76F4;&#x6267;&#x884C;&#x4EE3;&#x7801;&#x5757;</p>
+</blockquote>
+<pre><code class="lang-js"><span class="hljs-keyword">while</span> (&#x6761;&#x4EF6;){
+    &#x9700;&#x8981;&#x6267;&#x884C;&#x7684;&#x4EE3;&#x7801;
+}
+</code></pre>
+<h3 id="objectis-&#x548C;-&#x7684;&#x533A;&#x522B;">Object.is &#x548C; ===&#x7684;&#x533A;&#x522B;</h3>
+<blockquote>
+<p>object.is &#x53EF;&#x4EE5;&#x533A;&#x522B;-0&#x548C;+0</p>
+<p>object.is NaN&#x7B49;&#x4E8E;&#x53E6;&#x4E00;&#x4E2A;NaN&#x503C;</p>
+</blockquote>
+<h3 id="objectassign--&#x548C;-&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;-&#x7684;&#x533A;&#x522B;">Object.assign  &#x548C; &#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;... &#x7684;&#x533A;&#x522B;</h3>
+<blockquote>
+<p>Object.assign &#x4F1A;&#x76F4;&#x63A5;&#x6539;&#x53D8;&#x539F;&#x6570;&#x636E;&#x7684;&#x503C;</p>
+<p>&#x6269;&#x5C55;&#x8FD0;&#x7B97;&#x7B26;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x8D4B;&#x503C;&#x90FD;&#x65B9;&#x5F0F;&#x6539;&#x53D8;&#x6570;&#x636E;&#x7684;&#x503C;</p>
+</blockquote>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -936,23 +867,23 @@ interface pagingInt {
 
      
     <a
-      href="storage封装.html"
+      href="Promise.html"
       class="
         navigation navigation-prev
         
       "
-      aria-label="Previous page: storage 封装"
+      aria-label="Previous page: Promise"
     >
       <i class="fa fa-angle-left"></i>
     </a>
      
     <a
-      href="虚拟列表.html"
+      href="../vue/"
       class="
         navigation navigation-next
         
       "
-      aria-label="Next page: 虚拟列表"
+      aria-label="Next page: vue"
     >
       <i class="fa fa-angle-right"></i>
     </a>
@@ -986,7 +917,7 @@ interface pagingInt {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"web 分页搜索存储","level":"1.10.4","depth":2,"next":{"title":"虚拟列表","level":"1.10.5","depth":2,"path":"vueDemo/虚拟列表.md","ref":"vueDemo/虚拟列表.md","articles":[]},"previous":{"title":"storage 封装","level":"1.10.3","depth":2,"path":"vueDemo/storage封装.md","ref":"vueDemo/storage封装.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vueDemo/web分页搜索存储.md","mtime":"2023-02-24T02:40:10.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-03T06:58:59.279Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"js 补充","level":"1.3.2","depth":2,"next":{"title":"vue","level":"1.4","depth":1,"path":"vue/README.md","ref":"vue/README.md","articles":[{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},{"title":"vue3","level":"1.4.2","depth":2,"path":"vue/vue3.md","ref":"vue/vue3.md","articles":[]},{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},{"title":"pinia","level":"1.4.4","depth":2,"path":"vue/pinia.md","ref":"vue/pinia.md","articles":[]},{"title":"vue 补充","level":"1.4.5","depth":2,"path":"vue/vue补充.md","ref":"vue/vue补充.md","articles":[]}]},"previous":{"title":"Promise","level":"1.3.1","depth":2,"path":"basics/Promise.md","ref":"basics/Promise.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"basics/js补充.md","mtime":"2023-02-02T02:13:59.689Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-03T06:58:59.279Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

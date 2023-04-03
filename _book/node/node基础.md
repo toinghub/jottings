@@ -28,9 +28,11 @@ nvm alias default <version> //切换默认版本
 
 ```javascript
 npm init -y //创建package文件
---sava //安装  -S 简写
---dev  //开发环境使用 -D 简写
+--sava //安装dependenciesd   -S 简写
+--dev  //开发环境使用  devDependencies  -D 简写
 -g     //全局安装
+--save-dev //devDependencies添加依赖
+
 install //安装 i 简写
 npm uninstall gulp -D //卸载包
 npm list //显示包管理的关系
