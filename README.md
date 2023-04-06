@@ -1,71 +1,77 @@
 # Summary
 
-##### [前言](README.md)
+#### [前言](README.md)
 
-##### [工作随笔](jobRecord/README.md)
+#### [工作随笔](jobRecord/README.md)
 
--   ###### [工作随笔](jobRecord/工作随笔.md)
+-   ##### [功能技巧](jobRecord/功能技巧.md)
+-   ##### [工作随笔](jobRecord/工作随笔.md)
 
--   ###### [功能技巧](jobRecord/功能技巧.md)
+#### [三剑客](basics/README.md)
 
-##### [javaScript](Js/README.md)
+-   ##### [javaScript](basics/javaScript.md)
+-   ##### [Sass/Less](basics/Sass'Less.md)
+-   ##### [Flex](basics/Flex.md)
+-   ##### [Grid](basics/Grid.md)
+-   ##### [Promise](basics/Promise.md)
 
--   ###### [js 补充](Js/js补充.md)
+#### [vue](vue/README.md)
 
-##### [vue](vue/README.md)
+-   ##### [vue2](vue/vue2.md)
+-   ##### [vue3](vue/vue3.md)
+-   ##### [vuex](vue/vuex.md)
+-   ##### [pinia](vue/pinia.md)
+-   ##### [vue 补充](vue/vue补充.md)
 
--   ###### [vue2](vue/vue2.md)
+#### [typeSctipt](TypeScript/README.md)
 
--   ###### [vue3](vue/vue3.md)
+-   ##### [基础篇](TypeScript/基础篇.md)
+-   ##### [tsconfig](TypeScript/tsconfig.md)
+-   ##### [ts 补充](TypeScript/ts补充.md)
 
--   ###### [vuex](vue/vuex.md)
+#### [打包工具](pack/README.md)
 
--   ###### [pinia](vue/pinia.md)
+-   ##### [vite](pack/vite.md)
+-   ##### [webpack](pack/webpack.md)
 
--   ###### [vue 补充](vue/vue补充.md)
+#### [request](request/README.md)
 
-##### [typeSctipt](Ts/README.md)
+-   ##### [axios](request/axios.md)
 
--   ###### [基础篇](Ts/基础篇.md)
+#### [node](node/README.md)
 
--   ###### [ts 补充](Ts/ts补充.md)
+-   ##### [node-基础](node/node基础.md)
 
-##### [node](node/README.md)
+#### [测试工具](test/README.md)
 
--   ###### [node-基础](node/node基础.md)
+-   ##### [mock](test/mockjs.md)
 
-##### [设计原则](设计原则/README.md)
+#### [VueDome](vueDemo/README.md)
 
--   ###### [类之间的关系](设计原则/类之间的关系.md)
+-   ##### [SSR](vueDemo/SSR.md)
+-   ##### [websocket](vueDemo/websocket.md)
+-   ##### [storage 封装](vueDemo/storage封装.md)
+-   ##### [web 分页搜索存储](vueDemo/web分页搜索存储.md)
+-   ##### [虚拟列表](vueDemo/虚拟列表.md)
 
--   ###### [设计原则](设计原则/设计原则.md)
+#### [设计原则](设计原则/README.md)
 
--   ###### [设计模式](设计原则/设计模式.md)
+-   ##### [类之间的关系](设计原则/类之间的关系.md)
+-   ##### [设计原则](设计原则/设计原则.md)
+-   ##### [设计模式](设计原则/设计模式.md)
 
-##### [数据加密](encrypt/README.md)
+#### [规范](standard/规范.md)
 
--   ###### [crypto-js](encrypt/crypto-js.md)
+#### [微信](WX/微信公众号.md)
 
-##### [git](git/git随笔.md)
+#### [数据加密](encrypt/README.md)
 
-##### [微信公众号](WXgroup/微信公众号.md)
+-   ##### [crypto-js](encrypt/crypto-js.md)
 
-##### [webpack](webpack/webpack.md)
+#### [git](git/git随笔.md)
 
-##### [server](server/README.md)
+#### [server](server/README.md)
 
--   ###### [ngin](server/ngin.md)
+-   ##### [ngin](server/ngin.md)
 
-##### [mock](mock/mockjs.md)
-
-##### [Linux](Linux/Linux.md)
-
-##### [vite](vite/vite.md)
-
-##### [前端技巧功能](webDemo/README.md)
-
--   ###### [SSR](webDemo/SSR.md)
-
--   ###### [websocket](webDemo/websocket.md)
-
--   ###### [storage](webDemo/storage.md)
+#### [Linux](Linux/Linux.md)

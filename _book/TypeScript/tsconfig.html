@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Linux · 课堂随笔</title>
+        <title>tsconfig · 课堂随笔</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -77,8 +77,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
+    <link rel="next" href="ts补充.html" />
     
-    <link rel="prev" href="../server/ngin.html" />
+    
+    <link rel="prev" href="基础篇.html" />
     
 
     </head>
@@ -359,9 +361,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5" data-path="../TypeScript/">
+        <li class="chapter " data-level="1.5" data-path="./">
             
-                <a href="../TypeScript/">
+                <a href="./">
             
                     
                     typeSctipt
@@ -373,9 +375,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../TypeScript/基础篇.html">
+        <li class="chapter " data-level="1.5.1" data-path="基础篇.html">
             
-                <a href="../TypeScript/基础篇.html">
+                <a href="基础篇.html">
             
                     
                     基础篇
@@ -386,9 +388,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../TypeScript/tsconfig.html">
+        <li class="chapter active" data-level="1.5.2" data-path="tsconfig.html">
             
-                <a href="../TypeScript/tsconfig.html">
+                <a href="tsconfig.html">
             
                     
                     tsconfig
@@ -399,9 +401,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../TypeScript/ts补充.html">
+        <li class="chapter " data-level="1.5.3" data-path="ts补充.html">
             
-                <a href="../TypeScript/ts补充.html">
+                <a href="ts补充.html">
             
                     
                     ts 补充
@@ -803,9 +805,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.17" data-path="Linux.html">
+        <li class="chapter " data-level="1.17" data-path="../Linux/Linux.html">
             
-                <a href="Linux.html">
+                <a href="../Linux/Linux.html">
             
                     
                     Linux
@@ -850,7 +852,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Linux</a>
+        <a href=".." >tsconfig</a>
     </h1>
 </div>
 
@@ -863,7 +865,52 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="linux">Linux</h1>
+             <h1 id="tsconfig">tsconfig</h1>
+<pre><code class="lang-json">{
+    <span class="hljs-string">&quot;compilerOptions&quot;</span>: {
+        <span class="hljs-string">&quot;target&quot;</span>: <span class="hljs-string">&quot;ESNext&quot;</span>, <span class="hljs-comment">//&#x9075;&#x5FAA;&#x90A3;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x8BED;&#x6CD5;es5 es6</span>
+        <span class="hljs-string">&quot;useDefineForClassFields&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x662F;&#x5426;&#x4F7F;&#x7528;&#x5B9A;&#x4E49;&#x7C7B;&#x5B57;&#x6BB5;</span>
+        <span class="hljs-string">&quot;module&quot;</span>: <span class="hljs-string">&quot;ESNext&quot;</span>, <span class="hljs-comment">//&#x7F16;&#x8BD1;&#x540E;&#x8981;&#x9075;&#x5FAA;&#x7684;&#x6A21;&#x5757;&#x89C4;&#x5219;</span>
+        <span class="hljs-string">&quot;moduleResolution&quot;</span>: <span class="hljs-string">&quot;Node&quot;</span>, <span class="hljs-comment">//&#x9009;&#x62E9;&#x6A21;&#x5757;&#x89E3;&#x6790;&#x7B56;&#x7565;&#xFF0C;&#x6709;&apos;node&apos;&#x548C;&apos;classic&apos;&#x4E24;&#x79CD;&#x7C7B;&#x578B;</span>
+        <span class="hljs-string">&quot;strict&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x662F;&#x5426;&#x542F;&#x52A8;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x68C0;&#x67E5;</span>
+        <span class="hljs-string">&quot;jsx&quot;</span>: <span class="hljs-string">&quot;preserve&quot;</span>, <span class="hljs-comment">//&#x6307;&#x5B9A;jsx&#x4EE3;&#x7801;&#x7528;&#x4E8E;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;: &apos;preserve&apos;, &apos;react-native&apos;, or &apos;react&apos;</span>
+        <span class="hljs-string">&quot;resolveJsonModule&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x5141;&#x8BB8;&#x5BFC;&#x5165;&#x5E26;&#x6709;&#x201C;json&#x6269;&#x5C55;&#x540D;&#x7684;&#x6A21;&#x5757;</span>
+        <span class="hljs-string">&quot;isolatedModules&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x5C06;&#x6BCF;&#x4E2A;&#x6587;&#x4EF6;&#x4F5C;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x6A21;&#x5757;</span>
+        <span class="hljs-string">&quot;esModuleInterop&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x5141;&#x8BB8;export=&#x5BFC;&#x51FA;&#xFF0C;&#x7531;import from &#x5BFC;&#x5165;</span>
+        <span class="hljs-string">&quot;lib&quot;</span>: [<span class="hljs-string">&quot;ESNext&quot;</span>, <span class="hljs-string">&quot;DOM&quot;</span>], <span class="hljs-comment">//&#x5305;&#x542B;&#x5728;&#x7F16;&#x8BD1;&#x4E2D;&#x7684;&#x5E93;&#x6587;&#x4EF6;</span>
+        <span class="hljs-string">&quot;skipLibCheck&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//// &#x6240;&#x6709;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#xFF08;*.d.ts&#xFF09;&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF0C;&#x89E3;&#x51B3;&#x6253;&#x5305;&#x4E0D;&#x62A5;&#x9519;</span>
+        <span class="hljs-string">&quot;noEmit&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x4E0D;&#x8F93;&#x51FA;&#x4EFB;&#x4F55;&#x6587;&#x4EF6;</span>
+        <span class="hljs-string">&quot;skipDefaultLibCheck&quot;</span>: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x662F;&#x5426;&#x8DF3;&#x8FC7;&#x9ED8;&#x8BA4;&#x5E93;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x7684;&#x7C7B;&#x578B;&#x68C0;&#x67E5;</span>
+        <span class="hljs-string">&quot;baseUrl&quot;</span>: <span class="hljs-string">&quot;./&quot;</span>, <span class="hljs-comment">//&#x89E3;&#x6790;&#x975E;&#x7EDD;&#x5BF9;&#x6A21;&#x5757;&#x540D;&#x7684;&#x57FA;&#x51C6;&#x76EE;&#x5F55;</span>
+        <span class="hljs-string">&quot;paths&quot;</span>: {
+            <span class="hljs-comment">//    &#x8BBE;&#x7F6E;&#x8DEF;&#x5F84;&#x6620;&#x5C04; &#x8DEF;&#x5F84;&#x522B;&#x540D;</span>
+            <span class="hljs-string">&quot;@&quot;</span>: [<span class="hljs-string">&quot;src&quot;</span>],
+            <span class="hljs-string">&quot;@/*&quot;</span>: [<span class="hljs-string">&quot;src/*&quot;</span>],
+            <span class="hljs-string">&quot;@comp/*&quot;</span>: [<span class="hljs-string">&quot;src/components/*&quot;</span>],
+            <span class="hljs-string">&quot;@utils/*&quot;</span>: [<span class="hljs-string">&quot;src/utils/*&quot;</span>],
+            <span class="hljs-string">&quot;@interfaces/*&quot;</span>: [<span class="hljs-string">&quot;src/types/*&quot;</span>],
+            <span class="hljs-string">&quot;@stores/*&quot;</span>: [<span class="hljs-string">&quot;src/stores/*&quot;</span>],
+            <span class="hljs-string">&quot;@imgs/*&quot;</span>: [<span class="hljs-string">&quot;src/assets/images/*&quot;</span>],
+            <span class="hljs-string">&quot;@hooks/*&quot;</span>: [<span class="hljs-string">&quot;src/hooks/*&quot;</span>]
+        },
+        <span class="hljs-string">&quot;types&quot;</span>: [<span class="hljs-string">&quot;vite/client&quot;</span>] <span class="hljs-comment">//&#x52A0;&#x8F7D;&#x7684;&#x58F0;&#x660E;&#x6587;&#x4EF6;&#x5305;</span>
+    },
+    <span class="hljs-string">&quot;include&quot;</span>: [
+        <span class="hljs-comment">//&#x6307;&#x5B9A;&#x88AB;&#x7F16;&#x8BD1;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;&#x3002;</span>
+        <span class="hljs-string">&quot;src/**/*.ts&quot;</span>,
+        <span class="hljs-string">&quot;src/**/*.d.ts&quot;</span>,
+        <span class="hljs-string">&quot;src/**/*.tsx&quot;</span>,
+        <span class="hljs-string">&quot;src/**/*.vue&quot;</span>,
+        <span class="hljs-string">&quot;shims-vue.d.ts&quot;</span>
+    ],
+    <span class="hljs-string">&quot;references&quot;</span>: [
+        <span class="hljs-comment">//&#x9879;&#x76EE;&#x5F15;&#x7528;&#xFF0C;&#x5B83;&#x5141;&#x8BB8;&#x5C06; TS &#x7A0B;&#x5E8F;&#x7EC4;&#x7EC7;&#x6210;&#x66F4;&#x5C0F;&#x7684;&#x90E8;&#x5206;</span>
+        {
+            <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;./tsconfig.node.json&quot;</span>
+        }
+    ]
+}
+</code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -890,16 +937,27 @@
 
      
     <a
-      href="../server/ngin.html"
+      href="基础篇.html"
       class="
         navigation navigation-prev
-        navigation-unique
+        
       "
-      aria-label="Previous page: ngin"
+      aria-label="Previous page: 基础篇"
     >
       <i class="fa fa-angle-left"></i>
     </a>
-       
+     
+    <a
+      href="ts补充.html"
+      class="
+        navigation navigation-next
+        
+      "
+      aria-label="Next page: ts 补充"
+    >
+      <i class="fa fa-angle-right"></i>
+    </a>
+      
   </div>
   <script>
     function showModal() {
@@ -929,7 +987,7 @@
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"Linux","level":"1.17","depth":1,"previous":{"title":"ngin","level":"1.16.1","depth":2,"path":"server/ngin.md","ref":"server/ngin.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"Linux/Linux.md","mtime":"2023-02-02T02:13:59.690Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-06T02:43:43.361Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"tsconfig","level":"1.5.2","depth":2,"next":{"title":"ts 补充","level":"1.5.3","depth":2,"path":"TypeScript/ts补充.md","ref":"TypeScript/ts补充.md","articles":[]},"previous":{"title":"基础篇","level":"1.5.1","depth":2,"path":"TypeScript/基础篇.md","ref":"TypeScript/基础篇.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"TypeScript/tsconfig.md","mtime":"2023-03-14T06:36:31.593Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-06T02:43:43.361Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
