@@ -1,25 +1,22 @@
-# 注意
-
 > filters过滤器被删除
->
-> 页面生命周期函数名换了
->
-> vue2是类写法，vue3函数写法(没有this了)
 >
 > 文件template下可以放多个根节点，而不像vue2只能放一个根节点
 
-# 生命周期
+# [生命周期](https://cn.vuejs.org/api/composition-api-lifecycle.html#onmounted)
 
-| VUE2          | vue3            |
-| :------------ | :-------------- |
-| beforeCreate  | setup           |
-| Created       | setup           |
-| beforeMount   | onBeforeMount   |
-| mounted       | onMounted       |
-| beforeUpdate  | onBeUpdate      |
-| updated       | onUpdate        |
-| beforeDestroy | onBeforeUnmount |
-| destroyed     | onUnmounted     |
+|     onBeforeMount()     |             组件挂载之前被调用             |
+| :---------------------: | :----------------------------------------: |
+|     **onMounted()**     |           **组件挂载完成后执行**           |
+|  **onBeforeUpdate()**   |           **组件更新完成前执行**           |
+|     **onUpdated()**     |           **组件更新完成后执行**           |
+|  **onBeforeUnmount()**  |           **组件在被卸载前调用**           |
+|    **onUnmounted()**    |           **组件在被卸载后调用**           |
+|  **onErrorCaptured()**  |      **捕获后代组件传递的错误时调用**      |
+|  **onRenderTracked()**  |  **组件渲染过程中追踪到响应式依赖时调用**  |
+| **onRenderTriggered()** | **当响应式依赖的变更触发了组件渲染时调用** |
+|    **onActivated()**    | **KeepAlive -- 组件被插入到 DOM 中时调用** |
+|   **onDeactivated()**   | **KeepAlive -- 组件从 DOM 中被移除时调用** |
+| **onServerPrefetch()**  |    **组件实例在服务器上被渲染之前调用**    |
 
 ```js
 import { reactive,onBeforeMount,onMounted } from "vue"
@@ -48,7 +45,7 @@ createApp(App).directive('focus', {
 ## 路由
 
 ```js
-import { useRouter,useRoute } form 'vue-router'
+import { useRouter,useRoute } from 'vue-router'
 const router = useRouter() //router == this.$router
 const route = useRoute() //route == this.$route 取值
 ```

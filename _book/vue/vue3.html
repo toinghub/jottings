@@ -528,12 +528,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9" data-path="../test/">
+        <li class="chapter " data-level="1.9" data-path="../tool/">
             
-                <a href="../test/">
+                <a href="../tool/">
             
                     
-                    测试工具
+                    工具语法
             
                 </a>
             
@@ -542,12 +542,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.1" data-path="../test/mockjs.html">
+        <li class="chapter " data-level="1.9.1" data-path="../tool/mockjs.html">
             
-                <a href="../test/mockjs.html">
+                <a href="../tool/mockjs.html">
             
                     
                     mock
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../tool/Markdown.html">
+            
+                <a href="../tool/Markdown.html">
+            
+                    
+                    Markdown
             
                 </a>
             
@@ -574,7 +587,20 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.10.1" data-path="../vueDemo/SSR.html">
+        <li class="chapter " data-level="1.10.1" data-path="../vueDemo/瀑布流.html">
+            
+                <a href="../vueDemo/瀑布流.html">
+            
+                    
+                    瀑布流
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../vueDemo/SSR.html">
             
                 <a href="../vueDemo/SSR.html">
             
@@ -587,7 +613,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.2" data-path="../vueDemo/websocket.html">
+        <li class="chapter " data-level="1.10.3" data-path="../vueDemo/websocket.html">
             
                 <a href="../vueDemo/websocket.html">
             
@@ -600,7 +626,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.3" data-path="../vueDemo/storage封装.html">
+        <li class="chapter " data-level="1.10.4" data-path="../vueDemo/storage封装.html">
             
                 <a href="../vueDemo/storage封装.html">
             
@@ -613,7 +639,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.4" data-path="../vueDemo/web分页搜索存储.html">
+        <li class="chapter " data-level="1.10.5" data-path="../vueDemo/web分页搜索存储.html">
             
                 <a href="../vueDemo/web分页搜索存储.html">
             
@@ -626,7 +652,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.10.5" data-path="../vueDemo/虚拟列表.html">
+        <li class="chapter " data-level="1.10.6" data-path="../vueDemo/虚拟列表.html">
             
                 <a href="../vueDemo/虚拟列表.html">
             
@@ -865,53 +891,62 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="&#x6CE8;&#x610F;">&#x6CE8;&#x610F;</h1>
-<blockquote>
+             <blockquote>
 <p>filters&#x8FC7;&#x6EE4;&#x5668;&#x88AB;&#x5220;&#x9664;</p>
-<p>&#x9875;&#x9762;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x540D;&#x6362;&#x4E86;</p>
-<p>vue2&#x662F;&#x7C7B;&#x5199;&#x6CD5;&#xFF0C;vue3&#x51FD;&#x6570;&#x5199;&#x6CD5;(&#x6CA1;&#x6709;this&#x4E86;)</p>
 <p>&#x6587;&#x4EF6;template&#x4E0B;&#x53EF;&#x4EE5;&#x653E;&#x591A;&#x4E2A;&#x6839;&#x8282;&#x70B9;&#xFF0C;&#x800C;&#x4E0D;&#x50CF;vue2&#x53EA;&#x80FD;&#x653E;&#x4E00;&#x4E2A;&#x6839;&#x8282;&#x70B9;</p>
 </blockquote>
-<h1 id="&#x751F;&#x547D;&#x5468;&#x671F;">&#x751F;&#x547D;&#x5468;&#x671F;</h1>
+<h1 id="&#x751F;&#x547D;&#x5468;&#x671F;"><a href="https://cn.vuejs.org/api/composition-api-lifecycle.html#onmounted" target="_blank">&#x751F;&#x547D;&#x5468;&#x671F;</a></h1>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">VUE2</th>
-<th style="text-align:left">vue3</th>
+<th style="text-align:center">onBeforeMount()</th>
+<th style="text-align:center">&#x7EC4;&#x4EF6;&#x6302;&#x8F7D;&#x4E4B;&#x524D;&#x88AB;&#x8C03;&#x7528;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">beforeCreate</td>
-<td style="text-align:left">setup</td>
+<td style="text-align:center"><strong>onMounted()</strong></td>
+<td style="text-align:center"><strong>&#x7EC4;&#x4EF6;&#x6302;&#x8F7D;&#x5B8C;&#x6210;&#x540E;&#x6267;&#x884C;</strong></td>
 </tr>
 <tr>
-<td style="text-align:left">Created</td>
-<td style="text-align:left">setup</td>
+<td style="text-align:center"><strong>onBeforeUpdate()</strong></td>
+<td style="text-align:center"><strong>&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x524D;&#x6267;&#x884C;</strong></td>
 </tr>
 <tr>
-<td style="text-align:left">beforeMount</td>
-<td style="text-align:left">onBeforeMount</td>
+<td style="text-align:center"><strong>onUpdated()</strong></td>
+<td style="text-align:center"><strong>&#x7EC4;&#x4EF6;&#x66F4;&#x65B0;&#x5B8C;&#x6210;&#x540E;&#x6267;&#x884C;</strong></td>
 </tr>
 <tr>
-<td style="text-align:left">mounted</td>
-<td style="text-align:left">onMounted</td>
+<td style="text-align:center"><strong>onBeforeUnmount()</strong></td>
+<td style="text-align:center"><strong>&#x7EC4;&#x4EF6;&#x5728;&#x88AB;&#x5378;&#x8F7D;&#x524D;&#x8C03;&#x7528;</strong></td>
 </tr>
 <tr>
-<td style="text-align:left">beforeUpdate</td>
-<td style="text-align:left">onBeUpdate</td>
+<td style="text-align:center"><strong>onUnmounted()</strong></td>
+<td style="text-align:center"><strong>&#x7EC4;&#x4EF6;&#x5728;&#x88AB;&#x5378;&#x8F7D;&#x540E;&#x8C03;&#x7528;</strong></td>
 </tr>
 <tr>
-<td style="text-align:left">updated</td>
-<td style="text-align:left">onUpdate</td>
+<td style="text-align:center"><strong>onErrorCaptured()</strong></td>
+<td style="text-align:center"><strong>&#x6355;&#x83B7;&#x540E;&#x4EE3;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x7684;&#x9519;&#x8BEF;&#x65F6;&#x8C03;&#x7528;</strong></td>
 </tr>
 <tr>
-<td style="text-align:left">beforeDestroy</td>
-<td style="text-align:left">onBeforeUnmount</td>
+<td style="text-align:center"><strong>onRenderTracked()</strong></td>
+<td style="text-align:center"><strong>&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x4E2D;&#x8FFD;&#x8E2A;&#x5230;&#x54CD;&#x5E94;&#x5F0F;&#x4F9D;&#x8D56;&#x65F6;&#x8C03;&#x7528;</strong></td>
 </tr>
 <tr>
-<td style="text-align:left">destroyed</td>
-<td style="text-align:left">onUnmounted</td>
+<td style="text-align:center"><strong>onRenderTriggered()</strong></td>
+<td style="text-align:center"><strong>&#x5F53;&#x54CD;&#x5E94;&#x5F0F;&#x4F9D;&#x8D56;&#x7684;&#x53D8;&#x66F4;&#x89E6;&#x53D1;&#x4E86;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x65F6;&#x8C03;&#x7528;</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>onActivated()</strong></td>
+<td style="text-align:center"><strong>KeepAlive -- &#x7EC4;&#x4EF6;&#x88AB;&#x63D2;&#x5165;&#x5230; DOM &#x4E2D;&#x65F6;&#x8C03;&#x7528;</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>onDeactivated()</strong></td>
+<td style="text-align:center"><strong>KeepAlive -- &#x7EC4;&#x4EF6;&#x4ECE; DOM &#x4E2D;&#x88AB;&#x79FB;&#x9664;&#x65F6;&#x8C03;&#x7528;</strong></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>onServerPrefetch()</strong></td>
+<td style="text-align:center"><strong>&#x7EC4;&#x4EF6;&#x5B9E;&#x4F8B;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x88AB;&#x6E32;&#x67D3;&#x4E4B;&#x524D;&#x8C03;&#x7528;</strong></td>
 </tr>
 </tbody>
 </table>
@@ -933,7 +968,7 @@ createApp(App).directive(<span class="hljs-string">&apos;focus&apos;</span>, {
 })
 </code></pre>
 <h2 id="&#x8DEF;&#x7531;">&#x8DEF;&#x7531;</h2>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useRouter,useRoute } form <span class="hljs-string">&apos;vue-router&apos;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { useRouter,useRoute } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-router&apos;</span>
 const router = useRouter() //router == this.$router
 <span class="hljs-keyword">const</span> route = useRoute() <span class="hljs-comment">//route == this.$route &#x53D6;&#x503C;</span>
 </code></pre>
@@ -1558,7 +1593,7 @@ const openModal = () =&gt; {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-02-03T08:20:22.994Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-06T02:43:43.361Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vue3","level":"1.4.2","depth":2,"next":{"title":"vuex","level":"1.4.3","depth":2,"path":"vue/vuex.md","ref":"vue/vuex.md","articles":[]},"previous":{"title":"vue2","level":"1.4.1","depth":2,"path":"vue/vue2.md","ref":"vue/vue2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/vue3.md","mtime":"2023-04-24T03:26:35.546Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-04-24T09:20:06.843Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
