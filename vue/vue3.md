@@ -594,11 +594,11 @@ const { name, count = 100 } = defineProps<Props>()
 ```html
 <script setup lang="ts">
 // 运行时
-const emit = defineEmits(['change', 'update'])
+const emit = defineEmits(['update:change', 'update'])
 
 // 基于类型
 const emit = defineEmits<{
-  (e: 'change', id: number): void
+  (e: 'update:change', id: number): void //直接更新change内容
   (e: 'update', value: string): void
 }>()
 </script>
