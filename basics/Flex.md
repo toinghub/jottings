@@ -1,5 +1,7 @@
 # [Flex](http://c.biancheng.net/css3/flex.html)
 
+# 容器属性
+
 ## flex-direction
 
 >  弹性子元素在父容器中的位置 
@@ -74,9 +76,9 @@
 
 
 
-## 项目属性
+# 项目属性
 
-### order
+## order
 
 > 项目在容器中出现的顺序 
 
@@ -95,7 +97,7 @@ order: number;
 
 
 
-#### align-self
+## align-self
 
 >  某个项目设置不同于其它项目的对齐方式 
 >
@@ -115,7 +117,7 @@ align-self: flex-start;
 
 
 
-#### flex
+## flex
 
 >  flex-grow、flex-shrink 和 flex-basis 三个属性的简写 
 >

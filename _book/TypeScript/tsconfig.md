@@ -6,8 +6,11 @@
 		"target": "ESNext", //遵循那个版本的语法es5 es6
 		"useDefineForClassFields": true, //是否使用定义类字段
 		"module": "ESNext", //编译后要遵循的模块规则
+        "strictNullChecks": true,//检查元素是否为空
 		"moduleResolution": "Node", //选择模块解析策略，有'node'和'classic'两种类型
 		"strict": true, //是否启动所有类型检查
+        "noImplicitThis": true,//不允许使用不明确指向的this
+        "noImplicitAny": true,//不允许使用隐式any类型
 		"jsx": "preserve", //指定jsx代码用于的开发环境: 'preserve', 'react-native', or 'react'
 		"resolveJsonModule": true, //允许导入带有“json扩展名的模块
 		"isolatedModules": true, //将每个文件作为单独的模块

@@ -7,6 +7,7 @@
     * [Vscode](jobRecord/Vscode.md)
 * [三剑客](basics/README.md)
     * [javaScript](basics/javaScript.md)
+    * [ES6](basics/ES6.md)
     * [Sass/Less](basics/Sass'Less.md)
     * [Flex](basics/Flex.md)
     * [Grid](basics/Grid.md)
