@@ -12,6 +12,7 @@
     * [Flex](basics/Flex.md)
     * [Grid](basics/Grid.md)
     * [Promise](basics/Promise.md)
+    * [RegExp](basics/RegExp.md)
 * [vue](vue/README.md)
     * [vue2](vue/vue2.md)
     * [vue3](vue/vue3.md)
