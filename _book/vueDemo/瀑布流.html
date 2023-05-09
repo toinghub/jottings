@@ -951,93 +951,94 @@
           <section class="normal markdown-section">
              <h1 id="&#x7011;&#x5E03;&#x6D41;">&#x7011;&#x5E03;&#x6D41;</h1>
 <h2 id="vue3--gaid">vue3 + Gaid</h2>
-<pre><code class="lang-vue"><template>
-    <div class="page">
-        <div class="masonry">
-            <div class="item" :key="index" v-for="item, index in data" :style="{ backgroundColor: item.color, gridRow: `auto / span ${item.height}` }">
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;page&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;masonry&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;item&quot;</span> <span class="hljs-attribute">:key</span>=<span class="hljs-value">&quot;index&quot;</span> <span class="hljs-attribute">v-for</span>=<span class="hljs-value">&quot;item, index in data&quot;</span>
+                <span class="hljs-attribute">:style</span>=<span class="hljs-value">&quot;{ backgroundColor: item.color, gridRow: `auto / span ${item.height}` }&quot;</span>&gt;</span>
                 {{ index }}
-            </div>
-        </div>
+            <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
 
-    </div>
-</template>
-<script setup="" lang="ts">
-const data = [
-    { height: 160, color: "#ef3429" },
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">setup</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;ts&quot;</span> &gt;</span><span class="actionscript">
+<span class="hljs-keyword">const</span> data = [
+    { height: <span class="hljs-number">160</span>, color: <span class="hljs-string">&quot;#ef3429&quot;</span> },
 ]
-</script>
-<style lang="less" scoped>
-.masonry {
-    width: 230px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, 50px);
-    column-gap: 10px;
-    row-gap: 1px;
-}
-</style>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">style</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;less&quot;</span> <span class="hljs-attribute">scoped</span>&gt;</span><span class="css">
+<span class="hljs-class">.masonry</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">230px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> grid</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">grid-template-columns</span>:<span class="hljs-value"> <span class="hljs-function">repeat</span>(auto-fill, <span class="hljs-number">50px</span>)</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">column-gap</span>:<span class="hljs-value"> <span class="hljs-number">10px</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">row-gap</span>:<span class="hljs-value"> <span class="hljs-number">1px</span></span></span>;
+}</span>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
 </code></pre>
 <h1 id="vue2--flex">vue2 + flex</h1>
-<pre><code class="lang-vue"><template>
-  <div class="masonry">
-    <div class="colmun">
-      <img class="item" :src="i.img" :key="i.id" v-for="i in data1">
-    </div>
-    <div class="colmun">
-      <img class="item" :src="i.img" :key="i.id" v-for="i in data2">
-    </div>
-    <div class="colmun">
-      <img class="item" :src="i.img" :key="i.id" v-for="i in data3">
-    </div>
-  </div>
-</template>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">template</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;masonry&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;colmun&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;item&quot;</span> <span class="hljs-attribute">:src</span>=<span class="hljs-value">&quot;i.img&quot;</span> <span class="hljs-attribute">:key</span>=<span class="hljs-value">&quot;i.id&quot;</span> <span class="hljs-attribute">v-for</span>=<span class="hljs-value">&quot;i in data1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;colmun&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;item&quot;</span> <span class="hljs-attribute">:src</span>=<span class="hljs-value">&quot;i.img&quot;</span> <span class="hljs-attribute">:key</span>=<span class="hljs-value">&quot;i.id&quot;</span> <span class="hljs-attribute">v-for</span>=<span class="hljs-value">&quot;i in data2&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">div</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;colmun&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">class</span>=<span class="hljs-value">&quot;item&quot;</span> <span class="hljs-attribute">:src</span>=<span class="hljs-value">&quot;i.img&quot;</span> <span class="hljs-attribute">:key</span>=<span class="hljs-value">&quot;i.id&quot;</span> <span class="hljs-attribute">v-for</span>=<span class="hljs-value">&quot;i in data3&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">template</span>&gt;</span>
 
-<script>
-import data from "./data.json";
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
+<span class="hljs-keyword">import</span> data <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./data.json&quot;</span>;
 
-export default {
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> {
   data() {
-    let data1 = [], //第一列
-      data2 = [], //第二列
-      data3 = [], //第三列
-      i = 0;
+    <span class="hljs-keyword">let</span> data1 = [], <span class="hljs-comment">//&#x7B2C;&#x4E00;&#x5217;</span>
+      data2 = [], <span class="hljs-comment">//&#x7B2C;&#x4E8C;&#x5217;</span>
+      data3 = [], <span class="hljs-comment">//&#x7B2C;&#x4E09;&#x5217;</span>
+      i = <span class="hljs-number">0</span>;
 
-    while (i < data.length) {
+    <span class="hljs-keyword">while</span> (i &lt; data.length) {
       data1.push(data[i++]);
-      if (i < data.length) {
+      <span class="hljs-keyword">if</span> (i &lt; data.length) {
         data2.push(data[i++]);
       }
-      if (i < data.length) {
+      <span class="hljs-keyword">if</span> (i &lt; data.length) {
         data3.push(data[i++]);
       }
     }
-    return {
-      //第一列
+    <span class="hljs-keyword">return</span> {
+      <span class="hljs-comment">//&#x7B2C;&#x4E00;&#x5217;</span>
       data1,
-      //第二列
+      <span class="hljs-comment">//&#x7B2C;&#x4E8C;&#x5217;</span>
       data2,
-      //第三列
+      <span class="hljs-comment">//&#x7B2C;&#x4E09;&#x5217;</span>
       data3
     };
   }
 };
-</script>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-<style lang="scss" scoped>
-.masonry {
-  display: flex;
-  flex-direction: row;
+<span class="hljs-tag">&lt;<span class="hljs-title">style</span> <span class="hljs-attribute">lang</span>=<span class="hljs-value">&quot;scss&quot;</span> <span class="hljs-attribute">scoped</span>&gt;</span><span class="css">
+<span class="hljs-class">.masonry</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+  <span class="hljs-rule"><span class="hljs-attribute">flex-direction</span>:<span class="hljs-value"> row</span></span>;
   .colmun {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    padding: 0 2px;
+    <span class="hljs-rule"><span class="hljs-attribute">display</span>:<span class="hljs-value"> flex</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">flex-direction</span>:<span class="hljs-value"> column</span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">flex</span>:<span class="hljs-value"> <span class="hljs-number">1</span></span></span>;
+    <span class="hljs-rule"><span class="hljs-attribute">padding</span>:<span class="hljs-value"> <span class="hljs-number">0</span> <span class="hljs-number">2px</span></span></span>;
     .item {
-      margin-bottom: 5px;
-      width: 100%;
-    }
+      <span class="hljs-rule"><span class="hljs-attribute">margin-bottom</span>:<span class="hljs-value"> <span class="hljs-number">5px</span></span></span>;
+      <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">100%</span></span></span>;
+    }</span>
   }
 }
-</style>
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">style</span>&gt;</span>
 </code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
@@ -1115,7 +1116,7 @@ export default {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"瀑布流","level":"1.11.1","depth":2,"next":{"title":"SSR","level":"1.11.2","depth":2,"path":"vueDemo/SSR.md","ref":"vueDemo/SSR.md","articles":[]},"previous":{"title":"VueDome","level":"1.11","depth":1,"path":"vueDemo/README.md","ref":"vueDemo/README.md","articles":[{"title":"瀑布流","level":"1.11.1","depth":2,"path":"vueDemo/瀑布流.md","ref":"vueDemo/瀑布流.md","articles":[]},{"title":"SSR","level":"1.11.2","depth":2,"path":"vueDemo/SSR.md","ref":"vueDemo/SSR.md","articles":[]},{"title":"websocket","level":"1.11.3","depth":2,"path":"vueDemo/websocket.md","ref":"vueDemo/websocket.md","articles":[]},{"title":"storage 封装","level":"1.11.4","depth":2,"path":"vueDemo/storage封装.md","ref":"vueDemo/storage封装.md","articles":[]},{"title":"web 分页搜索存储","level":"1.11.5","depth":2,"path":"vueDemo/web分页搜索存储.md","ref":"vueDemo/web分页搜索存储.md","articles":[]},{"title":"虚拟列表","level":"1.11.6","depth":2,"path":"vueDemo/虚拟列表.md","ref":"vueDemo/虚拟列表.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vueDemo/瀑布流.md","mtime":"2023-04-11T01:52:37.913Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-09T02:22:39.321Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"瀑布流","level":"1.11.1","depth":2,"next":{"title":"SSR","level":"1.11.2","depth":2,"path":"vueDemo/SSR.md","ref":"vueDemo/SSR.md","articles":[]},"previous":{"title":"VueDome","level":"1.11","depth":1,"path":"vueDemo/README.md","ref":"vueDemo/README.md","articles":[{"title":"瀑布流","level":"1.11.1","depth":2,"path":"vueDemo/瀑布流.md","ref":"vueDemo/瀑布流.md","articles":[]},{"title":"SSR","level":"1.11.2","depth":2,"path":"vueDemo/SSR.md","ref":"vueDemo/SSR.md","articles":[]},{"title":"websocket","level":"1.11.3","depth":2,"path":"vueDemo/websocket.md","ref":"vueDemo/websocket.md","articles":[]},{"title":"storage 封装","level":"1.11.4","depth":2,"path":"vueDemo/storage封装.md","ref":"vueDemo/storage封装.md","articles":[]},{"title":"web 分页搜索存储","level":"1.11.5","depth":2,"path":"vueDemo/web分页搜索存储.md","ref":"vueDemo/web分页搜索存储.md","articles":[]},{"title":"虚拟列表","level":"1.11.6","depth":2,"path":"vueDemo/虚拟列表.md","ref":"vueDemo/虚拟列表.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vueDemo/瀑布流.md","mtime":"2023-05-09T02:41:30.216Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-09T02:42:20.725Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
