@@ -965,6 +965,7 @@
              <h1 id="&#x4F7F;&#x7528;mockjs">&#x4F7F;&#x7528;mockjs</h1>
 <p>&#x9879;&#x76EE;&#x5B89;&#x88C5;mock</p>
 <pre><code>npm install mockjs
+ npm install @types/mockjs
 </code></pre><p>&#x9879;&#x76EE;&#x4E2D;&#x65B0;&#x5EFA;mock&#x6587;&#x4EF6;</p>
 <pre><code class="lang-js"><span class="hljs-comment">//&#x5F15;&#x5165;mock&#x6A21;&#x5757;</span>
 <span class="hljs-keyword">import</span> Mock <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;mockjs&apos;</span>
@@ -972,11 +973,11 @@
 <p>&#x5C06;mock&#x6587;&#x4EF6;&#x5728;main.js&#x4E2D;&#x5BFC;&#x5165;</p>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> Vue <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue&apos;</span>
 <span class="hljs-keyword">import</span> App FROM <span class="hljs-string">&apos;./App.vue&apos;</span>
-<span class="hljs-keyword">import</span> <span class="hljs-string">&apos;./mock/index.js&apos;</span>
+<span class="hljs-keyword">import</span> <span class="hljs-string">&quot;./mock/mock.ts&quot;</span>;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = <span class="hljs-literal">false</span>
 
-new Vue({
+<span class="hljs-keyword">new</span> Vue({
     render:h =&gt; h(App),
 }).$mount(<span class="hljs-string">&apos;#app&apos;</span>)
 </code></pre>
@@ -1452,7 +1453,7 @@ init();
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"mock","level":"1.10.2","depth":2,"next":{"title":"Markdown","level":"1.10.3","depth":2,"path":"tool/Markdown.md","ref":"tool/Markdown.md","articles":[]},"previous":{"title":"git","level":"1.10.1","depth":2,"path":"tool/git.md","ref":"tool/git.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"tool/mockjs.md","mtime":"2023-05-10T15:13:25.949Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-05-10T15:36:18.152Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"mock","level":"1.10.2","depth":2,"next":{"title":"Markdown","level":"1.10.3","depth":2,"path":"tool/Markdown.md","ref":"tool/Markdown.md","articles":[]},"previous":{"title":"git","level":"1.10.1","depth":2,"path":"tool/git.md","ref":"tool/git.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"tool/mockjs.md","mtime":"2023-05-19T03:46:59.829Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-02T07:55:02.701Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>
@@ -1479,10 +1480,6 @@ init();
     
         
         <script src="../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

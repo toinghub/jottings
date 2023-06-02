@@ -4,6 +4,7 @@
 
 ```
 npm install mockjs
+ npm install @types/mockjs
 ```
 
 项目中新建mock文件
@@ -18,7 +19,7 @@ import Mock from 'mockjs'
 ```js
 import Vue from 'vue'
 import App FROM './App.vue'
-import './mock/index.js'
+import "./mock/mock.ts";
 
 Vue.config.productionTip = false
 

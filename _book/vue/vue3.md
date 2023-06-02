@@ -454,6 +454,11 @@ setup(props,{emit}){
 }
 ```
 
+```js
+v-model:visible = visible 
+emit("update:visible", false);
+```
+
 
 
 ## watch
