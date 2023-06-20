@@ -4,6 +4,8 @@
 
 * #### iOS&Safari 不兼容 正则表达式的断言匹配[ (?=n)  (?<=n) (?!n) (?<!n)]
 
+* #### iOS&Safari 只能用RegExp对象格式写正则
+
 
 
 
@@ -398,3 +400,6 @@ var n = str.split(patt);//abab,acac,adad
 |   **source**   |  **返回正则表达式的匹配模式**  |
 | **lastIndex**  | **用于规定下次匹配的起始位置** |
 
+
+
+# [正则引擎](https://juejin.cn/post/7203285698073116727)
