@@ -50,3 +50,26 @@ while (条件){
 >
 > 扩展运算符只能通过赋值都方式改变数据的值
 
+
+
+### 路由返回
+
+```js
+//原页面表单中的内容会丢失
+window.history.go(-1)：//后退+刷新；
+window.history.go(1)：//前进；
+//原页面表单中的内容会保留
+window.history.back()：//后退
+window.history.back(0)：//刷新
+window.history.back(1)：//前进
+```
+
+### window.history.pushState(data, title, targetURL)
+
+### window.history.replaceState(data, title, targetURL);
+
+- @状态对象：传给目标路由的信息,可为空
+- @页面标题：目前所有浏览器都不支持,填空字符串即可
+- @可选url：目标url，不会检查url是否存在，且不能跨域。如不传该项,即给当前url添加data
+
+### 

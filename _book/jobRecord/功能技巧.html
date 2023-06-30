@@ -392,7 +392,7 @@
                 <a href="../TypeScript/">
             
                     
-                    typeSctipt
+                    typeScript
             
                 </a>
             
@@ -730,6 +730,45 @@
             
         </li>
     
+        <li class="chapter " data-level="1.11.7" data-path="../vueDemo/二维码显示.html">
+            
+                <a href="../vueDemo/二维码显示.html">
+            
+                    
+                    二维码显示
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.8" data-path="../vueDemo/canvas图片导出.html">
+            
+                <a href="../vueDemo/canvas图片导出.html">
+            
+                    
+                    canvas 图片导出
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11.9" data-path="../vueDemo/表格导出.html">
+            
+                <a href="../vueDemo/表格导出.html">
+            
+                    
+                    表格导出
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -963,12 +1002,47 @@
     
           <section class="normal markdown-section">
              <h1 id="&#x529F;&#x80FD;&#x6280;&#x5DE7;">&#x529F;&#x80FD;&#x6280;&#x5DE7;</h1>
+<h2 id="deme">deme</h2>
+<pre><code class="lang-js"><span class="hljs-comment">/**
+ * &#x590D;&#x5236;&#x5185;&#x5BB9;&#x5230;&#x526A;&#x8D34;&#x677F;
+ * @param value
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> copyToClipboard = (value: string) =&gt; {
+    <span class="hljs-keyword">const</span> oInput = <span class="hljs-built_in">document</span>.createElement(<span class="hljs-string">&apos;input&apos;</span>);
+    oInput.value = value;
+    <span class="hljs-built_in">document</span>.body.appendChild(oInput);
+    oInput.select(); <span class="hljs-comment">// &#x9009;&#x62E9;&#x5BF9;&#x8C61;</span>
+    <span class="hljs-comment">// &#x6267;&#x884C;&#x6D4F;&#x89C8;&#x5668;&#x590D;&#x5236;&#x547D;&#x4EE4;</span>
+    <span class="hljs-keyword">if</span> (<span class="hljs-built_in">document</span>.execCommand(<span class="hljs-string">&apos;Copy&apos;</span>)) {
+        oInput.className = <span class="hljs-string">&apos;oInput&apos;</span>;
+        oInput.style.display = <span class="hljs-string">&apos;none&apos;</span>;
+        <span class="hljs-keyword">return</span> showToast(<span class="hljs-string">&quot;&#x590D;&#x5236;&#x6210;&#x529F;&quot;</span>);
+    }
+    <span class="hljs-keyword">return</span> showToast(<span class="hljs-string">&quot;&#x590D;&#x5236;&#x5931;&#x8D25;&quot;</span>);
+}
+<span class="hljs-comment">/**
+ * &#x65E0;&#x5237;&#x65B0;&#xFF0C;&#x4FEE;&#x6539;&#x8DEF;&#x7531;&#x53C2;&#x6570;
+ * @param value
+ */</span>
+<span class="hljs-keyword">const</span> changeHref = (data: any) =&gt; {
+        <span class="hljs-keyword">let</span> path: string = route.path;
+        <span class="hljs-keyword">const</span> query: any = { ...route.query, ...data };
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> query) {
+            <span class="hljs-keyword">if</span> (path.includes(<span class="hljs-string">&quot;?&quot;</span>)) {
+                path = <span class="hljs-string">`<span class="hljs-subst">${path}</span>&amp;<span class="hljs-subst">${key}</span>=<span class="hljs-subst">${query[key]}</span>`</span>;
+            } <span class="hljs-keyword">else</span> {
+                path = <span class="hljs-string">`#<span class="hljs-subst">${path}</span>?<span class="hljs-subst">${key}</span>=<span class="hljs-subst">${query[key]}</span>`</span>;
+            }
+        }
+        <span class="hljs-built_in">window</span>.history.replaceState(<span class="hljs-string">&quot;&quot;</span>, <span class="hljs-string">&quot;&quot;</span>, path);
+    };
+</code></pre>
 <h4 id="&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;">&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;</h4>
 <ul>
 <li>&#x5FAE;&#x4FE1;&#x5C0F;&#x7A0B;&#x5E8F;&#x5355;&#x4E2A; key &#x5141;&#x8BB8;&#x5B58;&#x50A8;&#x7684;&#x6700;&#x5927;&#x6570;&#x636E;&#x957F;&#x5EA6;&#x4E3A; 1MB&#xFF0C;&#x6240;&#x6709;&#x6570;&#x636E;&#x5B58;&#x50A8;&#x4E0A;&#x9650;&#x4E3A; 10MB&#x3002;</li>
 <li>&#x76F4;&#x64AD;&#x7EC4;&#x4EF6;&#xFF1A;&#x76F4;&#x64AD;&#x62C9;&#x6D41;(live-player) + &#x76F4;&#x64AD;&#x63A8;&#x6D41;(live-pusher)</li>
 <li>uni.setNavigationBarTitle &#x66F4;&#x6539;&#x5934;&#x90E8;&#x6807;&#x9898;</li>
-<li>webpack&#x5BF9;&#x4E8E;&#x5C0F;&#x4E8E;8k&#x7684;&#x56FE;&#x7247;&#xFF0C;&#x4F1A;&#x5C06;&#x56FE;&#x7247;&#x8F6C;&#x6210;base64 &#x76F4;&#x63A5;&#x63D2;&#x5165;&#x56FE;&#x7247; </li>
+<li>webpack &#x5BF9;&#x4E8E;&#x5C0F;&#x4E8E; 8k &#x7684;&#x56FE;&#x7247;&#xFF0C;&#x4F1A;&#x5C06;&#x56FE;&#x7247;&#x8F6C;&#x6210; base64 &#x76F4;&#x63A5;&#x63D2;&#x5165;&#x56FE;&#x7247;</li>
 </ul>
 <h4 id="&#x963B;&#x6B62;&#x7528;&#x6237;&#x622A;&#x56FE;">&#x963B;&#x6B62;&#x7528;&#x6237;&#x622A;&#x56FE;</h4>
 <ul>
@@ -1052,7 +1126,7 @@
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"功能技巧","level":"1.2.2","depth":2,"next":{"title":"Vscode","level":"1.2.3","depth":2,"path":"jobRecord/Vscode.md","ref":"jobRecord/Vscode.md","articles":[]},"previous":{"title":"工作随笔","level":"1.2.1","depth":2,"path":"jobRecord/工作随笔.md","ref":"jobRecord/工作随笔.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"jobRecord/功能技巧.md","mtime":"2023-02-02T02:13:59.749Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-02T07:55:02.701Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"功能技巧","level":"1.2.2","depth":2,"next":{"title":"Vscode","level":"1.2.3","depth":2,"path":"jobRecord/Vscode.md","ref":"jobRecord/Vscode.md","articles":[]},"previous":{"title":"工作随笔","level":"1.2.1","depth":2,"path":"jobRecord/工作随笔.md","ref":"jobRecord/工作随笔.md","articles":[]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"jobRecord/功能技巧.md","mtime":"2023-06-29T07:23:18.072Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-30T07:11:45.252Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

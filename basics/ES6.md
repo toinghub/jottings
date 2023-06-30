@@ -77,7 +77,9 @@ let {a: aa = 10, b: bb = 5} = {a: 3};
 
 
 
-# Symbol
+# 新类型
+
+## Symbol
 
 >  **没有两个 Symbols 永远相等** 
 >

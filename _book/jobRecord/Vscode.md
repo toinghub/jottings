@@ -20,7 +20,7 @@
 |                      **Auto Close Tag**                      |              **补齐标签**              |
 |                     **Auto Rename Tag**                      |            **同步修改标签**            |
 |                     **Blue Light Theme**                     |            **括号颜色高亮**            |
-|                    **Code Spell Checker**                    |            **单词拼写检查**            |
+|                                                              |                  ****                  |
 |                         **CSS Peek**                         |          **快速找到css定义**           |
 |                      **koroFileHeader**                      |            **头部注释插件**            |
 |                    **Path Autocomplete**                     |            **路径检查提醒**            |

@@ -14,18 +14,12 @@ npm install mockjs
 import Mock from 'mockjs'
 ```
 
-将mock文件在main.js中导入
+将mock文件在app.vue中导入
 
 ```js
-import Vue from 'vue'
-import App FROM './App.vue'
-import "./mock/mock.ts";
-
-Vue.config.productionTip = false
-
-new Vue({
-	render:h => h(App),
-}).$mount('#app')
+<script setup lang="ts" name="App">
+	import "./mock/mock.ts";
+</script>
 ```
 
 # mock语法

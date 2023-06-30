@@ -1,7 +1,9 @@
 # [Moment](http://momentjs.cn/)
 
 * `Moment` 原型通过 `moment.fn` 公开
-* `Moment.prototype.format` == `moment.fn.format` == `moment＃format` 
+* `Moment.prototype.format` == `moment.fn.format` == `moment＃format`
+
+
 
 # 解析
 
@@ -369,4 +371,8 @@ moment('2010-10-20').isAfter('2010-10-19'); // true
 moment('2010-10-20').isBetween('2010-10-19', '2010-10-25'); // true
 moment('2010-10-20').isBetween('2010-10-19', undefined); // true, 因为 moment(undefined) 等效于 moment()
 ```
+
+
+
+
 
