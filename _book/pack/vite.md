@@ -1,79 +1,30 @@
 # vite
 
-# 注意：
-
-* 
+### [命令行界面](https://cn.vitejs.dev/guide/cli.html)
 
 
 
-# [命令行界面](https://cn.vitejs.dev/guide/cli.html)
+## 依赖预编译
 
+### 路径补全
 
-
-# 功能
-
-## 导入
-
-### 支持裸模块导入
+* 在处理中，遇到有非绝对路径或者相对路径，则会进行路径补全
+* 找寻依赖的过程是由当前目录依次向上查找，直到搜寻到根目录或找到对应依赖为止
 
 ```js
-import { someMethod } from 'my-dep'
+import _ from "lodash"
+imprt _ from "/node_modeles/.vite/lodash"
 ```
 
-### 静态资源处理
 
->  服务时引入一个静态资源会返回解析后的公共路径 
 
-```js
-import imgUrl from './img.png' //./img.png
-//显式加载资源  未被包含在内部列表或 assetsInclude 中的资源，可以使用 ?url 后缀显式导入为一个 URL
-import assetAsURL from './asset.js?url'
-// 在构建时 Web Worker 内联为 base64 字符串
-import InlineWorker from './worker.js?worker&inline'
-```
+## 依赖预构建
 
-### JSON
+> vite会找到对应的依赖，然后调用esbuild，将其他规范的代码转换成esmodule规范，然后放到当前目录下面（node_modules/.vite/），同时对esmodule规范的各个模块进行统一集成
 
-```js
-// 导入整个对象
-import json from './example.json'
-// 对一个根字段使用具名导入
-import { field } from './example.json'
-```
+#### 作用：
 
-### [Glob 导入](https://cn.vitejs.dev/guide/features.html#glob-import)
-
-> 匹配到的文件默认是懒加载的，通过动态导入实现，并会在构建时分离为独立的 chunk
->
->   Vite 独有的功能 
-
-```js
-const modules = import.meta.glob('./dir/*.js')
-// vite 编译后等用于
-const modules = {
-  './dir/foo.js': () => import('./dir/foo.js'),
-  './dir/bar.js': () => import('./dir/bar.js'),
-}
-```
-
-> 倾向于直接引入所有的模块，可以传入第二个参数 `{ eager: true }` 
-
-```js
-const modules = import.meta.glob('./dir/*.js', { eager: true })
-// vite 生成的代码
-import * as __glob__0_0 from './dir/foo.js'
-import * as __glob__0_1 from './dir/bar.js'
-const modules = {
-  './dir/foo.js': __glob__0_0,
-  './dir/bar.js': __glob__0_1,
-}
-```
-
-### 动态导入
-
-> 变量仅代表一层深的文件名 
-
-```js
-const module = await import(`./dir/${file}.js`)
-```
+1. 将不同的三方包中会有不同的导出格式进行统一
+2. 对路径的处理可以直接进行使用.vite/，方便路径重新
+3. 解决网络多包传入性能问题（一个包可能有无数个引用依赖），无论有多少个额外的export 和 import，vite都尽可能的将它们集成，最后只生成一个或者多个模块
 

@@ -188,6 +188,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.4" data-path="../jobRecord/test.html">
+            
+                <a href="../jobRecord/test.html">
+            
+                    
+                    调试技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1092,19 +1105,17 @@ interface Bear extends Point1&#xFF0C;Point2 { <span class="hljs-comment">//&#x6B
 interface Point { a:numbe } <span class="hljs-comment">//&#x91CD;&#x590D;&#x5B9A;&#x4E49;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x65B0;&#x589E;&#x52A0;&#x5B57;&#x6BB5;</span>
 </code></pre>
 <h2 id="&#x6CDB;&#x578B;&#x7C7B;&#x578B;">&#x6CDB;&#x578B;&#x7C7B;&#x578B;</h2>
-<pre><code class="lang-js">interface Box&lt;Type&gt;{
-  contents: Type
+<pre><code class="lang-js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">identity</span>&lt;<span class="hljs-title">Type</span>&gt;(<span class="hljs-params">arg:Type</span>):<span class="hljs-title">Type</span></span>{
+    <span class="hljs-keyword">return</span> arg
 }
 
-<span class="hljs-keyword">let</span> box: Box&lt;string&gt; = {
-  contents:<span class="hljs-string">&quot;hello&quot;</span>
-}
+<span class="hljs-keyword">const</span> x = identity&lt;string&gt;(<span class="hljs-string">&apos;hello&apos;</span>)  <span class="hljs-comment">// const x:string</span>
 </code></pre>
 <h2 id="&#x7C7B;&#x578B;&#x65AD;&#x8A00;">&#x7C7B;&#x578B;&#x65AD;&#x8A00;</h2>
-<pre><code class="lang-js"><span class="hljs-comment">//string&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x65AD;&#x8A00;&#x6210;number,&#x9700;&#x8981;&#x6709;&#x8986;&#x76D6;&#x5173;&#x7CFB;</span>
+<pre><code class="lang-js"><span class="hljs-comment">// string&#x4E0D;&#x80FD;&#x76F4;&#x63A5;&#x65AD;&#x8A00;&#x6210;number,&#x9700;&#x8981;&#x6709;&#x8986;&#x76D6;&#x5173;&#x7CFB;</span>
 <span class="hljs-keyword">const</span> x = (<span class="hljs-string">&apos;hello&apos;</span> <span class="hljs-keyword">as</span> unknown) <span class="hljs-keyword">as</span> number <span class="hljs-comment">//unknown &#x672A;&#x77E5;&#x7684; </span>
 <span class="hljs-keyword">const</span> B = <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">number</span>&gt;</span>A  //&#x65AD;&#x8A00;A&#x4E3A;number&#x7C7B;&#x578B;
-//&#x56FA;&#x5B9A;&#x7C7B;&#x578B;
+// &#x56FA;&#x5B9A;&#x7C7B;&#x578B;
 let x = {} as const
 x!  //&#x65AD;&#x8A00;x&#x4E0D;&#x662F;null&#x6216;&#x8005;undefined
 </span></code></pre>
@@ -2143,7 +2154,7 @@ cosnt data = <span class="hljs-built_in">require</span>(<span class="hljs-string
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"基础篇","level":"1.5.1","depth":2,"next":{"title":"tsconfig","level":"1.5.2","depth":2,"path":"TypeScript/tsconfig.md","ref":"TypeScript/tsconfig.md","articles":[]},"previous":{"title":"typeScript","level":"1.5","depth":1,"path":"TypeScript/README.md","ref":"TypeScript/README.md","articles":[{"title":"基础篇","level":"1.5.1","depth":2,"path":"TypeScript/基础篇.md","ref":"TypeScript/基础篇.md","articles":[]},{"title":"tsconfig","level":"1.5.2","depth":2,"path":"TypeScript/tsconfig.md","ref":"TypeScript/tsconfig.md","articles":[]},{"title":"ts 补充","level":"1.5.3","depth":2,"path":"TypeScript/ts补充.md","ref":"TypeScript/ts补充.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"TypeScript/基础篇.md","mtime":"2023-04-26T04:24:00.808Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-30T07:11:45.252Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"基础篇","level":"1.5.1","depth":2,"next":{"title":"tsconfig","level":"1.5.2","depth":2,"path":"TypeScript/tsconfig.md","ref":"TypeScript/tsconfig.md","articles":[]},"previous":{"title":"typeScript","level":"1.5","depth":1,"path":"TypeScript/README.md","ref":"TypeScript/README.md","articles":[{"title":"基础篇","level":"1.5.1","depth":2,"path":"TypeScript/基础篇.md","ref":"TypeScript/基础篇.md","articles":[]},{"title":"tsconfig","level":"1.5.2","depth":2,"path":"TypeScript/tsconfig.md","ref":"TypeScript/tsconfig.md","articles":[]},{"title":"ts 补充","level":"1.5.3","depth":2,"path":"TypeScript/ts补充.md","ref":"TypeScript/ts补充.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"TypeScript/基础篇.md","mtime":"2023-07-04T03:19:02.542Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-17T06:45:15.554Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

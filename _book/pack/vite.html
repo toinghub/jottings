@@ -188,6 +188,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.4" data-path="../jobRecord/test.html">
+            
+                <a href="../jobRecord/test.html">
+            
+                    
+                    调试技巧
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1002,62 +1015,26 @@
     
           <section class="normal markdown-section">
              <h1 id="vite">vite</h1>
-<h1 id="&#x6CE8;&#x610F;&#xFF1A;">&#x6CE8;&#x610F;&#xFF1A;</h1>
+<h3 id="&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;"><a href="https://cn.vitejs.dev/guide/cli.html" target="_blank">&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;</a></h3>
+<h2 id="&#x4F9D;&#x8D56;&#x9884;&#x7F16;&#x8BD1;">&#x4F9D;&#x8D56;&#x9884;&#x7F16;&#x8BD1;</h2>
+<h3 id="&#x8DEF;&#x5F84;&#x8865;&#x5168;">&#x8DEF;&#x5F84;&#x8865;&#x5168;</h3>
 <ul>
-<li></li>
+<li>&#x5728;&#x5904;&#x7406;&#x4E2D;&#xFF0C;&#x9047;&#x5230;&#x6709;&#x975E;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;&#x8005;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5219;&#x4F1A;&#x8FDB;&#x884C;&#x8DEF;&#x5F84;&#x8865;&#x5168;</li>
+<li>&#x627E;&#x5BFB;&#x4F9D;&#x8D56;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x7531;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4F9D;&#x6B21;&#x5411;&#x4E0A;&#x67E5;&#x627E;&#xFF0C;&#x76F4;&#x5230;&#x641C;&#x5BFB;&#x5230;&#x6839;&#x76EE;&#x5F55;&#x6216;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x4F9D;&#x8D56;&#x4E3A;&#x6B62;</li>
 </ul>
-<h1 id="&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;"><a href="https://cn.vitejs.dev/guide/cli.html" target="_blank">&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;</a></h1>
-<h1 id="&#x529F;&#x80FD;">&#x529F;&#x80FD;</h1>
-<h2 id="&#x5BFC;&#x5165;">&#x5BFC;&#x5165;</h2>
-<h3 id="&#x652F;&#x6301;&#x88F8;&#x6A21;&#x5757;&#x5BFC;&#x5165;">&#x652F;&#x6301;&#x88F8;&#x6A21;&#x5757;&#x5BFC;&#x5165;</h3>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> { someMethod } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;my-dep&apos;</span>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;lodash&quot;</span>
+imprt _ <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;/node_modeles/.vite/lodash&quot;</span>
 </code></pre>
-<h3 id="&#x9759;&#x6001;&#x8D44;&#x6E90;&#x5904;&#x7406;">&#x9759;&#x6001;&#x8D44;&#x6E90;&#x5904;&#x7406;</h3>
+<h2 id="&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;">&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;</h2>
 <blockquote>
-<p> &#x670D;&#x52A1;&#x65F6;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x9759;&#x6001;&#x8D44;&#x6E90;&#x4F1A;&#x8FD4;&#x56DE;&#x89E3;&#x6790;&#x540E;&#x7684;&#x516C;&#x5171;&#x8DEF;&#x5F84; </p>
+<p>vite&#x4F1A;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;esbuild&#xFF0C;&#x5C06;&#x5176;&#x4ED6;&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x6210;esmodule&#x89C4;&#x8303;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#xFF08;node_modules/.vite/&#xFF09;&#xFF0C;&#x540C;&#x65F6;&#x5BF9;esmodule&#x89C4;&#x8303;&#x7684;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;&#x96C6;&#x6210;</p>
 </blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> imgUrl <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./img.png&apos;</span> //./img.png
-//&#x663E;&#x5F0F;&#x52A0;&#x8F7D;&#x8D44;&#x6E90;  &#x672A;&#x88AB;&#x5305;&#x542B;&#x5728;&#x5185;&#x90E8;&#x5217;&#x8868;&#x6216; assetsInclude &#x4E2D;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; ?url &#x540E;&#x7F00;&#x663E;&#x5F0F;&#x5BFC;&#x5165;&#x4E3A;&#x4E00;&#x4E2A; URL
-<span class="hljs-keyword">import</span> assetAsURL <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./asset.js?url&apos;</span>
-// &#x5728;&#x6784;&#x5EFA;&#x65F6; Web Worker &#x5185;&#x8054;&#x4E3A; base64 &#x5B57;&#x7B26;&#x4E32;
-<span class="hljs-keyword">import</span> InlineWorker <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./worker.js?worker&amp;inline&apos;</span>
-</code></pre>
-<h3 id="json">JSON</h3>
-<pre><code class="lang-js"><span class="hljs-comment">// &#x5BFC;&#x5165;&#x6574;&#x4E2A;&#x5BF9;&#x8C61;</span>
-<span class="hljs-keyword">import</span> json <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./example.json&apos;</span>
-// &#x5BF9;&#x4E00;&#x4E2A;&#x6839;&#x5B57;&#x6BB5;&#x4F7F;&#x7528;&#x5177;&#x540D;&#x5BFC;&#x5165;
-<span class="hljs-keyword">import</span> { field } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./example.json&apos;</span>
-</code></pre>
-<h3 id="glob-&#x5BFC;&#x5165;"><a href="https://cn.vitejs.dev/guide/features.html#glob-import" target="_blank">Glob &#x5BFC;&#x5165;</a></h3>
-<blockquote>
-<p>&#x5339;&#x914D;&#x5230;&#x7684;&#x6587;&#x4EF6;&#x9ED8;&#x8BA4;&#x662F;&#x61D2;&#x52A0;&#x8F7D;&#x7684;&#xFF0C;&#x901A;&#x8FC7;&#x52A8;&#x6001;&#x5BFC;&#x5165;&#x5B9E;&#x73B0;&#xFF0C;&#x5E76;&#x4F1A;&#x5728;&#x6784;&#x5EFA;&#x65F6;&#x5206;&#x79BB;&#x4E3A;&#x72EC;&#x7ACB;&#x7684; chunk</p>
-<p>  Vite &#x72EC;&#x6709;&#x7684;&#x529F;&#x80FD; </p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> modules = <span class="hljs-keyword">import</span>.meta.glob(<span class="hljs-string">&apos;./dir/*.js&apos;</span>)
-// vite &#x7F16;&#x8BD1;&#x540E;&#x7B49;&#x7528;&#x4E8E;
-const modules = {
-  <span class="hljs-string">&apos;./dir/foo.js&apos;</span>: () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./dir/foo.js&apos;</span>),
-  <span class="hljs-string">&apos;./dir/bar.js&apos;</span>: () =&gt; <span class="hljs-keyword">import</span>(<span class="hljs-string">&apos;./dir/bar.js&apos;</span>),
-}
-</code></pre>
-<blockquote>
-<p>&#x503E;&#x5411;&#x4E8E;&#x76F4;&#x63A5;&#x5F15;&#x5165;&#x6240;&#x6709;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x53EF;&#x4EE5;&#x4F20;&#x5165;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570; <code>{ eager: true }</code> </p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> modules = <span class="hljs-keyword">import</span>.meta.glob(<span class="hljs-string">&apos;./dir/*.js&apos;</span>, { eager: true })
-// vite &#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;
-<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> __glob__0_0 <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./dir/foo.js&apos;</span>
-<span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> __glob__0_1 <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;./dir/bar.js&apos;</span>
-const modules = {
-  <span class="hljs-string">&apos;./dir/foo.js&apos;</span>: __glob__0_0,
-  <span class="hljs-string">&apos;./dir/bar.js&apos;</span>: __glob__0_1,
-}
-</code></pre>
-<h3 id="&#x52A8;&#x6001;&#x5BFC;&#x5165;">&#x52A8;&#x6001;&#x5BFC;&#x5165;</h3>
-<blockquote>
-<p>&#x53D8;&#x91CF;&#x4EC5;&#x4EE3;&#x8868;&#x4E00;&#x5C42;&#x6DF1;&#x7684;&#x6587;&#x4EF6;&#x540D; </p>
-</blockquote>
-<pre><code class="lang-js"><span class="hljs-keyword">const</span> <span class="hljs-built_in">module</span> = <span class="hljs-keyword">await</span> <span class="hljs-keyword">import</span>(`./dir/${file}.js<span class="hljs-string">`)
-</span></code></pre>
+<h4 id="&#x4F5C;&#x7528;&#xFF1A;">&#x4F5C;&#x7528;&#xFF1A;</h4>
+<ol>
+<li>&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x4E09;&#x65B9;&#x5305;&#x4E2D;&#x4F1A;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5BFC;&#x51FA;&#x683C;&#x5F0F;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;</li>
+<li>&#x5BF9;&#x8DEF;&#x5F84;&#x7684;&#x5904;&#x7406;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x4F7F;&#x7528;.vite/&#xFF0C;&#x65B9;&#x4FBF;&#x8DEF;&#x5F84;&#x91CD;&#x65B0;</li>
+<li>&#x89E3;&#x51B3;&#x7F51;&#x7EDC;&#x591A;&#x5305;&#x4F20;&#x5165;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF08;&#x4E00;&#x4E2A;&#x5305;&#x53EF;&#x80FD;&#x6709;&#x65E0;&#x6570;&#x4E2A;&#x5F15;&#x7528;&#x4F9D;&#x8D56;&#xFF09;&#xFF0C;&#x65E0;&#x8BBA;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x989D;&#x5916;&#x7684;export &#x548C; import&#xFF0C;vite&#x90FD;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x5C06;&#x5B83;&#x4EEC;&#x96C6;&#x6210;&#xFF0C;&#x6700;&#x540E;&#x53EA;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x6A21;&#x5757;</li>
+</ol>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -1134,7 +1111,7 @@ const modules = {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vite","level":"1.6.1","depth":2,"next":{"title":"webpack","level":"1.6.2","depth":2,"path":"pack/webpack.md","ref":"pack/webpack.md","articles":[]},"previous":{"title":"打包工具","level":"1.6","depth":1,"path":"pack/README.md","ref":"pack/README.md","articles":[{"title":"vite","level":"1.6.1","depth":2,"path":"pack/vite.md","ref":"pack/vite.md","articles":[]},{"title":"webpack","level":"1.6.2","depth":2,"path":"pack/webpack.md","ref":"pack/webpack.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"pack/vite.md","mtime":"2023-02-02T05:53:15.948Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-06-30T07:11:45.252Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vite","level":"1.6.1","depth":2,"next":{"title":"webpack","level":"1.6.2","depth":2,"path":"pack/webpack.md","ref":"pack/webpack.md","articles":[]},"previous":{"title":"打包工具","level":"1.6","depth":1,"path":"pack/README.md","ref":"pack/README.md","articles":[{"title":"vite","level":"1.6.1","depth":2,"path":"pack/vite.md","ref":"pack/vite.md","articles":[]},{"title":"webpack","level":"1.6.2","depth":2,"path":"pack/webpack.md","ref":"pack/webpack.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"search":{"maxIndexSize":1000000},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"pack/vite.md","mtime":"2023-07-17T06:15:27.705Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2023-07-17T06:45:15.554Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

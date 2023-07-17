@@ -1,5 +1,69 @@
 # [ES6](https://www.runoob.com/w3cnote/es6-tutorial.html)
 
+# [新增方法(es7-es14)](https://blog.csdn.net/weixin_38664300/article/details/125332006)
+
+## for...of
+
+> 字符串可以循环遍历
+
+```js
+for (let item of 'randy') {
+    console.log(item) // r a n d y
+}
+```
+
+
+
+#### 操作符
+
+```javascript
+cat?.name //可选链操作符  可以读取cat深处的值，不用担心是否有效
+a ?? b  //空值合并操作符 左侧为 null 或者 undefined 时，返回右侧数据
+a ??= b //空值赋值运算符  左侧为 null 或者 undefined 时,右侧数据赋值给左侧
+!.  //非空断言操作符  ts内容  
+2**10  //幂运算  1024
+1_000_000 // 使用数字分隔符  原意不变
+a ||= b //或等于  a || (a = b)
+a ||= b //与等于  a && (a = b)
+```
+
+
+
+## class 私有属性和私有方法
+
+>  属性/方法添加一个`hashtag(#)`前缀，这个属性/方法就变成私有的了 
+
+```js
+class Person {
+  #firstName = 'randy';
+  #lastName = 'su';
+  
+  #say() {
+    console.log('say hello')
+  }
+
+  get name() {
+    this.#say();
+    return `${this.#firstName} ${this.#lastName}`;
+  }
+}
+```
+
+
+
+## toSorted
+
+>  `sort`方法的排序复制版本，区别就是`sort`是修改原数组，而`toSorted`是返回新数组 
+
+```js
+const arr = [1, 3, 5, 2, 8];
+const newArr = arr.toSorted();
+```
+
+
+
+
+
 # 解构
 
 ## 数组解构
@@ -426,5 +490,56 @@ callerObj.next("a");
 callerObj.next("b");
 // callee: b
 // {value: undefined, done: false}
+```
+
+
+
+# Module
+
+##  export 
+
+```js
+export const name = 'hello'
+export function say() {
+  console.log('say')
+}
+export class Test {
+  constructor() {
+      this.id = 2
+  }
+}
+```
+
+### as
+
+>  输入的变量重新取一个名字 
+
+```js
+import {name as cname} from 'xxx'
+```
+
+### export default
+
+```js
+const name = 'hello'
+let addr = 'BeiJing City'
+var list = [1, 2, 3]
+export {
+  name as cname,
+  addr as caddr
+}
+export default list
+
+//直接导入
+import list, {
+  cname as name,
+  caddr	
+} from A
+
+//批量导入
+import list, * as mod from A
+console.log(list)
+console.log(mod.cname)
+console.log(mod.caddr)
 ```
 
