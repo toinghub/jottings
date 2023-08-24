@@ -16,10 +16,11 @@ git push -u  origin  推送的分支名称 //将内容推送到远程仓库，-u
 git clone 仓库地址   //项目克隆
 git pull 远程仓库地址 分支名称  //拉取远程仓库
 
+--force //强制推送
 git branch -a //查看所有分支
 git checkout -b aa //创建新的分支aa
 git checkout aa //切换到aa分支的
-git push origin aa //推送aa分支到远程仓库aa分支
+git push origin aa //推送aa分支到远程仓库aa分支  
 git push origin master:aa //推送master分支到远程仓库aa分支
 git push origin :aa //删除远程仓库aa分支
 git branch -d aa //删除本地aa分支
