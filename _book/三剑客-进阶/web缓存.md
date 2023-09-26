@@ -85,7 +85,7 @@ res.writeHead(200,{
 4. **当客户端读取到`last-modified`的时候，会在下次的请求标头中携带一个字段:`If-Modified-Since` ( 服务器第一次修改时候给他的时间 )**
 5.  **之后每次对该资源的请求，都会带上`If-Modified-Since`这个字段，而服务器端就需要拿到这个时间并再次读取该资源的修改时间，让他们两个做一个比对来决定是读取缓存还是返回新的资源** 
 
-![](F:\桌面\随笔\images\时间协商缓存.png)
+![]( https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ab186d4b07f74eb1b6c53af205b11d58~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp? )
 
 #### 缺点：
 
@@ -98,7 +98,7 @@ res.writeHead(200,{
 
 > 将原先协商缓存的比较**时间戳**的形式修改成了比较文件**哈希值** 
 
-![](F:\桌面\随笔\images\etag协商缓存.png)
+![]( https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f34004af9efe4ab8bd93eda765b75812~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp? )
 
 #### 缺点：
 
