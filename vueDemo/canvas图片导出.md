@@ -2,7 +2,7 @@
 
 
 
-```vue
+```css
 <template>
 	<div class="out-page">
 		<div
