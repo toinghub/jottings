@@ -172,77 +172,19 @@ export default function Signup() {
 
 
 
-## Hook  --   `use` 开头的函数被称为 **Hook** 
+## [JSX规则](https://react.docschina.org/learn/writing-markup-with-jsx#the-rules-of-jsx)
 
->  只能在你的组件（或其他 Hook）的 **顶层** 调用 Hook 
+* **只能返回一个根元素**，如果包含多个元素，**需要用一个父标签把它们包裹起来** 
+* **标签必须闭合**
+* **使用驼峰式命名法给大部分属性命名**
 
-### useState
 
-> 保存每次更新后的记录
->
-> 多次渲染同一组件，每个组件都有自己的state
->
-> **相同位置的相同组件会使得 state 被保留下来**
->
-> **使用 key 来重置 state**(使用 key 重置表单)
-
-```react
-function MyButton() {
-  const [count, setCount] = useState(0);
-
-  function handleClick() {
-    setCount(count + 1);
-  }
-
-  return (
-    <button onClick={handleClick}>
-      Clicked {count} times
-    </button>
-  );
-}
-```
-
-#### 构建原则
-
-*  **合并关联的 state** 
-*  **避免互相矛盾的 state** 
-*  **避免冗余的 state** 
-*  **避免重复的 state** 
-*  **避免深度嵌套的 state** 
-
-#### 合并关联
-
-```react
-const [position, setPosition] = useState({ x: 0, y: 0 });
-```
-
-#### 更新状态中对象
-
-> 状态可以持有任何类型的 JavaScript 值 
->
-> 不应该直接改变你在 React 状态中持有的对象和数组 
->
-> 使用 `...` 展开语法来复制你想改变的对象和数组 
-
-```react
-setPosition({ ...position, x: 100 })
-```
-
-#### 更新状态中数组
-
-> 更新存在状态中的数组时，你需要创建一个新数组 
-
-```react
- setList(list.map(item => {
-      return { ...item, seen: nextSeen };
-  }));
-```
 
 ## 组件
 
 * `export default `导出
-*  标签和 `return` 关键字如果不在同一行，则必须把它包裹在一对括号 
-*  没有括号包裹的话，任何在 `return` 下一行的代码都将被忽略
+* 标签和 `return` 关键字如果不在同一行，则必须把它包裹在一对括号 
+* 没有括号包裹的话，任何在 `return` 下一行的代码都将被忽略
 * **组件首字母必须大写**
 
 ```react
@@ -319,8 +261,229 @@ export default function Profile() {
 
 * 禁止在组件中嵌套组件
 
-## [JSX规则](https://react.docschina.org/learn/writing-markup-with-jsx#the-rules-of-jsx)
 
-* **只能返回一个根元素**，如果包含多个元素，**需要用一个父标签把它们包裹起来** 
-* **标签必须闭合**
-* **使用驼峰式命名法给大部分属性命名**
+
+## 状态管理  --   `use` 开头的函数被称为 **Hook** 
+
+>  只能在你的组件（或其他 Hook）的 **顶层** 调用 Hook 
+
+### useState
+
+> 保存每次更新后的记录
+>
+> 多次渲染同一组件，每个组件都有自己的state
+>
+> **相同位置的相同组件会使得 state 被保留下来**
+>
+> **使用 key 来重置 state**(使用 key 重置表单)
+
+```react
+function MyButton() {
+  const [count, setCount] = useState(0);
+
+  function handleClick() {
+    setCount(count + 1);
+  }
+
+  return (
+    <button onClick={handleClick}>
+      Clicked {count} times
+    </button>
+  );
+}
+```
+
+#### 构建原则
+
+*  **合并关联的 state** 
+*  **避免互相矛盾的 state** 
+*  **避免冗余的 state** 
+*  **避免重复的 state** 
+*  **避免深度嵌套的 state** 
+
+#### 合并关联
+
+```react
+const [position, setPosition] = useState({ x: 0, y: 0 });
+```
+
+#### 更新状态中对象
+
+> 状态可以持有任何类型的 JavaScript 值 
+>
+> 不应该直接改变你在 React 状态中持有的对象和数组 
+>
+> 使用 `...` 展开语法来复制你想改变的对象和数组 
+
+```react
+setPosition({ ...position, x: 100 })
+```
+
+#### 更新状态中数组
+
+> 更新存在状态中的数组时，你需要创建一个新数组 
+
+```react
+ setList(list.map(item => {
+      return { ...item, seen: nextSeen };
+  }));
+```
+
+##  useReducer 
+
+>  将组件的所有状态更新逻辑整合到一个外部函数中 
+
+```react
+const [`有状态的值`, ` dispatch 函数`] = useReducer(`reducer 函数`, `初始的 state`);
+const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
+function tasksReducer(tasks, action) {
+  //tasks  原始值
+  //action 传入的内容
+}
+```
+
+##### 注意：
+
+*  **educers 必须是纯粹的** 
+*  **每个 action 都描述了一个单一的用户交互，即使它会引发数据的多个变化** .
+
+##  useContext -- 组件深层传递
+
+1. 创建组件 context.js 组件 （组件名随意）
+
+```react
+import { createContext } from 'react';
+export const testContext = createContext(500);
+```
+
+2. 在需要赋值的父组件插入
+
+```react
+  <ImageSizeContext.Provider
+      value={500}
+    >
+	<list></list>
+  </ImageSizeContext.Provider>
+```
+
+3. 在需要的子组件的地方插入
+
+```react
+import { testContext } from './Context.js';
+const testContext = useContext(testContext);
+```
+
+## useRef
+
+>  更改 ref 不会重新渲染组件
+>
+>  **不要在渲染过程中读取或写入** 
+>
+>  **将 ref 视为应急方案**  
+
+```react
+import { useRef } from 'react';
+
+const inputRef = useRef(null);
+//返回的对象
+{ current: 0 } // 你向 useRef 传入的值 
+
+
+```
+
+#### 操作dom
+
+* 不能在组件上直接使用，需要传入后，重新赋值
+
+```react
+<input ref={inputRef} /> 
+
+<MyInput ref={inputRef} />
+const MyInput = forwardRef((props, ref) => {
+  return <input {...props} ref={ref} />;
+});
+
+
+```
+
+
+
+###  useEffect
+
+> 通常用于暂时“跳出” React 代码并与一些 **外部** 系统进行同步
+>
+>  **`useEffect` 包裹副作用，把其中的代码分离到渲染逻辑的计算过程之外**  
+
+```react
+useEffect(() => {
+  // 这里的代码会在每次渲染后执行
+});
+
+useEffect(() => {
+  // 这里的代码只会在组件挂载后执行
+}, []);
+
+useEffect(() => {
+  //这里的代码只会在每次渲染后，并且 a 或 b 的值与上次渲染不一致时执行
+}, [a, b]);
+```
+
+##### 1、**声明 Effect** 
+
+>  每当组件渲染时，React 将更新屏幕， `useEffect` 中的代码就会运行
+
+```react
+import { useEffect } from 'react';
+ useEffect(() => {
+    // 每次渲染后都会执行此处的代码
+ });
+```
+
+##### 2、 **指定 Effect 依赖** 
+
+* 将 **依赖属性** 传入 `useEffect` 的第二个参数 , 如果在上一次渲染时**依赖属性**与当前相同，就跳过重新运行 Effect 
+*  如果 `ref` 是从父组件传递的，则必须在依赖项数组中指定它 
+
+```react
+import { useState, useRef } from 'react';
+  useEffect(() => {
+  },[`依赖属性`]);
+
+  useEffect(() => {
+    if (isPlaying) {
+      ref.current.play();
+    } else {
+      ref.current.pause();
+    }
+  }, [isPlaying]);
+```
+
+##### 3、 **必要时添加清理（cleanup）函数** 
+
+> 在开发环境中，React 会在初始挂载组件后，立即再挂载一次，所以组件被卸载时，也要调用清理函数 
+>
+> 不加清楚函数，会执行两遍useEffect
+>
+> **在执行下一轮渲染的 Effect 之前清理上一轮渲染的 Effect** 
+
+```react
+  useEffect(() => {
+    const connection = createConnection();
+    connection.connect();//请求连接
+    return () => {
+      connection.disconnect(); //断开连接
+    };
+  }, []);
+```
+
+#### 注意：
+
+*  **避免当 prop 变化时，在 Effect 中调整/重置 state** 
+*  **避免在 Effect 中处理属于事件特定的逻辑**
+*   **避免链接多个 Effect 仅仅为了相互触发调整 state** 
+*  **避免把只需要执行一次的逻辑放在 Effect 中** 
+*  **避免在 Effect 中传递数据给父组件** 
+*  **避免没有清除逻辑的获取数据**  
+
+
+
