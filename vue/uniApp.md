@@ -81,3 +81,8 @@ import XtxGuess from '@/components/XtxGuess.vue'
 export type XtxGuessInstance = InstanceType<typeof XtxGuess>
 ```
 
+## 生成骨架屏
+
+> 微信开发者工具提供了自动生成骨架屏代码的能力。
+
+>  使用时需要把自动生成的 `xxx.skeleton.vue` 和 `xxx.skeleton.wxss` 封装成 `vue` 组件
