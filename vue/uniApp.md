@@ -1,5 +1,9 @@
 # uniApp
 
+## 注意事项
+
+> 可以直接使用defineProps接收页面传参
+
 ## vscode开发
 
 ### 插件
