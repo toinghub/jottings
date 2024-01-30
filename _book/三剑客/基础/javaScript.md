@@ -62,6 +62,8 @@ window.history.go(1)：//前进；
 window.history.back()：//后退
 window.history.back(0)：//刷新
 window.history.back(1)：//前进
+//关闭当前页面
+window.close()
 ```
 
 ### window.history.pushState(data, title, targetURL)
