@@ -399,6 +399,12 @@ const plusOne = computed({
 })
 ```
 
+获取计算属性
+
+```css
+plusOne.value
+```
+
 
 
 ## readonly()
