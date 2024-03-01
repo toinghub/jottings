@@ -319,7 +319,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.8" data-path="../规范/规范.html">
+        <li class="chapter " data-level="1.3.1.8" data-path="../三剑客/基础/性能优化.html">
+            
+                <a href="../三剑客/基础/性能优化.html">
+            
+                    
+                    性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="../规范/规范.html">
             
                 <a href="../规范/规范.html">
             
@@ -1348,27 +1361,214 @@
     <div class="search-noresults">
     
           <section class="normal markdown-section">
-             <h1 id="vite">vite</h1>
-<h3 id="&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;"><a href="https://cn.vitejs.dev/guide/cli.html" target="_blank">&#x547D;&#x4EE4;&#x884C;&#x754C;&#x9762;</a></h3>
-<h2 id="&#x4F9D;&#x8D56;&#x9884;&#x7F16;&#x8BD1;">&#x4F9D;&#x8D56;&#x9884;&#x7F16;&#x8BD1;</h2>
-<h3 id="&#x8DEF;&#x5F84;&#x8865;&#x5168;">&#x8DEF;&#x5F84;&#x8865;&#x5168;</h3>
+             <h1 id="vite"><a href="https://cn.vitejs.dev/guide/why.html" target="_blank">vite</a></h1>
+<h1 id="vite&#x4E0E;webpack&#x7684;&#x533A;&#x522B;">vite&#x4E0E;webpack&#x7684;&#x533A;&#x522B;</h1>
+<h3 id="webpack">webpack</h3>
+<ul>
+<li>&#x652F;&#x6301;commonjs&#x548C;esmdule&#x4E24;&#x79CD;&#x89C4;&#x8303;</li>
+<li>&#x4FA7;&#x91CD;&#x70B9;&#x662F;&#x517C;&#x5BB9;&#x6027;</li>
+<li>&#x7EDF;&#x4E00;&#x6A21;&#x5757;&#x5316;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x4F1A;&#x5C06;&#x6240;&#x6709;&#x7684;&#x4F9D;&#x8D56;&#x5168;&#x90E8;&#x8BFB;&#x4E00;&#x904D;</li>
+</ul>
+<h3 id="vite">vite</h3>
+<ul>
+<li>&#x4EC5;&#x652F;&#x6301;esmdule&#x89C4;&#x8303;</li>
+<li>&#x4FA7;&#x91CD;&#x70B9;&#x662F;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x7684;&#x5F00;&#x53D1;&#x4F53;&#x9A8C;</li>
+<li>&#x6309;&#x9700;&#x52A0;&#x8F7D;&#x6240;&#x9700;&#x7684;&#x9875;&#x9762;&#xFF0C;&#x51CF;&#x5C11;&#x52A0;&#x8F7D;&#x65F6;&#x95F4;</li>
+</ul>
+<h1 id="&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;">&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;</h1>
+<h2 id="&#x8DEF;&#x5F84;&#x8865;&#x5168;">&#x8DEF;&#x5F84;&#x8865;&#x5168;</h2>
 <ul>
 <li>&#x5728;&#x5904;&#x7406;&#x4E2D;&#xFF0C;&#x9047;&#x5230;&#x6709;&#x975E;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;&#x6216;&#x8005;&#x76F8;&#x5BF9;&#x8DEF;&#x5F84;&#xFF0C;&#x5219;&#x4F1A;&#x8FDB;&#x884C;&#x8DEF;&#x5F84;&#x8865;&#x5168;</li>
 <li>&#x627E;&#x5BFB;&#x4F9D;&#x8D56;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x7531;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4F9D;&#x6B21;&#x5411;&#x4E0A;&#x67E5;&#x627E;&#xFF0C;&#x76F4;&#x5230;&#x641C;&#x5BFB;&#x5230;&#x6839;&#x76EE;&#x5F55;&#x6216;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x4F9D;&#x8D56;&#x4E3A;&#x6B62;</li>
 </ul>
 <pre><code class="lang-js"><span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;lodash&quot;</span>
+//&#x76F8;&#x7B49;
 imprt _ <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;/node_modeles/.vite/lodash&quot;</span>
 </code></pre>
-<h2 id="&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;">&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;</h2>
-<blockquote>
-<p>vite&#x4F1A;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;esbuild&#xFF0C;&#x5C06;&#x5176;&#x4ED6;&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x6210;esmodule&#x89C4;&#x8303;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#xFF08;node_modules/.vite/&#xFF09;&#xFF0C;&#x540C;&#x65F6;&#x5BF9;esmodule&#x89C4;&#x8303;&#x7684;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;&#x96C6;&#x6210;</p>
-</blockquote>
-<h4 id="&#x4F5C;&#x7528;&#xFF1A;">&#x4F5C;&#x7528;&#xFF1A;</h4>
+<h3 id="&#x4F5C;&#x7528;">&#x4F5C;&#x7528;</h3>
+<ul>
+<li><p>vite&#x4F1A;&#x627E;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x4F9D;&#x8D56;&#xFF0C;&#x7136;&#x540E;&#x8C03;&#x7528;<code>esbuild</code>&#xFF0C;&#x5C06;&#x5176;&#x4ED6;&#x89C4;&#x8303;&#x7684;&#x4EE3;&#x7801;&#x8F6C;&#x6362;&#x6210;esmodule&#x89C4;&#x8303;&#xFF0C;&#x7136;&#x540E;&#x653E;&#x5230;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x9762;&#xFF08;node_modules/.vite/&#xFF09;&#xFF0C;&#x540C;&#x65F6;&#x5BF9;esmodule&#x89C4;&#x8303;&#x7684;&#x5404;&#x4E2A;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;&#x96C6;&#x6210;</p>
+</li>
+<li><p>&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;&#x4EC5;&#x9002;&#x7528;&#x4E8E;&#x5F00;&#x53D1;&#x6A21;&#x5F0F;&#xFF0C;&#x5E76;&#x4F7F;&#x7528; <code>esbuild</code> &#x5C06;&#x4F9D;&#x8D56;&#x9879;&#x8F6C;&#x6362;&#x4E3A; ES &#x6A21;&#x5757;&#x3002;&#x5728;&#x751F;&#x4EA7;&#x6784;&#x5EFA;&#x4E2D;&#xFF0C;&#x5C06;&#x4F7F;&#x7528; <code>@rollup/plugin-commonjs</code>&#x3002; </p>
+</li>
+</ul>
+<h3 id="&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF1A;">&#x89E3;&#x51B3;&#x7684;&#x95EE;&#x9898;&#xFF1A;</h3>
 <ol>
 <li>&#x5C06;&#x4E0D;&#x540C;&#x7684;&#x4E09;&#x65B9;&#x5305;&#x4E2D;&#x4F1A;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5BFC;&#x51FA;&#x683C;&#x5F0F;&#x8FDB;&#x884C;&#x7EDF;&#x4E00;</li>
 <li>&#x5BF9;&#x8DEF;&#x5F84;&#x7684;&#x5904;&#x7406;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x4F7F;&#x7528;.vite/&#xFF0C;&#x65B9;&#x4FBF;&#x8DEF;&#x5F84;&#x91CD;&#x65B0;</li>
-<li>&#x89E3;&#x51B3;&#x7F51;&#x7EDC;&#x591A;&#x5305;&#x4F20;&#x5165;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF08;&#x4E00;&#x4E2A;&#x5305;&#x53EF;&#x80FD;&#x6709;&#x65E0;&#x6570;&#x4E2A;&#x5F15;&#x7528;&#x4F9D;&#x8D56;&#xFF09;&#xFF0C;&#x65E0;&#x8BBA;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x989D;&#x5916;&#x7684;export &#x548C; import&#xFF0C;vite&#x90FD;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x5C06;&#x5B83;&#x4EEC;&#x96C6;&#x6210;&#xFF0C;&#x6700;&#x540E;&#x53EA;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x6A21;&#x5757;</li>
+<li>&#x89E3;&#x51B3;&#x7F51;&#x7EDC;&#x591A;&#x5305;&#x4F20;&#x5165;&#x6027;&#x80FD;&#x95EE;&#x9898;&#xFF08;&#x4E00;&#x4E2A;&#x5305;&#x53EF;&#x80FD;&#x6709;&#x65E0;&#x6570;&#x4E2A;&#x5F15;&#x7528;&#x4F9D;&#x8D56;&#xFF09;&#xFF0C;&#x65E0;&#x8BBA;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x989D;&#x5916;&#x7684;export &#x548C; import&#xFF0C;vite&#x90FD;&#x5C3D;&#x53EF;&#x80FD;&#x7684;&#x5C06;&#x5B83;&#x4EEC;&#x96C6;&#x6210;&#xFF0C;&#x6700;&#x540E;&#x53EA;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x6216;&#x8005;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#xFF08;&#x5C06;&#x9700;&#x8981;&#x5F15;&#x5165;&#x7684;&#x989D;&#x5916;&#x4F9D;&#x8D56;&#xFF0C;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#xFF0C;&#x4F7F;&#x5176;&#x6309;&#x9700;&#x52A0;&#x8F7D;&#xFF09;</li>
 </ol>
+<h1 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h1>
+<h2 id="&#x8BED;&#x6CD5;&#x63D0;&#x793A;&#x914D;&#x7F6E;">&#x8BED;&#x6CD5;&#x63D0;&#x793A;&#x914D;&#x7F6E;</h2>
+<p><code>defineConfig</code>vite&#x4EE3;&#x7801;&#x63D0;&#x793A;</p>
+<pre><code class="lang-css">import { defineConfig } from &quot;vite&quot;;
+export default defineConfig()=&gt;{}
+</code></pre>
+<h2 id="&#x73AF;&#x5883;&#x5904;&#x7406;">&#x73AF;&#x5883;&#x5904;&#x7406;</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { defineConfig, ConfigEnv, UserConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite&quot;</span>;
+<span class="hljs-keyword">import</span> viteBaseConfig <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./vite.base.config&quot;</span>
+<span class="hljs-keyword">import</span> viteDevConfig <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./vite.dev.config&quot;</span>
+<span class="hljs-keyword">import</span> viteProdsConfig <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;./vite.prod.config&quot;</span>
+
+const envResolver = {
+  <span class="hljs-string">&quot;build&quot;</span>: () =&gt; {
+    return { ...viteBaseConfig, ...viteDevConfig }
+  },
+  <span class="hljs-string">&quot;server&quot;</span>: () =&gt; {
+    return { ...viteBaseConfig, ...viteProdsConfig }
+  },
+}
+
+export default defineConfig(({ mode, command }: ConfigEnv): UserConfig =&gt; {
+  return
+})
+//ConfigEnv  &#x4F20;&#x9012;&#x7684;&#x7C7B;&#x578B; 
+//command:<span class="hljs-string">&apos;build&apos;</span> | <span class="hljs-string">&apos;serve&apos;</span> &#x5F53;&#x524D;&#x6240;&#x5904;&#x73AF;&#x5883;
+export default defineConfig(({ mode, command }: ConfigEnv): UserConfig =&gt; {
+  return  envResolver[command]()
+})
+</code></pre>
+<h2 id="&#x73AF;&#x5883;&#x53D8;&#x91CF;">&#x73AF;&#x5883;&#x53D8;&#x91CF;</h2>
+<blockquote>
+<p>&#x6307;&#x5B9A;&#x6A21;&#x5F0F;&#x7684;&#x6587;&#x4EF6;&#xFF08;&#x4F8B;&#x5982; <code>.env.production</code>&#xFF09;&#x4F1A;&#x6BD4;&#x901A;&#x7528;&#x5F62;&#x5F0F;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x66F4;&#x9AD8; &#xFF08;&#x4F8B;&#x5982; <code>.env</code>&#xFF09;&#x3002;</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>.env</th>
+<th># &#x6240;&#x6709;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4F1A;&#x52A0;&#x8F7D;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>.env.local</strong></td>
+<td><strong># &#x6240;&#x6709;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4F1A;&#x52A0;&#x8F7D;&#xFF0C;&#x4F46;&#x4F1A;&#x88AB; git &#x5FFD;&#x7565;</strong></td>
+</tr>
+<tr>
+<td><strong>.env.[mode]</strong></td>
+<td><strong># &#x53EA;&#x5728;&#x6307;&#x5B9A;&#x6A21;&#x5F0F;&#x4E0B;&#x52A0;&#x8F7D;</strong></td>
+</tr>
+<tr>
+<td><strong>.env.[mode].local</strong></td>
+<td><strong># &#x53EA;&#x5728;&#x6307;&#x5B9A;&#x6A21;&#x5F0F;&#x4E0B;&#x52A0;&#x8F7D;&#xFF0C;&#x4F46;&#x4F1A;&#x88AB; git &#x5FFD;&#x7565;</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x670D;&#x52A1;&#x7AEF;viteconfigjs">&#x670D;&#x52A1;&#x7AEF;(vite.config.js)</h4>
+<blockquote>
+<p>vite&#x662F;&#x901A;&#x8FC7;<code>dotenv</code>&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x5E93;&#x89E3;&#x6790;</p>
+</blockquote>
+<h5 id="dotenv">dotenv</h5>
+<p><code>dotenv</code>&#x81EA;&#x52A8;&#x8BFB;&#x53D6;.env&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x5176;&#x53D8;&#x91CF;&#x6CE8;&#x5165;&#x5230;<code>process</code>(node&#x5168;&#x5C40;&#x5BF9;&#x8C61;)&#x4E0B;</p>
+<h5 id="loadenv">loadEnv</h5>
+<blockquote>
+<p>mode  -- package.json&#x6587;&#x4EF6;&#x547D;&#x4EE4;&#x884C; --mode &#x540E;&#x9762;&#x7684;&#x5185;&#x5BB9;</p>
+<p>process.cwd()  -- &#x8FD4;&#x56DE;&#x5F53;&#x524D;node&#x8FDB;&#x7A0B;&#x7684;&#x5DE5;&#x4F5C;&#x76EE;&#x5F55;</p>
+<p>prefixes  -- &#x66F4;&#x6539;&#x52A0;&#x8F7D;&#x7684;&#x9ED8;&#x8BA4;&#x524D;&#x7F00;&#xFF08;&#x9ED8;&#x8BA4;&#xFF1A; VITE_ &#xFF09;</p>
+</blockquote>
+<h5 id="&#x6B65;&#x9AA4;&#xFF1A;">&#x6B65;&#x9AA4;&#xFF1A;</h5>
+<ol>
+<li>&#x627E;&#x5230;.env&#x6587;&#x4EF6;&#xFF0C;&#x89E3;&#x6790;&#x5176;&#x4E2D;&#x53D8;&#x91CF;&#xFF0C;&#x5E76;&#x653E;&#x8FDB;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</li>
+<li>&#x5C06;&#x4F20;&#x5165;&#x7684;mode&#x62FC;&#x63A5;&#x6210; <code>.dev.${mode}</code>&#xFF0C;&#x6839;&#x636E;&#x63D0;&#x4F9B;&#x7684;&#x76EE;&#x5F55;(process.cwd())&#x53BB;&#x53D6;&#x5BF9;&#x5E94;&#x7684;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x5E76;&#x653E;&#x8FDB;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</li>
+<li>&#x6CE8;&#x610F;&#xFF1A;&#x540E;&#x8005;&#x7684;&#x5BF9;&#x8C61;&#x8BFB;&#x8986;&#x76D6;&#x524D;&#x8005;&#x7684;&#x5BF9;&#x8C61;</li>
+</ol>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { loadEnv } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vite&apos;</span>
+
+export default defineConfig(({ mode}: ConfigEnv): UserConfig =&gt; {
+ const viteEnv = loadEnv(mode, process.cwd(), <span class="hljs-string">&apos;&apos;</span>)
+})
+</code></pre>
+<h4 id="&#x5BA2;&#x6237;&#x7AEF;">&#x5BA2;&#x6237;&#x7AEF;</h4>
+<ul>
+<li>Vite &#x5728;&#x4E00;&#x4E2A;&#x7279;&#x6B8A;&#x7684; <strong><code>import.meta.env</code></strong> &#x5BF9;&#x8C61;&#x4E0A;&#x66B4;&#x9732;&#x73AF;&#x5883;&#x53D8;&#x91CF; </li>
+<li>&#x9ED8;&#x8BA4; <code>VITE_</code>&#x4E3A;&#x524D;&#x7F00;&#xFF0C;&#x53EF;&#x5728;<code>config</code>&#x4E2D;&#x4F7F;&#x7528;<code>envPrefix</code>&#x66F4;&#x6539;&#x9ED8;&#x8BA4;&#x524D;&#x7F00;</li>
+</ul>
+<h2 id="&#x52A0;&#x8F7D;&#x9759;&#x6001;&#x8D44;&#x6E90;">&#x52A0;&#x8F7D;&#x9759;&#x6001;&#x8D44;&#x6E90;</h2>
+<blockquote>
+<p>&#x672C;&#x8D28;&#x4E0A;&#x505A;&#x7684;&#x4E8B;&#x60C5;&#x662F;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x66FF;&#x6362;</p>
+</blockquote>
+<ul>
+<li><code>path.resolv</code>&#x5C06;&#x8DEF;&#x5F84;&#x9002;&#x914D;&#x6210;&#x670D;&#x52A1;&#x7AEF;&#x53EF;&#x8BC6;&#x522B;&#x7684;</li>
+<li><code>__dirname</code>&#x59CB;&#x7EC8;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x4EF6;&#x6240;&#x5728;&#x7684;&#x76EE;&#x5F55;</li>
+</ul>
+<pre><code class="lang-CSS">import { resolve } from &quot;path&quot;;
+resolve: {
+      alias: [
+        { find: &quot;@&quot;, replacement: resolve(__dirname, &quot;./src&quot;) },
+      ]
+    },
+</code></pre>
+<h2 id="vite&#x63D2;&#x4EF6;">vite&#x63D2;&#x4EF6;</h2>
+<blockquote>
+<p>&#x5728;&#x751F;&#x547D;&#x5468;&#x671F;&#x7684;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x4E2D;&#x53BB;&#x8C03;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x63D2;&#x4EF6;&#x4EE5;&#x8FBE;&#x5230;&#x4E0D;&#x7528;&#x7684;&#x76EE;&#x7684;</p>
+</blockquote>
+<h4 id="vite-aliases"><a href="https://github.com/subwaytime/vite-aliases" target="_blank">vite-aliases</a></h4>
+<blockquote>
+<p>&#x68C0;&#x6D4B;&#x5F53;&#x524D;&#x76EE;&#x5F55;&#x4E0B;&#x5305;&#x62EC;src&#x5728;&#x5185;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6;&#x5939;&#xFF0C;&#x5E76;&#x4E14;&#x81EA;&#x52A8;&#x751F;&#x6210;&#x522B;&#x540D;</p>
+<p>&#x4F7F;&#x7528;<code>vite-aliases</code>,&#x5C31;&#x4E0D;&#x9700;&#x8981;<code>resolve.alias</code>&#x4E86;</p>
+</blockquote>
+<pre><code class="lang-js">plugins: [
+      ViteAliases()
+    ]
+</code></pre>
+<h4 id="vite-plugin-html"><strong><a href="https://github.com/vbenjs/vite-plugin-html" target="_blank">vite-plugin-html</a></strong></h4>
+<blockquote>
+<p>&#x52A8;&#x6001;&#x7684;&#x53BB;&#x63A7;&#x5236;&#x6574;&#x4E2A;html&#x6587;&#x4EF6;&#x7684;&#x5185;&#x5BB9;</p>
+<p>&#x672C;&#x8D28;&#x4E0A;&#x662F;&#x8BFB;&#x53D6;&#x6587;&#x4EF6;&#xFF0C;&#x5B57;&#x7B26;&#x4E32;&#x66FF;&#x6362;</p>
+</blockquote>
+<pre><code class="lang-js">createHtmlPlugin({
+     inject: { data: { title: <span class="hljs-string">&apos;&#x4E3B;&#x9875;&apos;</span>, } },<span class="hljs-comment">//html&#x4E2D;&#x7684;title</span>
+})
+</code></pre>
+<h3 id="vite&#x72EC;&#x6709;&#x94A9;&#x5B50;"><a href="https://cn.vitejs.dev/guide/api-plugin.html#vite-specific-hooks" target="_blank">vite&#x72EC;&#x6709;&#x94A9;&#x5B50;</a></h3>
+<pre><code class="lang-js">plugins: [{
+ config(options){}, <span class="hljs-comment">//&#x89E3;&#x6790; Vite &#x914D;&#x7F6E;&#x524D;&#x8C03;&#x7528;</span>
+ configureServer(server){ server.middlewares.user(()=&gt;{}) }, <span class="hljs-comment">//&#x914D;&#x7F6E;&#x5F00;&#x53D1;&#x670D;&#x52A1;&#x5668;&#x7684;&#x94A9;&#x5B50;</span>
+}]
+</code></pre>
+<h3 id="&#x6027;&#x80FD;&#x4F18;&#x5316;">&#x6027;&#x80FD;&#x4F18;&#x5316;</h3>
+<h2 id="viteconfigjs">vite.config.js</h2>
+<pre><code class="lang-js"><span class="hljs-keyword">import</span> { defineConfig, loadEnv, ConfigEnv, UserConfig } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;vite&quot;</span>;
+<span class="hljs-keyword">import</span> { resolve } <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;path&quot;</span>;
+
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> defineConfig(({ mode }: ConfigEnv): UserConfig =&gt; {
+  <span class="hljs-keyword">const</span> viteEnv = loadEnv(mode, process.cwd(), <span class="hljs-string">&quot;&quot;</span>);
+  <span class="hljs-keyword">return</span> {
+    resolve: {
+      alias: [
+        { find: <span class="hljs-string">&quot;@&quot;</span>, replacement: resolve(__dirname, <span class="hljs-string">&quot;./src&quot;</span>) },
+      ]
+    },
+    optimizeDeps: {
+      exclude: [], <span class="hljs-comment">// &#x5C06;&#x6307;&#x5B9A;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x4F9D;&#x8D56;&#x4E0D;&#x8FDB;&#x884C;&#x4F9D;&#x8D56;&#x9884;&#x6784;&#x5EFA;</span>
+    },
+    envPrefix: <span class="hljs-string">&apos;ENV_&apos;</span>,<span class="hljs-comment">//&#x66F4;&#x6539;env&#x6587;&#x4EF6;&#x83B7;&#x53D6;&#x53D8;&#x91CF;&#x9ED8;&#x8BA4;&#x524D;&#x7F00;</span>
+    css: {
+      preprocessorOptions: { <span class="hljs-comment">//&#x914D;&#x7F6E;css&#x9884;&#x5904;&#x7406;&#x5668;</span>
+        less: { <span class="hljs-comment">//&#x6574;&#x4E2A;&#x914D;&#x7F6E;&#x5BF9;&#x8C61;&#x4F1A;&#x7ED9;&#x5230;less&#x7684;&#x6267;&#x884C;&#x53C2;&#x6570;(&#x5168;&#x5C40;&#x53C2;&#x6570;)&#x4E2D;&#x53BB; -- &#x53EF;&#x4EE5;&#x5199;&#x5165;less&#x7684;&#x547D;&#x4EE4;&#x884C;&#x8BED;&#x53E5;</span>
+          additionalData: <span class="hljs-string">`@import &quot;@/assets/styles/parameter.less&quot;;`</span> <span class="hljs-comment">//&#x5F15;&#x5165;&#x9644;&#x52A0;&#x7684;less&#x6587;&#x4EF6;</span>
+        }
+      },
+      postcss: {}, <span class="hljs-comment">//&#x914D;&#x7F6E;&#x5173;&#x4E8E;postcss&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x6BD4;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x9AD8;,</span>
+    },
+    build: { <span class="hljs-comment">//&#x6784;&#x5EFA;&#x6253;&#x5305;&#x540E;&#x7684;&#x914D;&#x7F6E;</span>
+      outDir: <span class="hljs-string">&quot;dist&quot;</span>, <span class="hljs-comment">//&#x914D;&#x7F6E;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#x540D;</span>
+      assetsDir: <span class="hljs-string">&quot;static&quot;</span>, <span class="hljs-comment">//&#x914D;&#x7F6E;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x9759;&#x6001;&#x76EE;&#x5F55;&#x540D;&#x5B57;</span>
+      rollupOptions: { <span class="hljs-comment">//&#x914D;&#x7F6E;rollup&#xFF08;&#x6A21;&#x5757;&#x6253;&#x5305;&#x5DE5;&#x5177;&#xFF09;&#x7684;&#x6784;&#x5EFA;&#x653F;&#x7B56;</span>
+        output: { <span class="hljs-comment">//&#x63A7;&#x5236;&#x8F93;&#x51FA;</span>
+          assetFileNames: <span class="hljs-string">&quot;assets/[ext]/[name]-[hash].[ext]&quot;</span>,<span class="hljs-comment">//&#x9759;&#x6001;&#x8D44;&#x6E90;</span>
+          chunkFileNames: <span class="hljs-string">&quot;assets/js/[name]-[hash].js&quot;</span>,
+          entryFileNames: <span class="hljs-string">&quot;assets/js/[name]-[hash].js&quot;</span>,
+        },
+      },
+      chunkSizeWarningLimit: <span class="hljs-number">1500</span>,<span class="hljs-comment">//&#x5927;&#x4E8E;1500kb&#x7684;&#x56FE;&#x7247;&#x4F1A;&#x88AB;&#x8F6C;&#x5316;&#x6210;base64&#x683C;&#x5F0F;</span>
+      emptyOutDir: <span class="hljs-literal">true</span>, <span class="hljs-comment">//&#x6E05;&#x695A;&#x8F93;&#x51FA;&#x76EE;&#x5F55;&#x4E2D;&#x7684;&#x6240;&#x6709;&#x6587;&#x4EF6; -- &#x9ED8;&#x8BA4;&#x4E3A;true</span>
+    },
+    plugins: [], <span class="hljs-comment">//&#x63D2;&#x4EF6;</span>
+  }
+})
+</code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
           
@@ -1434,7 +1634,7 @@ imprt _ <span class="hljs-keyword">from</span> <span class="hljs-string">&quot;/
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"vite","level":"1.6.1","depth":2,"next":{"title":"webpack","level":"1.6.2","depth":2,"path":"打包工具/webpack.md","ref":"打包工具/webpack.md","articles":[]},"previous":{"title":"打包工具","level":"1.6","depth":1,"ref":"","articles":[{"title":"vite","level":"1.6.1","depth":2,"path":"打包工具/vite.md","ref":"打包工具/vite.md","articles":[]},{"title":"webpack","level":"1.6.2","depth":2,"path":"打包工具/webpack.md","ref":"打包工具/webpack.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"打包工具/vite.md","mtime":"2023-10-18T03:20:41.753Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-30T07:17:40.392Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"vite","level":"1.6.1","depth":2,"next":{"title":"webpack","level":"1.6.2","depth":2,"path":"打包工具/webpack.md","ref":"打包工具/webpack.md","articles":[]},"previous":{"title":"打包工具","level":"1.6","depth":1,"ref":"","articles":[{"title":"vite","level":"1.6.1","depth":2,"path":"打包工具/vite.md","ref":"打包工具/vite.md","articles":[]},{"title":"webpack","level":"1.6.2","depth":2,"path":"打包工具/webpack.md","ref":"打包工具/webpack.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"打包工具/vite.md","mtime":"2024-03-01T03:45:01.788Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-03-01T04:20:24.653Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

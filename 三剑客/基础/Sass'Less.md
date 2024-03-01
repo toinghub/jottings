@@ -1,5 +1,14 @@
 # Sass/Less
 
+### postCss
+
+> 后处理器 --- 在less和sass预处理器处理完后，处理lees/sass的原生css内容
+
+* 对高级的css语法降级，以此来适配低版本浏览器
+* 前缀补全 ---webkit
+
+
+
 # [Sass](https://www.sass.hk/guide/)
 
 ```css

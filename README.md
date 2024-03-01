@@ -1,11 +1,3 @@
-<!--
- * @Author: xiangzhenxing
- * @Date: 2023-10-18 11:20:41
- * @LastEditors: xiangzhenxing
- * @LastEditTime: 2024-01-23 12:22:11
- * @Description:
--->
-
 # Summary
 
 -   [前言](README.md)
@@ -24,6 +16,7 @@
         -   [Flex](三剑客/基础/Flex.md)
         -   [Grid](三剑客/基础/Grid.md)
         -   [规范](规范/规范.md)
+        -   [性能优化](三剑客/基础/性能优化.md)
     -   进阶
         -   数据结构及算法
             -   [排序算法](三剑客/进阶/数据结构及算法/排序算法.md)

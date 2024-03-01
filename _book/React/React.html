@@ -317,7 +317,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.1.8" data-path="../规范/规范.html">
+        <li class="chapter " data-level="1.3.1.8" data-path="../三剑客/基础/性能优化.html">
+            
+                <a href="../三剑客/基础/性能优化.html">
+            
+                    
+                    性能优化
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.1.9" data-path="../规范/规范.html">
             
                 <a href="../规范/规范.html">
             
@@ -1352,103 +1365,103 @@
 <p>&#x4F7F;&#x7528;className&#x5173;&#x952E;&#x5B57;&#x6DFB;&#x52A0;</p>
 <p> &#x5185;&#x8054; <code>style</code> &#x5C5E;&#x6027; &#x4F7F;&#x7528;&#x9A7C;&#x5CF0;&#x547D;&#x540D;&#x6CD5;&#x7F16;&#x5199; </p>
 </blockquote>
-<pre><code class="lang-react"><img classname="avatar" style="{{backgroundColor:&apos;red&apos;}}">
+<pre><code class="lang-css">&lt;img className=&quot;avatar&quot;  style={{backgroundColor:&apos;red&apos;}} /&gt;
 </code></pre>
 <h2 id="&#x663E;&#x793A;&#x6570;&#x636E;----">&#x663E;&#x793A;&#x6570;&#x636E; -- {}</h2>
 <blockquote>
 <p>&#x4F7F;&#x7528;&#x5927;&#x62EC;&#x53F7;&#x5D4C;&#x5165;js&#x5143;&#x7D20;</p>
 <p>&#x884C;&#x5185;&#x4F7F;&#x7528;&#x65F6;&#xFF0C;&#x4E0D;&#x52A0;&#x5F15;&#x53F7;&#x201C;&#x201D;</p>
 </blockquote>
-<pre><code class="lang-react">const user = {
+<pre><code class="lang-css">const user = {
     name:&apos;&#x54C8;&#x55BD;&apos;
 }
 return (
-  <h1>
+  &lt;h1 &gt;
     {user.name}
-  </h1>
+  &lt;/h1&gt;
 );
 </code></pre>
 <h2 id="&#x6761;&#x4EF6;&#x6E32;&#x67D3;-v-if-">&#x6761;&#x4EF6;&#x6E32;&#x67D3;( v-if )</h2>
 <h3 id="&#x590D;&#x6742;&#x5224;&#x65AD;">&#x590D;&#x6742;&#x5224;&#x65AD;</h3>
-<pre><code class="lang-react">let content
+<pre><code class="lang-css">let content
 if(isLogin){
-    content = <adminpanel>
+    content = &lt;AdminPanel /&gt;
 }else{
-    content = <loginform>
+    content = &lt;LoginForm /&gt;
 }
-return <div> {content} </div>
-</loginform></adminpanel></code></pre>
+return &lt;div&gt; {content} &lt;/div&gt;
+</code></pre>
 <h3 id="&#x591A;&#x6B21;&#x5224;&#x65AD;">&#x591A;&#x6B21;&#x5224;&#x65AD;</h3>
-<pre><code class="lang-react"><div>
-    {isLogin ? (<adminpanel>) : ( <loginform>)}
-</loginform></adminpanel></div>
+<pre><code class="lang-css">&lt;div&gt;
+    {isLogin ? (&lt;AdminPanel /&gt;) : ( &lt;LoginForm /&gt;)}
+&lt;/div&gt;
 </code></pre>
 <h3 id="&#x5355;&#x6B21;&#x5224;&#x65AD;">&#x5355;&#x6B21;&#x5224;&#x65AD;</h3>
-<pre><code class="lang-react"><div>
-    {isLogin &amp;&amp; <adminpanel> }
-</adminpanel></div>
+<pre><code class="lang-css">&lt;div&gt;
+    {isLogin &amp;&amp; &lt;AdminPanel /&gt; }
+&lt;/div&gt;
 </code></pre>
 <h2 id="&#x6E32;&#x67D3;&#x5217;&#x8868;-----map">&#x6E32;&#x67D3;&#x5217;&#x8868; --  map</h2>
 <blockquote>
 <p>&#x5916;&#x5C42;&#x5FC5;&#x987B;&#x6709;&#x7236;&#x5143;&#x7D20;</p>
 <p> &#x5FC5;&#x987B;&#x7ED9;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x9879;&#x90FD;&#x6307;&#x5B9A;&#x4E00;&#x4E2A; <code>key</code> </p>
 </blockquote>
-<pre><code class="lang-react">const list = [
+<pre><code class="lang-css">const list = [
     {title:&apos;A&apos;,id:1},
     {title:&apos;B&apos;,id:2},
     {title:&apos;C&apos;,id:3},
 ]
 const nodeList = list.map(item=&gt;{
-    <li key="{item.id}">
+    &lt;li key={item.id}&gt;
         {item.title}
-    </li>
+    &lt;/li&gt;
 })
-return <ul> {nodeList} </ul>
+return &lt;ul&gt; {nodeList} &lt;/ul&gt;
 </code></pre>
-<pre><code class="lang-react">//&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;jsx&#x4E2D;&#x4F7F;&#x7528;&#x653E;&#x6CD5;
- <ul>
+<pre><code class="lang-css">//&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;jsx&#x4E2D;&#x4F7F;&#x7528;&#x653E;&#x6CD5;
+ &lt;ul&gt;
     {people.map(person =&gt;
-      <li key="{person.id}">
-      </li>
+      &lt;li key={person.id}&gt;
+      &lt;/li&gt;
     )}
-  </ul>
+  &lt;/ul&gt;
 </code></pre>
 <h2 id="&#x54CD;&#x5E94;&#x4E8B;&#x4EF6;">&#x54CD;&#x5E94;&#x4E8B;&#x4EF6;</h2>
 <blockquote>
 <p>&#x76F4;&#x63A5;&#x4F20;&#x9012;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x975E;&#x8C03;&#x7528;</p>
 </blockquote>
-<pre><code class="lang-react">function ckickButton(){
+<pre><code class="lang-css">function ckickButton(){
     function  handleClick(){
         console.log(&quot;&#x89E6;&#x53D1;&#x4E86;&#x4E8B;&#x4EF6;&quot;)
     }
     return (
-        <button onclick="{handleClick}">
+        &lt;button onClick = {handleClick}&gt;
             &#x70B9;&#x51FB;&#x4E8B;&#x4EF6;
-        </button>
+        &lt;/button&gt;
     )
 }
 </code></pre>
-<pre><code class="lang-react">export default function Toolbar() {
+<pre><code class="lang-css">export default function Toolbar() {
     const onPlayMovie=() =&gt; alert(&apos;Playing!&apos;)
      const onUploadImage=() =&gt; alert(&apos;Uploading!&apos;)
 
   return (
-    <div>
-      <button onclick="{onPlayMovie}">
+    &lt;div&gt;
+      &lt;Button onClick={onPlayMovie}&gt;
         Play Movie
-      </button>
-      <button onclick="{onUploadImage}">
+      &lt;/Button&gt;
+      &lt;Button onClick={onUploadImage}&gt;
         Upload Image
-      </button>
-    </div>
+      &lt;/Button&gt;
+    &lt;/div&gt;
   );
 }
 
 function Button({ onClick, children }) {
   return (
-    <button onclick="{onClick}">
+    &lt;button onClick={onClick}&gt;
       {children}
-    </button>
+    &lt;/button&gt;
   );
 }
 </code></pre>
@@ -1457,14 +1470,14 @@ function Button({ onClick, children }) {
 <p> &#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570;&#x63A5;&#x6536;&#x4E00;&#x4E2A; <strong>&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;</strong> &#x4F5C;&#x4E3A;&#x552F;&#x4E00;&#x7684;&#x53C2;&#x6570; </p>
 <p> <code>e.stopPropagation()</code>  --  &#x963B;&#x6B62;&#x89E6;&#x53D1;&#x7ED1;&#x5B9A;&#x5728;&#x5916;&#x5C42;&#x6807;&#x7B7E;&#x4E0A;&#x7684;&#x4E8B;&#x4EF6;&#x5904;&#x7406;&#x51FD;&#x6570; </p>
 </blockquote>
-<pre><code class="lang-react">function Button({ onClick, children }) {
+<pre><code class="lang-css">function Button({ onClick, children }) {
   return (
-    <button onclick="{e" ==""> {
+    &lt;button onClick={e =&gt; {
       e.stopPropagation();
       onClick();
     }}&gt;
       {children}
-    </button>
+    &lt;/button&gt;
   );
 }
 </code></pre>
@@ -1473,15 +1486,15 @@ function Button({ onClick, children }) {
 <p> &#x67D0;&#x4E9B;&#x6D4F;&#x89C8;&#x5668;&#x4E8B;&#x4EF6;&#x5177;&#x6709;&#x4E0E;&#x4E8B;&#x4EF6;&#x76F8;&#x5173;&#x8054;&#x7684;&#x9ED8;&#x8BA4;&#x884C;&#x4E3A; </p>
 <p> <code>e.preventDefault()</code>  --   &#x963B;&#x6B62;&#x5C11;&#x6570;&#x4E8B;&#x4EF6;&#x7684;&#x9ED8;&#x8BA4;&#x6D4F;&#x89C8;&#x5668;&#x884C;&#x4E3A;&#x3002;</p>
 </blockquote>
-<pre><code class="lang-react">export default function Signup() {
+<pre><code class="lang-css">export default function Signup() {
   return (
-    <form onsubmit="{e" ==""> {
+    &lt;form onSubmit={e =&gt; {
       e.preventDefault();
       alert(&apos;&#x63D0;&#x4EA4;&#x8868;&#x5355;&#xFF01;&apos;);
     }}&gt;
-      <input>
-      <button>&#x53D1;&#x9001;</button>
-    </form>
+      &lt;input /&gt;
+      &lt;button&gt;&#x53D1;&#x9001;&lt;/button&gt;
+    &lt;/form&gt;
   );
 }
 </code></pre>
@@ -1498,50 +1511,56 @@ function Button({ onClick, children }) {
 <li>&#x6CA1;&#x6709;&#x62EC;&#x53F7;&#x5305;&#x88F9;&#x7684;&#x8BDD;&#xFF0C;&#x4EFB;&#x4F55;&#x5728; <code>return</code> &#x4E0B;&#x4E00;&#x884C;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x5C06;&#x88AB;&#x5FFD;&#x7565;</li>
 <li><strong>&#x7EC4;&#x4EF6;&#x9996;&#x5B57;&#x6BCD;&#x5FC5;&#x987B;&#x5927;&#x5199;</strong></li>
 </ul>
-<pre><code class="lang-react">export default function MyApp() {
+<pre><code class="lang-css">export default function MyApp() {
   const count = 1
   function handleClick(){
       return console.log(&apos;&#x89E6;&#x53D1;&apos;)
   }
   return (
-    <div>
-      <mybutton count="{count}" onclick="{handleClick}">
-    </mybutton></div>
+    &lt;div&gt;
+      &lt;MyButton count={count}   onClick={handleClick}&gt;
+    &lt;/div&gt;
   );
 }
 </code></pre>
-<pre><code class="lang-react">function MyButton({ count=100, onClick }) { //&#x9700;&#x8981;&#x7528;{}&#x89E3;&#x6784;
+<pre><code class="lang-css">function MyButton({ count=100, onClick }) { //&#x9700;&#x8981;&#x7528;{}&#x89E3;&#x6784;
   return (
-    <button onclick="{onClick}">
+    &lt;button onClick={onClick}&gt;
       Clicked {count} times
-    </button>
+    &lt;/button&gt;
   );
 }
 </code></pre>
-<pre><code class="lang-react">function Profile(props) {
+<pre><code class="lang-css">function Profile(props) {
   return (
-    <div classname="card">
-      <avatar {...props}="">
-    </avatar></div>
+    &lt;div className=&quot;card&quot;&gt;
+      &lt;Avatar {...props} /&gt;
+    &lt;/div&gt;
   );
 }
 </code></pre>
 <h3 id="&#x7EC4;&#x4EF6;&#x63D2;&#x69FD;">&#x7EC4;&#x4EF6;&#x63D2;&#x69FD;</h3>
-<pre><code class="lang-react">import Avatar from &apos;./Avatar.js&apos;;
+<pre><code class="lang-css">import Avatar from &apos;./Avatar.js&apos;;
 
 function Card({ children }) {
   return (
-    <div classname="card">
+    &lt;div className=&quot;card&quot;&gt;
       {children}
-    </div>
+    &lt;/div&gt;
   );
 }
 
 export default function Profile() {
   return (
-    <card>
-      <avatar size="{100}" person="{{" name:="" 'katsuko="" saruhashi',="" imageid:="" 'yfeoqp2'="" }}="">
-    </avatar></card>
+    &lt;Card&gt;
+      &lt;Avatar
+        size={100}
+        person={{ 
+          name: &apos;Katsuko Saruhashi&apos;,
+          imageId: &apos;YfeOqp2&apos;
+        }}
+      /&gt;
+    &lt;/Card&gt;
   );
 }
 </code></pre>
@@ -1566,7 +1585,7 @@ export default function Profile() {
 <p><strong>&#x76F8;&#x540C;&#x4F4D;&#x7F6E;&#x7684;&#x76F8;&#x540C;&#x7EC4;&#x4EF6;&#x4F1A;&#x4F7F;&#x5F97; state &#x88AB;&#x4FDD;&#x7559;&#x4E0B;&#x6765;</strong></p>
 <p><strong>&#x4F7F;&#x7528; key &#x6765;&#x91CD;&#x7F6E; state</strong>(&#x4F7F;&#x7528; key &#x91CD;&#x7F6E;&#x8868;&#x5355;)</p>
 </blockquote>
-<pre><code class="lang-react">function MyButton() {
+<pre><code class="lang-css">function MyButton() {
   const [count, setCount] = useState(0);
 
   function handleClick() {
@@ -1574,9 +1593,9 @@ export default function Profile() {
   }
 
   return (
-    <button onclick="{handleClick}">
+    &lt;button onClick={handleClick}&gt;
       Clicked {count} times
-    </button>
+    &lt;/button&gt;
   );
 }
 </code></pre>
@@ -1589,7 +1608,7 @@ export default function Profile() {
 <li><strong>&#x907F;&#x514D;&#x6DF1;&#x5EA6;&#x5D4C;&#x5957;&#x7684; state</strong> </li>
 </ul>
 <h4 id="&#x5408;&#x5E76;&#x5173;&#x8054;">&#x5408;&#x5E76;&#x5173;&#x8054;</h4>
-<pre><code class="lang-react">const [position, setPosition] = useState({ x: 0, y: 0 });
+<pre><code class="lang-css">const [position, setPosition] = useState({ x: 0, y: 0 });
 </code></pre>
 <h4 id="&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x4E2D;&#x5BF9;&#x8C61;">&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x4E2D;&#x5BF9;&#x8C61;</h4>
 <blockquote>
@@ -1597,13 +1616,13 @@ export default function Profile() {
 <p>&#x4E0D;&#x5E94;&#x8BE5;&#x76F4;&#x63A5;&#x6539;&#x53D8;&#x4F60;&#x5728; React &#x72B6;&#x6001;&#x4E2D;&#x6301;&#x6709;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4; </p>
 <p>&#x4F7F;&#x7528; <code>...</code> &#x5C55;&#x5F00;&#x8BED;&#x6CD5;&#x6765;&#x590D;&#x5236;&#x4F60;&#x60F3;&#x6539;&#x53D8;&#x7684;&#x5BF9;&#x8C61;&#x548C;&#x6570;&#x7EC4; </p>
 </blockquote>
-<pre><code class="lang-react">setPosition({ ...position, x: 100 })
+<pre><code class="lang-css">setPosition({ ...position, x: 100 })
 </code></pre>
 <h4 id="&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x4E2D;&#x6570;&#x7EC4;">&#x66F4;&#x65B0;&#x72B6;&#x6001;&#x4E2D;&#x6570;&#x7EC4;</h4>
 <blockquote>
 <p>&#x66F4;&#x65B0;&#x5B58;&#x5728;&#x72B6;&#x6001;&#x4E2D;&#x7684;&#x6570;&#x7EC4;&#x65F6;&#xFF0C;&#x4F60;&#x9700;&#x8981;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x6570;&#x7EC4; </p>
 </blockquote>
-<pre><code class="lang-react"> setList(list.map(item =&gt; {
+<pre><code class="lang-css"> setList(list.map(item =&gt; {
       return { ...item, seen: nextSeen };
   }));
 </code></pre>
@@ -1611,7 +1630,7 @@ export default function Profile() {
 <blockquote>
 <p> &#x5C06;&#x7EC4;&#x4EF6;&#x7684;&#x6240;&#x6709;&#x72B6;&#x6001;&#x66F4;&#x65B0;&#x903B;&#x8F91;&#x6574;&#x5408;&#x5230;&#x4E00;&#x4E2A;&#x5916;&#x90E8;&#x51FD;&#x6570;&#x4E2D; </p>
 </blockquote>
-<pre><code class="lang-react">const [`&#x6709;&#x72B6;&#x6001;&#x7684;&#x503C;`, ` dispatch &#x51FD;&#x6570;`] = useReducer(`reducer &#x51FD;&#x6570;`, `&#x521D;&#x59CB;&#x7684; state`);
+<pre><code class="lang-css">const [`&#x6709;&#x72B6;&#x6001;&#x7684;&#x503C;`, ` dispatch &#x51FD;&#x6570;`] = useReducer(`reducer &#x51FD;&#x6570;`, `&#x521D;&#x59CB;&#x7684; state`);
 const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 function tasksReducer(tasks, action) {
   //tasks  &#x539F;&#x59CB;&#x503C;
@@ -1627,20 +1646,22 @@ function tasksReducer(tasks, action) {
 <ol>
 <li>&#x521B;&#x5EFA;&#x7EC4;&#x4EF6; context.js &#x7EC4;&#x4EF6; &#xFF08;&#x7EC4;&#x4EF6;&#x540D;&#x968F;&#x610F;&#xFF09;</li>
 </ol>
-<pre><code class="lang-react">import { createContext } from &apos;react&apos;;
+<pre><code class="lang-css">import { createContext } from &apos;react&apos;;
 export const testContext = createContext(500);
 </code></pre>
 <ol>
 <li>&#x5728;&#x9700;&#x8981;&#x8D4B;&#x503C;&#x7684;&#x7236;&#x7EC4;&#x4EF6;&#x63D2;&#x5165;</li>
 </ol>
-<pre><code class="lang-react">  <imagesizecontext.provider value="{500}">
-    <list></list>
-  </imagesizecontext.provider>
+<pre><code class="lang-css">  &lt;ImageSizeContext.Provider
+      value={500}
+    &gt;
+    &lt;list&gt;&lt;/list&gt;
+  &lt;/ImageSizeContext.Provider&gt;
 </code></pre>
 <ol>
 <li>&#x5728;&#x9700;&#x8981;&#x7684;&#x5B50;&#x7EC4;&#x4EF6;&#x7684;&#x5730;&#x65B9;&#x63D2;&#x5165;</li>
 </ol>
-<pre><code class="lang-react">import { testContext } from &apos;./Context.js&apos;;
+<pre><code class="lang-css">import { testContext } from &apos;./Context.js&apos;;
 const testContext = useContext(testContext);
 </code></pre>
 <h2 id="useref">useRef</h2>
@@ -1649,7 +1670,7 @@ const testContext = useContext(testContext);
 <p> <strong>&#x4E0D;&#x8981;&#x5728;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x4E2D;&#x8BFB;&#x53D6;&#x6216;&#x5199;&#x5165;</strong> </p>
 <p> <strong>&#x5C06; ref &#x89C6;&#x4E3A;&#x5E94;&#x6025;&#x65B9;&#x6848;</strong>  </p>
 </blockquote>
-<pre><code class="lang-react">import { useRef } from &apos;react&apos;;
+<pre><code class="lang-css">import { useRef } from &apos;react&apos;;
 
 const inputRef = useRef(null);
 //&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;
@@ -1659,19 +1680,19 @@ const inputRef = useRef(null);
 <ul>
 <li>&#x4E0D;&#x80FD;&#x5728;&#x7EC4;&#x4EF6;&#x4E0A;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x5165;&#x540E;&#xFF0C;&#x91CD;&#x65B0;&#x8D4B;&#x503C;</li>
 </ul>
-<pre><code class="lang-react"><input ref="{inputRef}"> 
+<pre><code class="lang-css">&lt;input ref={inputRef} /&gt; 
 
-<myinput ref="{inputRef}">
+&lt;MyInput ref={inputRef} /&gt;
 const MyInput = forwardRef((props, ref) =&gt; {
-  return <input {...props}="" ref="{ref}">;
+  return &lt;input {...props} ref={ref} /&gt;;
 });
-</myinput></code></pre>
+</code></pre>
 <h3 id="useeffect">useEffect</h3>
 <blockquote>
 <p>&#x901A;&#x5E38;&#x7528;&#x4E8E;&#x6682;&#x65F6;&#x201C;&#x8DF3;&#x51FA;&#x201D; React &#x4EE3;&#x7801;&#x5E76;&#x4E0E;&#x4E00;&#x4E9B; <strong>&#x5916;&#x90E8;</strong> &#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x540C;&#x6B65;</p>
 <p> <strong><code>useEffect</code> &#x5305;&#x88F9;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x628A;&#x5176;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x5206;&#x79BB;&#x5230;&#x6E32;&#x67D3;&#x903B;&#x8F91;&#x7684;&#x8BA1;&#x7B97;&#x8FC7;&#x7A0B;&#x4E4B;&#x5916;</strong>  </p>
 </blockquote>
-<pre><code class="lang-react">useEffect(() =&gt; {
+<pre><code class="lang-css">useEffect(() =&gt; {
   // &#x8FD9;&#x91CC;&#x7684;&#x4EE3;&#x7801;&#x4F1A;&#x5728;&#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x540E;&#x6267;&#x884C;
 });
 
@@ -1687,7 +1708,7 @@ useEffect(() =&gt; {
 <blockquote>
 <p> &#x6BCF;&#x5F53;&#x7EC4;&#x4EF6;&#x6E32;&#x67D3;&#x65F6;&#xFF0C;React &#x5C06;&#x66F4;&#x65B0;&#x5C4F;&#x5E55;&#xFF0C; <code>useEffect</code> &#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x5C31;&#x4F1A;&#x8FD0;&#x884C;</p>
 </blockquote>
-<pre><code class="lang-react">import { useEffect } from &apos;react&apos;;
+<pre><code class="lang-css">import { useEffect } from &apos;react&apos;;
  useEffect(() =&gt; {
     // &#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x540E;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x6B64;&#x5904;&#x7684;&#x4EE3;&#x7801;
  });
@@ -1697,7 +1718,7 @@ useEffect(() =&gt; {
 <li>&#x5C06; <strong>&#x4F9D;&#x8D56;&#x5C5E;&#x6027;</strong> &#x4F20;&#x5165; <code>useEffect</code> &#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570; , &#x5982;&#x679C;&#x5728;&#x4E0A;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x65F6;<strong>&#x4F9D;&#x8D56;&#x5C5E;&#x6027;</strong>&#x4E0E;&#x5F53;&#x524D;&#x76F8;&#x540C;&#xFF0C;&#x5C31;&#x8DF3;&#x8FC7;&#x91CD;&#x65B0;&#x8FD0;&#x884C; Effect </li>
 <li>&#x5982;&#x679C; <code>ref</code> &#x662F;&#x4ECE;&#x7236;&#x7EC4;&#x4EF6;&#x4F20;&#x9012;&#x7684;&#xFF0C;&#x5219;&#x5FC5;&#x987B;&#x5728;&#x4F9D;&#x8D56;&#x9879;&#x6570;&#x7EC4;&#x4E2D;&#x6307;&#x5B9A;&#x5B83; </li>
 </ul>
-<pre><code class="lang-react">import { useState, useRef } from &apos;react&apos;;
+<pre><code class="lang-css">import { useState, useRef } from &apos;react&apos;;
   useEffect(() =&gt; {
   },[`&#x4F9D;&#x8D56;&#x5C5E;&#x6027;`]);
 
@@ -1715,7 +1736,7 @@ useEffect(() =&gt; {
 <p>&#x4E0D;&#x52A0;&#x6E05;&#x695A;&#x51FD;&#x6570;&#xFF0C;&#x4F1A;&#x6267;&#x884C;&#x4E24;&#x904D;useEffect</p>
 <p><strong>&#x5728;&#x6267;&#x884C;&#x4E0B;&#x4E00;&#x8F6E;&#x6E32;&#x67D3;&#x7684; Effect &#x4E4B;&#x524D;&#x6E05;&#x7406;&#x4E0A;&#x4E00;&#x8F6E;&#x6E32;&#x67D3;&#x7684; Effect</strong> </p>
 </blockquote>
-<pre><code class="lang-react">  useEffect(() =&gt; {
+<pre><code class="lang-css">  useEffect(() =&gt; {
     const connection = createConnection();
     connection.connect();//&#x8BF7;&#x6C42;&#x8FDE;&#x63A5;
     return () =&gt; {
@@ -1786,7 +1807,7 @@ useEffect(() =&gt; {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"React","level":"1.5.1","depth":2,"next":{"title":"打包工具","level":"1.6","depth":1,"ref":"","articles":[{"title":"vite","level":"1.6.1","depth":2,"path":"打包工具/vite.md","ref":"打包工具/vite.md","articles":[]},{"title":"webpack","level":"1.6.2","depth":2,"path":"打包工具/webpack.md","ref":"打包工具/webpack.md","articles":[]}]},"previous":{"title":"React","level":"1.5","depth":1,"ref":"","articles":[{"title":"React","level":"1.5.1","depth":2,"path":"React/React.md","ref":"React/React.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"React/React.md","mtime":"2023-11-10T08:20:03.436Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-01-30T07:17:40.392Z"},"basePath":"..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"React","level":"1.5.1","depth":2,"next":{"title":"打包工具","level":"1.6","depth":1,"ref":"","articles":[{"title":"vite","level":"1.6.1","depth":2,"path":"打包工具/vite.md","ref":"打包工具/vite.md","articles":[]},{"title":"webpack","level":"1.6.2","depth":2,"path":"打包工具/webpack.md","ref":"打包工具/webpack.md","articles":[]}]},"previous":{"title":"React","level":"1.5","depth":1,"ref":"","articles":[{"title":"React","level":"1.5.1","depth":2,"path":"React/React.md","ref":"React/React.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"React/React.md","mtime":"2024-02-21T01:59:04.049Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-03-01T04:20:24.653Z"},"basePath":"..","book":{"language":""}});
     });
   </script>
 </div>

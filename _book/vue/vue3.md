@@ -190,6 +190,18 @@ setup () {
 </script>
 ```
 
+##### 快速赋值reactive
+
+```css
+<script setup>
+	const data = reactive({ a:null,b:null })
+	const setData = ()=>{
+        const info = {a:1,b:2}
+        Object.assign(data,info)
+	}
+</script>
+```
+
 ## shallowReactive()
 
 >  [`reactive()`](https://cn.vuejs.org/api/reactivity-core.html#reactive) 的浅层作用形式 
@@ -385,6 +397,12 @@ const plusOne = computed({
     count.value = val - 1
   }
 })
+```
+
+获取计算属性
+
+```css
+plusOne.value
 ```
 
 

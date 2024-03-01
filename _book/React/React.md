@@ -7,7 +7,7 @@
 >
 >  内联 `style` 属性 使用驼峰命名法编写 
 
-```react
+```css
 <img className="avatar"  style={{backgroundColor:'red'}} />
 ```
 
@@ -17,7 +17,7 @@
 >
 > 行内使用时，不加引号“”
 
-```react
+```css
 const user = {
 	name:'哈喽'
 }
@@ -32,7 +32,7 @@ return (
 
 ### 复杂判断
 
-```react
+```css
 let content
 if(isLogin){
     content = <AdminPanel />
@@ -44,7 +44,7 @@ return <div> {content} </div>
 
 ### 多次判断
 
-```react
+```css
 <div>
 	{isLogin ? (<AdminPanel />) : ( <LoginForm />)}
 </div>
@@ -52,7 +52,7 @@ return <div> {content} </div>
 
 ### 单次判断
 
-```react
+```css
 <div>
 	{isLogin && <AdminPanel /> }
 </div>
@@ -64,7 +64,7 @@ return <div> {content} </div>
 >
 >  必须给数组中的每一项都指定一个 `key` 
 
-```react
+```css
 const list = [
     {title:'A',id:1},
     {title:'B',id:2},
@@ -78,7 +78,7 @@ const nodeList = list.map(item=>{
 return <ul> {nodeList} </ul>
 ```
 
-```react
+```css
 //可以直接在jsx中使用放法
  <ul>
     {people.map(person =>
@@ -92,7 +92,7 @@ return <ul> {nodeList} </ul>
 
 > 直接传递函数，而非调用
 
-```react
+```css
 function ckickButton(){
 	function  handleClick(){
         console.log("触发了事件")
@@ -105,7 +105,7 @@ function ckickButton(){
 }
 ```
 
-```react
+```css
 export default function Toolbar() {
     const onPlayMovie=() => alert('Playing!')
  	const onUploadImage=() => alert('Uploading!')
@@ -137,7 +137,7 @@ function Button({ onClick, children }) {
 >
 >  `e.stopPropagation()`  --  阻止触发绑定在外层标签上的事件处理函数 
 
-```react
+```css
 function Button({ onClick, children }) {
   return (
     <button onClick={e => {
@@ -156,7 +156,7 @@ function Button({ onClick, children }) {
 >
 >  `e.preventDefault()`  --   阻止少数事件的默认浏览器行为。
 
-```react
+```css
 export default function Signup() {
   return (
     <form onSubmit={e => {
@@ -187,7 +187,7 @@ export default function Signup() {
 * 没有括号包裹的话，任何在 `return` 下一行的代码都将被忽略
 * **组件首字母必须大写**
 
-```react
+```css
 export default function MyApp() {
   const count = 1
   function handleClick(){
@@ -201,7 +201,7 @@ export default function MyApp() {
 }
 ```
 
-```react
+```css
 function MyButton({ count=100, onClick }) { //需要用{}解构
   return (
     <button onClick={onClick}>
@@ -211,7 +211,7 @@ function MyButton({ count=100, onClick }) { //需要用{}解构
 }
 ```
 
-```react
+```css
 function Profile(props) {
   return (
     <div className="card">
@@ -223,7 +223,7 @@ function Profile(props) {
 
 ### 组件插槽
 
-```react
+```css
 import Avatar from './Avatar.js';
 
 function Card({ children }) {
@@ -277,7 +277,7 @@ export default function Profile() {
 >
 > **使用 key 来重置 state**(使用 key 重置表单)
 
-```react
+```css
 function MyButton() {
   const [count, setCount] = useState(0);
 
@@ -303,7 +303,7 @@ function MyButton() {
 
 #### 合并关联
 
-```react
+```css
 const [position, setPosition] = useState({ x: 0, y: 0 });
 ```
 
@@ -315,7 +315,7 @@ const [position, setPosition] = useState({ x: 0, y: 0 });
 >
 > 使用 `...` 展开语法来复制你想改变的对象和数组 
 
-```react
+```css
 setPosition({ ...position, x: 100 })
 ```
 
@@ -323,7 +323,7 @@ setPosition({ ...position, x: 100 })
 
 > 更新存在状态中的数组时，你需要创建一个新数组 
 
-```react
+```css
  setList(list.map(item => {
       return { ...item, seen: nextSeen };
   }));
@@ -333,7 +333,7 @@ setPosition({ ...position, x: 100 })
 
 >  将组件的所有状态更新逻辑整合到一个外部函数中 
 
-```react
+```css
 const [`有状态的值`, ` dispatch 函数`] = useReducer(`reducer 函数`, `初始的 state`);
 const [tasks, dispatch] = useReducer(tasksReducer, initialTasks);
 function tasksReducer(tasks, action) {
@@ -351,14 +351,14 @@ function tasksReducer(tasks, action) {
 
 1. 创建组件 context.js 组件 （组件名随意）
 
-```react
+```css
 import { createContext } from 'react';
 export const testContext = createContext(500);
 ```
 
 2. 在需要赋值的父组件插入
 
-```react
+```css
   <ImageSizeContext.Provider
       value={500}
     >
@@ -368,7 +368,7 @@ export const testContext = createContext(500);
 
 3. 在需要的子组件的地方插入
 
-```react
+```css
 import { testContext } from './Context.js';
 const testContext = useContext(testContext);
 ```
@@ -381,7 +381,7 @@ const testContext = useContext(testContext);
 >
 >  **将 ref 视为应急方案**  
 
-```react
+```css
 import { useRef } from 'react';
 
 const inputRef = useRef(null);
@@ -395,7 +395,7 @@ const inputRef = useRef(null);
 
 * 不能在组件上直接使用，需要传入后，重新赋值
 
-```react
+```css
 <input ref={inputRef} /> 
 
 <MyInput ref={inputRef} />
@@ -414,7 +414,7 @@ const MyInput = forwardRef((props, ref) => {
 >
 >  **`useEffect` 包裹副作用，把其中的代码分离到渲染逻辑的计算过程之外**  
 
-```react
+```css
 useEffect(() => {
   // 这里的代码会在每次渲染后执行
 });
@@ -432,7 +432,7 @@ useEffect(() => {
 
 >  每当组件渲染时，React 将更新屏幕， `useEffect` 中的代码就会运行
 
-```react
+```css
 import { useEffect } from 'react';
  useEffect(() => {
     // 每次渲染后都会执行此处的代码
@@ -444,7 +444,7 @@ import { useEffect } from 'react';
 * 将 **依赖属性** 传入 `useEffect` 的第二个参数 , 如果在上一次渲染时**依赖属性**与当前相同，就跳过重新运行 Effect 
 *  如果 `ref` 是从父组件传递的，则必须在依赖项数组中指定它 
 
-```react
+```css
 import { useState, useRef } from 'react';
   useEffect(() => {
   },[`依赖属性`]);
@@ -466,7 +466,7 @@ import { useState, useRef } from 'react';
 >
 > **在执行下一轮渲染的 Effect 之前清理上一轮渲染的 Effect** 
 
-```react
+```css
   useEffect(() => {
     const connection = createConnection();
     connection.connect();//请求连接
