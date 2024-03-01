@@ -1,11 +1,36 @@
 # [React](https://react.docschina.org/learn#adding-styles)
 
+## index.js
+
+```css
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+
+// react-dom 把react组件从一个真正的dom里卸载或渲染真正的dom
+const root = ReactDOM.createRoot(document.getElementById("root"));
+//渲染真实dom
+root.render(
+	//react严格语法模式，可要可不要
+	<React.StrictMode>
+		<App />
+	</React.StrictMode>
+);
+
+// root.unmount()  卸载真实dom
+reportWebVitals();
+
+```
+
+# 函数组件
 
 ## 添加样式 -- className
 
 > 使用className关键字添加
 >
->  内联 `style` 属性 使用驼峰命名法编写 
+> 内联 `style` 属性 使用驼峰命名法编写 
 
 ```css
 <img className="avatar"  style={{backgroundColor:'red'}} />
@@ -62,7 +87,7 @@ return <div> {content} </div>
 
 > 外层必须有父元素
 >
->  必须给数组中的每一项都指定一个 `key` 
+> 必须给数组中的每一项都指定一个 `key` 
 
 ```css
 const list = [
@@ -90,7 +115,7 @@ return <ul> {nodeList} </ul>
 
 ## 响应事件 
 
-> 直接传递函数，而非调用
+> 一定要传递函数，而不是调用函数
 
 ```css
 function ckickButton(){
@@ -185,6 +210,7 @@ export default function Signup() {
 * `export default `导出
 * 标签和 `return` 关键字如果不在同一行，则必须把它包裹在一对括号 
 * 没有括号包裹的话，任何在 `return` 下一行的代码都将被忽略
+* 方法加了<>就会解析成element
 * **组件首字母必须大写**
 
 ```css
@@ -412,7 +438,7 @@ const MyInput = forwardRef((props, ref) => {
 
 > 通常用于暂时“跳出” React 代码并与一些 **外部** 系统进行同步
 >
->  **`useEffect` 包裹副作用，把其中的代码分离到渲染逻辑的计算过程之外**  
+> **`useEffect` 包裹副作用，把其中的代码分离到渲染逻辑的计算过程之外**  
 
 ```css
 useEffect(() => {
@@ -442,7 +468,7 @@ import { useEffect } from 'react';
 ##### 2、 **指定 Effect 依赖** 
 
 * 将 **依赖属性** 传入 `useEffect` 的第二个参数 , 如果在上一次渲染时**依赖属性**与当前相同，就跳过重新运行 Effect 
-*  如果 `ref` 是从父组件传递的，则必须在依赖项数组中指定它 
+* 如果 `ref` 是从父组件传递的，则必须在依赖项数组中指定它 
 
 ```css
 import { useState, useRef } from 'react';
@@ -480,10 +506,81 @@ import { useState, useRef } from 'react';
 
 *  **避免当 prop 变化时，在 Effect 中调整/重置 state** 
 *  **避免在 Effect 中处理属于事件特定的逻辑**
-*   **避免链接多个 Effect 仅仅为了相互触发调整 state** 
+*  **避免链接多个 Effect 仅仅为了相互触发调整 state** 
 *  **避免把只需要执行一次的逻辑放在 Effect 中** 
 *  **避免在 Effect 中传递数据给父组件** 
 *  **避免没有清除逻辑的获取数据**  
+
+
+
+# 类组件
+
+## 事件响应
+
+> 事件对象就是参数的最后一个 -- 非原生的
+
+### this指向问题
+
+```css
+class ckickButton extends React.Component{
+     //调用上级一定要用this.handleClick.bind(this)，不然this指向为undefin
+    function  handleClick(){ }
+    //可以把方法写成匿名箭头函数，解决这个问题,
+    handleClick=（a,b）=>{}
+    render(){
+        return <button onClick = {this.handleClick.bind(this) >点击事件</button>
+    }
+}
+```
+
+### 传参问题
+
+```css
+//使用bind，来传参
+class ckickButton extends React.Component{
+    handleClick=（a,b）=>{
+        console.log(a,b)
+    }
+    render(){
+        return <button onClick = {this.handleClick.bind(this,1,2) >点击事件</button>
+    }
+}
+```
+
+## 响应式数据
+
+> 继承 `PureComponent` 组件，当重复渲染时，会跳过
+>
+> `PureComponent`组件下，数组和对象，内存地址改了之后，才会更新
+
+>必须使用`setState`更新数据，才会触发 --- 类似扩展运算符{...newObj,...oldObj}
+>
+>`setState`是异步更改
+
+```css
+class ckickButton extends React.PureComponent{
+    state = {
+        a:0
+    }
+    addA = ()=>{
+        //方法一
+        this.setState({
+        	a:++this.state.a 
+            b:[...this.state.b] //数组一定要更改内存地址
+        })
+        //方法二
+        this.state.a++  
+        this.setState({})
+        //方法三
+        this.setState((state)=>{
+            return{ a:++state.a }
+        })
+    }
+    render(){
+        return <button @onClick={this.addA}>{this.state.a}</button>
+    }
+}
+```
 
 
 
