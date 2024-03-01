@@ -183,12 +183,112 @@ plugins: [{
 
 ### 性能优化
 
+#### 分包策略
+
+##### 定制分包条件
+
+> 把不会常规更新的文件，单独打包处理
+
+```js
+ build: { 
+      rollupOptions: { 
+        output:{
+           manualChunks:(id:string)=>{//id：文件名
+               // 默认环境在es6之前，可在tsconfig文件里compilerOptions.lib配置
+               if(id.includes("node_modules")){
+                   return 'vendor' //vendor  打包后的单独文件名
+               }
+           }
+        },
+      },
+    },
+```
+
+##### 多出口分包
+
+> 一个项目有多个出口时，配置对应的html文件
+
+```js
+build: { 
+      rollupOptions: { 
+       input:{
+           main:path.resolve(_dirname,'./index.html'),
+           product:path.resolve(_dirname,'./product.html')
+       }
+      },
+    },
+```
+
+#### gzip压缩 -- vite-plugin-compression
+
+> 将所有的静态文件压缩，减少体积
+>
+> 得到.gz文件，浏览器会花费直接进行解压，最好设置压缩门槛
+
+```js
+viteCompression({
+        verbose: true,
+        disable: false,
+        threshold: 10240,
+        algorithm: "gzip",
+        ext: ".gz"
+}),
+```
+
+#### cdn加速  -- 内容分发网络
+
+> 将以来的第三方模块，写成cdn形式，保证自己代码的小体积
+
+#####  [vite-plugin-cdn-import](https://github.com/MMF-FE/vite-plugin-cdn-import) 
+
+```js
+import importToCDN from 'vite-plugin-cdn-import'
+
+ plugins: [
+        importToCDN({
+            modules: [
+                {
+                    name: 'react', //需要 CDN 加速的包名称
+                    var: 'React', //全局分配给模块的变量
+                    path: `umd/react.production.min.js`,//指定 CDN 上的加载路径
+                }
+            ],
+        }),
+    ],
+```
 
 
-## vite.config.js
+
+## 处理跨域
+
+> 跨域限制是服务器响应了，但是浏览器在中间拦截了
+>
+> 发送请求是不会被拦截的
+
+```js
+server: {
+	// 服务器主机名，如果允许外部访问，可设置为 "0.0.0.0"
+	host: "0.0.0.0",
+	port: 9032,
+	cors: true,
+	// 跨域代理配置
+	proxy: {
+		"/api": {
+			target: "http://47.108.254.19:8001/", //重定向地址
+			changeOrigin: true,
+			rewrite: (path) => path.replace(/^\/api/, "") //删除请求地址中多余的字段
+		}
+	}
+},
+```
+
+
+
+# vite.config.js
 
 ```js
 import { defineConfig, loadEnv, ConfigEnv, UserConfig } from "vite";
+import viteCompression from "vite-plugin-compression";
 import { resolve } from "path";
 
 
@@ -199,6 +299,20 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       alias: [
         { find: "@", replacement: resolve(__dirname, "./src") },
       ]
+    },
+    server: {
+      // 服务器主机名，如果允许外部访问，可设置为 "0.0.0.0"
+      host: "0.0.0.0",
+      port: 9032,
+      cors: true,
+      // 跨域代理配置
+      proxy: {
+        "/api": {
+          target: "http://47.108.254.19:8001/", //test/
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, "")
+        }
+      }
     },
     optimizeDeps: {
       exclude: [], // 将指定数组中的依赖不进行依赖预构建
@@ -225,9 +339,18 @@ export default defineConfig(({ mode }: ConfigEnv): UserConfig => {
       chunkSizeWarningLimit: 1500,//大于1500kb的图片会被转化成base64格式
       emptyOutDir: true, //清楚输出目录中的所有文件 -- 默认为true
     },
-    plugins: [], //插件
+    plugins: [//插件
+      viteCompression({
+        verbose: true,
+        disable: false,
+        threshold: 10240,
+        algorithm: "gzip",
+        ext: ".gz"
+      }),
+    ],
   }
 })
+
 
 ```
 
