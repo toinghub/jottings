@@ -1,4 +1,4 @@
-#  一、nvm指令
+#  nvm指令
 
 ```javascript
 nvm list     //查看已安装的nodejs版本
@@ -18,58 +18,9 @@ nvm alias default <version> //切换默认版本
 
 [开源项目CDN](https://www.bootcdn.cn/)
 
-***
 
 
-
-# 二、NPM知识
-
-### 命令行
-
-```javascript
-npm init -y //创建package文件
---sava //安装dependenciesd   -S 简写
---dev  //开发环境使用  devDependencies  -D 简写
--g     //全局安装
---save-dev //devDependencies添加依赖
-
-install //安装 i 简写
-npm uninstall gulp -D //卸载包
-npm list //显示包管理的关系
-npm list | grep 包名  //显示指定包管理的关系  三层关系
-npm i --production //只装生产环境的包
-npm view 包名  versions  //查看包版本号 -V 简写
-npm i 包名@版本号 -S  //安装包指定版本号  版本号可不写
-npm outdated //查看那些包已过期
-npm update //更新包
-npm cache clean --force //强制清除缓存
-npm config get registry  //查看当前源
-npm config set registry 地址 //切换源
-npm i git+https://git@  (git地址) //下载git项目（当hhs时，把https改成ssh）
-```
-
-* 使用`npm i`可以重新直接安装`package`里的内容
-* `package-lock` 显示包依赖关系
-
-```javascript
-__dirname  //当前代码所在文件的物理路径
-```
-
-> 包类型  1.内置的包    2.第三方库   3.自己定义的包
-
-### 上传包
-
-1. npm init  -y  初始化
-2. npm adduser 添加账户
-3. npm publish 上传包
-
-
-
-***
-
-
-
-# 三、package 文件解析
+# package 文件解析
 
 > package中的 ^1.12.1的^表示当前版本号需要按语义做适配
 >
@@ -121,7 +72,7 @@ process.env.NODE_ENV  //在./test1.js中获取NODE_ENV的值
 
 ***
 
-# 四、NRM 管理源
+# NRM 管理源
 
 npm的镜像源管理工具
 

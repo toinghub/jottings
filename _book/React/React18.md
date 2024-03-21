@@ -1,6 +1,8 @@
-# [React](https://react.docschina.org/learn#adding-styles)
+# [React18](https://react.docschina.org/learn#adding-styles)
 
 ## index.js
+
+> `StrictMode`严格模式，检测一些危险的操作(使用默写废弃或者不推荐的api)，执行两次生命周期
 
 ```css
 import React from "react";
@@ -24,16 +26,20 @@ reportWebVitals();
 
 ```
 
-# 函数组件
-
 ## 添加样式 -- className
 
 > 使用className关键字添加
 >
-> 内联 `style` 属性 使用驼峰命名法编写 
+> 内联 `style` 属性 使用驼峰命名法编写，必须使用对象写法
+>
+> 类名和样式要写在css文件里
+>
+> 只针对于组件生效，文件名必须为 xx.module.css
 
 ```css
-<img className="avatar"  style={{backgroundColor:'red'}} />
+import xxCss from "./xxCss.module.css"
+
+<img className={`${xxCss.son}`}  style={{backgroundColor:'red'}} />
 ```
 
 ## 显示数据 -- {}
@@ -54,6 +60,8 @@ return (
 ```
 
 ## 条件渲染( v-if )
+
+> react渲染undefined、null、空字符串、false不会渲染任何内容
 
 ### 复杂判断
 
@@ -207,6 +215,8 @@ export default function Signup() {
 
 ## 组件
 
+> 子传父和父传子 都用回调函数
+
 * `export default `导出
 * 标签和 `return` 关键字如果不在同一行，则必须把它包裹在一对括号 
 * 没有括号包裹的话，任何在 `return` 下一行的代码都将被忽略
@@ -355,7 +365,7 @@ setPosition({ ...position, x: 100 })
   }));
 ```
 
-##  useReducer 
+##  useReducer
 
 >  将组件的所有状态更新逻辑整合到一个外部函数中 
 
@@ -510,77 +520,6 @@ import { useState, useRef } from 'react';
 *  **避免把只需要执行一次的逻辑放在 Effect 中** 
 *  **避免在 Effect 中传递数据给父组件** 
 *  **避免没有清除逻辑的获取数据**  
-
-
-
-# 类组件
-
-## 事件响应
-
-> 事件对象就是参数的最后一个 -- 非原生的
-
-### this指向问题
-
-```css
-class ckickButton extends React.Component{
-     //调用上级一定要用this.handleClick.bind(this)，不然this指向为undefin
-    function  handleClick(){ }
-    //可以把方法写成匿名箭头函数，解决这个问题,
-    handleClick=（a,b）=>{}
-    render(){
-        return <button onClick = {this.handleClick.bind(this) >点击事件</button>
-    }
-}
-```
-
-### 传参问题
-
-```css
-//使用bind，来传参
-class ckickButton extends React.Component{
-    handleClick=（a,b）=>{
-        console.log(a,b)
-    }
-    render(){
-        return <button onClick = {this.handleClick.bind(this,1,2) >点击事件</button>
-    }
-}
-```
-
-## 响应式数据
-
-> 继承 `PureComponent` 组件，当重复渲染时，会跳过
->
-> `PureComponent`组件下，数组和对象，内存地址改了之后，才会更新
-
->必须使用`setState`更新数据，才会触发 --- 类似扩展运算符{...newObj,...oldObj}
->
->`setState`是异步更改
-
-```css
-class ckickButton extends React.PureComponent{
-    state = {
-        a:0
-    }
-    addA = ()=>{
-        //方法一
-        this.setState({
-        	a:++this.state.a 
-            b:[...this.state.b] //数组一定要更改内存地址
-        })
-        //方法二
-        this.state.a++  
-        this.setState({})
-        //方法三
-        this.setState((state)=>{
-            return{ a:++state.a }
-        })
-    }
-    render(){
-        return <button @onClick={this.addA}>{this.state.a}</button>
-    }
-}
-```
 
 
 
