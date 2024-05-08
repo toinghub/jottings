@@ -741,6 +741,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.7.13" data-path="嵌套组件.html">
+            
+                <a href="嵌套组件.html">
+            
+                    
+                    嵌套组件
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -1604,6 +1617,128 @@ axios.defaults.withCredentials = <span class="hljs-literal">true</span>;
 
 <span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">new</span> RequestHttp(config);
 </code></pre>
+<h1 id="uni-app">uni-app</h1>
+<pre><code class="lang-css">/*
+ * @Author: xiangzhenxing
+ * @Date: 2024-01-05 16:00:05
+ * @LastEditors: xiangzhenxing
+ * @LastEditTime: 2024-04-26 16:55:42
+ * @Description:&#x8BF7;&#x6C42;&#x5305;&#x88C5;
+ */
+import { ResultEnum } from &apos;./enum&apos;
+import { GlobalStore } from &apos;@/stores/index&apos;
+import type { BaseResponse, OptionsInt } from &apos;@interfaces/request&apos;
+import router from &apos;@utils/router&apos;
+const globalStore = GlobalStore()
+
+const config = {
+  // &#x8BBE;&#x7F6E;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#xFF08;10s&#xFF09;
+  timeout: ResultEnum.TIMEOUT as number,
+  // &#x8DE8;&#x57DF;&#x65F6;&#x5019;&#x5141;&#x8BB8;&#x643A;&#x5E26;&#x51ED;&#x8BC1;
+  withCredentials: true,
+}
+
+const requestInterceptor = {
+  invoke(options: OptionsInt) {
+    const token = globalStore.token
+    if (token) {
+      options.header = {
+        token: token,
+        ...options.header
+      }
+    }
+    const baseUrl = import.meta.env.VITE_API_URL
+    options.url = baseUrl + options.url
+    options = { ...options, ...config }
+    if (options.showLoading) {
+      uni.showLoading({
+        title: &apos;&#x52A0;&#x8F7D;&#x4E2D;&apos;,
+      })
+    }
+  },
+}
+
+uni.addInterceptor(&apos;request&apos;, requestInterceptor)
+
+let uniRequest: UniApp.RequestTask | null = null
+const loginRoutePath: string = &apos;/pages/login/index&apos;
+const request = async (data: any) =&gt; {
+  try {
+    const requestInfo: UniApp.RequestSuccessCallbackResult | UniApp.RequestTask = await uni.request(
+      { ...data },
+    )
+    uniRequest = requestInfo as UniApp.RequestTask
+    const res: BaseResponse&lt;any&gt; = (requestInfo as UniApp.RequestSuccessCallbackResult)
+      .data as BaseResponse&lt;any&gt;
+    uni.hideLoading()
+
+    // &#x767B;&#x5F55;&#x5931;&#x6548;
+    if (res.code === ResultEnum.OVERDUE || res.code === ResultEnum.Unauthorized) {
+      uni.showToast({
+        title: res.msg,
+        duration: 5000,
+        icon: &apos;error&apos;,
+      })
+      console.log(&apos;&#x6E05;&#x695A;&#x4E86;&#x6570;&#x636E;&apos;)
+      await globalStore.clearStore()
+      router.replace(loginRoutePath)
+      return Promise.reject(res)
+    }
+
+    return Promise.resolve(res)
+  } catch (error: any) {
+    if (data.showLoading) uni.hideLoading()
+    return Promise.reject(error)
+  }
+}
+
+// &#x6253;&#x65AD;&#x8BF7;&#x6C42;
+export const controllerCancelFn = () =&gt; {
+  uniRequest!.abort()
+}
+
+class requestMethod {
+  get&lt;T&gt;(url: string, showLoading: boolean = false, params?: object): Promise&lt;BaseResponse&lt;T&gt;&gt; {
+    const data = {
+      url,
+      method: &apos;GET&apos;,
+      data: params,
+      showLoading,
+    }
+    return request(data)
+  }
+  post&lt;T&gt;(url: string, showLoading: boolean = false, params?: object): Promise&lt;BaseResponse&lt;T&gt;&gt; {
+    const data = {
+      url,
+      method: &apos;POST&apos;,
+      data: params,
+      showLoading,
+      header: {
+        &apos;content-type&apos;: &apos;application/json&apos;,
+      },
+    }
+    return request(data)
+  }
+  formPost&lt;T&gt;(
+    url: string,
+    showLoading: boolean = false,
+    params?: object,
+  ): Promise&lt;BaseResponse&lt;T&gt;&gt; {
+    const data = {
+      url,
+      method: &apos;POST&apos;,
+      data: params,
+      showLoading,
+      header: {
+        &apos;content-type&apos;: &apos;application/x-www-form-urlencoded&apos;,
+      },
+    }
+    return request(data)
+  }
+}
+
+export default new requestMethod()
+</code></pre>
 <h3 id="&#x914D;&#x7F6E;&#x6587;&#x4EF6;">&#x914D;&#x7F6E;&#x6587;&#x4EF6;</h3>
 <pre><code class="lang-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">enum</span> ResultEnum {
     SUCCESS = <span class="hljs-string">&quot;200&quot;</span>,
@@ -1726,7 +1861,7 @@ axios.defaults.withCredentials = <span class="hljs-literal">true</span>;
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"request","level":"1.4.7.11","depth":3,"next":{"title":"URLScheme","level":"1.4.7.12","depth":3,"path":"vue/Dome/URLScheme.md","ref":"vue/Dome/URLScheme.md","articles":[]},"previous":{"title":"css-日夜按钮","level":"1.4.7.10","depth":3,"path":"vue/Dome/css-日夜按钮.md","ref":"vue/Dome/css-日夜按钮.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/Dome/request.md","mtime":"2023-03-27T04:20:07.539Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-03-26T03:55:03.004Z"},"basePath":"../..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"request","level":"1.4.7.11","depth":3,"next":{"title":"URLScheme","level":"1.4.7.12","depth":3,"path":"vue/Dome/URLScheme.md","ref":"vue/Dome/URLScheme.md","articles":[]},"previous":{"title":"css-日夜按钮","level":"1.4.7.10","depth":3,"path":"vue/Dome/css-日夜按钮.md","ref":"vue/Dome/css-日夜按钮.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"livereload":{},"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/Dome/request.md","mtime":"2024-04-27T06:25:02.023Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-04-28T08:42:16.419Z"},"basePath":"../..","book":{"language":""}});
     });
   </script>
 </div>
@@ -1753,6 +1888,10 @@ axios.defaults.withCredentials = <span class="hljs-literal">true</span>;
     
         
         <script src="../../gitbook/gitbook-plugin-lightbox/js/lightbox.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         

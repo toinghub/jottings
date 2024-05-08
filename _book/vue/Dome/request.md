@@ -231,6 +231,136 @@ export default new RequestHttp(config);
 
 ```
 
+# uni-app
+
+```css
+/*
+ * @Author: xiangzhenxing
+ * @Date: 2024-01-05 16:00:05
+ * @LastEditors: xiangzhenxing
+ * @LastEditTime: 2024-04-26 16:55:42
+ * @Description:请求包装
+ */
+import { ResultEnum } from './enum'
+import { GlobalStore } from '@/stores/index'
+import type { BaseResponse, OptionsInt } from '@interfaces/request'
+import router from '@utils/router'
+const globalStore = GlobalStore()
+
+const config = {
+  // 设置超时时间（10s）
+  timeout: ResultEnum.TIMEOUT as number,
+  // 跨域时候允许携带凭证
+  withCredentials: true,
+}
+
+const requestInterceptor = {
+  invoke(options: OptionsInt) {
+    const token = globalStore.token
+    if (token) {
+      options.header = {
+        token: token,
+        ...options.header
+      }
+    }
+    const baseUrl = import.meta.env.VITE_API_URL
+    options.url = baseUrl + options.url
+    options = { ...options, ...config }
+    if (options.showLoading) {
+      uni.showLoading({
+        title: '加载中',
+      })
+    }
+  },
+}
+
+uni.addInterceptor('request', requestInterceptor)
+
+let uniRequest: UniApp.RequestTask | null = null
+const loginRoutePath: string = '/pages/login/index'
+const request = async (data: any) => {
+  try {
+    const requestInfo: UniApp.RequestSuccessCallbackResult | UniApp.RequestTask = await uni.request(
+      { ...data },
+    )
+    uniRequest = requestInfo as UniApp.RequestTask
+    const res: BaseResponse<any> = (requestInfo as UniApp.RequestSuccessCallbackResult)
+      .data as BaseResponse<any>
+    uni.hideLoading()
+
+    // 登录失效
+    if (res.code === ResultEnum.OVERDUE || res.code === ResultEnum.Unauthorized) {
+      uni.showToast({
+        title: res.msg,
+        duration: 5000,
+        icon: 'error',
+      })
+      console.log('清楚了数据')
+      await globalStore.clearStore()
+      router.replace(loginRoutePath)
+      return Promise.reject(res)
+    }
+
+    return Promise.resolve(res)
+  } catch (error: any) {
+    if (data.showLoading) uni.hideLoading()
+    return Promise.reject(error)
+  }
+}
+
+// 打断请求
+export const controllerCancelFn = () => {
+  uniRequest!.abort()
+}
+
+class requestMethod {
+  get<T>(url: string, showLoading: boolean = false, params?: object): Promise<BaseResponse<T>> {
+    const data = {
+      url,
+      method: 'GET',
+      data: params,
+      showLoading,
+    }
+    return request(data)
+  }
+  post<T>(url: string, showLoading: boolean = false, params?: object): Promise<BaseResponse<T>> {
+    const data = {
+      url,
+      method: 'POST',
+      data: params,
+      showLoading,
+      header: {
+        'content-type': 'application/json',
+      },
+    }
+    return request(data)
+  }
+  formPost<T>(
+    url: string,
+    showLoading: boolean = false,
+    params?: object,
+  ): Promise<BaseResponse<T>> {
+    const data = {
+      url,
+      method: 'POST',
+      data: params,
+      showLoading,
+      header: {
+        'content-type': 'application/x-www-form-urlencoded',
+      },
+    }
+    return request(data)
+  }
+}
+
+export default new requestMethod()
+
+```
+
+
+
+
+
 ### 配置文件
 
 ```typescript
