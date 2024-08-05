@@ -23,7 +23,19 @@ var re = eval(`/${a}/g`).test() //变量书写
 
 # 普通字符
 
-##  **[...]** 
+## |
+
+> 或 的意思
+
+```js
+const str = "acacaca bababa cdcd";
+const patt1 = /[a|b]/g;
+str.match(patt1) //a,a,a,a,b,a,b,a,b,a
+```
+
+
+
+##  **[...]**
 
 > 匹配 **[...]** 中的所有字符 
 >

@@ -37,10 +37,15 @@ new Promise(function (reject) {
 ## Promise.then
 
 * 函调函数异步执行
+* `then`返回的也是一个`promise`函数
 
 ```js
 var promise = new Promise((resolve, reject) => {})
-promise.then((res) => {});
+promise.then((res) => {
+    return {
+        then(resoleve,reject){} //返回 promise对象
+    }
+});
 ```
 
 
@@ -81,6 +86,7 @@ p1.then((res) => console.log(res))
 
 ## Promise.all()
 
+*  全部正确可返回
 *  接收一个 **promise** 的 iterable 类型的输入 
 *  返回一个**Promise**实例 
 *  需要**所有异步任务**都**同时进行**并且**完成时**可以使用.all方法 
@@ -105,6 +111,7 @@ resy:{data: {…}, status: 200, statusText: "OK", headers: {…}, config: {…},
 
 ## Promise.allSettled()
 
+*  部分正确可返回
 *  有多个彼此不依赖的异步任务成功完成时，或者您总是想知道每个promise的结果时 
 *  **allSettled在其中一个promise返回错误时还可以继续等待结果 ,所有结果返回后安装传参传入的顺序返回结果**
 
@@ -152,6 +159,7 @@ Promise.any([p1, p2, p3]).then(values => {
 
 ## Promise.race()
 
+*   谁返回快取谁
 *   遇到立即执行的`reject`时**直接返回了reject的内容** 
 *  处理多个异步任务但是不要求**返回的内容是正确和错误时**，返回最快的结果时使用 
 
@@ -172,5 +180,165 @@ Promise.race([p1, p2, p3]).then(values => {
 //结果：
 //reject
 //Promise {<fulfilled>: undefined}
+```
+
+
+
+## async/await
+
+* `class` 中使用，会直接返回`promise`
+
+
+
+
+
+## [原理](https://www.bilibili.com/video/BV1NJ411W7wh?p=378&vd_source=c8d975fdf8d354d9a9971f42ded47482)
+
+```javascript
+class MyPromise {
+	static PENDING = "pending"; // 等待
+	static FULFILLED = "fulfilled"; // 实现
+	static REJECTED = "rejected"; //拒绝
+
+	status = MyPromise.PENDING; //当前状态
+	value = null;
+	callbacks = []; //待回调队列
+
+	//传入执行函数
+	constructor(executor) {
+		this.status = MyPromise.PENDING;
+		this.value = null;
+		this.callbacks = [];
+		try {
+			executor(this.resolve.bind(this), this.reject.bind(this));
+		} catch (error) {
+			this.reject(error);
+		}
+	}
+
+	resolve(value) {
+		this.status = MyPromise.FULFILLED;
+		this.value = value;
+		setTimeout(() => {
+			this.callbacks.forEach((callback) => {
+				callback.onFulfilled(this.value);
+			});
+		});
+	}
+
+	reject(reason) {
+		this.status = MyPromise.REJECTED;
+		this.value = reason;
+		setTimeout(() => {
+			this.callbacks.forEach((callback) => {
+				callback.onRejected(this.value);
+			});
+		});
+	}
+
+	then(onFulfilled, onRejected) {
+		if (typeof onFulfilled !== "function") {
+			// 返回value是为了防止then()仅调用时报错
+			onFulfilled = () => this.value;
+		}
+		if (typeof onRejected !== "function") {
+			onRejected = () => this.value;
+		}
+
+		// 链式调用，返回Promise
+		const promise = new MyPromise((resolve, reject) => {
+			if (this.status === MyPromise.PENDING) {
+				this.callbacks.push({
+					onFulfilled: (value) => {
+						this.parse(
+							promise,
+							onFulfilled(value),
+							resolve,
+							reject
+						);
+					},
+					onRejected: (value) => {
+						this.parse(promise, onRejected(value), resolve, reject);
+					},
+				});
+			}
+			if (this.status === MyPromise.FULFILLED) {
+				// setTimeout将当前任务做成宏任务，在下个任务队列中执行
+				setTimeout(() => {
+					this.parse(
+						promise,
+						onFulfilled(this.value),
+						resolve,
+						reject
+					);
+				});
+			}
+			if (this.status === MyPromise.REJECTED) {
+				setTimeout(() => {
+					this.parse(
+						promise,
+						onRejected(this.value),
+						resolve,
+						reject
+					);
+				});
+			}
+		});
+		return promise;
+	}
+	parse(promise, result, resolve, reject) {
+		// 当前的promise中不能返回当前的promise
+		if (promise === result) {
+			throw new TypeError("Chaining cycle detected");
+		}
+		try {
+			// 判断then是否又调用了Promise，如果调用，则直接返回Promise结构
+			if (result instanceof MyPromise) {
+				result.then(resolve, reject);
+			} else {
+				resolve(result);
+			}
+		} catch (error) {
+			reject(error);
+		}
+	}
+
+	// 静态方法
+	static resolve(value) {
+		return new MyPromise((resolve, reject) => {
+			if (value instanceof MyPromise) {
+				value.then(resolve, reject);
+			} else {
+				resolve(value);
+			}
+		});
+	}
+
+	static reject(value) {
+		return new MyPromise((resolve, reject) => {
+			reject(value);
+		});
+	}
+
+    static all(promises){
+        const values = []
+        return new MyPromise((resolve,reject)=>{
+            promises.forEach(promise=>{
+                promise.then(
+                    value=>{
+                        values.push(value)
+                        if(values.length===promises.length){
+                            resolve(values)
+                        }
+                    },
+                    reason=>{
+                        reject(reason)
+                    }
+                )
+            })  
+        })
+    }
+}
+
 ```
 

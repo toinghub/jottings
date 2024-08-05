@@ -366,36 +366,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" >
+        <li class="chapter " data-level="1.3.2.1" data-path="../进阶/数据加密.html">
             
-                <span>
-            
-                    
-                    数据结构及算法
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.2.1.1" data-path="../进阶/数据结构及算法/排序算法.html">
-            
-                <a href="../进阶/数据结构及算法/排序算法.html">
-            
-                    
-                    排序算法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2.1.2" data-path="../进阶/数据结构及算法/堆与栈.html">
-            
-                <a href="../进阶/数据结构及算法/堆与栈.html">
+                <a href="../进阶/数据加密.html">
             
                     
                     堆与栈
@@ -406,12 +379,20 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.2.2" data-path="../进阶/排序算法.html">
+            
+                <a href="../进阶/排序算法.html">
+            
+                    
+                    排序算法
+            
+                </a>
+            
 
-            </ul>
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2" >
+        <li class="chapter " data-level="1.3.2.3" >
             
                 <span>
             
@@ -425,7 +406,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.2.1" data-path="../进阶/TypeScript/基础篇.html">
+        <li class="chapter " data-level="1.3.2.3.1" data-path="../进阶/TypeScript/基础篇.html">
             
                 <a href="../进阶/TypeScript/基础篇.html">
             
@@ -438,7 +419,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2.2" data-path="../进阶/TypeScript/tsconfig.html">
+        <li class="chapter " data-level="1.3.2.3.2" data-path="../进阶/TypeScript/tsconfig.html">
             
                 <a href="../进阶/TypeScript/tsconfig.html">
             
@@ -451,7 +432,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2.3" data-path="../进阶/TypeScript/ts补充.html">
+        <li class="chapter " data-level="1.3.2.3.3" data-path="../进阶/TypeScript/ts补充.html">
             
                 <a href="../进阶/TypeScript/ts补充.html">
             
@@ -1226,7 +1207,7 @@
                 <span>
             
                     
-                    前端安全
+                    服务器端
             
                 </span>
             
@@ -1240,38 +1221,6 @@
                 <span>
             
                     
-                    数据加密
-            
-                </span>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14" >
-            
-                <span>
-            
-                    
-                    服务器端
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.14.1" >
-            
-                <span>
-            
-                    
                     node
             
                 </span>
@@ -1281,7 +1230,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.14.1.1" data-path="../../服务器端/node/node基础.html">
+        <li class="chapter " data-level="1.13.1.1" data-path="../../服务器端/node/node基础.html">
             
                 <a href="../../服务器端/node/node基础.html">
             
@@ -1294,7 +1243,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14.1.2" data-path="../../服务器端/node/包管理器.html">
+        <li class="chapter " data-level="1.13.1.2" data-path="../../服务器端/node/包管理器.html">
             
                 <a href="../../服务器端/node/包管理器.html">
             
@@ -1312,7 +1261,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14.2" >
+        <li class="chapter " data-level="1.13.2" >
             
                 <span>
             
@@ -1326,7 +1275,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.14.2.1" data-path="../../服务器端/代理/ngin.html">
+        <li class="chapter " data-level="1.13.2.1" data-path="../../服务器端/代理/ngin.html">
             
                 <a href="../../服务器端/代理/ngin.html">
             
@@ -1424,9 +1373,14 @@
 <h2 id="promisethen">Promise.then</h2>
 <ul>
 <li>&#x51FD;&#x8C03;&#x51FD;&#x6570;&#x5F02;&#x6B65;&#x6267;&#x884C;</li>
+<li><code>then</code>&#x8FD4;&#x56DE;&#x7684;&#x4E5F;&#x662F;&#x4E00;&#x4E2A;<code>promise</code>&#x51FD;&#x6570;</li>
 </ul>
 <pre><code class="lang-js"><span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {})
-promise.then((res) =&gt; {});
+promise.then((res) =&gt; {
+    <span class="hljs-keyword">return</span> {
+        then(resoleve,reject){} <span class="hljs-comment">//&#x8FD4;&#x56DE; promise&#x5BF9;&#x8C61;</span>
+    }
+});
 </code></pre>
 <h2 id="promisecatch">Promise.catch</h2>
 <ul>
@@ -1454,6 +1408,7 @@ promise.then((res) =&gt; {});
 </code></pre>
 <h2 id="promiseall">Promise.all()</h2>
 <ul>
+<li>&#x5168;&#x90E8;&#x6B63;&#x786E;&#x53EF;&#x8FD4;&#x56DE;</li>
 <li>&#x63A5;&#x6536;&#x4E00;&#x4E2A; <strong>promise</strong> &#x7684; iterable &#x7C7B;&#x578B;&#x7684;&#x8F93;&#x5165; </li>
 <li>&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<strong>Promise</strong>&#x5B9E;&#x4F8B; </li>
 <li>&#x9700;&#x8981;<strong>&#x6240;&#x6709;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;</strong>&#x90FD;<strong>&#x540C;&#x65F6;&#x8FDB;&#x884C;</strong>&#x5E76;&#x4E14;<strong>&#x5B8C;&#x6210;&#x65F6;</strong>&#x53EF;&#x4EE5;&#x4F7F;&#x7528;.all&#x65B9;&#x6CD5; </li>
@@ -1474,6 +1429,7 @@ resy:{data: {&#x2026;}, status: 200, statusText: &quot;OK&quot;, headers: {&#x20
 </code></pre>
 <h2 id="promiseallsettled">Promise.allSettled()</h2>
 <ul>
+<li>&#x90E8;&#x5206;&#x6B63;&#x786E;&#x53EF;&#x8FD4;&#x56DE;</li>
 <li>&#x6709;&#x591A;&#x4E2A;&#x5F7C;&#x6B64;&#x4E0D;&#x4F9D;&#x8D56;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6210;&#x529F;&#x5B8C;&#x6210;&#x65F6;&#xFF0C;&#x6216;&#x8005;&#x60A8;&#x603B;&#x662F;&#x60F3;&#x77E5;&#x9053;&#x6BCF;&#x4E2A;promise&#x7684;&#x7ED3;&#x679C;&#x65F6; </li>
 <li><strong>allSettled&#x5728;&#x5176;&#x4E2D;&#x4E00;&#x4E2A;promise&#x8FD4;&#x56DE;&#x9519;&#x8BEF;&#x65F6;&#x8FD8;&#x53EF;&#x4EE5;&#x7EE7;&#x7EED;&#x7B49;&#x5F85;&#x7ED3;&#x679C; ,&#x6240;&#x6709;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x540E;&#x5B89;&#x88C5;&#x4F20;&#x53C2;&#x4F20;&#x5165;&#x7684;&#x987A;&#x5E8F;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</strong></li>
 </ul>
@@ -1513,6 +1469,7 @@ resy:{data: {&#x2026;}, status: 200, statusText: &quot;OK&quot;, headers: {&#x20
 </code></pre>
 <h2 id="promiserace">Promise.race()</h2>
 <ul>
+<li>&#x8C01;&#x8FD4;&#x56DE;&#x5FEB;&#x53D6;&#x8C01;</li>
 <li>&#x9047;&#x5230;&#x7ACB;&#x5373;&#x6267;&#x884C;&#x7684;<code>reject</code>&#x65F6;<strong>&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E86;reject&#x7684;&#x5185;&#x5BB9;</strong> </li>
 <li>&#x5904;&#x7406;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x4F46;&#x662F;&#x4E0D;&#x8981;&#x6C42;<strong>&#x8FD4;&#x56DE;&#x7684;&#x5185;&#x5BB9;&#x662F;&#x6B63;&#x786E;&#x548C;&#x9519;&#x8BEF;&#x65F6;</strong>&#xFF0C;&#x8FD4;&#x56DE;&#x6700;&#x5FEB;&#x7684;&#x7ED3;&#x679C;&#x65F6;&#x4F7F;&#x7528; </li>
 </ul>
@@ -1532,6 +1489,156 @@ resy:{data: {&#x2026;}, status: 200, statusText: &quot;OK&quot;, headers: {&#x20
 <span class="hljs-comment">//&#x7ED3;&#x679C;&#xFF1A;</span>
 <span class="hljs-comment">//reject</span>
 <span class="hljs-comment">//Promise {&lt;fulfilled&gt;: undefined}</span>
+</code></pre>
+<h2 id="asyncawait">async/await</h2>
+<ul>
+<li><code>class</code> &#x4E2D;&#x4F7F;&#x7528;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;<code>promise</code></li>
+</ul>
+<h2 id="&#x539F;&#x7406;"><a href="https://www.bilibili.com/video/BV1NJ411W7wh?p=378&amp;vd_source=c8d975fdf8d354d9a9971f42ded47482" target="_blank">&#x539F;&#x7406;</a></h2>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyPromise</span> </span>{
+    static PENDING = <span class="hljs-string">&quot;pending&quot;</span>; <span class="hljs-comment">// &#x7B49;&#x5F85;</span>
+    static FULFILLED = <span class="hljs-string">&quot;fulfilled&quot;</span>; <span class="hljs-comment">// &#x5B9E;&#x73B0;</span>
+    static REJECTED = <span class="hljs-string">&quot;rejected&quot;</span>; <span class="hljs-comment">//&#x62D2;&#x7EDD;</span>
+
+    status = MyPromise.PENDING; <span class="hljs-comment">//&#x5F53;&#x524D;&#x72B6;&#x6001;</span>
+    value = <span class="hljs-literal">null</span>;
+    callbacks = []; <span class="hljs-comment">//&#x5F85;&#x56DE;&#x8C03;&#x961F;&#x5217;</span>
+
+    <span class="hljs-comment">//&#x4F20;&#x5165;&#x6267;&#x884C;&#x51FD;&#x6570;</span>
+    constructor(executor) {
+        <span class="hljs-keyword">this</span>.status = MyPromise.PENDING;
+        <span class="hljs-keyword">this</span>.value = <span class="hljs-literal">null</span>;
+        <span class="hljs-keyword">this</span>.callbacks = [];
+        <span class="hljs-keyword">try</span> {
+            executor(<span class="hljs-keyword">this</span>.resolve.bind(<span class="hljs-keyword">this</span>), <span class="hljs-keyword">this</span>.reject.bind(<span class="hljs-keyword">this</span>));
+        } <span class="hljs-keyword">catch</span> (error) {
+            <span class="hljs-keyword">this</span>.reject(error);
+        }
+    }
+
+    resolve(value) {
+        <span class="hljs-keyword">this</span>.status = MyPromise.FULFILLED;
+        <span class="hljs-keyword">this</span>.value = value;
+        setTimeout(() =&gt; {
+            <span class="hljs-keyword">this</span>.callbacks.forEach((callback) =&gt; {
+                callback.onFulfilled(<span class="hljs-keyword">this</span>.value);
+            });
+        });
+    }
+
+    reject(reason) {
+        <span class="hljs-keyword">this</span>.status = MyPromise.REJECTED;
+        <span class="hljs-keyword">this</span>.value = reason;
+        setTimeout(() =&gt; {
+            <span class="hljs-keyword">this</span>.callbacks.forEach((callback) =&gt; {
+                callback.onRejected(<span class="hljs-keyword">this</span>.value);
+            });
+        });
+    }
+
+    then(onFulfilled, onRejected) {
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> onFulfilled !== <span class="hljs-string">&quot;function&quot;</span>) {
+            <span class="hljs-comment">// &#x8FD4;&#x56DE;value&#x662F;&#x4E3A;&#x4E86;&#x9632;&#x6B62;then()&#x4EC5;&#x8C03;&#x7528;&#x65F6;&#x62A5;&#x9519;</span>
+            onFulfilled = () =&gt; <span class="hljs-keyword">this</span>.value;
+        }
+        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> onRejected !== <span class="hljs-string">&quot;function&quot;</span>) {
+            onRejected = () =&gt; <span class="hljs-keyword">this</span>.value;
+        }
+
+        <span class="hljs-comment">// &#x94FE;&#x5F0F;&#x8C03;&#x7528;&#xFF0C;&#x8FD4;&#x56DE;Promise</span>
+        <span class="hljs-keyword">const</span> promise = <span class="hljs-keyword">new</span> MyPromise((resolve, reject) =&gt; {
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === MyPromise.PENDING) {
+                <span class="hljs-keyword">this</span>.callbacks.push({
+                    onFulfilled: (value) =&gt; {
+                        <span class="hljs-keyword">this</span>.parse(
+                            promise,
+                            onFulfilled(value),
+                            resolve,
+                            reject
+                        );
+                    },
+                    onRejected: (value) =&gt; {
+                        <span class="hljs-keyword">this</span>.parse(promise, onRejected(value), resolve, reject);
+                    },
+                });
+            }
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === MyPromise.FULFILLED) {
+                <span class="hljs-comment">// setTimeout&#x5C06;&#x5F53;&#x524D;&#x4EFB;&#x52A1;&#x505A;&#x6210;&#x5B8F;&#x4EFB;&#x52A1;&#xFF0C;&#x5728;&#x4E0B;&#x4E2A;&#x4EFB;&#x52A1;&#x961F;&#x5217;&#x4E2D;&#x6267;&#x884C;</span>
+                setTimeout(() =&gt; {
+                    <span class="hljs-keyword">this</span>.parse(
+                        promise,
+                        onFulfilled(<span class="hljs-keyword">this</span>.value),
+                        resolve,
+                        reject
+                    );
+                });
+            }
+            <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.status === MyPromise.REJECTED) {
+                setTimeout(() =&gt; {
+                    <span class="hljs-keyword">this</span>.parse(
+                        promise,
+                        onRejected(<span class="hljs-keyword">this</span>.value),
+                        resolve,
+                        reject
+                    );
+                });
+            }
+        });
+        <span class="hljs-keyword">return</span> promise;
+    }
+    parse(promise, result, resolve, reject) {
+        <span class="hljs-comment">// &#x5F53;&#x524D;&#x7684;promise&#x4E2D;&#x4E0D;&#x80FD;&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7684;promise</span>
+        <span class="hljs-keyword">if</span> (promise === result) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">TypeError</span>(<span class="hljs-string">&quot;Chaining cycle detected&quot;</span>);
+        }
+        <span class="hljs-keyword">try</span> {
+            <span class="hljs-comment">// &#x5224;&#x65AD;then&#x662F;&#x5426;&#x53C8;&#x8C03;&#x7528;&#x4E86;Promise&#xFF0C;&#x5982;&#x679C;&#x8C03;&#x7528;&#xFF0C;&#x5219;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;Promise&#x7ED3;&#x6784;</span>
+            <span class="hljs-keyword">if</span> (result <span class="hljs-keyword">instanceof</span> MyPromise) {
+                result.then(resolve, reject);
+            } <span class="hljs-keyword">else</span> {
+                resolve(result);
+            }
+        } <span class="hljs-keyword">catch</span> (error) {
+            reject(error);
+        }
+    }
+
+    <span class="hljs-comment">// &#x9759;&#x6001;&#x65B9;&#x6CD5;</span>
+    static resolve(value) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyPromise((resolve, reject) =&gt; {
+            <span class="hljs-keyword">if</span> (value <span class="hljs-keyword">instanceof</span> MyPromise) {
+                value.then(resolve, reject);
+            } <span class="hljs-keyword">else</span> {
+                resolve(value);
+            }
+        });
+    }
+
+    static reject(value) {
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyPromise((resolve, reject) =&gt; {
+            reject(value);
+        });
+    }
+
+    static all(promises){
+        <span class="hljs-keyword">const</span> values = []
+        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> MyPromise((resolve,reject)=&gt;{
+            promises.forEach(promise=&gt;{
+                promise.then(
+                    value=&gt;{
+                        values.push(value)
+                        <span class="hljs-keyword">if</span>(values.length===promises.length){
+                            resolve(values)
+                        }
+                    },
+                    reason=&gt;{
+                        reject(reason)
+                    }
+                )
+            })  
+        })
+    }
+}
 </code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
           </section>
@@ -1609,7 +1716,7 @@ resy:{data: {&#x2026;}, status: 200, statusText: &quot;OK&quot;, headers: {&#x20
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"Promise","level":"1.3.1.3","depth":3,"next":{"title":"RegExp","level":"1.3.1.4","depth":3,"path":"三剑客/基础/RegExp.md","ref":"三剑客/基础/RegExp.md","articles":[]},"previous":{"title":"ES6","level":"1.3.1.2","depth":3,"path":"三剑客/基础/ES6.md","ref":"三剑客/基础/ES6.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"三剑客/基础/Promise.md","mtime":"2023-10-18T03:46:29.354Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-08T08:24:53.686Z"},"basePath":"../..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"Promise","level":"1.3.1.3","depth":3,"next":{"title":"RegExp","level":"1.3.1.4","depth":3,"path":"三剑客/基础/RegExp.md","ref":"三剑客/基础/RegExp.md","articles":[]},"previous":{"title":"ES6","level":"1.3.1.2","depth":3,"path":"三剑客/基础/ES6.md","ref":"三剑客/基础/ES6.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"三剑客/基础/Promise.md","mtime":"2024-08-05T07:28:26.880Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-05T07:44:28.453Z"},"basePath":"../..","book":{"language":""}});
     });
   </script>
 </div>

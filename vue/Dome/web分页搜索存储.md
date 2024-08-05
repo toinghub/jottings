@@ -1,115 +1,122 @@
 # web 分页搜索存储
 
-### vue2+ts+Mixins
+```css
 
-```js
-import { Component, Vue } from 'vue-property-decorator';
+const localKey = "yPlan_platform_pageInfo"
 
-//页面分页信息保存
-interface pagingInt {
-	name: string;
-	pagingInfo: object;
+interface pageInfoInt {
+    page: pageInt,
+    searchInfo: any,
 }
-@Component
-export default class PagingStroage extends Vue {
-	pageObj: any; //对页面分页和过滤进行存储
-	filters: any;
-	newPageObj: any;
-	filterConfig: any;
-
-	created() {
-		this.getStoragePagingInfo();
-	}
-	beforeDestroy() {
-		this.setStoragePagingInfo();
-	}
-
-	pageRoute: any = null;
-	//设置当前页码分页信息
-	getStoragePagingInfo() {
-		this.pageRoute = this.$route;
-		//获取当前分页信息
-		const pagingInfo = this.getStoragePaging(this.pageRoute);
-		if (!pagingInfo) return;
-		//将存储的分页信息赋值给pageObj
-		if (pagingInfo.pageObj) {
-			this.pageObj = { ...this.pageObj, ...pagingInfo.pageObj };
-		}
-		//处理存储的过滤信息，并且赋值
-		if (pagingInfo.filters) {
-			this.filters = { ...this.filters, ...pagingInfo.filters };
-			for (let key in pagingInfo.filters) {
-				const value = pagingInfo.filters[key];
-				if (this.filterConfig[key]) {
-					this.filterConfig[key].value = value;
-				}
-				if (key === 'endTime' || key === 'startTime') {
-					this.filterConfig.date.option[key].value = value;
-				}
-			}
-		}
-	}
-	//存储当前分页信息
-	setStoragePagingInfo() {
-		if (!this.newPageObj) return;
-		let pagingInfo: any = {
-			pageObj:
-				this.newPageObj.current || this.newPageObj.pageSize
-					? this.newPageObj
-					: null,
-			filters: this.filters || null,
-		};
-		this.setStoragePaging(this.pageRoute, pagingInfo);
-	}
-
-	//获取分页信息
-	getStoragePaging(route: any) {
-		let dataJson: any = window.sessionStorage.getItem('pagingInfo');
-		let data: pagingInt[] = dataJson ? JSON.parse(dataJson) : [];
-		if (data.length > 0 && route) {
-			let pagingInfo: any = null;
-			let newData: pagingInt[] = [];
-			data.forEach((item: pagingInt) => {
-				if (item.name === route.name) {
-					pagingInfo = item;
-				} else {
-					newData.push(item);
-				}
-			});
-			if (newData.length > 0) {
-				window.sessionStorage.setItem(
-					'pagingInfo',
-					JSON.stringify(newData)
-				);
-			} else {
-				window.sessionStorage.removeItem('pagingInfo');
-			}
-			if (pagingInfo) {
-				return pagingInfo.pagingInfo;
-			}
-		}
-		return null;
-	}
-
-	//设置分页信息
-	setStoragePaging(route: any, pagingInfo: object) {
-		if (!pagingInfo) return;
-		const newData: pagingInt = {
-			name: route.name,
-			pagingInfo,
-		};
-		let data: any = window.sessionStorage.getItem('pagingInfo');
-		data = data ? JSON.parse(data) : [];
-		data = [...data, newData];
-		window.sessionStorage.setItem('pagingInfo', JSON.stringify(data));
-	}
+interface pageInt {
+    current: number,
+    pageSize?: number,
 }
-//清空分页信息
-export function removeStoragePaging() {
-	setTimeout(() => {
-		window.sessionStorage.removeItem('pagingInfo');
-	}, 0);
+
+
+//获得页面分页信息 
+export const getPagePaging = (pageKey?: string) => {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    return pageInfo.page
 }
+// 设置页面分页信息
+export const setPagePaging = (page: pageInt, pageKey?: string) => {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    const newPageInfo = { page: { ...{ current: 1, pageSize: 10, }, ...pageInfo.page, ...page }, searchInfo: pageInfo.searchInfo || null }
+    setPageStorage(newPageInfo, pageKey)
+}
+
+// 获得页面搜索信息
+export const getPageSearch = (pageKey?: string) => {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    return pageInfo.searchInfo
+}
+
+// 设置页面搜索信息
+export const setPageSearch = (searchInfo: any, pageKey?: string) => {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    const newPageInfo = { page: pageInfo.page || null, searchInfo: { ...pageInfo.searchInfo, ...searchInfo }, }
+    setPageStorage(newPageInfo, pageKey)
+}
+
+// 删除页面信息
+export const deletePageInfo = (pagePath: string) => {
+    const pageMap = getPageMap()
+    const pageMapArr = Array.from(pageMap)
+    if (pageMapArr.length === 0) return
+    const filterArr: any = pageMapArr.filter((item: any) => {
+        let pagePathSty: string = item[0]
+        if (pagePathSty.includes('$')) {
+            pagePathSty = pagePathSty.split("$")[0]
+        }
+        return pagePathSty !== pagePath
+    })
+    window.sessionStorage.setItem(localKey, JSON.stringify(filterArr));
+}
+
+// 删除-除当前页面的其他页面
+export const deleteSurplusPageInfo = (pagePath: string) => {
+    const pageMap = getPageMap()
+    const pageMapArr = Array.from(pageMap)
+    if (pageMapArr.length === 0) return
+    const filterArr: any = pageMapArr.filter((item: any) => {
+        let pagePathSty: string = item[0]
+        if (pagePathSty.includes('$')) {
+            pagePathSty = pagePathSty.split("$")[0]
+        }
+        return pagePathSty === pagePath
+    })
+    window.sessionStorage.setItem(localKey, JSON.stringify(filterArr));
+}
+
+// 删除所有页面信息
+export const clearPageAllInfo = () => {
+    window.sessionStorage.removeItem(localKey)
+}
+
+
+// 获取页面信息
+const getPageStorage = (pageKey?: string,): any => {
+    const pageMap = getPageMap()
+    return pageMap.get(getPageKey(pageKey)) || {}
+}
+
+
+
+// 获取页面Map信息
+const getPageMap = (): any => {
+    const data: string | null = window.sessionStorage.getItem(localKey);
+    if (!data) return new Map()
+    return new Map(JSON.parse(data))
+}
+
+
+
+// 设置页面信息
+const setPageStorage = (value: any, pageKey?: string) => {
+    const pageMap = getPageMap()
+    pageMap.set(getPageKey(pageKey), value)
+    const data = JSON.stringify(Array.from(pageMap))
+    window.sessionStorage.setItem(localKey, data);
+}
+
+/**
+ * 页面信息
+ * @param pageKey 对应的表格key值 
+ * @returns {string}
+ */
+const getPageKey = (pageKey?: string) => {
+    let pageHash = window.location.hash
+    if (pageHash.includes("#")) {
+        pageHash = pageHash.split("#")[1]
+    }
+    if (!pageKey) return pageHash
+    const pageInfoKey: String = `${pageHash}$${pageKey}`
+    return pageInfoKey
+}
+
+
+
 
 ```
 

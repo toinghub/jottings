@@ -366,36 +366,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.1" >
+        <li class="chapter " data-level="1.3.2.1" data-path="../../三剑客/进阶/数据加密.html">
             
-                <span>
-            
-                    
-                    数据结构及算法
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.3.2.1.1" data-path="../../三剑客/进阶/数据结构及算法/排序算法.html">
-            
-                <a href="../../三剑客/进阶/数据结构及算法/排序算法.html">
-            
-                    
-                    排序算法
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.3.2.1.2" data-path="../../三剑客/进阶/数据结构及算法/堆与栈.html">
-            
-                <a href="../../三剑客/进阶/数据结构及算法/堆与栈.html">
+                <a href="../../三剑客/进阶/数据加密.html">
             
                     
                     堆与栈
@@ -406,12 +379,20 @@
             
         </li>
     
+        <li class="chapter " data-level="1.3.2.2" data-path="../../三剑客/进阶/排序算法.html">
+            
+                <a href="../../三剑客/进阶/排序算法.html">
+            
+                    
+                    排序算法
+            
+                </a>
+            
 
-            </ul>
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2" >
+        <li class="chapter " data-level="1.3.2.3" >
             
                 <span>
             
@@ -425,7 +406,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.3.2.2.1" data-path="../../三剑客/进阶/TypeScript/基础篇.html">
+        <li class="chapter " data-level="1.3.2.3.1" data-path="../../三剑客/进阶/TypeScript/基础篇.html">
             
                 <a href="../../三剑客/进阶/TypeScript/基础篇.html">
             
@@ -438,7 +419,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2.2" data-path="../../三剑客/进阶/TypeScript/tsconfig.html">
+        <li class="chapter " data-level="1.3.2.3.2" data-path="../../三剑客/进阶/TypeScript/tsconfig.html">
             
                 <a href="../../三剑客/进阶/TypeScript/tsconfig.html">
             
@@ -451,7 +432,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.2.2.3" data-path="../../三剑客/进阶/TypeScript/ts补充.html">
+        <li class="chapter " data-level="1.3.2.3.3" data-path="../../三剑客/进阶/TypeScript/ts补充.html">
             
                 <a href="../../三剑客/进阶/TypeScript/ts补充.html">
             
@@ -1226,7 +1207,7 @@
                 <span>
             
                     
-                    前端安全
+                    服务器端
             
                 </span>
             
@@ -1240,38 +1221,6 @@
                 <span>
             
                     
-                    数据加密
-            
-                </span>
-            
-
-            
-        </li>
-    
-
-            </ul>
-            
-        </li>
-    
-        <li class="chapter " data-level="1.14" >
-            
-                <span>
-            
-                    
-                    服务器端
-            
-                </span>
-            
-
-            
-            <ul class="articles">
-                
-    
-        <li class="chapter " data-level="1.14.1" >
-            
-                <span>
-            
-                    
                     node
             
                 </span>
@@ -1281,7 +1230,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.14.1.1" data-path="../../服务器端/node/node基础.html">
+        <li class="chapter " data-level="1.13.1.1" data-path="../../服务器端/node/node基础.html">
             
                 <a href="../../服务器端/node/node基础.html">
             
@@ -1294,7 +1243,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14.1.2" data-path="../../服务器端/node/包管理器.html">
+        <li class="chapter " data-level="1.13.1.2" data-path="../../服务器端/node/包管理器.html">
             
                 <a href="../../服务器端/node/包管理器.html">
             
@@ -1312,7 +1261,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.14.2" >
+        <li class="chapter " data-level="1.13.2" >
             
                 <span>
             
@@ -1326,7 +1275,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.14.2.1" data-path="../../服务器端/代理/ngin.html">
+        <li class="chapter " data-level="1.13.2.1" data-path="../../服务器端/代理/ngin.html">
             
                 <a href="../../服务器端/代理/ngin.html">
             
@@ -1397,113 +1346,118 @@
     
           <section class="normal markdown-section">
              <h1 id="web-&#x5206;&#x9875;&#x641C;&#x7D22;&#x5B58;&#x50A8;">web &#x5206;&#x9875;&#x641C;&#x7D22;&#x5B58;&#x50A8;</h1>
-<h3 id="vue2tsmixins">vue2+ts+Mixins</h3>
-<pre><code class="lang-js"><span class="hljs-keyword">import</span> { Component, Vue } <span class="hljs-keyword">from</span> <span class="hljs-string">&apos;vue-property-decorator&apos;</span>;
+<pre><code class="lang-css">
+const localKey = &quot;yPlan_platform_pageInfo&quot;
 
-<span class="hljs-comment">//&#x9875;&#x9762;&#x5206;&#x9875;&#x4FE1;&#x606F;&#x4FDD;&#x5B58;</span>
-interface pagingInt {
-    name: string;
-    pagingInfo: object;
+interface pageInfoInt {
+    page: pageInt,
+    searchInfo: any,
 }
-@Component
-<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PagingStroage</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Vue</span> </span>{
-    pageObj: any; <span class="hljs-comment">//&#x5BF9;&#x9875;&#x9762;&#x5206;&#x9875;&#x548C;&#x8FC7;&#x6EE4;&#x8FDB;&#x884C;&#x5B58;&#x50A8;</span>
-    filters: any;
-    newPageObj: any;
-    filterConfig: any;
-
-    created() {
-        <span class="hljs-keyword">this</span>.getStoragePagingInfo();
-    }
-    beforeDestroy() {
-        <span class="hljs-keyword">this</span>.setStoragePagingInfo();
-    }
-
-    pageRoute: any = <span class="hljs-literal">null</span>;
-    <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5F53;&#x524D;&#x9875;&#x7801;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    getStoragePagingInfo() {
-        <span class="hljs-keyword">this</span>.pageRoute = <span class="hljs-keyword">this</span>.$route;
-        <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-        <span class="hljs-keyword">const</span> pagingInfo = <span class="hljs-keyword">this</span>.getStoragePaging(<span class="hljs-keyword">this</span>.pageRoute);
-        <span class="hljs-keyword">if</span> (!pagingInfo) <span class="hljs-keyword">return</span>;
-        <span class="hljs-comment">//&#x5C06;&#x5B58;&#x50A8;&#x7684;&#x5206;&#x9875;&#x4FE1;&#x606F;&#x8D4B;&#x503C;&#x7ED9;pageObj</span>
-        <span class="hljs-keyword">if</span> (pagingInfo.pageObj) {
-            <span class="hljs-keyword">this</span>.pageObj = { ...this.pageObj, ...pagingInfo.pageObj };
-        }
-        <span class="hljs-comment">//&#x5904;&#x7406;&#x5B58;&#x50A8;&#x7684;&#x8FC7;&#x6EE4;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x4E14;&#x8D4B;&#x503C;</span>
-        <span class="hljs-keyword">if</span> (pagingInfo.filters) {
-            <span class="hljs-keyword">this</span>.filters = { ...this.filters, ...pagingInfo.filters };
-            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> key <span class="hljs-keyword">in</span> pagingInfo.filters) {
-                <span class="hljs-keyword">const</span> value = pagingInfo.filters[key];
-                <span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.filterConfig[key]) {
-                    <span class="hljs-keyword">this</span>.filterConfig[key].value = value;
-                }
-                <span class="hljs-keyword">if</span> (key === <span class="hljs-string">&apos;endTime&apos;</span> || key === <span class="hljs-string">&apos;startTime&apos;</span>) {
-                    <span class="hljs-keyword">this</span>.filterConfig.date.option[key].value = value;
-                }
-            }
-        }
-    }
-    <span class="hljs-comment">//&#x5B58;&#x50A8;&#x5F53;&#x524D;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    setStoragePagingInfo() {
-        <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.newPageObj) <span class="hljs-keyword">return</span>;
-        <span class="hljs-keyword">let</span> pagingInfo: any = {
-            pageObj:
-                <span class="hljs-keyword">this</span>.newPageObj.current || <span class="hljs-keyword">this</span>.newPageObj.pageSize
-                    ? <span class="hljs-keyword">this</span>.newPageObj
-                    : <span class="hljs-literal">null</span>,
-            filters: <span class="hljs-keyword">this</span>.filters || <span class="hljs-literal">null</span>,
-        };
-        <span class="hljs-keyword">this</span>.setStoragePaging(<span class="hljs-keyword">this</span>.pageRoute, pagingInfo);
-    }
-
-    <span class="hljs-comment">//&#x83B7;&#x53D6;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    getStoragePaging(route: any) {
-        <span class="hljs-keyword">let</span> dataJson: any = <span class="hljs-built_in">window</span>.sessionStorage.getItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-        <span class="hljs-keyword">let</span> data: pagingInt[] = dataJson ? <span class="hljs-built_in">JSON</span>.parse(dataJson) : [];
-        <span class="hljs-keyword">if</span> (data.length &gt; <span class="hljs-number">0</span> &amp;&amp; route) {
-            <span class="hljs-keyword">let</span> pagingInfo: any = <span class="hljs-literal">null</span>;
-            <span class="hljs-keyword">let</span> newData: pagingInt[] = [];
-            data.forEach((item: pagingInt) =&gt; {
-                <span class="hljs-keyword">if</span> (item.name === route.name) {
-                    pagingInfo = item;
-                } <span class="hljs-keyword">else</span> {
-                    newData.push(item);
-                }
-            });
-            <span class="hljs-keyword">if</span> (newData.length &gt; <span class="hljs-number">0</span>) {
-                <span class="hljs-built_in">window</span>.sessionStorage.setItem(
-                    <span class="hljs-string">&apos;pagingInfo&apos;</span>,
-                    <span class="hljs-built_in">JSON</span>.stringify(newData)
-                );
-            } <span class="hljs-keyword">else</span> {
-                <span class="hljs-built_in">window</span>.sessionStorage.removeItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-            }
-            <span class="hljs-keyword">if</span> (pagingInfo) {
-                <span class="hljs-keyword">return</span> pagingInfo.pagingInfo;
-            }
-        }
-        <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
-    }
-
-    <span class="hljs-comment">//&#x8BBE;&#x7F6E;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-    setStoragePaging(route: any, pagingInfo: object) {
-        <span class="hljs-keyword">if</span> (!pagingInfo) <span class="hljs-keyword">return</span>;
-        <span class="hljs-keyword">const</span> newData: pagingInt = {
-            name: route.name,
-            pagingInfo,
-        };
-        <span class="hljs-keyword">let</span> data: any = <span class="hljs-built_in">window</span>.sessionStorage.getItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-        data = data ? <span class="hljs-built_in">JSON</span>.parse(data) : [];
-        data = [...data, newData];
-        <span class="hljs-built_in">window</span>.sessionStorage.setItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>, <span class="hljs-built_in">JSON</span>.stringify(data));
-    }
+interface pageInt {
+    current: number,
+    pageSize?: number,
 }
-<span class="hljs-comment">//&#x6E05;&#x7A7A;&#x5206;&#x9875;&#x4FE1;&#x606F;</span>
-<span class="hljs-keyword">export</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">removeStoragePaging</span>(<span class="hljs-params"></span>) </span>{
-    setTimeout(() =&gt; {
-        <span class="hljs-built_in">window</span>.sessionStorage.removeItem(<span class="hljs-string">&apos;pagingInfo&apos;</span>);
-    }, <span class="hljs-number">0</span>);
+
+
+//&#x83B7;&#x5F97;&#x9875;&#x9762;&#x5206;&#x9875;&#x4FE1;&#x606F; 
+export const getPagePaging = (pageKey?: string) =&gt; {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    return pageInfo.page
+}
+// &#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x5206;&#x9875;&#x4FE1;&#x606F;
+export const setPagePaging = (page: pageInt, pageKey?: string) =&gt; {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    const newPageInfo = { page: { ...{ current: 1, pageSize: 10, }, ...pageInfo.page, ...page }, searchInfo: pageInfo.searchInfo || null }
+    setPageStorage(newPageInfo, pageKey)
+}
+
+// &#x83B7;&#x5F97;&#x9875;&#x9762;&#x641C;&#x7D22;&#x4FE1;&#x606F;
+export const getPageSearch = (pageKey?: string) =&gt; {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    return pageInfo.searchInfo
+}
+
+// &#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x641C;&#x7D22;&#x4FE1;&#x606F;
+export const setPageSearch = (searchInfo: any, pageKey?: string) =&gt; {
+    const pageInfo: pageInfoInt = getPageStorage(pageKey)
+    const newPageInfo = { page: pageInfo.page || null, searchInfo: { ...pageInfo.searchInfo, ...searchInfo }, }
+    setPageStorage(newPageInfo, pageKey)
+}
+
+// &#x5220;&#x9664;&#x9875;&#x9762;&#x4FE1;&#x606F;
+export const deletePageInfo = (pagePath: string) =&gt; {
+    const pageMap = getPageMap()
+    const pageMapArr = Array.from(pageMap)
+    if (pageMapArr.length === 0) return
+    const filterArr: any = pageMapArr.filter((item: any) =&gt; {
+        let pagePathSty: string = item[0]
+        if (pagePathSty.includes(&apos;$&apos;)) {
+            pagePathSty = pagePathSty.split(&quot;$&quot;)[0]
+        }
+        return pagePathSty !== pagePath
+    })
+    window.sessionStorage.setItem(localKey, JSON.stringify(filterArr));
+}
+
+// &#x5220;&#x9664;-&#x9664;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x5176;&#x4ED6;&#x9875;&#x9762;
+export const deleteSurplusPageInfo = (pagePath: string) =&gt; {
+    const pageMap = getPageMap()
+    const pageMapArr = Array.from(pageMap)
+    if (pageMapArr.length === 0) return
+    const filterArr: any = pageMapArr.filter((item: any) =&gt; {
+        let pagePathSty: string = item[0]
+        if (pagePathSty.includes(&apos;$&apos;)) {
+            pagePathSty = pagePathSty.split(&quot;$&quot;)[0]
+        }
+        return pagePathSty === pagePath
+    })
+    window.sessionStorage.setItem(localKey, JSON.stringify(filterArr));
+}
+
+// &#x5220;&#x9664;&#x6240;&#x6709;&#x9875;&#x9762;&#x4FE1;&#x606F;
+export const clearPageAllInfo = () =&gt; {
+    window.sessionStorage.removeItem(localKey)
+}
+
+
+// &#x83B7;&#x53D6;&#x9875;&#x9762;&#x4FE1;&#x606F;
+const getPageStorage = (pageKey?: string,): any =&gt; {
+    const pageMap = getPageMap()
+    return pageMap.get(getPageKey(pageKey)) || {}
+}
+
+
+
+// &#x83B7;&#x53D6;&#x9875;&#x9762;Map&#x4FE1;&#x606F;
+const getPageMap = (): any =&gt; {
+    const data: string | null = window.sessionStorage.getItem(localKey);
+    if (!data) return new Map()
+    return new Map(JSON.parse(data))
+}
+
+
+
+// &#x8BBE;&#x7F6E;&#x9875;&#x9762;&#x4FE1;&#x606F;
+const setPageStorage = (value: any, pageKey?: string) =&gt; {
+    const pageMap = getPageMap()
+    pageMap.set(getPageKey(pageKey), value)
+    const data = JSON.stringify(Array.from(pageMap))
+    window.sessionStorage.setItem(localKey, data);
+}
+
+/**
+ * &#x9875;&#x9762;&#x4FE1;&#x606F;
+ * @param pageKey &#x5BF9;&#x5E94;&#x7684;&#x8868;&#x683C;key&#x503C; 
+ * @returns {string}
+ */
+const getPageKey = (pageKey?: string) =&gt; {
+    let pageHash = window.location.hash
+    if (pageHash.includes(&quot;#&quot;)) {
+        pageHash = pageHash.split(&quot;#&quot;)[1]
+    }
+    if (!pageKey) return pageHash
+    const pageInfoKey: String = `${pageHash}$${pageKey}`
+    return pageInfoKey
 }
 </code></pre>
 <script>document.addEventListener("DOMContentLoaded", function() {lightbox.option({"resizeDuration":200,"wrapAround":true});})</script> 
@@ -1582,7 +1536,7 @@ interface pagingInt {
 
     var gitbook = gitbook || [];
     gitbook.push(function () {
-      gitbook.page.hasChanged({"page":{"title":"web 分页搜索存储","level":"1.4.7.5","depth":3,"next":{"title":"虚拟列表","level":"1.4.7.6","depth":3,"path":"vue/Dome/虚拟列表.md","ref":"vue/Dome/虚拟列表.md","articles":[]},"previous":{"title":"storage 封装","level":"1.4.7.4","depth":3,"path":"vue/Dome/storage封装.md","ref":"vue/Dome/storage封装.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/Dome/web分页搜索存储.md","mtime":"2023-02-24T02:40:10.473Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-05-08T08:24:53.686Z"},"basePath":"../..","book":{"language":""}});
+      gitbook.page.hasChanged({"page":{"title":"web 分页搜索存储","level":"1.4.7.5","depth":3,"next":{"title":"虚拟列表","level":"1.4.7.6","depth":3,"path":"vue/Dome/虚拟列表.md","ref":"vue/Dome/虚拟列表.md","articles":[]},"previous":{"title":"storage 封装","level":"1.4.7.4","depth":3,"path":"vue/Dome/storage封装.md","ref":"vue/Dome/storage封装.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-lunr","-search","search-pro","code","expandable-chapters","theme-lou","lightbox"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"search-pro":{},"code":{"copyButtons":true,"copyButton":true},"theme-lou":{"hide-elements":[".summary .gitbook-link",".summary .divider",".book-anchor-title",".title",".book-summary-title"],"color":"#20A3FF","book-anchor-title":"","logo":"static/logo.png","book-summary-title":"说明文档","search-placeholder":"搜索","copyrightLogo":"assets/copyright.png","favicon":"static/favicon.ico","appleTouchIconPrecomposed152":"static/apple.png"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"lightbox":{"jquery":true,"includeJQuery":false,"sameUuid":true,"options":{"resizeDuration":200,"wrapAround":true}},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","author":"作者","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"图书编号","variables":{},"title":"课堂随笔","language":"zh-hans","gitbook":"*","description":"日常课堂的笔记记录"},"file":{"path":"vue/Dome/web分页搜索存储.md","mtime":"2024-08-05T07:38:08.525Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2024-08-05T07:44:28.453Z"},"basePath":"../..","book":{"language":""}});
     });
   </script>
 </div>

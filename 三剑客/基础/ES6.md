@@ -1,6 +1,6 @@
 # [ES6](https://www.runoob.com/w3cnote/es6-tutorial.html)
 
-# [新增方法(es7-es14)](https://blog.csdn.net/weixin_38664300/article/details/125332006)
+#  [新增方法(es7-es14)](https://blog.csdn.net/weixin_38664300/article/details/125332006)
 
 ## for...of
 
@@ -162,7 +162,7 @@ let hd2 = Symbol("描述")
 hd1 === hd2 //false
 hd1.description //提取hd1描述
 
-//for定义 -- 全局保存
+//for定义 -- 全局保存 -- 名称一样 始终为同一个
 let hd1 = Symbol.for("描述")
 let hd2 = Symbol.for("描述")
 hd1 === hd2 //true
@@ -172,6 +172,12 @@ Symbol.keyFor(hd1) //获取hd1的描述
 
 
 # Map 与 Set
+
+## weakSet\weakMap
+
+*  属于弱集合新的集合数据结构，代表这些值不属于正式的引用，不会组织垃圾回收
+* 当一个对象值只被weak集合引用时，当这行代码执行完成后，这个对象值就会被当作垃圾回收
+* 当weak里的对象值被垃圾回收了，weak中也会随之消失
 
 ## Map 对象
 
